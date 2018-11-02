@@ -37,6 +37,11 @@ void Raven_TargetingSystem::Update()
 	}
 }
 
+std::list<Raven_Bot*> Raven_TargetingSystem::GetNeighbours()
+{
+	return m_pOwner->GetSensoryMem()->GetListOfRecentlySensedOpponents();
+}
+
 bool Raven_TargetingSystem::isTargetWithinFOV()const
 {
 	return m_pOwner->GetSensoryMem()->isOpponentWithinFOV(m_pCurrentTarget);

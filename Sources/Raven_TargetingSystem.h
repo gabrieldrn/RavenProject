@@ -61,6 +61,9 @@ public:
 
 	//sets the target pointer to null
 	void       ClearTarget() { m_pCurrentTarget = 0; }
+
+	//get neighbours of current bot
+	std::list<Raven_Bot*> GetNeighbours();
 };
 
 #endif
