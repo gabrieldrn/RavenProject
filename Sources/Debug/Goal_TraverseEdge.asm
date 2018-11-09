@@ -33085,7 +33085,7 @@ _this$ = -4						; size = 4
 ?GetSteering@Raven_Bot@@QAEQAVRaven_Steering@@XZ PROC	; Raven_Bot::GetSteering, COMDAT
 ; _this$ = ecx
 
-; 196  : 	Raven_Steering* const              GetSteering() { return m_pSteering; }
+; 197  : 	Raven_Steering* const              GetSteering() { return m_pSteering; }
 
 	push	ebp
 	mov	ebp, esp

@@ -18949,7 +18949,7 @@ _this$ = -4						; size = 4
 ?GetTargetSys@Raven_Bot@@QAEQAVRaven_TargetingSystem@@XZ PROC ; Raven_Bot::GetTargetSys, COMDAT
 ; _this$ = ecx
 
-; 200  : 	Raven_TargetingSystem* const       GetTargetSys() { return m_pTargSys; }
+; 201  : 	Raven_TargetingSystem* const       GetTargetSys() { return m_pTargSys; }
 
 	push	ebp
 	mov	ebp, esp
@@ -18971,7 +18971,7 @@ _this$ = -4						; size = 4
 ?GetBrain@Raven_Bot@@QAEQAVGoal_Think@@XZ PROC		; Raven_Bot::GetBrain, COMDAT
 ; _this$ = ecx
 
-; 198  : 	Goal_Think* const                  GetBrain() { return m_pBrain; }
+; 199  : 	Goal_Think* const                  GetBrain() { return m_pBrain; }
 
 	push	ebp
 	mov	ebp, esp

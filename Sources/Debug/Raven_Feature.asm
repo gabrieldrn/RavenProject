@@ -14456,7 +14456,7 @@ _this$ = -4						; size = 4
 ?GetWeaponSys@Raven_Bot@@QBEQAVRaven_WeaponSystem@@XZ PROC ; Raven_Bot::GetWeaponSys, COMDAT
 ; _this$ = ecx
 
-; 202  : 	Raven_WeaponSystem* const          GetWeaponSys()const { return m_pWeaponSys; }
+; 203  : 	Raven_WeaponSystem* const          GetWeaponSys()const { return m_pWeaponSys; }
 
 	push	ebp
 	mov	ebp, esp
@@ -14478,7 +14478,7 @@ _this$ = -4						; size = 4
 ?GetPathPlanner@Raven_Bot@@QAEQAVRaven_PathPlanner@@XZ PROC ; Raven_Bot::GetPathPlanner, COMDAT
 ; _this$ = ecx
 
-; 197  : 	Raven_PathPlanner* const           GetPathPlanner() { return m_pPathPlanner; }
+; 198  : 	Raven_PathPlanner* const           GetPathPlanner() { return m_pPathPlanner; }
 
 	push	ebp
 	mov	ebp, esp
@@ -14500,7 +14500,7 @@ _this$ = -4						; size = 4
 ?MaxHealth@Raven_Bot@@QBEHXZ PROC			; Raven_Bot::MaxHealth, COMDAT
 ; _this$ = ecx
 
-; 138  : 	int           MaxHealth()const { return m_iMaxHealth; }
+; 139  : 	int           MaxHealth()const { return m_iMaxHealth; }
 
 	push	ebp
 	mov	ebp, esp
@@ -14522,7 +14522,7 @@ _this$ = -4						; size = 4
 ?Health@Raven_Bot@@QBEHXZ PROC				; Raven_Bot::Health, COMDAT
 ; _this$ = ecx
 
-; 137  : 	int           Health()const { return m_iHealth; }
+; 138  : 	int           Health()const { return m_iHealth; }
 
 	push	ebp
 	mov	ebp, esp

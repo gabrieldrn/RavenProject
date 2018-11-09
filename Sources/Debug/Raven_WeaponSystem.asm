@@ -27,7 +27,7 @@ CONST	SEGMENT
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG179759 DB	' ', 00H
+$SG179763 DB	' ', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
@@ -12024,7 +12024,7 @@ _this$ = -4						; size = 4
 ?GetTargetBot@Raven_Bot@@QBEQAV1@XZ PROC		; Raven_Bot::GetTargetBot, COMDAT
 ; _this$ = ecx
 
-; 201  : 	Raven_Bot* const                   GetTargetBot()const { return m_pTargSys->GetTarget(); }
+; 202  : 	Raven_Bot* const                   GetTargetBot()const { return m_pTargSys->GetTarget(); }
 
 	push	ebp
 	mov	ebp, esp
@@ -12050,7 +12050,7 @@ _this$ = -4						; size = 4
 ?GetTargetSys@Raven_Bot@@QAEQAVRaven_TargetingSystem@@XZ PROC ; Raven_Bot::GetTargetSys, COMDAT
 ; _this$ = ecx
 
-; 200  : 	Raven_TargetingSystem* const       GetTargetSys() { return m_pTargSys; }
+; 201  : 	Raven_TargetingSystem* const       GetTargetSys() { return m_pTargSys; }
 
 	push	ebp
 	mov	ebp, esp
@@ -13131,7 +13131,7 @@ $LN7@RenderDesi:
 
 	lea	edx, DWORD PTR _type$11[ebp]
 	push	edx
-	push	OFFSET $SG179759
+	push	OFFSET $SG179763
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR _score$12[ebp]
 	movsd	QWORD PTR [esp], xmm0

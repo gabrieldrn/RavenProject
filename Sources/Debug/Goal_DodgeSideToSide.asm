@@ -773,7 +773,7 @@ _this$ = -4						; size = 4
 ?GetTargetSys@Raven_Bot@@QAEQAVRaven_TargetingSystem@@XZ PROC ; Raven_Bot::GetTargetSys, COMDAT
 ; _this$ = ecx
 
-; 200  : 	Raven_TargetingSystem* const       GetTargetSys() { return m_pTargSys; }
+; 201  : 	Raven_TargetingSystem* const       GetTargetSys() { return m_pTargSys; }
 
 	push	ebp
 	mov	ebp, esp
@@ -795,7 +795,7 @@ _this$ = -4						; size = 4
 ?GetSteering@Raven_Bot@@QAEQAVRaven_Steering@@XZ PROC	; Raven_Bot::GetSteering, COMDAT
 ; _this$ = ecx
 
-; 196  : 	Raven_Steering* const              GetSteering() { return m_pSteering; }
+; 197  : 	Raven_Steering* const              GetSteering() { return m_pSteering; }
 
 	push	ebp
 	mov	ebp, esp

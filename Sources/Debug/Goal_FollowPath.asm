@@ -25,7 +25,7 @@ CONST	SEGMENT
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG171523 DB	'<Goal_FollowPath::Activate>: Unrecognized edge type', 00H
+$SG171527 DB	'<Goal_FollowPath::Activate>: Unrecognized edge type', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
@@ -8937,7 +8937,7 @@ $LN8@Activate:
 ; 65   : 
 ; 66   : 		throw std::runtime_error("<Goal_FollowPath::Activate>: Unrecognized edge type");
 
-	push	OFFSET $SG171523
+	push	OFFSET $SG171527
 	lea	ecx, DWORD PTR $T2[ebp]
 	call	??0runtime_error@std@@QAE@PBD@Z		; std::runtime_error::runtime_error
 	push	OFFSET __TI2?AVruntime_error@std@@

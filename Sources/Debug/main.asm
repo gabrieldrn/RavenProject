@@ -16,29 +16,29 @@ _BSS	SEGMENT
 ?g_pRaven@@3PAVRaven_Game@@A DD 01H DUP (?)		; g_pRaven
 _BSS	ENDS
 _DATA	SEGMENT
-?g_szApplicationName@@3PADA DD FLAT:$SG180709		; g_szApplicationName
-?g_szWindowClassName@@3PADA DD FLAT:$SG180711		; g_szWindowClassName
+?g_szApplicationName@@3PADA DD FLAT:$SG180715		; g_szApplicationName
+?g_szWindowClassName@@3PADA DD FLAT:$SG180717		; g_szWindowClassName
 _DATA	ENDS
 CONST	SEGMENT
 ?piecewise_construct@std@@3Upiecewise_construct_t@1@B	ORG $+1 ; std::piecewise_construct
-$SG180786 DB	00H
+$SG180792 DB	00H
 	ORG $+2
-$SG180709 DB	'Raven', 00H
+$SG180715 DB	'Raven', 00H
 	ORG $+2
-$SG180711 DB	'MyWindowClass', 00H
+$SG180717 DB	'MyWindowClass', 00H
 	ORG $+2
-$SG180783 DB	'map', 00H
-$SG180784 DB	'Raven map file (*.map)', 00H
+$SG180789 DB	'map', 00H
+$SG180790 DB	'Raven map file (*.map)', 00H
 	ORG $+1
-$SG180785 DB	'Filename: ', 00H
+$SG180791 DB	'Filename: ', 00H
 	ORG $+1
-$SG180841 DB	'Error', 00H
+$SG180847 DB	'Error', 00H
 	ORG $+2
-$SG180842 DB	'Registration Failed!', 00H
+$SG180848 DB	'Registration Failed!', 00H
 	ORG $+3
-$SG180845 DB	'Error!', 00H
+$SG180851 DB	'Error!', 00H
 	ORG $+1
-$SG180846 DB	'CreateWindowEx Failed!', 00H
+$SG180852 DB	'CreateWindowEx Failed!', 00H
 	ORG $+1
 ?colors@@3QBKB DD 0ffH					; colors
 	DD	0ff0000H
@@ -10473,7 +10473,7 @@ $LN8@WindowProc:
 ; 87   : 		//create the game
 ; 88   : 		g_pRaven = new Raven_Game();
 
-	push	44					; 0000002cH
+	push	48					; 00000030H
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
 	mov	DWORD PTR $T2[ebp], eax
@@ -10856,11 +10856,11 @@ $LN22@WindowProc:
 ; 185  : 
 ; 186  : 			FileOpenDlg(hwnd, szFileName, szTitleName, "Raven map file (*.map)", "map");
 
-	push	OFFSET $SG180783
+	push	OFFSET $SG180789
 	lea	ecx, DWORD PTR $T8[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
-	push	OFFSET $SG180784
+	push	OFFSET $SG180790
 	lea	ecx, DWORD PTR $T7[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
@@ -10884,9 +10884,9 @@ $LN22@WindowProc:
 ; 187  : 
 ; 188  : 			debug_con << "Filename: " << szTitleName << "";
 
-	push	OFFSET $SG180786
+	push	OFFSET $SG180792
 	push	OFFSET ?szTitleName@?1??WindowProc@@YGJPAUHWND__@@IIJ@Z@4PADA
-	push	OFFSET $SG180785
+	push	OFFSET $SG180791
 	call	?Instance@DebugConsole@@SAPAV1@XZ	; DebugConsole::Instance
 	mov	ecx, eax
 	call	??$?6$$BY0L@D@DebugConsole@@QAEAAV0@AAY0L@$$CBD@Z ; DebugConsole::operator<<<char [11]>
@@ -11894,7 +11894,7 @@ $LN83@WindowProc:
 _TEXT	ENDS
 text$x	SEGMENT
 __unwindfunclet$?WindowProc@@YGJPAUHWND__@@IIJ@Z$0:
-	push	44					; 0000002cH
+	push	48					; 00000030H
 	mov	eax, DWORD PTR $T2[ebp]
 	push	eax
 	call	??3@YAXPAXI@Z				; operator delete
@@ -11939,7 +11939,7 @@ ___flags$ = 8						; size = 4
 	mov	eax, DWORD PTR ___flags$[ebp]
 	and	eax, 1
 	je	SHORT $LN2@scalar
-	push	44					; 0000002cH
+	push	48					; 00000030H
 	mov	ecx, DWORD PTR _this$[ebp]
 	push	ecx
 	call	??3@YAXPAXI@Z				; operator delete
@@ -11963,7 +11963,7 @@ _this$ = -4						; size = 4
 ?TogglePause@Raven_Game@@QAEXXZ PROC			; Raven_Game::TogglePause, COMDAT
 ; _this$ = ecx
 
-; 129  : 	void        TogglePause() { m_bPaused = !m_bPaused; }
+; 136  : 	void        TogglePause() { m_bPaused = !m_bPaused; }
 
 	push	ebp
 	mov	ebp, esp
@@ -26991,8 +26991,8 @@ _WinMain@16 PROC
 
 	mov	esi, esp
 	push	0
-	push	OFFSET $SG180841
-	push	OFFSET $SG180842
+	push	OFFSET $SG180847
+	push	OFFSET $SG180848
 	push	0
 	call	DWORD PTR __imp__MessageBoxA@16
 	cmp	esi, esp
@@ -27078,8 +27078,8 @@ $LN6@WinMain:
 
 	mov	esi, esp
 	push	0
-	push	OFFSET $SG180845
-	push	OFFSET $SG180846
+	push	OFFSET $SG180851
+	push	OFFSET $SG180852
 	push	0
 	call	DWORD PTR __imp__MessageBoxA@16
 	cmp	esi, esp

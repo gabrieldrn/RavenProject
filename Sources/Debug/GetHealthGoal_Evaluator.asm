@@ -19070,7 +19070,7 @@ _this$ = -4						; size = 4
 ?GetBrain@Raven_Bot@@QAEQAVGoal_Think@@XZ PROC		; Raven_Bot::GetBrain, COMDAT
 ; _this$ = ecx
 
-; 198  : 	Goal_Think* const                  GetBrain() { return m_pBrain; }
+; 199  : 	Goal_Think* const                  GetBrain() { return m_pBrain; }
 
 	push	ebp
 	mov	ebp, esp

@@ -101,6 +101,7 @@ private:
 	//set to true when a human player takes over control of the bot
 	bool                               m_bPossessed;
 
+	
 	//a vertex buffer containing the bot's geometry
 	std::vector<Vector2D>              m_vecBotVB;
 	//the buffer for the transformed vertices
