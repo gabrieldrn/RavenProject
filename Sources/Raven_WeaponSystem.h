@@ -6,6 +6,7 @@
 //  Name:   Raven_WeaponSystem.h
 //
 //  Author: Mat Buckland (ai-junkie.com)
+//	Modified : Gabriel Derrien, Baptiste Roupain (2018)
 //
 //  Desc:   class to manage all operations specific to weapons and their
 //          deployment
@@ -13,6 +14,7 @@
 //-----------------------------------------------------------------------------
 #include <map>
 #include "2d/vector2d.h"
+#include "Fuzzy/FuzzyModule.h"
 
 class Raven_Bot;
 class Raven_Weapon;
@@ -34,6 +36,9 @@ private:
 
 	//a pointer to the weapon the bot is currently holding
 	Raven_Weapon*    m_pCurrentWeapon;
+
+	//fuzzy rules to accuracy 
+	FuzzyModule		 m_FuzzyModule;
 
 	//this is the minimum amount of time a bot needs to see an opponent before
 	//it can react to it. This variable is used to prevent a bot shooting at
@@ -70,6 +75,9 @@ public:
 
 	//sets up the weapon map with just one weapon: the blaster
 	void          Initialize();
+
+	//initialise fuzzy rules for aiming and shooting decisions
+	void		  InitializeFuzzyModule();
 
 	//this method aims the bot's current weapon at the target (if there is a
 	//target) and, if aimed correctly, fires a round. (Called each update-step

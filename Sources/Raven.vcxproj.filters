@@ -121,9 +121,6 @@
     <ClCompile Include="armory\Raven_Projectile.cpp">
       <Filter>Game\weapons &amp; projectiles\projectiles</Filter>
     </ClCompile>
-    <ClCompile Include="..\Common\Game\BaseGameEntity.cpp">
-      <Filter>Game\Base entity classes</Filter>
-    </ClCompile>
     <ClCompile Include="lua\Raven_Scriptor.cpp">
       <Filter>Game\Script related\general</Filter>
     </ClCompile>
@@ -267,6 +264,9 @@
     </ClCompile>
     <ClCompile Include="..\Common\misc\WindowUtils.cpp">
       <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Game\BaseGameEntity.cpp">
+      <Filter>Game\Base entity classes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
