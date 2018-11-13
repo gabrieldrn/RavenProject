@@ -37,7 +37,7 @@ private:
 	//a pointer to the weapon the bot is currently holding
 	Raven_Weapon*    m_pCurrentWeapon;
 
-	//fuzzy rules to accuracy 
+	//fuzzy rules for aiming and shoot 
 	FuzzyModule		 m_FuzzyModule;
 
 	//this is the minimum amount of time a bot needs to see an opponent before
@@ -83,6 +83,9 @@ public:
 	//target) and, if aimed correctly, fires a round. (Called each update-step
 	//from Raven_Bot::Update)
 	void          TakeAimAndShoot()const;
+
+	//this method fuzzify and defuzzify rules to compute a new accuracy
+	void		  ComputeAccuracy();
 
 	//this method determines the most appropriate weapon to use given the current
 	//game state. (Called every n update-steps from Raven_Bot::Update)

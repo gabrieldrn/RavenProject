@@ -10,6 +10,7 @@
 #include "Raven_UserOptions.h"
 #include "2D/transformations.h"
 #include "fuzzy/FuzzyOperators.h"
+#include "Raven_Map.h"
 
 //------------------------- ctor ----------------------------------------------
 //-----------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Raven_WeaponSystem::Raven_WeaponSystem(Raven_Bot* owner,
 	m_dAimPersistance(AimPersistance)
 {
 	Initialize();
+	InitializeFuzzyModule();
 }
 
 //------------------------- dtor ----------------------------------------------
@@ -164,18 +166,46 @@ void Raven_WeaponSystem::ChangeWeapon(unsigned int type)
 	if (w) m_pCurrentWeapon = w;
 }
 
-//-----------------------InitialiseFuzzyModule---------------------------------
+//----------------------- ComputeAccuracy -------------------------------------
+//
+// Fuzzifies and defuzzifies accuracy rules to compute a new accuracy value
+// between 0 and 0.4.
+// NB : Mat Buckland recommend a max a value of 0.2.
+//-----------------------------------------------------------------------------
+void Raven_WeaponSystem::ComputeAccuracy()
+{
+	double timeVision = m_pOwner->GetTargetSys()->GetTimeTargetHasBeenVisible();
+	if (timeVision > 2)
+		timeVision = 2;
+
+	//IEE574 is a sometimes a silly norm and can computes numbers like '1.00000002'...
+	double speed = m_pOwner->GetTargetBot()->Speed();
+	if (speed > 1)
+		speed = 1;
+
+	m_FuzzyModule.Fuzzify("DistToTarget", m_pOwner->GetTargetBot()->Pos().Distance(m_pOwner->Pos()));
+	m_FuzzyModule.Fuzzify("TimeVisibility", timeVision);
+	m_FuzzyModule.Fuzzify("Velocity", speed);
+
+	m_dAimAccuracy = m_FuzzyModule.DeFuzzify("Accuracy", FuzzyModule::max_av);
+
+#ifdef LOG_CREATIONAL_STUFF
+	debug_con << "Computed accuracy : " << m_dAimAccuracy;
+#endif
+}
+
+//----------------------- InitialiseFuzzyModule -------------------------------
 void Raven_WeaponSystem::InitializeFuzzyModule()
 {
 	//FuzzyModule   m_FuzzyModule;
 
 	// Accuracy
 	FuzzyVariable& Accuracy = m_FuzzyModule.CreateFLV("Accuracy");
-	FzSet& Accurate = Accuracy.AddLeftShoulderSet("Accurate", 0, 0.1, 0.275);
-	FzSet& Mostly_Accurate = Accuracy.AddTriangularSet("Mostly_Accurate", 0.1, 0.275, 0.45);
-	FzSet& Moderatly_Accurate = Accuracy.AddTriangularSet("Moderatly_Accurate", 0.275, 0.45, 0.625);
-	FzSet& Mostly_Bad_Accurate = Accuracy.AddTriangularSet("Mostly_Bad_Accurate", 0.45, 0.625, 0.8);
-	FzSet& Bad_Accurate = Accuracy.AddRightShoulderSet("Bad_Accurate", 0.625, 0.8, 1);
+	FzSet& Accurate = Accuracy.AddLeftShoulderSet("Accurate", 0.000, 0.050, 0.125);
+	FzSet& Mostly_Accurate = Accuracy.AddTriangularSet("Mostly_Accurate", 0.050, 0.125, 0.225);
+	FzSet& Moderatly_Accurate = Accuracy.AddTriangularSet("Moderatly_Accurate", 0.125, 0.225, 0.325);
+	FzSet& Mostly_Bad_Accurate = Accuracy.AddTriangularSet("Mostly_Bad_Accurate", 0.225, 0.325, 0.400);
+	FzSet& Bad_Accurate = Accuracy.AddRightShoulderSet("Bad_Accurate", 0.325, 0.400, 0.500);
 
 	// Distance to target
 	FuzzyVariable& DistToTarget = m_FuzzyModule.CreateFLV("DistToTarget");
@@ -187,9 +217,9 @@ void Raven_WeaponSystem::InitializeFuzzyModule()
 
 	// Last time target has been spoted
 	FuzzyVariable& TimeVisibility = m_FuzzyModule.CreateFLV("TimeVisibility");
-	FzSet& Short_Visibility_time = TimeVisibility.AddLeftShoulderSet("Short_Visibility_time", 0, 0.5, 1);
-	FzSet& Average_Visibility_Time = TimeVisibility.AddTriangularSet("Average_Visibility_Time", 0.5, 1, 1.5);
-	FzSet& Long_Visibility_Time = TimeVisibility.AddRightShoulderSet("Long_Visibility_Time", 1, 1.5, 2);
+	FzSet& Short_Visibility_time = TimeVisibility.AddLeftShoulderSet("Short_Visibility_time", 0.0, 0.5, 1.0);
+	FzSet& Average_Visibility_Time = TimeVisibility.AddTriangularSet("Average_Visibility_Time", 0.5, 1.0, 1.5);
+	FzSet& Long_Visibility_Time = TimeVisibility.AddRightShoulderSet("Long_Visibility_Time", 1.0, 1.5, 2.0);
 
 	// Agent's velocity
 	FuzzyVariable& Velocity = m_FuzzyModule.CreateFLV("Velocity");
