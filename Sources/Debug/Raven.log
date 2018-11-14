@@ -1,1 +1,72 @@
-﻿  Raven.vcxproj -> E:\UQAC\IA\RavenProject\Sources\.\Debug\Raven.exe
+﻿  Trigger_WeaponGiver.cpp
+  Trigger_SoundNotify.cpp
+  Trigger_HealthGiver.cpp
+  Raven_PathPlanner.cpp
+  main.cpp
+  Raven_Scriptor.cpp
+  Raven_Goal_Types.cpp
+  Raven_Feature.cpp
+  Goal_Wander.cpp
+  Goal_TraverseEdge.cpp
+  Goal_Think.cpp
+  Goal_SeekToPosition.cpp
+  Goal_SayPhrase.cpp
+  Goal_NegotiateDoor.cpp
+  Goal_MoveToPosition.cpp
+  Goal_HuntTarget.cpp
+  Goal_GetItem.cpp
+  Goal_FollowPath.cpp
+  Goal_Explore.cpp
+  Goal_DodgeSideToSide.cpp
+  Génération de code en cours...
+  Compilation en cours...
+  Goal_AttackTarget.cpp
+  Goal_AdjustRange.cpp
+  GetWeaponGoal_Evaluator.cpp
+  GetHealthGoal_Evaluator.cpp
+  ExploreGoal_Evaluator.cpp
+  AttackTargetGoal_Evaluator.cpp
+  Weapon_ShotGun.cpp
+  Weapon_RocketLauncher.cpp
+  Weapon_RailGun.cpp
+  Weapon_Blaster.cpp
+  Raven_Weapon.cpp
+  Raven_Projectile.cpp
+  Projectile_Slug.cpp
+  Projectile_Rocket.cpp
+  Projectile_Pellet.cpp
+  Projectile_Bolt.cpp
+  Raven_WeaponSystem.cpp
+  Raven_UserOptions.cpp
+  Raven_TargetingSystem.cpp
+  Raven_SteeringBehaviors.cpp
+  Génération de code en cours...
+  Compilation en cours...
+  Raven_SensoryMemory.cpp
+  Raven_Map.cpp
+  Raven_Game.cpp
+  Raven_Door.cpp
+  Raven_Bot.cpp
+  GraveMarkers.cpp
+  WindowUtils.cpp
+  FrameCounter.cpp
+  Cgdi.cpp
+  FuzzyVariable.cpp
+  FuzzySet_Triangle.cpp
+  FuzzySet_Singleton.cpp
+  FuzzySet_RightShoulder.cpp
+  FuzzySet_LeftShoulder.cpp
+  FuzzyOperators.cpp
+  FuzzyModule.cpp
+  PrecisionTimer.cpp
+  CrudeTimer.cpp
+  MessageDispatcher.cpp
+  EntityManager.cpp
+  Génération de code en cours...
+  Compilation en cours...
+  BaseGameEntity.cpp
+  DebugConsole.cpp
+  Vector2d.cpp
+  Génération de code en cours...
+  LINK : .\Debug/Raven.exe introuvable ou non généré par la dernière édition de liens incrémentielle ; édition de liens complète en cours
+  Raven.vcxproj -> D:\Gits\RavenProject\Sources\.\Debug\Raven.exe
