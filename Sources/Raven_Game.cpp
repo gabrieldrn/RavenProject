@@ -44,10 +44,7 @@ m_pGraveMarkers(NULL)
 
 	if (m_Bots.size() >= 1) {
 		Raven_Bot* humanBot = m_Bots.front();
-		Vector2D vecHumanBot = humanBot->Pos();
-		humanBot->TakePossession();
 		m_pSelectedBot = humanBot;
-		ClickRightMouseButton(VectorToPOINTS(vecHumanBot));
 
 	}
 }
@@ -153,26 +150,35 @@ void Raven_Game::Update()
 	if (m_pSelectedBot) {
 
 		Vector2D newPos = m_pSelectedBot->Pos();
-
+		
 		if (IS_KEY_PRESSED('W')) {
 			newPos.y -= 10;
+			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
 			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
 		}
 		
 		if (IS_KEY_PRESSED('D')) {
 			newPos.x += 10;
+			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
 			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
 		}
 
 		if (IS_KEY_PRESSED('S')) {
 			newPos.y += 10;
+			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
 			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
 		}
 
 		if (IS_KEY_PRESSED('A')) {
 			newPos.x -= 10;
+			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
 			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
 		}
+
+		if (!m_pSelectedBot->isPossessed()) {
+			m_pSelectedBot->TakePossession();
+		}
+
 	}
 
 	std::list<Raven_Bot*>::iterator curBot = m_Bots.begin();
