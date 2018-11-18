@@ -22,7 +22,12 @@ void Goal_Explore::Activate()
 	if (!m_bDestinationIsSet)
 	{
 		//grab a random location
-		m_CurrentDestination = m_pOwner->GetWorld()->GetMap()->GetRandomNodeLocation();
+		if (m_pOwner->GetTeam() && m_pOwner->GetTeam()->getLeader()) {
+			m_CurrentDestination = m_pOwner->GetTeam()->getLeader()->Pos();
+		}
+		else {
+			m_CurrentDestination = m_pOwner->GetWorld()->GetMap()->GetRandomNodeLocation();
+		}
 
 		m_bDestinationIsSet = true;
 	}

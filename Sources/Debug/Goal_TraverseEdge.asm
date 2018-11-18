@@ -11,7 +11,7 @@ INCLUDELIB OLDNAMES
 
 CONST	SEGMENT
 ?piecewise_construct@std@@3Upiecewise_construct_t@1@B	ORG $+1 ; std::piecewise_construct
-$SG178811 DB	00H
+$SG179490 DB	00H
 	ORG $+2
 ?colors@@3QBKB DD 0ffH					; colors
 	DD	0ff0000H
@@ -28,14 +28,14 @@ $SG178811 DB	00H
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG178779 DB	'Bot_MaxSwimmingSpeed', 00H
+$SG179458 DB	'Bot_MaxSwimmingSpeed', 00H
 	ORG $+3
-$SG178781 DB	'Bot_MaxCrawlingSpeed', 00H
+$SG179460 DB	'Bot_MaxCrawlingSpeed', 00H
 	ORG $+3
-$SG178809 DB	'BOT ', 00H
+$SG179488 DB	'BOT ', 00H
 	ORG $+3
-$SG178810 DB	' IS STUCK!!', 00H
-$SG178816 DB	'Bot_MaxSpeed', 00H
+$SG179489 DB	' IS STUCK!!', 00H
+$SG179495 DB	'Bot_MaxSpeed', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
@@ -632,6 +632,7 @@ PUBLIC	??E?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@
 PUBLIC	??F?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@QAEAAV01@XZ ; std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,std::basic_string<char,std::char_traits<char>,std::allocator<char> > > > > >::operator--
 PUBLIC	??$_Destroy_range@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@@std@@@std@@YAXPAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@0@0AAV?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@@0@@Z ; std::_Destroy_range<std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,std::basic_string<char,std::char_traits<char>,std::allocator<char> > > > > > > >
 PUBLIC	??$_Freenode0@V?$allocator@U?$_List_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@PAX@std@@@std@@@?$_List_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@PAX@std@@SAXAAV?$allocator@U?$_List_node@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@PAX@std@@@1@PAU01@@Z ; std::_List_node<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,void *>::_Freenode0<std::allocator<std::_List_node<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,std::basic_string<char,std::char_traits<char>,std::allocator<char> > >,void *> > >
+PUBLIC	??$_Get_size_of_n@$03@std@@YAII@Z		; std::_Get_size_of_n<4>
 PUBLIC	??$_Unfancy@U_Container_proxy@std@@@std@@YAPAU_Container_proxy@0@PAU10@@Z ; std::_Unfancy<std::_Container_proxy>
 PUBLIC	??$construct@U_Container_proxy@std@@U12@@?$_Default_allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@QAU_Container_proxy@1@$$QAU31@@Z ; std::_Default_allocator_traits<std::allocator<std::_Container_proxy> >::construct<std::_Container_proxy,std::_Container_proxy>
 PUBLIC	??$?0D@?$allocator@U_Container_proxy@std@@@std@@QAE@ABV?$allocator@D@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><char>
@@ -642,7 +643,6 @@ PUBLIC	??$_Get_size_of_n@$07@std@@YAII@Z		; std::_Get_size_of_n<8>
 PUBLIC	??R<lambda_6607a66f2a10a1261ff9db96cba1015b>@@QBE@QADQBDIIID@Z ; <lambda_6607a66f2a10a1261ff9db96cba1015b>::operator()
 PUBLIC	??$_Reallocate_grow_by@V<lambda_6607a66f2a10a1261ff9db96cba1015b>@@IID@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@IV<lambda_6607a66f2a10a1261ff9db96cba1015b>@@IID@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::_Reallocate_grow_by<<lambda_6607a66f2a10a1261ff9db96cba1015b>,unsigned int,unsigned int,char>
 PUBLIC	??$_Uninitialized_fill_n@PAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@IV?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@@2@@std@@YAPAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@0@QAV10@IABV10@AAV?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@@0@@Z ; std::_Uninitialized_fill_n<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,std::basic_string<char,std::char_traits<char>,std::allocator<char> > > > > > *,unsigned int,std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,std::basic_string<char,std::char_traits<char>,std::allocator<char> > > > > > > >
-PUBLIC	??$_Get_size_of_n@$03@std@@YAII@Z		; std::_Get_size_of_n<4>
 PUBLIC	??$_Uninitialized_move@PAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@PAV12@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@@2@@std@@YAPAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@0@QAV10@0PAV10@AAV?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@@0@@Z ; std::_Uninitialized_move<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,std::basic_string<char,std::char_traits<char>,std::allocator<char> > > > > > *,std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,std::basic_string<char,std::char_traits<char>,std::allocator<char> > > > > > *,std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,std::basic_string<char,std::char_traits<char>,std::allocator<char> > > > > > > >
 PUBLIC	??$_Verify_range@D@std@@YAXQBD0@Z		; std::_Verify_range<char>
 PUBLIC	??$_Adl_verify_range1@PBDPBD@std@@YAXABQBD0U?$integral_constant@_N$00@0@@Z ; std::_Adl_verify_range1<char const *,char const *>
@@ -860,10 +860,10 @@ PUBLIC	??_C@_02EAOCLKAK@ld@				; `string'
 PUBLIC	?id@?$numpunct@D@std@@2V0locale@2@A		; std::numpunct<char>::id
 PUBLIC	??_7?$numpunct@D@std@@6B@			; std::numpunct<char>::`vftable'
 PUBLIC	?id@?$collate@D@std@@2V0locale@2@A		; std::collate<char>::id
+PUBLIC	??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long@	; `string'
 PUBLIC	??_C@_02MDKMJEGG@eE@				; `string'
 PUBLIC	??_C@_02OOPEBDOJ@pP@				; `string'
 PUBLIC	??_C@_01LFCBOECM@?4@				; `string'
-PUBLIC	??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long@	; `string'
 PUBLIC	??_C@_0DD@MBIHGLJE@cannot?5dereference?5value?9initia@ ; `string'
 PUBLIC	??_C@_0GG@PPINKBLF@c?3?2program?5files?5?$CIx86?$CJ?2microsof@ ; `string'
 PUBLIC	??_C@_1MM@EBFNFMAJ@?$AAc?$AA?3?$AA?2?$AAp?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAf?$AAi?$AAl?$AAe@ ; `string'
@@ -2760,10 +2760,6 @@ CONST	SEGMENT
 ??_C@_0DD@MBIHGLJE@cannot?5dereference?5value?9initia@ DB 'cannot derefer'
 	DB	'ence value-initialized list iterator', 00H	; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long@
-CONST	SEGMENT
-??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long@ DB 'vector<T> too long', 00H ; `string'
-CONST	ENDS
 ;	COMDAT ??_C@_01LFCBOECM@?4@
 CONST	SEGMENT
 ??_C@_01LFCBOECM@?4@ DB '.', 00H			; `string'
@@ -2775,6 +2771,10 @@ CONST	ENDS
 ;	COMDAT ??_C@_02MDKMJEGG@eE@
 CONST	SEGMENT
 ??_C@_02MDKMJEGG@eE@ DB 'eE', 00H			; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long@
+CONST	SEGMENT
+??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long@ DB 'vector<T> too long', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ??_7?$numpunct@D@std@@6B@
 CONST	SEGMENT
@@ -12929,58 +12929,6 @@ $LN3@Uninitiali:
 ??$_Uninitialized_move@PAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@PAV12@V?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@@2@@std@@YAPAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@0@QAV10@0PAV10@AAV?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@@0@@Z ENDP ; std::_Uninitialized_move<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,std::basic_string<char,std::char_traits<char>,std::allocator<char> > > > > > *,std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,std::basic_string<char,std::char_traits<char>,std::allocator<char> > > > > > *,std::allocator<std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<std::pair<std::basic_string<char,std::char_traits<char>,std::allocator<char> > const ,std::basic_string<char,std::char_traits<char>,std::allocator<char> > > > > > > >
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
-;	COMDAT ??$_Get_size_of_n@$03@std@@YAII@Z
-_TEXT	SEGMENT
-__Result$ = -8						; size = 4
-__Max_possible$ = -4					; size = 4
-__Count$ = 8						; size = 4
-??$_Get_size_of_n@$03@std@@YAII@Z PROC			; std::_Get_size_of_n<4>, COMDAT
-
-; 23   : 	{	// gets the size of _Count copies of a type sized _Ty_size
-
-	push	ebp
-	mov	ebp, esp
-	sub	esp, 8
-	mov	DWORD PTR [ebp-8], -858993460		; ccccccccH
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-
-; 24   : 	constexpr size_t _Max_possible = static_cast<size_t>(-1) / _Ty_size;
-
-	mov	DWORD PTR __Max_possible$[ebp], 1073741823 ; 3fffffffH
-
-; 25   : 	size_t _Result = _Count * _Ty_size;
-
-	mov	eax, DWORD PTR __Count$[ebp]
-	shl	eax, 2
-	mov	DWORD PTR __Result$[ebp], eax
-
-; 26   : 	if (_Max_possible < _Count)
-
-	cmp	DWORD PTR __Count$[ebp], 1073741823	; 3fffffffH
-	jbe	SHORT $LN2@Get_size_o
-
-; 27   : 		{	// multiply overflow, try allocating all of memory and assume the
-; 28   : 			// allocation function will throw bad_alloc
-; 29   : 		_Result = static_cast<size_t>(-1);
-
-	mov	DWORD PTR __Result$[ebp], -1
-$LN2@Get_size_o:
-
-; 30   : 		}
-; 31   : 
-; 32   : 	return (_Result);
-
-	mov	eax, DWORD PTR __Result$[ebp]
-
-; 33   : 	}
-
-	mov	esp, ebp
-	pop	ebp
-	ret	0
-??$_Get_size_of_n@$03@std@@YAII@Z ENDP			; std::_Get_size_of_n<4>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory
 ;	COMDAT ??$_Uninitialized_fill_n@PAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@IV?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@@2@@std@@YAPAV?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@0@QAV10@IABV10@AAV?$allocator@V?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@std@@@std@@@std@@@0@@Z
 _TEXT	SEGMENT
@@ -13600,6 +13548,58 @@ __Ptr$ = 8						; size = 4
 	pop	ebp
 	ret	0
 ??$_Unfancy@U_Container_proxy@std@@@std@@YAPAU_Container_proxy@0@PAU10@@Z ENDP ; std::_Unfancy<std::_Container_proxy>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
+;	COMDAT ??$_Get_size_of_n@$03@std@@YAII@Z
+_TEXT	SEGMENT
+__Result$ = -8						; size = 4
+__Max_possible$ = -4					; size = 4
+__Count$ = 8						; size = 4
+??$_Get_size_of_n@$03@std@@YAII@Z PROC			; std::_Get_size_of_n<4>, COMDAT
+
+; 23   : 	{	// gets the size of _Count copies of a type sized _Ty_size
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 8
+	mov	DWORD PTR [ebp-8], -858993460		; ccccccccH
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+
+; 24   : 	constexpr size_t _Max_possible = static_cast<size_t>(-1) / _Ty_size;
+
+	mov	DWORD PTR __Max_possible$[ebp], 1073741823 ; 3fffffffH
+
+; 25   : 	size_t _Result = _Count * _Ty_size;
+
+	mov	eax, DWORD PTR __Count$[ebp]
+	shl	eax, 2
+	mov	DWORD PTR __Result$[ebp], eax
+
+; 26   : 	if (_Max_possible < _Count)
+
+	cmp	DWORD PTR __Count$[ebp], 1073741823	; 3fffffffH
+	jbe	SHORT $LN2@Get_size_o
+
+; 27   : 		{	// multiply overflow, try allocating all of memory and assume the
+; 28   : 			// allocation function will throw bad_alloc
+; 29   : 		_Result = static_cast<size_t>(-1);
+
+	mov	DWORD PTR __Result$[ebp], -1
+$LN2@Get_size_o:
+
+; 30   : 		}
+; 31   : 
+; 32   : 	return (_Result);
+
+	mov	eax, DWORD PTR __Result$[ebp]
+
+; 33   : 	}
+
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??$_Get_size_of_n@$03@std@@YAII@Z ENDP			; std::_Get_size_of_n<4>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\list
@@ -31952,7 +31952,7 @@ __$EHRec$ = -12						; size = 12
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T2[ebp], esp
-	push	OFFSET $SG178816
+	push	OFFSET $SG179495
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv147[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
@@ -32164,7 +32164,7 @@ $LN4@Activate:
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T5[ebp], esp
-	push	OFFSET $SG178779
+	push	OFFSET $SG179458
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv229[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
@@ -32195,7 +32195,7 @@ $LN5@Activate:
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T4[ebp], esp
-	push	OFFSET $SG178781
+	push	OFFSET $SG179460
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv230[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
@@ -32472,11 +32472,11 @@ _this$ = -4						; size = 4
 	mov	ecx, DWORD PTR [edx+8]
 	call	?ID@BaseGameEntity@@QBEHXZ		; BaseGameEntity::ID
 	mov	DWORD PTR $T1[ebp], eax
-	push	OFFSET $SG178811
-	push	OFFSET $SG178810
+	push	OFFSET $SG179490
+	push	OFFSET $SG179489
 	lea	eax, DWORD PTR $T1[ebp]
 	push	eax
-	push	OFFSET $SG178809
+	push	OFFSET $SG179488
 	call	?Instance@DebugConsole@@SAPAV1@XZ	; DebugConsole::Instance
 	mov	ecx, eax
 	call	??$?6$$BY04D@DebugConsole@@QAEAAV0@AAY04$$CBD@Z ; DebugConsole::operator<<<char [5]>
@@ -33085,7 +33085,7 @@ _this$ = -4						; size = 4
 ?GetSteering@Raven_Bot@@QAEQAVRaven_Steering@@XZ PROC	; Raven_Bot::GetSteering, COMDAT
 ; _this$ = ecx
 
-; 197  : 	Raven_Steering* const              GetSteering() { return m_pSteering; }
+; 205  : 	Raven_Steering* const              GetSteering() { return m_pSteering; }
 
 	push	ebp
 	mov	ebp, esp

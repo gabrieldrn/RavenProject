@@ -25,11 +25,11 @@ CONST	SEGMENT
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG167492 DB	'RG: ', 00H
+$SG168858 DB	'RG: ', 00H
 	ORG $+3
-$SG167494 DB	'RL: ', 00H
+$SG168860 DB	'RL: ', 00H
 	ORG $+3
-$SG167496 DB	'SG: ', 00H
+$SG168862 DB	'SG: ', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
@@ -18537,7 +18537,7 @@ $LN4@RenderInfo:
 ; 62   : 	case type_rail_gun:
 ; 63   : 		s = "RG: "; break;
 
-	push	OFFSET $SG167492
+	push	OFFSET $SG168858
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
 	jmp	SHORT $LN2@RenderInfo
@@ -18546,7 +18546,7 @@ $LN5@RenderInfo:
 ; 64   : 	case type_rocket_launcher:
 ; 65   : 		s = "RL: "; break;
 
-	push	OFFSET $SG167494
+	push	OFFSET $SG168860
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
 	jmp	SHORT $LN2@RenderInfo
@@ -18555,7 +18555,7 @@ $LN6@RenderInfo:
 ; 66   : 	case type_shotgun:
 ; 67   : 		s = "SG: "; break;
 
-	push	OFFSET $SG167496
+	push	OFFSET $SG168862
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
 $LN2@RenderInfo:
@@ -18901,7 +18901,7 @@ _this$ = -4						; size = 4
 ?GetBrain@Raven_Bot@@QAEQAVGoal_Think@@XZ PROC		; Raven_Bot::GetBrain, COMDAT
 ; _this$ = ecx
 
-; 199  : 	Goal_Think* const                  GetBrain() { return m_pBrain; }
+; 207  : 	Goal_Think* const                  GetBrain() { return m_pBrain; }
 
 	push	ebp
 	mov	ebp, esp

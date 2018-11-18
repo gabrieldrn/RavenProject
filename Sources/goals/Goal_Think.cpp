@@ -132,13 +132,10 @@ bool Goal_Think::notPresent(unsigned int GoalType)const
 
 void Goal_Think::AddGoal_MoveToPosition(Vector2D pos)
 {
-	AddSubgoal(new Goal_MoveToPosition(m_pOwner, pos));
+		AddSubgoal(new Goal_MoveToPosition(m_pOwner, pos));
 }
 
-void Goal_Think::AddGoal_MoveToPositionHuman(Vector2D pos)
-{
-	AddSubgoal(new Goal_MoveToPosition(m_pOwner, pos));
-}
+
 
 void Goal_Think::AddGoal_Explore()
 {
@@ -148,6 +145,7 @@ void Goal_Think::AddGoal_Explore()
 		AddSubgoal(new Goal_Explore(m_pOwner));
 	}
 }
+
 
 void Goal_Think::AddGoal_GetItem(unsigned int ItemType)
 {

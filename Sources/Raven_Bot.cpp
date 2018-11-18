@@ -21,6 +21,9 @@
 
 #include "Debug/DebugConsole.h"
 
+#include "Raven_team.h"
+
+
 //-------------------------- ctor ---------------------------------------------
 Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
 
@@ -174,38 +177,42 @@ void Raven_Bot::Update()
 //-----------------------------------------------------------------------------
 void Raven_Bot::UpdateMovement()
 {
-	//calculate the combined steering force
-	Vector2D force = m_pSteering->Calculate();
 
-	//if no steering force is produced decelerate the player by applying a
-	//braking force
-	if (m_pSteering->Force().isZero())
-	{
-		const double BrakingRate = 0.8;
+		/*if (m_pteam) {
+			Vector2D newPos = m_pteam->getLeader()->Pos();
+			m_pSteering->SetTarget(newPos);
+		}*/
+		//calculate the combined steering force
+		Vector2D force = m_pSteering->Calculate();
 
-		m_vVelocity = m_vVelocity * BrakingRate;
-	}
+		//if no steering force is produced decelerate the player by applying a
+		//braking force
+		if (m_pSteering->Force().isZero())
+		{
+			const double BrakingRate = 0.8;
+			m_vVelocity = m_vVelocity * BrakingRate;
+		}
 
-	//calculate the acceleration
-	Vector2D accel = force / m_dMass;
+		//calculate the acceleration
+		Vector2D accel = force / m_dMass;
 
-	//update the velocity
-	m_vVelocity += accel;
+		//update the velocity
+		m_vVelocity += accel;
 
-	//make sure vehicle does not exceed maximum velocity
-	m_vVelocity.Truncate(m_dMaxSpeed);
+		//make sure vehicle does not exceed maximum velocity
+		m_vVelocity.Truncate(m_dMaxSpeed);
 
-	//update the position
-	m_vPosition += m_vVelocity;
+		//update the position
+		m_vPosition += m_vVelocity;
 
-	//if the vehicle has a non zero velocity the heading and side vectors must
-	//be updated
-	if (!m_vVelocity.isZero())
-	{
-		m_vHeading = Vec2DNormalize(m_vVelocity);
+		//if the vehicle has a non zero velocity the heading and side vectors must
+		//be updated
+		if (!m_vVelocity.isZero())
+		{
+			m_vHeading = Vec2DNormalize(m_vVelocity);
 
-		m_vSide = m_vHeading.Perp();
-	}
+			m_vSide = m_vHeading.Perp();
+		}
 }
 //---------------------------- isReadyForTriggerUpdate ------------------------
 //
@@ -563,6 +570,14 @@ void Raven_Bot::SetUpVertexBuffer()
 }
 
 void Raven_Bot::RestoreHealthToMaximum() { m_iHealth = m_iMaxHealth; }
+
+
+void Raven_Bot::DropWeapon(Vector2D pos) {
+	Raven_Weapon* railGun = m_pWeaponSys->GetWeaponFromInventory(type_rail_gun);
+	Raven_Weapon* rocketLauncher = m_pWeaponSys->GetWeaponFromInventory(type_rocket_launcher);
+	Raven_Weapon* shotGun = m_pWeaponSys->GetWeaponFromInventory(type_shotgun);
+
+}
 
 void Raven_Bot::IncreaseHealth(unsigned int val)
 {

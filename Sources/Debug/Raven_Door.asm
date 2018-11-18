@@ -394,14 +394,14 @@ PUBLIC	??$addressof@V?$_String_val@U?$_Simple_types@D@std@@@std@@@std@@YAPAV?$_S
 PUBLIC	??$_Allocate@$07U_Default_allocate_traits@std@@$0A@@std@@YAPAXI@Z ; std::_Allocate<8,std::_Default_allocate_traits,0>
 PUBLIC	??$_Deallocate@$07$0A@@std@@YAXPAXI@Z		; std::_Deallocate<8,0>
 PUBLIC	?allocate@?$allocator@U_Container_proxy@std@@@std@@QAEPAU_Container_proxy@2@I@Z ; std::allocator<std::_Container_proxy>::allocate
-PUBLIC	??$?0I@?$allocator@U_Container_proxy@std@@@std@@QAE@ABV?$allocator@I@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><unsigned int>
 PUBLIC	?deallocate@?$_Default_allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@2@QAU_Container_proxy@2@I@Z ; std::_Default_allocator_traits<std::allocator<std::_Container_proxy> >::deallocate
 PUBLIC	??$destroy@U_Container_proxy@std@@@?$_Default_allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@QAU_Container_proxy@1@@Z ; std::_Default_allocator_traits<std::allocator<std::_Container_proxy> >::destroy<std::_Container_proxy>
 PUBLIC	??$_Deallocate_plain@V?$allocator@U_Container_proxy@std@@@std@@$0A@@std@@YAXAAV?$allocator@U_Container_proxy@std@@@0@QAU_Container_proxy@0@@Z ; std::_Deallocate_plain<std::allocator<std::_Container_proxy>,0>
+PUBLIC	??$_Get_size_of_n@$03@std@@YAII@Z		; std::_Get_size_of_n<4>
+PUBLIC	??$?0I@?$allocator@U_Container_proxy@std@@@std@@QAE@ABV?$allocator@I@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><unsigned int>
 PUBLIC	??$_Unfancy@U_Container_proxy@std@@@std@@YAPAU_Container_proxy@0@PAU10@@Z ; std::_Unfancy<std::_Container_proxy>
 PUBLIC	??$construct@U_Container_proxy@std@@U12@@?$_Default_allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@QAU_Container_proxy@1@$$QAU31@@Z ; std::_Default_allocator_traits<std::allocator<std::_Container_proxy> >::construct<std::_Container_proxy,std::_Container_proxy>
 PUBLIC	??$_Destroy_range@V?$allocator@I@std@@@std@@YAXPAI0AAV?$allocator@I@0@@Z ; std::_Destroy_range<std::allocator<unsigned int> >
-PUBLIC	??$_Get_size_of_n@$03@std@@YAII@Z		; std::_Get_size_of_n<4>
 PUBLIC	??$?0D@?$allocator@U_Container_proxy@std@@@std@@QAE@ABV?$allocator@D@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><char>
 PUBLIC	??$_Get_size_of_n@$07@std@@YAII@Z		; std::_Get_size_of_n<8>
 PUBLIC	??$_Verify_range@D@std@@YAXQBD0@Z		; std::_Verify_range<char>
@@ -476,11 +476,11 @@ PUBLIC	??$_Find_elem@D$0BN@@std@@YAIAAY0BN@$$CBDD@Z	; std::_Find_elem<char,29>
 PUBLIC	??$?0PAV_Facet_base@std@@@?$_Unique_ptr_base@V_Facet_base@std@@U?$default_delete@V_Facet_base@std@@@2@@std@@QAE@PAV_Facet_base@1@@Z ; std::_Unique_ptr_base<std::_Facet_base,std::default_delete<std::_Facet_base> >::_Unique_ptr_base<std::_Facet_base,std::default_delete<std::_Facet_base> ><std::_Facet_base *>
 PUBLIC	??$_Adl_verify_range1@V?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@I@std@@@std@@@std@@V12@@std@@YAXABV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@I@std@@@std@@@0@0U?$integral_constant@_N$00@0@@Z ; std::_Adl_verify_range1<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<unsigned int> > >,std::_Vector_iterator<std::_Vector_val<std::_Simple_types<unsigned int> > > >
 PUBLIC	??$_Find_unchecked1@PAII@std@@YAPAIPAIQAIABIU?$integral_constant@_N$0A@@0@@Z ; std::_Find_unchecked1<unsigned int *,unsigned int>
+PUBLIC	??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z ; std::_Unused_parameter::_Unused_parameter<std::integral_constant<bool,1> >
 PUBLIC	??$_Get_unwrapped@I@std@@YAPAIQAI@Z		; std::_Get_unwrapped<unsigned int>
 PUBLIC	??$_Idl_distance@PAIPAI@std@@YA@ABQAI0@Z	; std::_Idl_distance<unsigned int *,unsigned int *>
 PUBLIC	??$_Idl_distance1@PAIPAI@std@@YAHABQAI0Urandom_access_iterator_tag@0@@Z ; std::_Idl_distance1<unsigned int *,unsigned int *>
 PUBLIC	??$_Get_unwrapped_n@IH$0A@@std@@YAPAIQAIH@Z	; std::_Get_unwrapped_n<unsigned int,int,0>
-PUBLIC	??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z ; std::_Unused_parameter::_Unused_parameter<std::integral_constant<bool,1> >
 PUBLIC	??$_Seek_wrapped@I@std@@YAXAAPAIQAI@Z		; std::_Seek_wrapped<unsigned int>
 PUBLIC	??$_Adl_verify_range1@V?$istreambuf_iterator@DU?$char_traits@D@std@@@std@@V12@@std@@YAXABV?$istreambuf_iterator@DU?$char_traits@D@std@@@0@0U?$integral_constant@_N$0A@@0@@Z ; std::_Adl_verify_range1<std::istreambuf_iterator<char,std::char_traits<char> >,std::istreambuf_iterator<char,std::char_traits<char> > >
 PUBLIC	??$_Ptr_move_cat@II@std@@YA?AU_Really_trivial_ptr_iterator_tag@0@ABQAI0@Z ; std::_Ptr_move_cat<unsigned int,unsigned int>
@@ -3777,28 +3777,6 @@ __UIt$ = 12						; size = 4
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xutility
-;	COMDAT ??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-___formal$ = 8						; size = 4
-??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z PROC ; std::_Unused_parameter::_Unused_parameter<std::integral_constant<bool,1> >, COMDAT
-; _this$ = ecx
-
-; 436  : 		constexpr _Unused_parameter(_Ty&&) noexcept {}
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	esp, ebp
-	pop	ebp
-	ret	4
-??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z ENDP ; std::_Unused_parameter::_Unused_parameter<std::integral_constant<bool,1> >
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xutility
 ;	COMDAT ??$_Get_unwrapped_n@IH$0A@@std@@YAPAIQAIH@Z
 _TEXT	SEGMENT
 __Src$ = 8						; size = 4
@@ -3906,6 +3884,28 @@ __Ptr$ = 8						; size = 4
 	pop	ebp
 	ret	0
 ??$_Get_unwrapped@I@std@@YAPAIQAI@Z ENDP		; std::_Get_unwrapped<unsigned int>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xutility
+;	COMDAT ??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+___formal$ = 8						; size = 4
+??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z PROC ; std::_Unused_parameter::_Unused_parameter<std::integral_constant<bool,1> >, COMDAT
+; _this$ = ecx
+
+; 436  : 		constexpr _Unused_parameter(_Ty&&) noexcept {}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z ENDP ; std::_Unused_parameter::_Unused_parameter<std::integral_constant<bool,1> >
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xutility
@@ -13968,58 +13968,6 @@ ___formal$ = 8						; size = 4
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
-;	COMDAT ??$_Get_size_of_n@$03@std@@YAII@Z
-_TEXT	SEGMENT
-__Result$ = -8						; size = 4
-__Max_possible$ = -4					; size = 4
-__Count$ = 8						; size = 4
-??$_Get_size_of_n@$03@std@@YAII@Z PROC			; std::_Get_size_of_n<4>, COMDAT
-
-; 23   : 	{	// gets the size of _Count copies of a type sized _Ty_size
-
-	push	ebp
-	mov	ebp, esp
-	sub	esp, 8
-	mov	DWORD PTR [ebp-8], -858993460		; ccccccccH
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-
-; 24   : 	constexpr size_t _Max_possible = static_cast<size_t>(-1) / _Ty_size;
-
-	mov	DWORD PTR __Max_possible$[ebp], 1073741823 ; 3fffffffH
-
-; 25   : 	size_t _Result = _Count * _Ty_size;
-
-	mov	eax, DWORD PTR __Count$[ebp]
-	shl	eax, 2
-	mov	DWORD PTR __Result$[ebp], eax
-
-; 26   : 	if (_Max_possible < _Count)
-
-	cmp	DWORD PTR __Count$[ebp], 1073741823	; 3fffffffH
-	jbe	SHORT $LN2@Get_size_o
-
-; 27   : 		{	// multiply overflow, try allocating all of memory and assume the
-; 28   : 			// allocation function will throw bad_alloc
-; 29   : 		_Result = static_cast<size_t>(-1);
-
-	mov	DWORD PTR __Result$[ebp], -1
-$LN2@Get_size_o:
-
-; 30   : 		}
-; 31   : 
-; 32   : 	return (_Result);
-
-	mov	eax, DWORD PTR __Result$[ebp]
-
-; 33   : 	}
-
-	mov	esp, ebp
-	pop	ebp
-	ret	0
-??$_Get_size_of_n@$03@std@@YAII@Z ENDP			; std::_Get_size_of_n<4>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
 ;	COMDAT ??$_Destroy_range@V?$allocator@I@std@@@std@@YAXPAI0AAV?$allocator@I@0@@Z
 _TEXT	SEGMENT
 $T1 = -1						; size = 1
@@ -14135,6 +14083,83 @@ __Ptr$ = 8						; size = 4
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
+;	COMDAT ??$?0I@?$allocator@U_Container_proxy@std@@@std@@QAE@ABV?$allocator@I@1@@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+___formal$ = 8						; size = 4
+??$?0I@?$allocator@U_Container_proxy@std@@@std@@QAE@ABV?$allocator@I@1@@Z PROC ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><unsigned int>, COMDAT
+; _this$ = ecx
+
+; 986  : 		{	// construct from a related allocator (do nothing)
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 987  : 		}
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??$?0I@?$allocator@U_Container_proxy@std@@@std@@QAE@ABV?$allocator@I@1@@Z ENDP ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><unsigned int>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
+;	COMDAT ??$_Get_size_of_n@$03@std@@YAII@Z
+_TEXT	SEGMENT
+__Result$ = -8						; size = 4
+__Max_possible$ = -4					; size = 4
+__Count$ = 8						; size = 4
+??$_Get_size_of_n@$03@std@@YAII@Z PROC			; std::_Get_size_of_n<4>, COMDAT
+
+; 23   : 	{	// gets the size of _Count copies of a type sized _Ty_size
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 8
+	mov	DWORD PTR [ebp-8], -858993460		; ccccccccH
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+
+; 24   : 	constexpr size_t _Max_possible = static_cast<size_t>(-1) / _Ty_size;
+
+	mov	DWORD PTR __Max_possible$[ebp], 1073741823 ; 3fffffffH
+
+; 25   : 	size_t _Result = _Count * _Ty_size;
+
+	mov	eax, DWORD PTR __Count$[ebp]
+	shl	eax, 2
+	mov	DWORD PTR __Result$[ebp], eax
+
+; 26   : 	if (_Max_possible < _Count)
+
+	cmp	DWORD PTR __Count$[ebp], 1073741823	; 3fffffffH
+	jbe	SHORT $LN2@Get_size_o
+
+; 27   : 		{	// multiply overflow, try allocating all of memory and assume the
+; 28   : 			// allocation function will throw bad_alloc
+; 29   : 		_Result = static_cast<size_t>(-1);
+
+	mov	DWORD PTR __Result$[ebp], -1
+$LN2@Get_size_o:
+
+; 30   : 		}
+; 31   : 
+; 32   : 	return (_Result);
+
+	mov	eax, DWORD PTR __Result$[ebp]
+
+; 33   : 	}
+
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??$_Get_size_of_n@$03@std@@YAII@Z ENDP			; std::_Get_size_of_n<4>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
 ;	COMDAT ??$_Deallocate_plain@V?$allocator@U_Container_proxy@std@@@std@@$0A@@std@@YAXAAV?$allocator@U_Container_proxy@std@@@0@QAU_Container_proxy@0@@Z
 _TEXT	SEGMENT
 __Al$ = 8						; size = 4
@@ -14216,31 +14241,6 @@ __Count$ = 16						; size = 4
 	pop	ebp
 	ret	0
 ?deallocate@?$_Default_allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@2@QAU_Container_proxy@2@I@Z ENDP ; std::_Default_allocator_traits<std::allocator<std::_Container_proxy> >::deallocate
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
-;	COMDAT ??$?0I@?$allocator@U_Container_proxy@std@@@std@@QAE@ABV?$allocator@I@1@@Z
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-___formal$ = 8						; size = 4
-??$?0I@?$allocator@U_Container_proxy@std@@@std@@QAE@ABV?$allocator@I@1@@Z PROC ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><unsigned int>, COMDAT
-; _this$ = ecx
-
-; 986  : 		{	// construct from a related allocator (do nothing)
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 987  : 		}
-
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	esp, ebp
-	pop	ebp
-	ret	4
-??$?0I@?$allocator@U_Container_proxy@std@@@std@@QAE@ABV?$allocator@I@1@@Z ENDP ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><unsigned int>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0

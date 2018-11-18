@@ -10,40 +10,6 @@ INCLUDELIB LIBCMTD
 INCLUDELIB OLDNAMES
 
 CONST	SEGMENT
-$SG197245 DB	'<SparseGraph::GetNode>: invalid index', 00H
-?piecewise_construct@std@@3Upiecewise_construct_t@1@B	ORG $+1 ; std::piecewise_construct
-	ORG $+1
-$SG197246 DB	'd', 00H, ':', 00H, '\', 00H, 'u', 00H, 't', 00H, 'i', 00H
-	DB	'l', 00H, 'i', 00H, 's', 00H, 'a', 00H, 't', 00H, 'e', 00H, 'u'
-	DB	00H, 'r', 00H, 's', 00H, '\', 00H, 's', 00H, 'a', 00H, 'm', 00H
-	DB	'u', 00H, 'e', 00H, 'l', 00H, '\', 00H, 'm', 00H, 'e', 00H, 's'
-	DB	00H, ' ', 00H, 'd', 00H, 'o', 00H, 'c', 00H, 'u', 00H, 'm', 00H
-	DB	'e', 00H, 'n', 00H, 't', 00H, 's', 00H, '\', 00H, 'c', 00H, 'o'
-	DB	00H, 'u', 00H, 'r', 00H, 's', 00H, '\', 00H, 'u', 00H, 'q', 00H
-	DB	'a', 00H, 'c', 00H, '\', 00H, 'i', 00H, 'a', 00H, '\', 00H, 'r'
-	DB	00H, 'a', 00H, 'v', 00H, 'e', 00H, 'n', 00H, 'p', 00H, 'r', 00H
-	DB	'o', 00H, 'j', 00H, 'e', 00H, 'c', 00H, 't', 00H, '\', 00H, 'c'
-	DB	00H, 'o', 00H, 'm', 00H, 'm', 00H, 'o', 00H, 'n', 00H, '\', 00H
-	DB	'g', 00H, 'r', 00H, 'a', 00H, 'p', 00H, 'h', 00H, '\', 00H, 's'
-	DB	00H, 'p', 00H, 'a', 00H, 'r', 00H, 's', 00H, 'e', 00H, 'g', 00H
-	DB	'r', 00H, 'a', 00H, 'p', 00H, 'h', 00H, '.', 00H, 'h', 00H, 00H
-	DB	00H
-	ORG $+2
-$SG197247 DB	'(', 00H, 'i', 00H, 'd', 00H, 'x', 00H, ' ', 00H, '<', 00H
-	DB	' ', 00H, '(', 00H, 'i', 00H, 'n', 00H, 't', 00H, ')', 00H, 'm'
-	DB	00H, '_', 00H, 'N', 00H, 'o', 00H, 'd', 00H, 'e', 00H, 's', 00H
-	DB	'.', 00H, 's', 00H, 'i', 00H, 'z', 00H, 'e', 00H, '(', 00H, ')'
-	DB	00H, ')', 00H, ' ', 00H, '&', 00H, '&', 00H, ' ', 00H, '(', 00H
-	DB	'i', 00H, 'd', 00H, 'x', 00H, ' ', 00H, '>', 00H, '=', 00H, ' '
-	DB	00H, '0', 00H, ')', 00H, ' ', 00H, '&', 00H, '&', 00H, ' ', 00H
-	DB	'"', 00H, '<', 00H, 'S', 00H, 'p', 00H, 'a', 00H, 'r', 00H, 's'
-	DB	00H, 'e', 00H, 'G', 00H, 'r', 00H, 'a', 00H, 'p', 00H, 'h', 00H
-	DB	':', 00H, ':', 00H, 'G', 00H, 'e', 00H, 't', 00H, 'N', 00H, 'o'
-	DB	00H, 'd', 00H, 'e', 00H, '>', 00H, ':', 00H, ' ', 00H, 'i', 00H
-	DB	'n', 00H, 'v', 00H, 'a', 00H, 'l', 00H, 'i', 00H, 'd', 00H, ' '
-	DB	00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'x', 00H, '"', 00H
-	DB	00H, 00H
-	ORG $+2
 ?colors@@3QBKB DD 0ffH					; colors
 	DD	0ff0000H
 	DD	0ff00H
@@ -59,9 +25,43 @@ $SG197247 DB	'(', 00H, 'i', 00H, 'd', 00H, 'x', 00H, ' ', 00H, '<', 00H
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG183788 DB	'<Raven_PathPlanner::GetPathAsNodes>: no current search', 00H
-	ORG $+1
-$SG183789 DB	'd', 00H, ':', 00H, '\', 00H, 'u', 00H, 't', 00H, 'i', 00H
+$SG198721 DB	'<SparseGraph::GetNode>: invalid index', 00H
+?piecewise_construct@std@@3Upiecewise_construct_t@1@B	ORG $+1 ; std::piecewise_construct
+	ORG $+5
+$SG198722 DB	'd', 00H, ':', 00H, '\', 00H, 'u', 00H, 't', 00H, 'i', 00H
+	DB	'l', 00H, 'i', 00H, 's', 00H, 'a', 00H, 't', 00H, 'e', 00H, 'u'
+	DB	00H, 'r', 00H, 's', 00H, '\', 00H, 's', 00H, 'a', 00H, 'm', 00H
+	DB	'u', 00H, 'e', 00H, 'l', 00H, '\', 00H, 'm', 00H, 'e', 00H, 's'
+	DB	00H, ' ', 00H, 'd', 00H, 'o', 00H, 'c', 00H, 'u', 00H, 'm', 00H
+	DB	'e', 00H, 'n', 00H, 't', 00H, 's', 00H, '\', 00H, 'c', 00H, 'o'
+	DB	00H, 'u', 00H, 'r', 00H, 's', 00H, '\', 00H, 'u', 00H, 'q', 00H
+	DB	'a', 00H, 'c', 00H, '\', 00H, 'i', 00H, 'a', 00H, '\', 00H, 'r'
+	DB	00H, 'a', 00H, 'v', 00H, 'e', 00H, 'n', 00H, 'p', 00H, 'r', 00H
+	DB	'o', 00H, 'j', 00H, 'e', 00H, 'c', 00H, 't', 00H, '\', 00H, 'c'
+	DB	00H, 'o', 00H, 'm', 00H, 'm', 00H, 'o', 00H, 'n', 00H, '\', 00H
+	DB	'g', 00H, 'r', 00H, 'a', 00H, 'p', 00H, 'h', 00H, '\', 00H, 's'
+	DB	00H, 'p', 00H, 'a', 00H, 'r', 00H, 's', 00H, 'e', 00H, 'g', 00H
+	DB	'r', 00H, 'a', 00H, 'p', 00H, 'h', 00H, '.', 00H, 'h', 00H, 00H
+	DB	00H
+	ORG $+2
+$SG198723 DB	'(', 00H, 'i', 00H, 'd', 00H, 'x', 00H, ' ', 00H, '<', 00H
+	DB	' ', 00H, '(', 00H, 'i', 00H, 'n', 00H, 't', 00H, ')', 00H, 'm'
+	DB	00H, '_', 00H, 'N', 00H, 'o', 00H, 'd', 00H, 'e', 00H, 's', 00H
+	DB	'.', 00H, 's', 00H, 'i', 00H, 'z', 00H, 'e', 00H, '(', 00H, ')'
+	DB	00H, ')', 00H, ' ', 00H, '&', 00H, '&', 00H, ' ', 00H, '(', 00H
+	DB	'i', 00H, 'd', 00H, 'x', 00H, ' ', 00H, '>', 00H, '=', 00H, ' '
+	DB	00H, '0', 00H, ')', 00H, ' ', 00H, '&', 00H, '&', 00H, ' ', 00H
+	DB	'"', 00H, '<', 00H, 'S', 00H, 'p', 00H, 'a', 00H, 'r', 00H, 's'
+	DB	00H, 'e', 00H, 'G', 00H, 'r', 00H, 'a', 00H, 'p', 00H, 'h', 00H
+	DB	':', 00H, ':', 00H, 'G', 00H, 'e', 00H, 't', 00H, 'N', 00H, 'o'
+	DB	00H, 'd', 00H, 'e', 00H, '>', 00H, ':', 00H, ' ', 00H, 'i', 00H
+	DB	'n', 00H, 'v', 00H, 'a', 00H, 'l', 00H, 'i', 00H, 'd', 00H, ' '
+	DB	00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'x', 00H, '"', 00H
+	DB	00H, 00H
+	ORG $+2
+$SG185155 DB	'<Raven_PathPlanner::GetPathAsNodes>: no current search', 00H
+	ORG $+5
+$SG185156 DB	'd', 00H, ':', 00H, '\', 00H, 'u', 00H, 't', 00H, 'i', 00H
 	DB	'l', 00H, 'i', 00H, 's', 00H, 'a', 00H, 't', 00H, 'e', 00H, 'u'
 	DB	00H, 'r', 00H, 's', 00H, '\', 00H, 's', 00H, 'a', 00H, 'm', 00H
 	DB	'u', 00H, 'e', 00H, 'l', 00H, '\', 00H, 'm', 00H, 'e', 00H, 's'
@@ -79,7 +79,7 @@ $SG183789 DB	'd', 00H, ':', 00H, '\', 00H, 'u', 00H, 't', 00H, 'i', 00H
 	DB	'n', 00H, 'e', 00H, 'r', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p'
 	DB	00H, 00H, 00H
 	ORG $+6
-$SG183790 DB	'm', 00H, '_', 00H, 'p', 00H, 'C', 00H, 'u', 00H, 'r', 00H
+$SG185157 DB	'm', 00H, '_', 00H, 'p', 00H, 'C', 00H, 'u', 00H, 'r', 00H
 	DB	'r', 00H, 'e', 00H, 'n', 00H, 't', 00H, 'S', 00H, 'e', 00H, 'a'
 	DB	00H, 'r', 00H, 'c', 00H, 'h', 00H, ' ', 00H, '&', 00H, '&', 00H
 	DB	' ', 00H, '"', 00H, '<', 00H, 'R', 00H, 'a', 00H, 'v', 00H, 'e'
@@ -92,10 +92,10 @@ $SG183790 DB	'm', 00H, '_', 00H, 'p', 00H, 'C', 00H, 'u', 00H, 'r', 00H
 	DB	00H, 'e', 00H, 'n', 00H, 't', 00H, ' ', 00H, 's', 00H, 'e', 00H
 	DB	'a', 00H, 'r', 00H, 'c', 00H, 'h', 00H, '"', 00H, 00H, 00H
 	ORG $+2
-$SG184758 DB	'<Raven_PathPlanner::CycleOnce>: No search object instant'
+$SG186125 DB	'<Raven_PathPlanner::CycleOnce>: No search object instant'
 	DB	'iated', 00H
 	ORG $+6
-$SG184759 DB	'd', 00H, ':', 00H, '\', 00H, 'u', 00H, 't', 00H, 'i', 00H
+$SG186126 DB	'd', 00H, ':', 00H, '\', 00H, 'u', 00H, 't', 00H, 'i', 00H
 	DB	'l', 00H, 'i', 00H, 's', 00H, 'a', 00H, 't', 00H, 'e', 00H, 'u'
 	DB	00H, 'r', 00H, 's', 00H, '\', 00H, 's', 00H, 'a', 00H, 'm', 00H
 	DB	'u', 00H, 'e', 00H, 'l', 00H, '\', 00H, 'm', 00H, 'e', 00H, 's'
@@ -113,7 +113,7 @@ $SG184759 DB	'd', 00H, ':', 00H, '\', 00H, 'u', 00H, 't', 00H, 'i', 00H
 	DB	'n', 00H, 'e', 00H, 'r', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p'
 	DB	00H, 00H, 00H
 	ORG $+6
-$SG184760 DB	'm', 00H, '_', 00H, 'p', 00H, 'C', 00H, 'u', 00H, 'r', 00H
+$SG186127 DB	'm', 00H, '_', 00H, 'p', 00H, 'C', 00H, 'u', 00H, 'r', 00H
 	DB	'r', 00H, 'e', 00H, 'n', 00H, 't', 00H, 'S', 00H, 'e', 00H, 'a'
 	DB	00H, 'r', 00H, 'c', 00H, 'h', 00H, ' ', 00H, '&', 00H, '&', 00H
 	DB	' ', 00H, '"', 00H, '<', 00H, 'R', 00H, 'a', 00H, 'v', 00H, 'e'
@@ -610,6 +610,7 @@ PUBLIC	??$destroy@U_Container_proxy@std@@@?$_Default_allocator_traits@V?$allocat
 PUBLIC	??$_Deallocate_plain@V?$allocator@U_Container_proxy@std@@@std@@$0A@@std@@YAXAAV?$allocator@U_Container_proxy@std@@@0@QAU_Container_proxy@0@@Z ; std::_Deallocate_plain<std::allocator<std::_Container_proxy>,0>
 PUBLIC	??$?0U?$_List_node@VPathEdge@@PAX@std@@@?$allocator@U_Container_proxy@std@@@std@@QAE@ABV?$allocator@U?$_List_node@VPathEdge@@PAX@std@@@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><std::_List_node<PathEdge,void *> >
 PUBLIC	??$_Uninitialized_value_construct_n@PAPBVNavGraphEdge@@IV?$allocator@PBVNavGraphEdge@@@std@@@std@@YAPAPBVNavGraphEdge@@PAPBV1@IAAV?$allocator@PBVNavGraphEdge@@@0@@Z ; std::_Uninitialized_value_construct_n<NavGraphEdge const * *,unsigned int,std::allocator<NavGraphEdge const *> >
+PUBLIC	??$_Get_size_of_n@$03@std@@YAII@Z		; std::_Get_size_of_n<4>
 PUBLIC	??$_Unfancy@U_Container_proxy@std@@@std@@YAPAU_Container_proxy@0@PAU10@@Z ; std::_Unfancy<std::_Container_proxy>
 PUBLIC	??$construct@U_Container_proxy@std@@U12@@?$_Default_allocator_traits@V?$allocator@U_Container_proxy@std@@@std@@@std@@SAXAAV?$allocator@U_Container_proxy@std@@@1@QAU_Container_proxy@1@$$QAU31@@Z ; std::_Default_allocator_traits<std::allocator<std::_Container_proxy> >::construct<std::_Container_proxy,std::_Container_proxy>
 PUBLIC	??$_Fill_unchecked@PAHH@std@@YAXPAH0ABH@Z	; std::_Fill_unchecked<int *,int>
@@ -618,7 +619,6 @@ PUBLIC	??$?0PBVNavGraphEdge@@@?$allocator@U_Container_proxy@std@@@std@@QAE@ABV?$
 PUBLIC	??$addressof@H@std@@YAPAHAAH@Z			; std::addressof<int>
 PUBLIC	??$destroy@H@?$_Default_allocator_traits@V?$allocator@U?$_List_node@HPAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@HPAX@std@@@1@QAH@Z ; std::_Default_allocator_traits<std::allocator<std::_List_node<int,void *> > >::destroy<int>
 PUBLIC	??$_Destroy_range@V?$allocator@PBVNavGraphEdge@@@std@@@std@@YAXPAPBVNavGraphEdge@@0AAV?$allocator@PBVNavGraphEdge@@@0@@Z ; std::_Destroy_range<std::allocator<NavGraphEdge const *> >
-PUBLIC	??$_Get_size_of_n@$03@std@@YAII@Z		; std::_Get_size_of_n<4>
 PUBLIC	??$?0H@?$allocator@U_Container_proxy@std@@@std@@QAE@ABV?$allocator@H@1@@Z ; std::allocator<std::_Container_proxy>::allocator<std::_Container_proxy><int>
 PUBLIC	??$?0$$V@?$_Compressed_pair@V?$allocator@H@std@@V?$_Vector_val@U?$_Simple_types@H@std@@@2@$00@std@@QAE@U_Zero_then_variadic_args_t@1@@Z ; std::_Compressed_pair<std::allocator<int>,std::_Vector_val<std::_Simple_types<int> >,1>::_Compressed_pair<std::allocator<int>,std::_Vector_val<std::_Simple_types<int> >,1><>
 PUBLIC	??$_Destroy_range@V?$allocator@H@std@@@std@@YAXPAH0AAV?$allocator@H@0@@Z ; std::_Destroy_range<std::allocator<int> >
@@ -12973,58 +12973,6 @@ ___formal$ = 8						; size = 4
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
-;	COMDAT ??$_Get_size_of_n@$03@std@@YAII@Z
-_TEXT	SEGMENT
-__Result$ = -8						; size = 4
-__Max_possible$ = -4					; size = 4
-__Count$ = 8						; size = 4
-??$_Get_size_of_n@$03@std@@YAII@Z PROC			; std::_Get_size_of_n<4>, COMDAT
-
-; 23   : 	{	// gets the size of _Count copies of a type sized _Ty_size
-
-	push	ebp
-	mov	ebp, esp
-	sub	esp, 8
-	mov	DWORD PTR [ebp-8], -858993460		; ccccccccH
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-
-; 24   : 	constexpr size_t _Max_possible = static_cast<size_t>(-1) / _Ty_size;
-
-	mov	DWORD PTR __Max_possible$[ebp], 1073741823 ; 3fffffffH
-
-; 25   : 	size_t _Result = _Count * _Ty_size;
-
-	mov	eax, DWORD PTR __Count$[ebp]
-	shl	eax, 2
-	mov	DWORD PTR __Result$[ebp], eax
-
-; 26   : 	if (_Max_possible < _Count)
-
-	cmp	DWORD PTR __Count$[ebp], 1073741823	; 3fffffffH
-	jbe	SHORT $LN2@Get_size_o
-
-; 27   : 		{	// multiply overflow, try allocating all of memory and assume the
-; 28   : 			// allocation function will throw bad_alloc
-; 29   : 		_Result = static_cast<size_t>(-1);
-
-	mov	DWORD PTR __Result$[ebp], -1
-$LN2@Get_size_o:
-
-; 30   : 		}
-; 31   : 
-; 32   : 	return (_Result);
-
-	mov	eax, DWORD PTR __Result$[ebp]
-
-; 33   : 	}
-
-	mov	esp, ebp
-	pop	ebp
-	ret	0
-??$_Get_size_of_n@$03@std@@YAII@Z ENDP			; std::_Get_size_of_n<4>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
 ;	COMDAT ??$_Destroy_range@V?$allocator@PBVNavGraphEdge@@@std@@@std@@YAXPAPBVNavGraphEdge@@0AAV?$allocator@PBVNavGraphEdge@@@0@@Z
 _TEXT	SEGMENT
 $T1 = -1						; size = 1
@@ -13298,6 +13246,58 @@ __Ptr$ = 8						; size = 4
 	pop	ebp
 	ret	0
 ??$_Unfancy@U_Container_proxy@std@@@std@@YAPAU_Container_proxy@0@PAU10@@Z ENDP ; std::_Unfancy<std::_Container_proxy>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
+;	COMDAT ??$_Get_size_of_n@$03@std@@YAII@Z
+_TEXT	SEGMENT
+__Result$ = -8						; size = 4
+__Max_possible$ = -4					; size = 4
+__Count$ = 8						; size = 4
+??$_Get_size_of_n@$03@std@@YAII@Z PROC			; std::_Get_size_of_n<4>, COMDAT
+
+; 23   : 	{	// gets the size of _Count copies of a type sized _Ty_size
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 8
+	mov	DWORD PTR [ebp-8], -858993460		; ccccccccH
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+
+; 24   : 	constexpr size_t _Max_possible = static_cast<size_t>(-1) / _Ty_size;
+
+	mov	DWORD PTR __Max_possible$[ebp], 1073741823 ; 3fffffffH
+
+; 25   : 	size_t _Result = _Count * _Ty_size;
+
+	mov	eax, DWORD PTR __Count$[ebp]
+	shl	eax, 2
+	mov	DWORD PTR __Result$[ebp], eax
+
+; 26   : 	if (_Max_possible < _Count)
+
+	cmp	DWORD PTR __Count$[ebp], 1073741823	; 3fffffffH
+	jbe	SHORT $LN2@Get_size_o
+
+; 27   : 		{	// multiply overflow, try allocating all of memory and assume the
+; 28   : 			// allocation function will throw bad_alloc
+; 29   : 		_Result = static_cast<size_t>(-1);
+
+	mov	DWORD PTR __Result$[ebp], -1
+$LN2@Get_size_o:
+
+; 30   : 		}
+; 31   : 
+; 32   : 	return (_Result);
+
+	mov	eax, DWORD PTR __Result$[ebp]
+
+; 33   : 	}
+
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??$_Get_size_of_n@$03@std@@YAII@Z ENDP			; std::_Get_size_of_n<4>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory
@@ -31533,7 +31533,7 @@ _this$ = -4						; size = 4
 ?GetPathManager@Raven_Game@@QAEQAV?$PathManager@VRaven_PathPlanner@@@@XZ PROC ; Raven_Game::GetPathManager, COMDAT
 ; _this$ = ecx
 
-; 160  : 	PathManager<Raven_PathPlanner>* const    GetPathManager() { return m_pPathManager; }
+; 166  : 	PathManager<Raven_PathPlanner>* const    GetPathManager() { return m_pPathManager; }
 
 	push	ebp
 	mov	ebp, esp
@@ -31541,7 +31541,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [eax+32]
+	mov	eax, DWORD PTR [eax+44]
 	mov	esp, ebp
 	pop	ebp
 	ret	0
@@ -31555,7 +31555,7 @@ _this$ = -4						; size = 4
 ?GetMap@Raven_Game@@QAEQAVRaven_Map@@XZ PROC		; Raven_Game::GetMap, COMDAT
 ; _this$ = ecx
 
-; 158  : 	Raven_Map* const                         GetMap() { return m_pMap; }
+; 164  : 	Raven_Map* const                         GetMap() { return m_pMap; }
 
 	push	ebp
 	mov	ebp, esp
@@ -31653,13 +31653,13 @@ __$EHRec$ = -12						; size = 12
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+8], 0
 	je	SHORT $LN6@CycleOnce
-	mov	ecx, OFFSET $SG184758
+	mov	ecx, OFFSET $SG186125
 	test	ecx, ecx
 	jne	SHORT $LN7@CycleOnce
 $LN6@CycleOnce:
 	push	243					; 000000f3H
-	push	OFFSET $SG184759
-	push	OFFSET $SG184760
+	push	OFFSET $SG186126
+	push	OFFSET $SG186127
 	call	__wassert
 	add	esp, 12					; 0000000cH
 $LN7@CycleOnce:
@@ -32258,13 +32258,13 @@ ___$ReturnUdt$ = 8					; size = 4
 	mov	eax, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [eax+8], 0
 	je	SHORT $LN6@GetPath
-	mov	ecx, OFFSET $SG183788
+	mov	ecx, OFFSET $SG185155
 	test	ecx, ecx
 	jne	SHORT $LN7@GetPath
 $LN6@GetPath:
 	push	124					; 0000007cH
-	push	OFFSET $SG183789
-	push	OFFSET $SG183790
+	push	OFFSET $SG185156
+	push	OFFSET $SG185157
 	call	__wassert
 	add	esp, 12					; 0000000cH
 $LN7@GetPath:
@@ -34408,13 +34408,13 @@ _idx$ = 8						; size = 4
 	jge	SHORT $LN3@GetNode
 	cmp	DWORD PTR _idx$[ebp], 0
 	jl	SHORT $LN3@GetNode
-	mov	eax, OFFSET $SG197245
+	mov	eax, OFFSET $SG198721
 	test	eax, eax
 	jne	SHORT $LN4@GetNode
 $LN3@GetNode:
 	push	436					; 000001b4H
-	push	OFFSET $SG197246
-	push	OFFSET $SG197247
+	push	OFFSET $SG198722
+	push	OFFSET $SG198723
 	call	__wassert
 	add	esp, 12					; 0000000cH
 $LN4@GetNode:
@@ -35050,7 +35050,7 @@ _this$ = -4						; size = 4
 ?GetWorld@Raven_Bot@@QAEQAVRaven_Game@@XZ PROC		; Raven_Bot::GetWorld, COMDAT
 ; _this$ = ecx
 
-; 196  : 	Raven_Game* const                  GetWorld() { return m_pWorld; }
+; 204  : 	Raven_Game* const                  GetWorld() { return m_pWorld; }
 
 	push	ebp
 	mov	ebp, esp

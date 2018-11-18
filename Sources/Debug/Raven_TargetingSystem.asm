@@ -45,6 +45,7 @@ PUBLIC	?GetNeighbours@Raven_TargetingSystem@@QAE?AV?$list@PAVRaven_Bot@@V?$alloc
 PUBLIC	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ		; BaseGameEntity::Pos
 PUBLIC	?isAlive@Raven_Bot@@QBE_NXZ			; Raven_Bot::isAlive
 PUBLIC	?GetSensoryMem@Raven_Bot@@QBEQAVRaven_SensoryMemory@@XZ ; Raven_Bot::GetSensoryMem
+PUBLIC	?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ	; Raven_Bot::GetTeam
 PUBLIC	??0?$allocator@U?$_List_node@PAVRaven_Bot@@PAX@std@@@std@@QAE@XZ ; std::allocator<std::_List_node<Raven_Bot *,void *> >::allocator<std::_List_node<Raven_Bot *,void *> >
 PUBLIC	?deallocate@?$allocator@U?$_List_node@PAVRaven_Bot@@PAX@std@@@std@@QAEXQAU?$_List_node@PAVRaven_Bot@@PAX@2@I@Z ; std::allocator<std::_List_node<Raven_Bot *,void *> >::deallocate
 PUBLIC	?allocate@?$allocator@U?$_List_node@PAVRaven_Bot@@PAX@std@@@std@@QAEPAU?$_List_node@PAVRaven_Bot@@PAX@2@I@Z ; std::allocator<std::_List_node<Raven_Bot *,void *> >::allocate
@@ -4753,13 +4754,35 @@ _this$ = -4						; size = 4
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\sources\raven_bot.h
+;	COMDAT ?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ PROC		; Raven_Bot::GetTeam, COMDAT
+; _this$ = ecx
+
+; 215  : 	Raven_team*						   GetTeam() { return m_pteam; }
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR [eax+272]
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ ENDP		; Raven_Bot::GetTeam
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\sources\raven_bot.h
 ;	COMDAT ?GetSensoryMem@Raven_Bot@@QBEQAVRaven_SensoryMemory@@XZ
 _TEXT	SEGMENT
 _this$ = -4						; size = 4
 ?GetSensoryMem@Raven_Bot@@QBEQAVRaven_SensoryMemory@@XZ PROC ; Raven_Bot::GetSensoryMem, COMDAT
 ; _this$ = ecx
 
-; 204  : 	Raven_SensoryMemory* const         GetSensoryMem()const { return m_pSensoryMem; }
+; 212  : 	Raven_SensoryMemory* const         GetSensoryMem()const { return m_pSensoryMem; }
 
 	push	ebp
 	mov	ebp, esp
@@ -4782,7 +4805,7 @@ _this$ = -4						; size = 4
 ?isAlive@Raven_Bot@@QBE_NXZ PROC			; Raven_Bot::isAlive, COMDAT
 ; _this$ = ecx
 
-; 152  : 	bool          isAlive()const { return m_Status == alive; }
+; 159  : 	bool          isAlive()const { return m_Status == alive; }
 
 	push	ebp
 	mov	ebp, esp
@@ -4846,7 +4869,7 @@ ___$ReturnUdt$ = 8					; size = 4
 ?GetNeighbours@Raven_TargetingSystem@@QAE?AV?$list@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@XZ PROC ; Raven_TargetingSystem::GetNeighbours
 ; _this$ = ecx
 
-; 41   : {
+; 43   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4856,7 +4879,7 @@ ___$ReturnUdt$ = 8					; size = 4
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	DWORD PTR $T1[ebp], 0
 
-; 42   : 	return m_pOwner->GetSensoryMem()->GetListOfRecentlySensedOpponents();
+; 44   : 	return m_pOwner->GetSensoryMem()->GetListOfRecentlySensedOpponents();
 
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
 	push	eax
@@ -4870,7 +4893,7 @@ ___$ReturnUdt$ = 8					; size = 4
 	mov	DWORD PTR $T1[ebp], edx
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
 
-; 43   : }
+; 45   : }
 
 	add	esp, 8
 	cmp	ebp, esp
@@ -4887,7 +4910,7 @@ _this$ = -4						; size = 4
 ?GetTimeTargetHasBeenOutOfView@Raven_TargetingSystem@@QBENXZ PROC ; Raven_TargetingSystem::GetTimeTargetHasBeenOutOfView
 ; _this$ = ecx
 
-; 66   : {
+; 70   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4895,7 +4918,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 67   : 	return m_pOwner->GetSensoryMem()->GetTimeOpponentHasBeenOutOfView(m_pCurrentTarget);
+; 71   : 	return m_pOwner->GetSensoryMem()->GetTimeOpponentHasBeenOutOfView(m_pCurrentTarget);
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -4906,7 +4929,7 @@ _this$ = -4						; size = 4
 	mov	ecx, eax
 	call	?GetTimeOpponentHasBeenOutOfView@Raven_SensoryMemory@@QBENPAVRaven_Bot@@@Z ; Raven_SensoryMemory::GetTimeOpponentHasBeenOutOfView
 
-; 68   : }
+; 72   : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -4923,7 +4946,7 @@ _this$ = -4						; size = 4
 ?GetTimeTargetHasBeenVisible@Raven_TargetingSystem@@QBENXZ PROC ; Raven_TargetingSystem::GetTimeTargetHasBeenVisible
 ; _this$ = ecx
 
-; 61   : {
+; 65   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4931,7 +4954,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 62   : 	return m_pOwner->GetSensoryMem()->GetTimeOpponentHasBeenVisible(m_pCurrentTarget);
+; 66   : 	return m_pOwner->GetSensoryMem()->GetTimeOpponentHasBeenVisible(m_pCurrentTarget);
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -4942,7 +4965,7 @@ _this$ = -4						; size = 4
 	mov	ecx, eax
 	call	?GetTimeOpponentHasBeenVisible@Raven_SensoryMemory@@QBENPAVRaven_Bot@@@Z ; Raven_SensoryMemory::GetTimeOpponentHasBeenVisible
 
-; 63   : }
+; 67   : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -4960,7 +4983,7 @@ ___$ReturnUdt$ = 8					; size = 4
 ?GetLastRecordedPosition@Raven_TargetingSystem@@QBE?AUVector2D@@XZ PROC ; Raven_TargetingSystem::GetLastRecordedPosition
 ; _this$ = ecx
 
-; 56   : {
+; 60   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4968,7 +4991,7 @@ ___$ReturnUdt$ = 8					; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 57   : 	return m_pOwner->GetSensoryMem()->GetLastRecordedPositionOfOpponent(m_pCurrentTarget);
+; 61   : 	return m_pOwner->GetSensoryMem()->GetLastRecordedPositionOfOpponent(m_pCurrentTarget);
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -4982,7 +5005,7 @@ ___$ReturnUdt$ = 8					; size = 4
 	call	?GetLastRecordedPositionOfOpponent@Raven_SensoryMemory@@QBE?AUVector2D@@PAVRaven_Bot@@@Z ; Raven_SensoryMemory::GetLastRecordedPositionOfOpponent
 	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
 
-; 58   : }
+; 62   : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -4999,7 +5022,7 @@ _this$ = -4						; size = 4
 ?isTargetShootable@Raven_TargetingSystem@@QBE_NXZ PROC	; Raven_TargetingSystem::isTargetShootable
 ; _this$ = ecx
 
-; 51   : {
+; 53   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -5007,7 +5030,9 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 52   : 	return m_pOwner->GetSensoryMem()->isOpponentShootable(m_pCurrentTarget);
+; 54   : 
+; 55   : 
+; 56   : 	return m_pOwner->GetSensoryMem()->isOpponentShootable(m_pCurrentTarget);
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -5018,7 +5043,7 @@ _this$ = -4						; size = 4
 	mov	ecx, eax
 	call	?isOpponentShootable@Raven_SensoryMemory@@QBE_NPAVRaven_Bot@@@Z ; Raven_SensoryMemory::isOpponentShootable
 
-; 53   : }
+; 57   : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -5035,7 +5060,7 @@ _this$ = -4						; size = 4
 ?isTargetWithinFOV@Raven_TargetingSystem@@QBE_NXZ PROC	; Raven_TargetingSystem::isTargetWithinFOV
 ; _this$ = ecx
 
-; 46   : {
+; 48   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -5043,7 +5068,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 47   : 	return m_pOwner->GetSensoryMem()->isOpponentWithinFOV(m_pCurrentTarget);
+; 49   : 	return m_pOwner->GetSensoryMem()->isOpponentWithinFOV(m_pCurrentTarget);
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+4]
@@ -5054,7 +5079,7 @@ _this$ = -4						; size = 4
 	mov	ecx, eax
 	call	?isOpponentWithinFOV@Raven_SensoryMemory@@QBE_NPAVRaven_Bot@@@Z ; Raven_SensoryMemory::isOpponentWithinFOV
 
-; 48   : }
+; 50   : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -5067,10 +5092,10 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\sources\raven_targetingsystem.cpp
 _TEXT	SEGMENT
-tv179 = -160						; size = 4
+tv196 = -160						; size = 4
 tv79 = -156						; size = 4
-tv176 = -152						; size = 4
-tv174 = -148						; size = 4
+tv193 = -152						; size = 4
+tv191 = -148						; size = 4
 $T2 = -144						; size = 16
 $T3 = -128						; size = 16
 $T4 = -112						; size = 12
@@ -5095,6 +5120,7 @@ __$EHRec$ = -12						; size = 12
 	mov	eax, DWORD PTR fs:0
 	push	eax
 	sub	esp, 148				; 00000094H
+	push	esi
 	push	edi
 	push	ecx
 	lea	edi, DWORD PTR [ebp-160]
@@ -5136,8 +5162,8 @@ __$EHRec$ = -12						; size = 12
 	call	?GetSensoryMem@Raven_Bot@@QBEQAVRaven_SensoryMemory@@XZ ; Raven_Bot::GetSensoryMem
 	mov	ecx, eax
 	call	?GetListOfRecentlySensedOpponents@Raven_SensoryMemory@@QBE?AV?$list@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@XZ ; Raven_SensoryMemory::GetListOfRecentlySensedOpponents
-	mov	DWORD PTR tv174[ebp], eax
-	mov	eax, DWORD PTR tv174[ebp]
+	mov	DWORD PTR tv191[ebp], eax
+	mov	eax, DWORD PTR tv191[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _SensedBots$[ebp]
 	call	??4?$list@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@QAEAAV01@$$QAV01@@Z ; std::list<Raven_Bot *,std::allocator<Raven_Bot *> >::operator=
@@ -5151,8 +5177,8 @@ __$EHRec$ = -12						; size = 12
 	push	ecx
 	lea	ecx, DWORD PTR _SensedBots$[ebp]
 	call	?begin@?$list@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@QAE?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@PAVRaven_Bot@@@std@@@std@@@2@XZ ; std::list<Raven_Bot *,std::allocator<Raven_Bot *> >::begin
-	mov	DWORD PTR tv176[ebp], eax
-	mov	edx, DWORD PTR tv176[ebp]
+	mov	DWORD PTR tv193[ebp], eax
+	mov	edx, DWORD PTR tv193[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _curBot$[ebp]
 	call	??0?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@PAVRaven_Bot@@@std@@@std@@@std@@QAE@$$QAV01@@Z
@@ -5173,9 +5199,9 @@ $LN4@Update:
 	call	?end@?$list@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@QAE?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@PAVRaven_Bot@@@std@@@std@@@2@XZ ; std::list<Raven_Bot *,std::allocator<Raven_Bot *> >::end
 	mov	DWORD PTR tv79[ebp], eax
 	mov	ecx, DWORD PTR tv79[ebp]
-	mov	DWORD PTR tv179[ebp], ecx
+	mov	DWORD PTR tv196[ebp], ecx
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
-	mov	edx, DWORD PTR tv179[ebp]
+	mov	edx, DWORD PTR tv196[ebp]
 	push	edx
 	lea	ecx, DWORD PTR _curBot$[ebp]
 	call	??9?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@PAVRaven_Bot@@@std@@@std@@@std@@QBE_NABV01@@Z ; std::_List_const_iterator<std::_List_val<std::_List_simple_types<Raven_Bot *> > >::operator!=
@@ -5197,13 +5223,13 @@ $LN4@Update:
 	call	?isAlive@Raven_Bot@@QBE_NXZ		; Raven_Bot::isAlive
 	movzx	ecx, al
 	test	ecx, ecx
-	je	SHORT $LN6@Update
+	je	$LN7@Update
 	lea	ecx, DWORD PTR _curBot$[ebp]
 	call	??D?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@PAVRaven_Bot@@@std@@@std@@@std@@QBEABQAVRaven_Bot@@XZ ; std::_List_const_iterator<std::_List_val<std::_List_simple_types<Raven_Bot *> > >::operator*
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [eax]
 	cmp	eax, DWORD PTR [edx]
-	je	SHORT $LN6@Update
+	je	$LN7@Update
 
 ; 28   : 		{
 ; 29   : 			double dist = Vec2DDistanceSq((*curBot)->Pos(), m_pOwner->Pos());
@@ -5230,7 +5256,7 @@ $LN4@Update:
 
 	movsd	xmm0, QWORD PTR _ClosestDistSoFar$[ebp]
 	comisd	xmm0, QWORD PTR _dist$8[ebp]
-	jbe	SHORT $LN6@Update
+	jbe	SHORT $LN7@Update
 
 ; 32   : 			{
 ; 33   : 				ClosestDistSoFar = dist;
@@ -5238,23 +5264,48 @@ $LN4@Update:
 	movsd	xmm0, QWORD PTR _dist$8[ebp]
 	movsd	QWORD PTR _ClosestDistSoFar$[ebp], xmm0
 
-; 34   : 				m_pCurrentTarget = *curBot;
+; 34   : 				if (((*curBot)->GetTeam() && m_pOwner->GetTeam()) && (m_pOwner->GetTeam() != (*curBot)->GetTeam())) {
+
+	lea	ecx, DWORD PTR _curBot$[ebp]
+	call	??D?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@PAVRaven_Bot@@@std@@@std@@@std@@QBEABQAVRaven_Bot@@XZ ; std::_List_const_iterator<std::_List_val<std::_List_simple_types<Raven_Bot *> > >::operator*
+	mov	ecx, DWORD PTR [eax]
+	call	?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ ; Raven_Bot::GetTeam
+	test	eax, eax
+	je	SHORT $LN7@Update
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [ecx]
+	call	?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ ; Raven_Bot::GetTeam
+	test	eax, eax
+	je	SHORT $LN7@Update
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR [edx]
+	call	?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ ; Raven_Bot::GetTeam
+	mov	esi, eax
+	lea	ecx, DWORD PTR _curBot$[ebp]
+	call	??D?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@PAVRaven_Bot@@@std@@@std@@@std@@QBEABQAVRaven_Bot@@XZ ; std::_List_const_iterator<std::_List_val<std::_List_simple_types<Raven_Bot *> > >::operator*
+	mov	ecx, DWORD PTR [eax]
+	call	?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ ; Raven_Bot::GetTeam
+	cmp	esi, eax
+	je	SHORT $LN7@Update
+
+; 35   : 					m_pCurrentTarget = *curBot;
 
 	lea	ecx, DWORD PTR _curBot$[ebp]
 	call	??D?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@PAVRaven_Bot@@@std@@@std@@@std@@QBEABQAVRaven_Bot@@XZ ; std::_List_const_iterator<std::_List_val<std::_List_simple_types<Raven_Bot *> > >::operator*
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [eax]
 	mov	DWORD PTR [ecx+4], edx
-$LN6@Update:
+$LN7@Update:
 
-; 35   : 			}
-; 36   : 		}
-; 37   : 	}
+; 36   : 				}
+; 37   : 			}
+; 38   : 		}
+; 39   : 	}
 
 	jmp	$LN2@Update
 $LN3@Update:
 
-; 38   : }
+; 40   : }
 
 	mov	BYTE PTR __$EHRec$[ebp+8], 0
 	lea	ecx, DWORD PTR _curBot$[ebp]
@@ -5265,7 +5316,7 @@ $LN3@Update:
 	push	edx
 	mov	ecx, ebp
 	push	eax
-	lea	edx, DWORD PTR $LN17@Update
+	lea	edx, DWORD PTR $LN18@Update
 	call	@_RTC_CheckStackVars@8
 	pop	eax
 	pop	edx
@@ -5273,24 +5324,25 @@ $LN3@Update:
 	mov	DWORD PTR fs:0, ecx
 	pop	ecx
 	pop	edi
+	pop	esi
 	add	esp, 160				; 000000a0H
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-	npad	1
-$LN17@Update:
+	npad	3
+$LN18@Update:
 	DD	2
-	DD	$LN16@Update
-$LN16@Update:
+	DD	$LN17@Update
+$LN17@Update:
 	DD	-40					; ffffffd8H
 	DD	12					; 0000000cH
-	DD	$LN13@Update
+	DD	$LN14@Update
 	DD	-60					; ffffffc4H
 	DD	12					; 0000000cH
-	DD	$LN14@Update
-$LN14@Update:
+	DD	$LN15@Update
+$LN15@Update:
 	DB	99					; 00000063H
 	DB	117					; 00000075H
 	DB	114					; 00000072H
@@ -5298,7 +5350,7 @@ $LN14@Update:
 	DB	111					; 0000006fH
 	DB	116					; 00000074H
 	DB	0
-$LN13@Update:
+$LN14@Update:
 	DB	83					; 00000053H
 	DB	101					; 00000065H
 	DB	110					; 0000006eH
@@ -5324,7 +5376,7 @@ __unwindfunclet$?Update@Raven_TargetingSystem@@QAEXXZ$4:
 __ehhandler$?Update@Raven_TargetingSystem@@QAEXXZ:
 	mov	edx, DWORD PTR [esp+8]
 	lea	eax, DWORD PTR [edx+12]
-	mov	ecx, DWORD PTR [edx-156]
+	mov	ecx, DWORD PTR [edx-160]
 	xor	ecx, eax
 	call	@__security_check_cookie@4
 	mov	eax, OFFSET __ehfuncinfo$?Update@Raven_TargetingSystem@@QAEXXZ

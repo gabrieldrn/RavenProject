@@ -10,37 +10,37 @@ INCLUDELIB LIBCMTD
 INCLUDELIB OLDNAMES
 
 CONST	SEGMENT
-$SG37069 DB	'explore', 00H
-$SG37071 DB	'think', 00H
+$SG37070 DB	'explore', 00H
+$SG37072 DB	'think', 00H
 	ORG $+2
-$SG37073 DB	'arrive_at_position', 00H
+$SG37074 DB	'arrive_at_position', 00H
 	ORG $+1
-$SG37075 DB	'seek_to_position', 00H
+$SG37076 DB	'seek_to_position', 00H
 	ORG $+3
-$SG37077 DB	'follow_path', 00H
-$SG37079 DB	'traverse_edge', 00H
+$SG37078 DB	'follow_path', 00H
+$SG37080 DB	'traverse_edge', 00H
 	ORG $+2
-$SG37081 DB	'move_to_position', 00H
+$SG37082 DB	'move_to_position', 00H
 	ORG $+3
-$SG37083 DB	'get_health', 00H
+$SG37084 DB	'get_health', 00H
 	ORG $+1
-$SG37085 DB	'get_shotgun', 00H
-$SG37087 DB	'get_railgun', 00H
-$SG37089 DB	'get_rocket_launcher', 00H
-$SG37091 DB	'wander', 00H
+$SG37086 DB	'get_shotgun', 00H
+$SG37088 DB	'get_railgun', 00H
+$SG37090 DB	'get_rocket_launcher', 00H
+$SG37092 DB	'wander', 00H
 	ORG $+1
-$SG37093 DB	'negotiate_door', 00H
+$SG37094 DB	'negotiate_door', 00H
 	ORG $+1
-$SG37095 DB	'attack_target', 00H
+$SG37096 DB	'attack_target', 00H
 	ORG $+2
-$SG37097 DB	'hunt_target', 00H
-$SG37099 DB	'strafe', 00H
+$SG37098 DB	'hunt_target', 00H
+$SG37100 DB	'strafe', 00H
 	ORG $+1
-$SG37101 DB	'adjust_range', 00H
+$SG37102 DB	'adjust_range', 00H
 	ORG $+3
-$SG37103 DB	'say_phrase', 00H
+$SG37104 DB	'say_phrase', 00H
 	ORG $+1
-$SG37105 DB	'UNKNOWN GOAL TYPE!', 00H
+$SG37106 DB	'UNKNOWN GOAL TYPE!', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
@@ -1442,7 +1442,7 @@ $LN4@Convert:
 ; 14   : 
 ; 15   : 		return "explore";
 
-	push	OFFSET $SG37069
+	push	OFFSET $SG37070
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	edx, DWORD PTR $T1[ebp]
@@ -1457,7 +1457,7 @@ $LN5@Convert:
 ; 18   : 
 ; 19   : 		return "think";
 
-	push	OFFSET $SG37071
+	push	OFFSET $SG37072
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	eax, DWORD PTR $T1[ebp]
@@ -1472,7 +1472,7 @@ $LN6@Convert:
 ; 22   : 
 ; 23   : 		return "arrive_at_position";
 
-	push	OFFSET $SG37073
+	push	OFFSET $SG37074
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	ecx, DWORD PTR $T1[ebp]
@@ -1487,7 +1487,7 @@ $LN7@Convert:
 ; 26   : 
 ; 27   : 		return "seek_to_position";
 
-	push	OFFSET $SG37075
+	push	OFFSET $SG37076
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	edx, DWORD PTR $T1[ebp]
@@ -1502,7 +1502,7 @@ $LN8@Convert:
 ; 30   : 
 ; 31   : 		return "follow_path";
 
-	push	OFFSET $SG37077
+	push	OFFSET $SG37078
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	eax, DWORD PTR $T1[ebp]
@@ -1517,7 +1517,7 @@ $LN9@Convert:
 ; 34   : 
 ; 35   : 		return "traverse_edge";
 
-	push	OFFSET $SG37079
+	push	OFFSET $SG37080
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	ecx, DWORD PTR $T1[ebp]
@@ -1532,7 +1532,7 @@ $LN10@Convert:
 ; 38   : 
 ; 39   : 		return "move_to_position";
 
-	push	OFFSET $SG37081
+	push	OFFSET $SG37082
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	edx, DWORD PTR $T1[ebp]
@@ -1547,7 +1547,7 @@ $LN11@Convert:
 ; 42   : 
 ; 43   : 		return "get_health";
 
-	push	OFFSET $SG37083
+	push	OFFSET $SG37084
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	eax, DWORD PTR $T1[ebp]
@@ -1562,7 +1562,7 @@ $LN12@Convert:
 ; 46   : 
 ; 47   : 		return "get_shotgun";
 
-	push	OFFSET $SG37085
+	push	OFFSET $SG37086
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	ecx, DWORD PTR $T1[ebp]
@@ -1577,7 +1577,7 @@ $LN13@Convert:
 ; 50   : 
 ; 51   : 		return "get_railgun";
 
-	push	OFFSET $SG37087
+	push	OFFSET $SG37088
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	edx, DWORD PTR $T1[ebp]
@@ -1592,7 +1592,7 @@ $LN14@Convert:
 ; 54   : 
 ; 55   : 		return "get_rocket_launcher";
 
-	push	OFFSET $SG37089
+	push	OFFSET $SG37090
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	eax, DWORD PTR $T1[ebp]
@@ -1607,7 +1607,7 @@ $LN15@Convert:
 ; 58   : 
 ; 59   : 		return "wander";
 
-	push	OFFSET $SG37091
+	push	OFFSET $SG37092
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	ecx, DWORD PTR $T1[ebp]
@@ -1622,7 +1622,7 @@ $LN16@Convert:
 ; 62   : 
 ; 63   : 		return "negotiate_door";
 
-	push	OFFSET $SG37093
+	push	OFFSET $SG37094
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	edx, DWORD PTR $T1[ebp]
@@ -1637,7 +1637,7 @@ $LN17@Convert:
 ; 66   : 
 ; 67   : 		return "attack_target";
 
-	push	OFFSET $SG37095
+	push	OFFSET $SG37096
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	eax, DWORD PTR $T1[ebp]
@@ -1652,7 +1652,7 @@ $LN18@Convert:
 ; 70   : 
 ; 71   : 		return "hunt_target";
 
-	push	OFFSET $SG37097
+	push	OFFSET $SG37098
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	ecx, DWORD PTR $T1[ebp]
@@ -1667,7 +1667,7 @@ $LN19@Convert:
 ; 74   : 
 ; 75   : 		return "strafe";
 
-	push	OFFSET $SG37099
+	push	OFFSET $SG37100
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	edx, DWORD PTR $T1[ebp]
@@ -1682,7 +1682,7 @@ $LN20@Convert:
 ; 78   : 
 ; 79   : 		return "adjust_range";
 
-	push	OFFSET $SG37101
+	push	OFFSET $SG37102
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	eax, DWORD PTR $T1[ebp]
@@ -1697,7 +1697,7 @@ $LN21@Convert:
 ; 82   : 
 ; 83   : 		return "say_phrase";
 
-	push	OFFSET $SG37103
+	push	OFFSET $SG37104
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	ecx, DWORD PTR $T1[ebp]
@@ -1712,7 +1712,7 @@ $LN22@Convert:
 ; 86   : 
 ; 87   : 		return "UNKNOWN GOAL TYPE!";
 
-	push	OFFSET $SG37105
+	push	OFFSET $SG37106
 	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	edx, DWORD PTR $T1[ebp]
@@ -1833,7 +1833,7 @@ _this$ = -4						; size = 4
 ??0GoalTypeToString@@AAE@XZ PROC			; GoalTypeToString::GoalTypeToString, COMDAT
 ; _this$ = ecx
 
-; 31   : 	GoalTypeToString() {}
+; 32   : 	GoalTypeToString() {}
 
 	push	ebp
 	mov	ebp, esp

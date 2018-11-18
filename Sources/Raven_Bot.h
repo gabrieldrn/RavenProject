@@ -16,6 +16,7 @@
 #include "game/MovingEntity.h"
 #include "misc/utils.h"
 #include "Raven_TargetingSystem.h"
+#include "Raven_team.h"
 
 class Raven_PathPlanner;
 class Raven_Steering;
@@ -27,6 +28,7 @@ class Raven_Bot;
 class Goal_Think;
 class Raven_WeaponSystem;
 class Raven_SensoryMemory;
+class Raven_team;
 
 class Raven_Bot : public MovingEntity
 {
@@ -41,6 +43,8 @@ private:
 
 	//a pointer to the world data
 	Raven_Game*                        m_pWorld;
+
+
 
 	//this object handles the arbitration and processing of high level goals
 	Goal_Think*                        m_pBrain;
@@ -118,6 +122,9 @@ private:
 	//initializes the bot's VB with its geometry
 	void          SetUpVertexBuffer();
 
+	//a pointer to his team
+	Raven_team*	  m_pteam;
+
 public:
 
 	Raven_Bot(Raven_Game* world, Vector2D pos);
@@ -166,6 +173,7 @@ public:
 	//interface for human player
 	void          FireWeapon(Vector2D pos);
 	void          ChangeWeapon(unsigned int type);
+	void		  DropWeapon(Vector2D pos);
 	void          TakePossession();
 	void          Exorcise();
 
@@ -202,6 +210,10 @@ public:
 	Raven_Bot* const                   GetTargetBot()const { return m_pTargSys->GetTarget(); }
 	Raven_WeaponSystem* const          GetWeaponSys()const { return m_pWeaponSys; }
 	Raven_SensoryMemory* const         GetSensoryMem()const { return m_pSensoryMem; }
+
+	void						       SetTeam(Raven_team* new_team){ m_pteam = new_team; }
+	Raven_team*						   GetTeam() { return m_pteam; }
+
 };
 
 #endif

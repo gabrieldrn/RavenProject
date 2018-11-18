@@ -24,6 +24,8 @@
 #include "misc/utils.h"
 #include "game/EntityFunctionTemplates.h"
 #include "Raven_Bot.h"
+#include "Raven_team.h"
+
 #include "navigation/pathmanager.h"
 
 class BaseGameEntity;
@@ -40,6 +42,10 @@ private:
 
 	//a list of all the bots that are inhabiting the map
 	std::list<Raven_Bot*>            m_Bots;
+
+	//a list of team
+	std::list<Raven_team*>           m_team;
+
 
 	//the user may select a bot to control manually. This is a pointer to that
 	//bot

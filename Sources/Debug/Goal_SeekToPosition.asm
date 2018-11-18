@@ -25,10 +25,10 @@ CONST	SEGMENT
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG168685 DB	'BOT ', 00H
-$SG168687 DB	00H
+$SG169364 DB	'BOT ', 00H
+$SG169366 DB	00H
 	ORG $+2
-$SG168686 DB	' IS STUCK!!', 00H
+$SG169365 DB	' IS STUCK!!', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
@@ -23524,11 +23524,11 @@ _this$ = -4						; size = 4
 	mov	ecx, DWORD PTR [edx+8]
 	call	?ID@BaseGameEntity@@QBEHXZ		; BaseGameEntity::ID
 	mov	DWORD PTR $T1[ebp], eax
-	push	OFFSET $SG168687
-	push	OFFSET $SG168686
+	push	OFFSET $SG169366
+	push	OFFSET $SG169365
 	lea	eax, DWORD PTR $T1[ebp]
 	push	eax
-	push	OFFSET $SG168685
+	push	OFFSET $SG169364
 	call	?Instance@DebugConsole@@SAPAV1@XZ	; DebugConsole::Instance
 	mov	ecx, eax
 	call	??$?6$$BY04D@DebugConsole@@QAEAAV0@AAY04$$CBD@Z ; DebugConsole::operator<<<char [5]>
@@ -24137,7 +24137,7 @@ _this$ = -4						; size = 4
 ?GetSteering@Raven_Bot@@QAEQAVRaven_Steering@@XZ PROC	; Raven_Bot::GetSteering, COMDAT
 ; _this$ = ecx
 
-; 197  : 	Raven_Steering* const              GetSteering() { return m_pSteering; }
+; 205  : 	Raven_Steering* const              GetSteering() { return m_pSteering; }
 
 	push	ebp
 	mov	ebp, esp

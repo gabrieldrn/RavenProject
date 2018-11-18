@@ -8,6 +8,8 @@
 #include "game/EntityManager.h"
 #include "2d/WallIntersectionTests.h"
 #include "Raven_Map.h"
+#include "Raven_team.h"
+
 #include "Raven_Door.h"
 #include "Raven_UserOptions.h"
 #include "Time/PrecisionTimer.h"
@@ -42,10 +44,32 @@ m_pGraveMarkers(NULL)
 	LoadMap(script->GetString("StartMap"));
 	// The first spawning bot is controlled by the player
 
+	Raven_team* team1 = new Raven_team();
+	Raven_team* team2 = new Raven_team();
+	m_team.push_back(team1);
+	m_team.push_back(team2);
+
+	int i(0);
+
+	for each (Raven_Bot* current_bot in m_Bots)
+	{
+
+		if (i >= 0) {
+			team2->addTeamMate(current_bot);
+		}
+		else {
+			team1->addTeamMate(current_bot);
+		}
+
+
+		i++;
+
+	}
+
+
 	if (m_Bots.size() >= 1) {
 		Raven_Bot* humanBot = m_Bots.front();
 		m_pSelectedBot = humanBot;
-
 	}
 }
 
@@ -154,25 +178,25 @@ void Raven_Game::Update()
 		if (IS_KEY_PRESSED('W')) {
 			newPos.y -= 10;
 			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
-			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
+			m_pSelectedBot->GetBrain()->AddGoal_MoveToPosition(newPos);
 		}
 		
 		if (IS_KEY_PRESSED('D')) {
 			newPos.x += 10;
 			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
-			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
+			m_pSelectedBot->GetBrain()->AddGoal_MoveToPosition(newPos);
 		}
 
 		if (IS_KEY_PRESSED('S')) {
 			newPos.y += 10;
 			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
-			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
+			m_pSelectedBot->GetBrain()->AddGoal_MoveToPosition(newPos);
 		}
 
 		if (IS_KEY_PRESSED('A')) {
 			newPos.x -= 10;
 			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
-			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
+			m_pSelectedBot->GetBrain()->AddGoal_MoveToPosition(newPos);
 		}
 
 		if (!m_pSelectedBot->isPossessed()) {
