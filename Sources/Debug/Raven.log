@@ -1,5 +1,4 @@
-﻿cl : Ligne de commande warning D9035: l'option 'Gm' est déconseillée et sera supprimée dans une version ultérieure
-  WindowUtils.cpp
+﻿  WindowUtils.cpp
   Vector2d.cpp
   PrecisionTimer.cpp
   FrameCounter.cpp
@@ -69,4 +68,4 @@
   Raven_Bot.cpp
   main.cpp
   Génération de code en cours...
-  Raven.vcxproj -> D:\Gits\RavenProject\Sources\.\Debug\Raven.exe
+  Raven.vcxproj -> D:\Utilisateurs\Samuel\Mes documents\Cours\UQAC\IA\RavenProject\Sources\.\Debug\Raven.exe
