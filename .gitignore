@@ -19,7 +19,7 @@
 *.userprefs
 
 # Build results
-[Dd]ebug/
+Sources/Debug/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
