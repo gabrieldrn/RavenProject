@@ -135,6 +135,11 @@ void Goal_Think::AddGoal_MoveToPosition(Vector2D pos)
 	AddSubgoal(new Goal_MoveToPosition(m_pOwner, pos));
 }
 
+void Goal_Think::AddGoal_MoveToPositionHuman(Vector2D pos)
+{
+	AddSubgoal(new Goal_MoveToPosition(m_pOwner, pos));
+}
+
 void Goal_Think::AddGoal_Explore()
 {
 	if (notPresent(goal_explore))
