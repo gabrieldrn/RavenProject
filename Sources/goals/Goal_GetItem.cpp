@@ -9,6 +9,8 @@
 #include "Goal_Wander.h"
 #include "Goal_FollowPath.h"
 
+#include "Goal_DodgeSideToSide.h"
+
 int ItemTypeToGoalType(int gt)
 {
 	switch (gt)
@@ -41,8 +43,25 @@ void Goal_GetItem::Activate()
 
 	m_pGiverTrigger = 0;
 
-	//request a path to the item
-	m_pOwner->GetPathPlanner()->RequestPathToItem(m_iItemToGet);
+	//if the bot is targetted
+	if (m_pOwner->isTargetted()) {
+		//if the bot has space to strafe then do so
+		Vector2D dummy;
+		if (m_pOwner->canStepLeft(dummy) || m_pOwner->canStepRight(dummy))
+		{
+			AddSubgoal(new Goal_DodgeSideToSide(m_pOwner));
+		}
+			//if not able to strafe, head directly at the target's position
+		else
+		{
+			//request a path to the item
+			m_pOwner->GetPathPlanner()->RequestPathToItem(m_iItemToGet);
+		}
+	}
+	else {
+		//request a path to the item
+		m_pOwner->GetPathPlanner()->RequestPathToItem(m_iItemToGet);
+	}
 
 	//the bot may have to wait a few update cycles before a path is calculated
 	//so for appearances sake it just wanders

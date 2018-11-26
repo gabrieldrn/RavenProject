@@ -182,6 +182,9 @@ public:
 	//without bumping into any walls
 	bool          canWalkTo(Vector2D pos)const;
 
+	//returns true if this bot is targetted by someone else
+	bool          isTargetted()const;
+
 	//similar to above. Returns true if the bot can move between the two
 	//given positions without bumping into any walls
 	bool          canWalkBetween(Vector2D from, Vector2D to)const;
