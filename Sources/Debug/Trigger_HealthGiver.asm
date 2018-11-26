@@ -27,9 +27,9 @@ CONST	SEGMENT
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG171983 DB	'DefaultGiverTriggerRange', 00H
+$SG171994 DB	'DefaultGiverTriggerRange', 00H
 	ORG $+3
-$SG171984 DB	'Health_RespawnDelay', 00H
+$SG171995 DB	'Health_RespawnDelay', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
@@ -30831,7 +30831,7 @@ _in$ = 8						; size = 4
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T4[ebp], esp
-	push	OFFSET $SG171983
+	push	OFFSET $SG171994
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv214[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
@@ -30866,7 +30866,7 @@ _in$ = 8						; size = 4
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T2[ebp], esp
-	push	OFFSET $SG171984
+	push	OFFSET $SG171995
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv215[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
@@ -31357,7 +31357,7 @@ _numTicks$ = 8						; size = 4
 ?SetRespawnDelay@?$Trigger_Respawning@VRaven_Bot@@@@QAEXI@Z PROC ; Trigger_Respawning<Raven_Bot>::SetRespawnDelay, COMDAT
 ; _this$ = ecx
 
-; 60   : 	{
+; 62   : 	{
 
 	push	ebp
 	mov	ebp, esp
@@ -31365,13 +31365,13 @@ _numTicks$ = 8						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 61   : 		m_iNumUpdatesBetweenRespawns = numTicks;
+; 63   : 		m_iNumUpdatesBetweenRespawns = numTicks;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _numTicks$[ebp]
 	mov	DWORD PTR [eax+80], ecx
 
-; 62   : 	}
+; 64   : 	}
 
 	mov	esp, ebp
 	pop	ebp
@@ -31387,7 +31387,7 @@ _this$ = -4						; size = 4
 ?Update@?$Trigger_Respawning@VRaven_Bot@@@@UAEXXZ PROC	; Trigger_Respawning<Raven_Bot>::Update, COMDAT
 ; _this$ = ecx
 
-; 52   : 	{
+; 54   : 	{
 
 	push	ebp
 	mov	ebp, esp
@@ -31396,7 +31396,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 53   : 		if ((--m_iNumUpdatesRemainingUntilRespawn <= 0) && !isActive())
+; 55   : 		if ((--m_iNumUpdatesRemainingUntilRespawn <= 0) && !isActive())
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+84]
@@ -31413,15 +31413,15 @@ _this$ = -4						; size = 4
 	test	ecx, ecx
 	jne	SHORT $LN1@Update
 
-; 54   : 		{
-; 55   : 			SetActive();
+; 56   : 		{
+; 57   : 			SetActive();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?SetActive@?$Trigger@VRaven_Bot@@@@IAEXXZ ; Trigger<Raven_Bot>::SetActive
 $LN1@Update:
 
-; 56   : 		}
-; 57   : 	}
+; 58   : 		}
+; 59   : 	}
 
 	add	esp, 8
 	cmp	ebp, esp
@@ -31439,7 +31439,7 @@ _this$ = -4						; size = 4
 ??1?$Trigger_Respawning@VRaven_Bot@@@@UAE@XZ PROC	; Trigger_Respawning<Raven_Bot>::~Trigger_Respawning<Raven_Bot>, COMDAT
 ; _this$ = ecx
 
-; 45   : 	virtual ~Trigger_Respawning() {}
+; 47   : 	virtual ~Trigger_Respawning() {}
 
 	push	ebp
 	mov	ebp, esp
@@ -31467,7 +31467,7 @@ _id$ = 8						; size = 4
 ??0?$Trigger_Respawning@VRaven_Bot@@@@QAE@H@Z PROC	; Trigger_Respawning<Raven_Bot>::Trigger_Respawning<Raven_Bot>, COMDAT
 ; _this$ = ecx
 
-; 43   : 	{}
+; 44   : 	{}
 
 	push	ebp
 	mov	ebp, esp
@@ -31475,29 +31475,29 @@ _id$ = 8						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 40   : 	Trigger_Respawning(int id) :Trigger<entity_type>(id),
+; 41   : 		Trigger<entity_type>(id),
 
 	mov	eax, DWORD PTR _id$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	??0?$Trigger@VRaven_Bot@@@@QAE@I@Z	; Trigger<Raven_Bot>::Trigger<Raven_Bot>
 
-; 43   : 	{}
+; 44   : 	{}
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx], OFFSET ??_7?$Trigger_Respawning@VRaven_Bot@@@@6B@
 
-; 41   : 		m_iNumUpdatesBetweenRespawns(0),
+; 42   : 		m_iNumUpdatesBetweenRespawns(0),
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [edx+80], 0
 
-; 42   : 		m_iNumUpdatesRemainingUntilRespawn(0)
+; 43   : 		m_iNumUpdatesRemainingUntilRespawn(0)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+84], 0
 
-; 43   : 	{}
+; 44   : 	{}
 
 	mov	eax, DWORD PTR _this$[ebp]
 	add	esp, 4

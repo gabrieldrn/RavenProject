@@ -12,16 +12,16 @@ INCLUDELIB OLDNAMES
 CONST	SEGMENT
 ?piecewise_construct@std@@3Upiecewise_construct_t@1@B	ORG $+1 ; std::piecewise_construct
 	ORG $+3
-$SG180936 DB	'Slug_MaxForce', 00H
+$SG180949 DB	'Slug_MaxForce', 00H
 	ORG $+2
-$SG180937 DB	'Slug_Mass', 00H
+$SG180950 DB	'Slug_Mass', 00H
 	ORG $+2
-$SG180938 DB	'Slug_MaxSpeed', 00H
+$SG180951 DB	'Slug_MaxSpeed', 00H
 	ORG $+2
-$SG180939 DB	'Slug_Scale', 00H
+$SG180952 DB	'Slug_Scale', 00H
 	ORG $+1
-$SG180940 DB	'Slug_Damage', 00H
-$SG180941 DB	'Slug_Persistance', 00H
+$SG180953 DB	'Slug_Damage', 00H
+$SG180954 DB	'Slug_Persistance', 00H
 	ORG $+3
 ?colors@@3QBKB DD 0ffH					; colors
 	DD	0ff0000H
@@ -10942,7 +10942,7 @@ _this$ = -4						; size = 4
 ?GetMap@Raven_Game@@QAEQAVRaven_Map@@XZ PROC		; Raven_Game::GetMap, COMDAT
 ; _this$ = ecx
 
-; 164  : 	Raven_Map* const                         GetMap() { return m_pMap; }
+; 168  : 	Raven_Map* const                         GetMap() { return m_pMap; }
 
 	push	ebp
 	mov	ebp, esp
@@ -18827,7 +18827,7 @@ _target$ = 12						; size = 16
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T9[ebp], esp
-	push	OFFSET $SG180936
+	push	OFFSET $SG180949
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv290[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
@@ -18842,7 +18842,7 @@ _target$ = 12						; size = 16
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T8[ebp], esp
-	push	OFFSET $SG180937
+	push	OFFSET $SG180950
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv291[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
@@ -18857,7 +18857,7 @@ _target$ = 12						; size = 16
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T7[ebp], esp
-	push	OFFSET $SG180938
+	push	OFFSET $SG180951
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv292[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 2
@@ -18872,7 +18872,7 @@ _target$ = 12						; size = 16
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T6[ebp], esp
-	push	OFFSET $SG180939
+	push	OFFSET $SG180952
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv293[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 3
@@ -18887,7 +18887,7 @@ _target$ = 12						; size = 16
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T5[ebp], esp
-	push	OFFSET $SG180940
+	push	OFFSET $SG180953
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv294[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 4
@@ -18967,7 +18967,7 @@ _target$ = 12						; size = 16
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T2[ebp], esp
-	push	OFFSET $SG180941
+	push	OFFSET $SG180954
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv295[ebp], eax
 	mov	BYTE PTR __$EHRec$[ebp+8], 6

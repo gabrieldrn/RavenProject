@@ -14,6 +14,8 @@
 #include <vector>
 #include "2d/vector2d.h"
 #include "time/crudetimer.h"
+#include "Raven_Bot.h"
+#include "Raven_team.h"
 
 class GraveMarkers
 {
@@ -22,9 +24,12 @@ private:
 	struct GraveRecord
 	{
 		Vector2D Position;
+		Raven_Bot* bot;
 		double    TimeCreated;
 
-		GraveRecord(Vector2D pos) :Position(pos),
+		GraveRecord(Vector2D pos, Raven_Bot* n_bot) :
+			Position(pos),
+			bot(n_bot),
 			TimeCreated(Clock->GetCurrentTime())
 		{}
 	};
@@ -49,7 +54,7 @@ public:
 
 	void Update();
 	void Render();
-	void AddGrave(Vector2D pos);
+	void AddGrave(Raven_Bot* bot);
 };
 
 #endif

@@ -25,7 +25,7 @@ CONST	SEGMENT
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG170413 DB	'Goal_GetItem cannot determine item type', 00H
+$SG170424 DB	'Goal_GetItem cannot determine item type', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
@@ -5603,7 +5603,7 @@ $LN8@ItemTypeTo:
 ; 31   : 
 ; 32   : 	default: throw std::runtime_error("Goal_GetItem cannot determine item type");
 
-	push	OFFSET $SG170413
+	push	OFFSET $SG170424
 	lea	ecx, DWORD PTR $T1[ebp]
 	call	??0runtime_error@std@@QAE@PBD@Z		; std::runtime_error::runtime_error
 	push	OFFSET __TI2?AVruntime_error@std@@

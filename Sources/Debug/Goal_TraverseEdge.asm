@@ -11,7 +11,7 @@ INCLUDELIB OLDNAMES
 
 CONST	SEGMENT
 ?piecewise_construct@std@@3Upiecewise_construct_t@1@B	ORG $+1 ; std::piecewise_construct
-$SG179490 DB	00H
+$SG179498 DB	00H
 	ORG $+2
 ?colors@@3QBKB DD 0ffH					; colors
 	DD	0ff0000H
@@ -28,14 +28,14 @@ $SG179490 DB	00H
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG179458 DB	'Bot_MaxSwimmingSpeed', 00H
+$SG179466 DB	'Bot_MaxSwimmingSpeed', 00H
 	ORG $+3
-$SG179460 DB	'Bot_MaxCrawlingSpeed', 00H
+$SG179468 DB	'Bot_MaxCrawlingSpeed', 00H
 	ORG $+3
-$SG179488 DB	'BOT ', 00H
+$SG179496 DB	'BOT ', 00H
 	ORG $+3
-$SG179489 DB	' IS STUCK!!', 00H
-$SG179495 DB	'Bot_MaxSpeed', 00H
+$SG179497 DB	' IS STUCK!!', 00H
+$SG179503 DB	'Bot_MaxSpeed', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
@@ -31952,7 +31952,7 @@ __$EHRec$ = -12						; size = 12
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T2[ebp], esp
-	push	OFFSET $SG179495
+	push	OFFSET $SG179503
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv147[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
@@ -32164,7 +32164,7 @@ $LN4@Activate:
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T5[ebp], esp
-	push	OFFSET $SG179458
+	push	OFFSET $SG179466
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv229[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
@@ -32195,7 +32195,7 @@ $LN5@Activate:
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T4[ebp], esp
-	push	OFFSET $SG179460
+	push	OFFSET $SG179468
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv230[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
@@ -32472,11 +32472,11 @@ _this$ = -4						; size = 4
 	mov	ecx, DWORD PTR [edx+8]
 	call	?ID@BaseGameEntity@@QBEHXZ		; BaseGameEntity::ID
 	mov	DWORD PTR $T1[ebp], eax
-	push	OFFSET $SG179490
-	push	OFFSET $SG179489
+	push	OFFSET $SG179498
+	push	OFFSET $SG179497
 	lea	eax, DWORD PTR $T1[ebp]
 	push	eax
-	push	OFFSET $SG179488
+	push	OFFSET $SG179496
 	call	?Instance@DebugConsole@@SAPAV1@XZ	; DebugConsole::Instance
 	mov	ecx, eax
 	call	??$?6$$BY04D@DebugConsole@@QAEAAV0@AAY04$$CBD@Z ; DebugConsole::operator<<<char [5]>

@@ -25,7 +25,7 @@ CONST	SEGMENT
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG155519 DB	'RIP', 00H
+$SG159170 DB	'RIP', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
@@ -98,7 +98,14 @@ PUBLIC	?_Xlen@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@SAXXZ
 PUBLIC	??0Vector2D@@QAE@NN@Z				; Vector2D::Vector2D
 PUBLIC	?Perp@Vector2D@@QBE?AU1@XZ			; Vector2D::Perp
 PUBLIC	?GetTickCount@CrudeTimer@@QAENXZ		; CrudeTimer::GetTickCount
-PUBLIC	??0GraveRecord@GraveMarkers@@QAE@UVector2D@@@Z	; GraveMarkers::GraveRecord::GraveRecord
+PUBLIC	??0Matrix@C2DMatrix@@QAE@XZ			; C2DMatrix::Matrix::Matrix
+PUBLIC	?MatrixMultiply@C2DMatrix@@AAEXAAUMatrix@1@@Z	; C2DMatrix::MatrixMultiply
+PUBLIC	??0C2DMatrix@@QAE@XZ				; C2DMatrix::C2DMatrix
+PUBLIC	?Identity@C2DMatrix@@QAEXXZ			; C2DMatrix::Identity
+PUBLIC	?Translate@C2DMatrix@@QAEXNN@Z			; C2DMatrix::Translate
+PUBLIC	?Scale@C2DMatrix@@QAEXNN@Z			; C2DMatrix::Scale
+PUBLIC	?Rotate@C2DMatrix@@QAEXABUVector2D@@0@Z		; C2DMatrix::Rotate
+PUBLIC	?TransformVector2Ds@C2DMatrix@@QAEXAAV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z ; C2DMatrix::TransformVector2Ds
 PUBLIC	??0?$allocator@UVector2D@@@std@@QAE@XZ		; std::allocator<Vector2D>::allocator<Vector2D>
 PUBLIC	?deallocate@?$allocator@UVector2D@@@std@@QAEXQAUVector2D@@I@Z ; std::allocator<Vector2D>::deallocate
 PUBLIC	?allocate@?$allocator@UVector2D@@@std@@QAEPAUVector2D@@I@Z ; std::allocator<Vector2D>::allocate
@@ -152,6 +159,9 @@ PUBLIC	?_Change_array@?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AA
 PUBLIC	?_Tidy@?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAEXXZ ; std::vector<Vector2D,std::allocator<Vector2D> >::_Tidy
 PUBLIC	?_Xlength@?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@CAXXZ ; std::vector<Vector2D,std::allocator<Vector2D> >::_Xlength
 PUBLIC	?_Orphan_range@?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@ABEXPAUVector2D@@0@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::_Orphan_range
+PUBLIC	?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z ; WorldTransform
+PUBLIC	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ		; BaseGameEntity::Pos
+PUBLIC	??0GraveRecord@GraveMarkers@@QAE@UVector2D@@PAVRaven_Bot@@@Z ; GraveMarkers::GraveRecord::GraveRecord
 PUBLIC	??0?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@QAE@XZ ; std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> >::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> >
 PUBLIC	?deallocate@?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@QAEXQAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@2@I@Z ; std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> >::deallocate
 PUBLIC	?allocate@?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@2@I@Z ; std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> >::allocate
@@ -198,20 +208,11 @@ PUBLIC	?_Orphan_ptr@?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@
 PUBLIC	??0GraveMarkers@@QAE@N@Z			; GraveMarkers::GraveMarkers
 PUBLIC	?Update@GraveMarkers@@QAEXXZ			; GraveMarkers::Update
 PUBLIC	?Render@GraveMarkers@@QAEXXZ			; GraveMarkers::Render
-PUBLIC	?AddGrave@GraveMarkers@@QAEXUVector2D@@@Z	; GraveMarkers::AddGrave
+PUBLIC	?AddGrave@GraveMarkers@@QAEXPAVRaven_Bot@@@Z	; GraveMarkers::AddGrave
 PUBLIC	?BrownPen@Cgdi@@QAEXXZ				; Cgdi::BrownPen
 PUBLIC	?TextAtPos@Cgdi@@QAEXNNABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z ; Cgdi::TextAtPos
 PUBLIC	?TextColor@Cgdi@@QAEXHHH@Z			; Cgdi::TextColor
 PUBLIC	?ClosedShape@Cgdi@@QAEXABV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z ; Cgdi::ClosedShape
-PUBLIC	??0Matrix@C2DMatrix@@QAE@XZ			; C2DMatrix::Matrix::Matrix
-PUBLIC	?MatrixMultiply@C2DMatrix@@AAEXAAUMatrix@1@@Z	; C2DMatrix::MatrixMultiply
-PUBLIC	??0C2DMatrix@@QAE@XZ				; C2DMatrix::C2DMatrix
-PUBLIC	?Identity@C2DMatrix@@QAEXXZ			; C2DMatrix::Identity
-PUBLIC	?Translate@C2DMatrix@@QAEXNN@Z			; C2DMatrix::Translate
-PUBLIC	?Scale@C2DMatrix@@QAEXNN@Z			; C2DMatrix::Scale
-PUBLIC	?Rotate@C2DMatrix@@QAEXABUVector2D@@0@Z		; C2DMatrix::Rotate
-PUBLIC	?TransformVector2Ds@C2DMatrix@@QAEXAAV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z ; C2DMatrix::TransformVector2Ds
-PUBLIC	?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z ; WorldTransform
 PUBLIC	??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base12@2@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base12>::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base12>
 PUBLIC	??1?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base12@2@@std@@QAE@XZ ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base12>::~_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base12>
 PUBLIC	??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base12@2@@std@@QAE@ABV01@@Z ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base12>::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base12>
@@ -234,6 +235,11 @@ PUBLIC	??E?$_List_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@Grave
 PUBLIC	??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAE@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::~_List_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >
 PUBLIC	??4?$_List_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAEAAV01@$$QAV01@@Z ; std::_List_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::operator=
 PUBLIC	?pointer_to@?$pointer_traits@PAUGraveRecord@GraveMarkers@@@std@@SAPAUGraveRecord@GraveMarkers@@AAU34@@Z ; std::pointer_traits<GraveMarkers::GraveRecord *>::pointer_to
+PUBLIC	??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>
+PUBLIC	??$addressof@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPAV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@AAV10@@Z ; std::addressof<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >
+PUBLIC	??0?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z ; std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >
+PUBLIC	??$move@AAUGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z ; std::move<GraveMarkers::GraveRecord &>
+PUBLIC	??$_Insert@UGraveRecord@GraveMarkers@@@?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEXV?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@1@$$QAUGraveRecord@GraveMarkers@@@Z ; std::list<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Insert<GraveMarkers::GraveRecord>
 PUBLIC	??$move@AAUVector2D@@@std@@YA$$QAUVector2D@@AAU1@@Z ; std::move<Vector2D &>
 PUBLIC	??$forward@UVector2D@@@std@@YA$$QAUVector2D@@AAU1@@Z ; std::forward<Vector2D>
 PUBLIC	??$_Unfancy@UVector2D@@@std@@YAPAUVector2D@@PAU1@@Z ; std::_Unfancy<Vector2D>
@@ -248,20 +254,15 @@ PUBLIC	??$move@AAV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@std@@
 PUBLIC	??$move@AAV?$allocator@UVector2D@@@std@@@std@@YA$$QAV?$allocator@UVector2D@@@0@AAV10@@Z ; std::move<std::allocator<Vector2D> &>
 PUBLIC	??$?0V?$allocator@UVector2D@@@std@@X@?$_Vector_alloc@U?$_Vec_base_types@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@std@@QAE@$$QAV?$allocator@UVector2D@@@1@@Z ; std::_Vector_alloc<std::_Vec_base_types<Vector2D,std::allocator<Vector2D> > >::_Vector_alloc<std::_Vec_base_types<Vector2D,std::allocator<Vector2D> > ><std::allocator<Vector2D>,void>
 PUBLIC	??$_Ucopy@PAUVector2D@@@?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAEPAUVector2D@@PAU2@00@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::_Ucopy<Vector2D *>
-PUBLIC	??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>
-PUBLIC	??$addressof@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPAV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@AAV10@@Z ; std::addressof<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >
-PUBLIC	??0?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z ; std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >
-PUBLIC	??$move@AAUGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z ; std::move<GraveMarkers::GraveRecord &>
-PUBLIC	??$_Insert@UGraveRecord@GraveMarkers@@@?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEXV?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@1@$$QAUGraveRecord@GraveMarkers@@@Z ; std::list<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Insert<GraveMarkers::GraveRecord>
 PUBLIC	??$_Min_value@I@std@@YAABIABI0@Z		; std::_Min_value<unsigned int>
 PUBLIC	??$_Unfancy@D@std@@YAPADPAD@Z			; std::_Unfancy<char>
 PUBLIC	??$addressof@UGraveRecord@GraveMarkers@@@std@@YAPAUGraveRecord@GraveMarkers@@AAU12@@Z ; std::addressof<GraveMarkers::GraveRecord>
 PUBLIC	??$destroy@UGraveRecord@GraveMarkers@@@?$_Default_allocator_traits@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@QAUGraveRecord@GraveMarkers@@@Z ; std::_Default_allocator_traits<std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> > >::destroy<GraveMarkers::GraveRecord>
 PUBLIC	??$_Freenode0@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@PAU01@@Z ; std::_List_node<GraveMarkers::GraveRecord,void *>::_Freenode0<std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> > >
+PUBLIC	??$addressof@$$CBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@ABV10@@Z ; std::addressof<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > const >
 PUBLIC	??$?9UVector2D@@U0@@std@@YA_NABV?$allocator@UVector2D@@@0@0@Z ; std::operator!=<Vector2D,Vector2D>
 PUBLIC	??$_Pocma@V?$allocator@UVector2D@@@std@@@std@@YAXAAV?$allocator@UVector2D@@@0@0@Z ; std::_Pocma<std::allocator<Vector2D> >
 PUBLIC	??$?0$$V@?$_Compressed_pair@V?$allocator@UVector2D@@@std@@V?$_Vector_val@U?$_Simple_types@UVector2D@@@std@@@2@$00@std@@QAE@U_Zero_then_variadic_args_t@1@@Z ; std::_Compressed_pair<std::allocator<Vector2D>,std::_Vector_val<std::_Simple_types<Vector2D> >,1>::_Compressed_pair<std::allocator<Vector2D>,std::_Vector_val<std::_Simple_types<Vector2D> >,1><>
-PUBLIC	??$addressof@$$CBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@ABV10@@Z ; std::addressof<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > const >
 PUBLIC	??$?0$$V@?$_Compressed_pair@V?$allocator@D@std@@V?$_String_val@U?$_Simple_types@D@std@@@2@$00@std@@QAE@U_Zero_then_variadic_args_t@1@@Z ; std::_Compressed_pair<std::allocator<char>,std::_String_val<std::_Simple_types<char> >,1>::_Compressed_pair<std::allocator<char>,std::_String_val<std::_Simple_types<char> >,1><>
 PUBLIC	??$addressof@PAD@std@@YAPAPADAAPAD@Z		; std::addressof<char *>
 PUBLIC	??$destroy@PAD@?$_Default_allocator_traits@V?$allocator@D@std@@@std@@SAXAAV?$allocator@D@1@QAPAD@Z ; std::_Default_allocator_traits<std::allocator<char> >::destroy<char *>
@@ -288,12 +289,12 @@ PUBLIC	??$?0D@?$allocator@U_Container_proxy@std@@@std@@QAE@ABV?$allocator@D@1@@Z
 PUBLIC	??$_Get_size_of_n@$07@std@@YAII@Z		; std::_Get_size_of_n<8>
 PUBLIC	??$addressof@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@YAPAPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@0@AAPAU10@@Z ; std::addressof<std::_List_node<GraveMarkers::GraveRecord,void *> *>
 PUBLIC	??$construct@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@AAPAU12@@?$_Default_allocator_traits@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@QAPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@AAPAU31@@Z ; std::_Default_allocator_traits<std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> > >::construct<std::_List_node<GraveMarkers::GraveRecord,void *> *,std::_List_node<GraveMarkers::GraveRecord,void *> * &>
-PUBLIC	??$_Get_size_of_n@$0CA@@std@@YAII@Z		; std::_Get_size_of_n<32>
+PUBLIC	??$_Get_size_of_n@$0CI@@std@@YAII@Z		; std::_Get_size_of_n<40>
+PUBLIC	??$forward@UGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z ; std::forward<GraveMarkers::GraveRecord>
+PUBLIC	??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z ; std::_List_buy<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Buynode<GraveMarkers::GraveRecord>
 PUBLIC	??$forward@V?$allocator@UVector2D@@@std@@@std@@YA$$QAV?$allocator@UVector2D@@@0@AAV10@@Z ; std::forward<std::allocator<Vector2D> >
 PUBLIC	??$?0V?$allocator@UVector2D@@@std@@$$V@?$_Compressed_pair@V?$allocator@UVector2D@@@std@@V?$_Vector_val@U?$_Simple_types@UVector2D@@@std@@@2@$00@std@@QAE@U_One_then_variadic_args_t@1@$$QAV?$allocator@UVector2D@@@1@@Z ; std::_Compressed_pair<std::allocator<Vector2D>,std::_Vector_val<std::_Simple_types<Vector2D> >,1>::_Compressed_pair<std::allocator<Vector2D>,std::_Vector_val<std::_Simple_types<Vector2D> >,1><std::allocator<Vector2D> >
 PUBLIC	??$_Uninitialized_copy@PAUVector2D@@PAU1@V?$allocator@UVector2D@@@std@@@std@@YAPAUVector2D@@QAU1@0PAU1@AAV?$allocator@UVector2D@@@0@@Z ; std::_Uninitialized_copy<Vector2D *,Vector2D *,std::allocator<Vector2D> >
-PUBLIC	??$forward@UGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z ; std::forward<GraveMarkers::GraveRecord>
-PUBLIC	??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z ; std::_List_buy<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Buynode<GraveMarkers::GraveRecord>
 PUBLIC	??$destroy@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@?$_Default_allocator_traits@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@QAPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@@Z ; std::_Default_allocator_traits<std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> > >::destroy<std::_List_node<GraveMarkers::GraveRecord,void *> *>
 PUBLIC	??$_Pocma@V?$allocator@UVector2D@@@std@@@std@@YAXAAV?$allocator@UVector2D@@@0@0U?$integral_constant@_N$00@0@@Z ; std::_Pocma<std::allocator<Vector2D> >
 PUBLIC	??$forward@ABQAD@std@@YAABQADABQAD@Z		; std::forward<char * const &>
@@ -302,15 +303,15 @@ PUBLIC	??$forward@U_Container_proxy@std@@@std@@YA$$QAU_Container_proxy@0@AAU10@@
 PUBLIC	??$_Destroy_range1@V?$allocator@UVector2D@@@std@@@std@@YAXPAUVector2D@@0AAV?$allocator@UVector2D@@@0@U?$integral_constant@_N$00@0@@Z ; std::_Destroy_range1<std::allocator<Vector2D> >
 PUBLIC	??$forward@AAPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@YAAAPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@0@AAPAU10@@Z ; std::forward<std::_List_node<GraveMarkers::GraveRecord,void *> * &>
 PUBLIC	??$_Uninitialized_move@PAUVector2D@@PAU1@V?$allocator@UVector2D@@@std@@@std@@YAPAUVector2D@@QAU1@0PAU1@AAV?$allocator@UVector2D@@@0@@Z ; std::_Uninitialized_move<Vector2D *,Vector2D *,std::allocator<Vector2D> >
+PUBLIC	??$construct@UGraveRecord@GraveMarkers@@U12@@?$_Default_allocator_traits@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@QAUGraveRecord@GraveMarkers@@$$QAU34@@Z ; std::_Default_allocator_traits<std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> > >::construct<GraveMarkers::GraveRecord,GraveMarkers::GraveRecord>
+PUBLIC	??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z ; std::_Unused_parameter::_Unused_parameter<std::integral_constant<bool,1> >
 PUBLIC	??$_Get_unwrapped@UVector2D@@@std@@YAPAUVector2D@@QAU1@@Z ; std::_Get_unwrapped<Vector2D>
 PUBLIC	??$_Idl_distance@PAUVector2D@@PAU1@@std@@YA@ABQAUVector2D@@0@Z ; std::_Idl_distance<Vector2D *,Vector2D *>
 PUBLIC	??$_Idl_distance1@PAUVector2D@@PAU1@@std@@YAHABQAUVector2D@@0Urandom_access_iterator_tag@0@@Z ; std::_Idl_distance1<Vector2D *,Vector2D *>
 PUBLIC	??$_Get_unwrapped_n@UVector2D@@H$0A@@std@@YAPAUVector2D@@QAU1@H@Z ; std::_Get_unwrapped_n<Vector2D,int,0>
 PUBLIC	??$_Ptr_copy_cat@UVector2D@@U1@@std@@YA?AU_Trivially_copyable_ptr_iterator_tag@0@ABQAUVector2D@@0@Z ; std::_Ptr_copy_cat<Vector2D,Vector2D>
 PUBLIC	??$_Uninitialized_copy_al_unchecked@PAUVector2D@@PAU1@V?$allocator@UVector2D@@@std@@@std@@YAPAUVector2D@@PAU1@QAU1@1AAV?$allocator@UVector2D@@@0@U_General_ptr_iterator_tag@0@U_Unused_parameter@0@@Z ; std::_Uninitialized_copy_al_unchecked<Vector2D *,Vector2D *,std::allocator<Vector2D> >
-PUBLIC	??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z ; std::_Unused_parameter::_Unused_parameter<std::integral_constant<bool,1> >
 PUBLIC	??$_Seek_wrapped@UVector2D@@@std@@YAXAAPAUVector2D@@QAU1@@Z ; std::_Seek_wrapped<Vector2D>
-PUBLIC	??$construct@UGraveRecord@GraveMarkers@@U12@@?$_Default_allocator_traits@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@QAUGraveRecord@GraveMarkers@@$$QAU34@@Z ; std::_Default_allocator_traits<std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> > >::construct<GraveMarkers::GraveRecord,GraveMarkers::GraveRecord>
 PUBLIC	??$_Ptr_move_cat@UVector2D@@U1@@std@@YA?AU_Trivially_copyable_ptr_iterator_tag@0@ABQAUVector2D@@0@Z ; std::_Ptr_move_cat<Vector2D,Vector2D>
 PUBLIC	??$_Uninitialized_move_al_unchecked@PAUVector2D@@PAU1@V?$allocator@UVector2D@@@std@@@std@@YAPAUVector2D@@PAU1@QAU1@1AAV?$allocator@UVector2D@@@0@U_General_ptr_iterator_tag@0@U_Unused_parameter@0@@Z ; std::_Uninitialized_move_al_unchecked<Vector2D *,Vector2D *,std::allocator<Vector2D> >
 PUBLIC	??0?$_Uninitialized_backout_al@PAUVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@PAUVector2D@@AAV?$allocator@UVector2D@@@1@@Z ; std::_Uninitialized_backout_al<Vector2D *,std::allocator<Vector2D> >::_Uninitialized_backout_al<Vector2D *,std::allocator<Vector2D> >
@@ -992,18 +993,6 @@ __ehfuncinfo$??E?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@UGrave
 	DD	00H
 	DD	01H
 xdata$x	ENDS
-;	COMDAT xdata$x
-xdata$x	SEGMENT
-__unwindtable$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z DD 0ffffffffH
-	DD	FLAT:__unwindfunclet$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z$0
-__ehfuncinfo$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z DD 019930522H
-	DD	01H
-	DD	FLAT:__unwindtable$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z
-	DD	2 DUP(00H)
-	DD	2 DUP(00H)
-	DD	00H
-	DD	01H
-xdata$x	ENDS
 xdata$x	SEGMENT
 __unwindtable$?Update@GraveMarkers@@QAEXXZ DD 0ffffffffH
 	DD	FLAT:__unwindfunclet$?Update@GraveMarkers@@QAEXXZ$0
@@ -1183,6 +1172,18 @@ __ehfuncinfo$??0?$_List_alloc@U?$_List_base_types@UGraveRecord@GraveMarkers@@V?$
 	DD	FLAT:__unwindtable$??0?$_List_alloc@U?$_List_base_types@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAE@XZ
 	DD	01H
 	DD	FLAT:__tryblocktable$??0?$_List_alloc@U?$_List_base_types@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAE@XZ
+	DD	2 DUP(00H)
+	DD	00H
+	DD	01H
+xdata$x	ENDS
+;	COMDAT xdata$x
+xdata$x	SEGMENT
+__unwindtable$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z DD 0ffffffffH
+	DD	FLAT:__unwindfunclet$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z$0
+__ehfuncinfo$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z DD 019930522H
+	DD	01H
+	DD	FLAT:__unwindtable$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z
+	DD	2 DUP(00H)
 	DD	2 DUP(00H)
 	DD	00H
 	DD	01H
@@ -1886,60 +1887,6 @@ ___formal$ = 16						; size = 4
 ??$_Ptr_move_cat@UVector2D@@U1@@std@@YA?AU_Trivially_copyable_ptr_iterator_tag@0@ABQAUVector2D@@0@Z ENDP ; std::_Ptr_move_cat<Vector2D,Vector2D>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
-;	COMDAT ??$construct@UGraveRecord@GraveMarkers@@U12@@?$_Default_allocator_traits@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@QAUGraveRecord@GraveMarkers@@$$QAU34@@Z
-_TEXT	SEGMENT
-$T1 = -4						; size = 4
-___formal$ = 8						; size = 4
-__Ptr$ = 12						; size = 4
-_<_Args_0>$ = 16					; size = 4
-??$construct@UGraveRecord@GraveMarkers@@U12@@?$_Default_allocator_traits@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@QAUGraveRecord@GraveMarkers@@$$QAU34@@Z PROC ; std::_Default_allocator_traits<std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> > >::construct<GraveMarkers::GraveRecord,GraveMarkers::GraveRecord>, COMDAT
-
-; 879  : 		{	// construct _Objty(_Types...) at _Ptr
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-
-; 880  : 		::new (const_cast<void *>(static_cast<const volatile void *>(_Ptr)))
-
-	mov	eax, DWORD PTR __Ptr$[ebp]
-	push	eax
-	push	24					; 00000018H
-	call	??2@YAPAXIPAX@Z				; operator new
-	add	esp, 8
-	mov	DWORD PTR $T1[ebp], eax
-	mov	ecx, DWORD PTR _<_Args_0>$[ebp]
-	push	ecx
-	call	??$forward@UGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z ; std::forward<GraveMarkers::GraveRecord>
-	add	esp, 4
-	mov	edx, DWORD PTR $T1[ebp]
-	mov	ecx, DWORD PTR [eax]
-	mov	DWORD PTR [edx], ecx
-	mov	ecx, DWORD PTR [eax+4]
-	mov	DWORD PTR [edx+4], ecx
-	mov	ecx, DWORD PTR [eax+8]
-	mov	DWORD PTR [edx+8], ecx
-	mov	ecx, DWORD PTR [eax+12]
-	mov	DWORD PTR [edx+12], ecx
-	mov	ecx, DWORD PTR [eax+16]
-	mov	DWORD PTR [edx+16], ecx
-	mov	eax, DWORD PTR [eax+20]
-	mov	DWORD PTR [edx+20], eax
-
-; 881  : 			_Objty(_STD forward<_Types>(_Args)...);
-; 882  : 		}
-
-	add	esp, 4
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	0
-??$construct@UGraveRecord@GraveMarkers@@U12@@?$_Default_allocator_traits@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@QAUGraveRecord@GraveMarkers@@$$QAU34@@Z ENDP ; std::_Default_allocator_traits<std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> > >::construct<GraveMarkers::GraveRecord,GraveMarkers::GraveRecord>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xutility
 ;	COMDAT ??$_Seek_wrapped@UVector2D@@@std@@YAXAAPAUVector2D@@QAU1@@Z
 _TEXT	SEGMENT
@@ -1963,28 +1910,6 @@ __UIt$ = 12						; size = 4
 	pop	ebp
 	ret	0
 ??$_Seek_wrapped@UVector2D@@@std@@YAXAAPAUVector2D@@QAU1@@Z ENDP ; std::_Seek_wrapped<Vector2D>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xutility
-;	COMDAT ??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-___formal$ = 8						; size = 4
-??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z PROC ; std::_Unused_parameter::_Unused_parameter<std::integral_constant<bool,1> >, COMDAT
-; _this$ = ecx
-
-; 436  : 		constexpr _Unused_parameter(_Ty&&) noexcept {}
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	esp, ebp
-	pop	ebp
-	ret	4
-??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z ENDP ; std::_Unused_parameter::_Unused_parameter<std::integral_constant<bool,1> >
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory
@@ -2254,6 +2179,77 @@ __Ptr$ = 8						; size = 4
 	pop	ebp
 	ret	0
 ??$_Get_unwrapped@UVector2D@@@std@@YAPAUVector2D@@QAU1@@Z ENDP ; std::_Get_unwrapped<Vector2D>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xutility
+;	COMDAT ??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+___formal$ = 8						; size = 4
+??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z PROC ; std::_Unused_parameter::_Unused_parameter<std::integral_constant<bool,1> >, COMDAT
+; _this$ = ecx
+
+; 436  : 		constexpr _Unused_parameter(_Ty&&) noexcept {}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+??$?0U?$integral_constant@_N$00@std@@@_Unused_parameter@std@@QAE@$$QAU?$integral_constant@_N$00@1@@Z ENDP ; std::_Unused_parameter::_Unused_parameter<std::integral_constant<bool,1> >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
+;	COMDAT ??$construct@UGraveRecord@GraveMarkers@@U12@@?$_Default_allocator_traits@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@QAUGraveRecord@GraveMarkers@@$$QAU34@@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+___formal$ = 8						; size = 4
+__Ptr$ = 12						; size = 4
+_<_Args_0>$ = 16					; size = 4
+??$construct@UGraveRecord@GraveMarkers@@U12@@?$_Default_allocator_traits@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@QAUGraveRecord@GraveMarkers@@$$QAU34@@Z PROC ; std::_Default_allocator_traits<std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> > >::construct<GraveMarkers::GraveRecord,GraveMarkers::GraveRecord>, COMDAT
+
+; 879  : 		{	// construct _Objty(_Types...) at _Ptr
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	push	esi
+	push	edi
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+
+; 880  : 		::new (const_cast<void *>(static_cast<const volatile void *>(_Ptr)))
+
+	mov	eax, DWORD PTR __Ptr$[ebp]
+	push	eax
+	push	32					; 00000020H
+	call	??2@YAPAXIPAX@Z				; operator new
+	add	esp, 8
+	mov	DWORD PTR $T1[ebp], eax
+	mov	ecx, DWORD PTR _<_Args_0>$[ebp]
+	push	ecx
+	call	??$forward@UGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z ; std::forward<GraveMarkers::GraveRecord>
+	add	esp, 4
+	mov	ecx, 8
+	mov	esi, eax
+	mov	edi, DWORD PTR $T1[ebp]
+	rep movsd
+
+; 881  : 			_Objty(_STD forward<_Types>(_Args)...);
+; 882  : 		}
+
+	pop	edi
+	pop	esi
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??$construct@UGraveRecord@GraveMarkers@@U12@@?$_Default_allocator_traits@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@QAUGraveRecord@GraveMarkers@@$$QAU34@@Z ENDP ; std::_Default_allocator_traits<std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> > >::construct<GraveMarkers::GraveRecord,GraveMarkers::GraveRecord>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory
@@ -2667,168 +2663,6 @@ __Ptr$ = 12						; size = 4
 ??$destroy@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@?$_Default_allocator_traits@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@QAPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@@Z ENDP ; std::_Default_allocator_traits<std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> > >::destroy<std::_List_node<GraveMarkers::GraveRecord,void *> *>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\list
-;	COMDAT ??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z
-_TEXT	SEGMENT
-__Al$ = -28						; size = 4
-__Pnode$ = -24						; size = 4
-_this$ = -20						; size = 4
-__$EHRec$ = -16						; size = 16
-__Next$ = 8						; size = 4
-__Prev$ = 12						; size = 4
-_<_Val_0>$ = 16						; size = 4
-??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z PROC ; std::_List_buy<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Buynode<GraveMarkers::GraveRecord>, COMDAT
-; _this$ = ecx
-
-; 711  : 		{	// allocate a node and set links and value
-
-	push	ebp
-	mov	ebp, esp
-	push	-1
-	push	__ehhandler$??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z
-	mov	eax, DWORD PTR fs:0
-	push	eax
-	push	ecx
-	sub	esp, 12					; 0000000cH
-	push	ebx
-	push	esi
-	push	edi
-	mov	DWORD PTR [ebp-28], -858993460		; ccccccccH
-	mov	DWORD PTR [ebp-24], -858993460		; ccccccccH
-	mov	DWORD PTR [ebp-20], -858993460		; ccccccccH
-	mov	eax, DWORD PTR ___security_cookie
-	xor	eax, ebp
-	push	eax
-	lea	eax, DWORD PTR __$EHRec$[ebp+4]
-	mov	DWORD PTR fs:0, eax
-	mov	DWORD PTR __$EHRec$[ebp], esp
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 712  : 		_Nodeptr _Pnode = this->_Buynode0(_Next, _Prev);
-
-	mov	eax, DWORD PTR __Prev$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR __Next$[ebp]
-	push	ecx
-	mov	ecx, DWORD PTR _this$[ebp]
-	call	?_Buynode0@?$_List_alloc@U?$_List_base_types@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@2@PAU32@0@Z ; std::_List_alloc<std::_List_base_types<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> > >::_Buynode0
-	mov	DWORD PTR __Pnode$[ebp], eax
-
-; 713  : 		_Alnode& _Al = this->_Getal();
-
-	mov	ecx, DWORD PTR _this$[ebp]
-	call	?_Getal@?$_List_alloc@U?$_List_base_types@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAEAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@2@XZ ; std::_List_alloc<std::_List_base_types<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> > >::_Getal
-	mov	DWORD PTR __Al$[ebp], eax
-
-; 714  : 
-; 715  : 		_TRY_BEGIN
-
-	mov	DWORD PTR __$EHRec$[ebp+12], 0
-
-; 716  : 		_Alnode_traits::construct(_Al,
-
-	mov	edx, DWORD PTR _<_Val_0>$[ebp]
-	push	edx
-	call	??$forward@UGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z ; std::forward<GraveMarkers::GraveRecord>
-	add	esp, 4
-	push	eax
-	mov	eax, DWORD PTR __Pnode$[ebp]
-	add	eax, 8
-	push	eax
-	call	??$addressof@UGraveRecord@GraveMarkers@@@std@@YAPAUGraveRecord@GraveMarkers@@AAU12@@Z ; std::addressof<GraveMarkers::GraveRecord>
-	add	esp, 4
-	push	eax
-	mov	ecx, DWORD PTR __Al$[ebp]
-	push	ecx
-	call	??$construct@UGraveRecord@GraveMarkers@@U12@@?$_Default_allocator_traits@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@QAUGraveRecord@GraveMarkers@@$$QAU34@@Z ; std::_Default_allocator_traits<std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> > >::construct<GraveMarkers::GraveRecord,GraveMarkers::GraveRecord>
-	add	esp, 12					; 0000000cH
-	jmp	SHORT $LN4@Buynode
-__catch$??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z$0:
-
-; 717  : 			_STD addressof(_Pnode->_Myval),
-; 718  : 			_STD forward<_Valty>(_Val)...);
-; 719  : 		_CATCH_ALL
-; 720  : 		_Al.deallocate(_Pnode, 1);
-
-	push	1
-	mov	edx, DWORD PTR __Pnode$[ebp]
-	push	edx
-	mov	ecx, DWORD PTR __Al$[ebp]
-	call	?deallocate@?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@QAEXQAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@2@I@Z ; std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> >::deallocate
-
-; 721  : 		_RERAISE;
-
-	push	0
-	push	0
-	call	__CxxThrowException@8
-
-; 722  : 		_CATCH_END
-
-	mov	eax, $LN7@Buynode
-	ret	0
-$LN4@Buynode:
-	mov	DWORD PTR __$EHRec$[ebp+12], -1
-	jmp	SHORT __tryend$??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z$1
-$LN7@Buynode:
-	mov	DWORD PTR __$EHRec$[ebp+12], -1
-__tryend$??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z$1:
-
-; 723  : 
-; 724  : 		return (_Pnode);
-
-	mov	eax, DWORD PTR __Pnode$[ebp]
-$LN3@Buynode:
-
-; 725  : 		}
-
-	mov	ecx, DWORD PTR __$EHRec$[ebp+4]
-	mov	DWORD PTR fs:0, ecx
-	pop	ecx
-	pop	edi
-	pop	esi
-	pop	ebx
-	add	esp, 28					; 0000001cH
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	12					; 0000000cH
-_TEXT	ENDS
-;	COMDAT text$x
-text$x	SEGMENT
-__ehhandler$??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z:
-	mov	edx, DWORD PTR [esp+8]
-	lea	eax, DWORD PTR [edx+12]
-	mov	ecx, DWORD PTR [edx-32]
-	xor	ecx, eax
-	call	@__security_check_cookie@4
-	mov	eax, OFFSET __ehfuncinfo$??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z
-	jmp	___CxxFrameHandler3
-text$x	ENDS
-??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z ENDP ; std::_List_buy<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Buynode<GraveMarkers::GraveRecord>
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\type_traits
-;	COMDAT ??$forward@UGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z
-_TEXT	SEGMENT
-__Arg$ = 8						; size = 4
-??$forward@UGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z PROC ; std::forward<GraveMarkers::GraveRecord>, COMDAT
-
-; 1573 : 	{	// forward an lvalue as either an lvalue or an rvalue
-
-	push	ebp
-	mov	ebp, esp
-
-; 1574 : 	return (static_cast<_Ty&&>(_Arg));
-
-	mov	eax, DWORD PTR __Arg$[ebp]
-
-; 1575 : 	}
-
-	pop	ebp
-	ret	0
-??$forward@UGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z ENDP ; std::forward<GraveMarkers::GraveRecord>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory
 ;	COMDAT ??$_Uninitialized_copy@PAUVector2D@@PAU1@V?$allocator@UVector2D@@@std@@@std@@YAPAUVector2D@@QAU1@0PAU1@AAV?$allocator@UVector2D@@@0@@Z
 _TEXT	SEGMENT
@@ -3047,13 +2881,175 @@ __Arg$ = 8						; size = 4
 ??$forward@V?$allocator@UVector2D@@@std@@@std@@YA$$QAV?$allocator@UVector2D@@@0@AAV10@@Z ENDP ; std::forward<std::allocator<Vector2D> >
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\list
+;	COMDAT ??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z
+_TEXT	SEGMENT
+__Al$ = -28						; size = 4
+__Pnode$ = -24						; size = 4
+_this$ = -20						; size = 4
+__$EHRec$ = -16						; size = 16
+__Next$ = 8						; size = 4
+__Prev$ = 12						; size = 4
+_<_Val_0>$ = 16						; size = 4
+??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z PROC ; std::_List_buy<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Buynode<GraveMarkers::GraveRecord>, COMDAT
+; _this$ = ecx
+
+; 711  : 		{	// allocate a node and set links and value
+
+	push	ebp
+	mov	ebp, esp
+	push	-1
+	push	__ehhandler$??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z
+	mov	eax, DWORD PTR fs:0
+	push	eax
+	push	ecx
+	sub	esp, 12					; 0000000cH
+	push	ebx
+	push	esi
+	push	edi
+	mov	DWORD PTR [ebp-28], -858993460		; ccccccccH
+	mov	DWORD PTR [ebp-24], -858993460		; ccccccccH
+	mov	DWORD PTR [ebp-20], -858993460		; ccccccccH
+	mov	eax, DWORD PTR ___security_cookie
+	xor	eax, ebp
+	push	eax
+	lea	eax, DWORD PTR __$EHRec$[ebp+4]
+	mov	DWORD PTR fs:0, eax
+	mov	DWORD PTR __$EHRec$[ebp], esp
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 712  : 		_Nodeptr _Pnode = this->_Buynode0(_Next, _Prev);
+
+	mov	eax, DWORD PTR __Prev$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR __Next$[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?_Buynode0@?$_List_alloc@U?$_List_base_types@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@2@PAU32@0@Z ; std::_List_alloc<std::_List_base_types<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> > >::_Buynode0
+	mov	DWORD PTR __Pnode$[ebp], eax
+
+; 713  : 		_Alnode& _Al = this->_Getal();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?_Getal@?$_List_alloc@U?$_List_base_types@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAEAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@2@XZ ; std::_List_alloc<std::_List_base_types<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> > >::_Getal
+	mov	DWORD PTR __Al$[ebp], eax
+
+; 714  : 
+; 715  : 		_TRY_BEGIN
+
+	mov	DWORD PTR __$EHRec$[ebp+12], 0
+
+; 716  : 		_Alnode_traits::construct(_Al,
+
+	mov	edx, DWORD PTR _<_Val_0>$[ebp]
+	push	edx
+	call	??$forward@UGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z ; std::forward<GraveMarkers::GraveRecord>
+	add	esp, 4
+	push	eax
+	mov	eax, DWORD PTR __Pnode$[ebp]
+	add	eax, 8
+	push	eax
+	call	??$addressof@UGraveRecord@GraveMarkers@@@std@@YAPAUGraveRecord@GraveMarkers@@AAU12@@Z ; std::addressof<GraveMarkers::GraveRecord>
+	add	esp, 4
+	push	eax
+	mov	ecx, DWORD PTR __Al$[ebp]
+	push	ecx
+	call	??$construct@UGraveRecord@GraveMarkers@@U12@@?$_Default_allocator_traits@V?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@@std@@SAXAAV?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@1@QAUGraveRecord@GraveMarkers@@$$QAU34@@Z ; std::_Default_allocator_traits<std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> > >::construct<GraveMarkers::GraveRecord,GraveMarkers::GraveRecord>
+	add	esp, 12					; 0000000cH
+	jmp	SHORT $LN4@Buynode
+__catch$??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z$0:
+
+; 717  : 			_STD addressof(_Pnode->_Myval),
+; 718  : 			_STD forward<_Valty>(_Val)...);
+; 719  : 		_CATCH_ALL
+; 720  : 		_Al.deallocate(_Pnode, 1);
+
+	push	1
+	mov	edx, DWORD PTR __Pnode$[ebp]
+	push	edx
+	mov	ecx, DWORD PTR __Al$[ebp]
+	call	?deallocate@?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@QAEXQAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@2@I@Z ; std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> >::deallocate
+
+; 721  : 		_RERAISE;
+
+	push	0
+	push	0
+	call	__CxxThrowException@8
+
+; 722  : 		_CATCH_END
+
+	mov	eax, $LN7@Buynode
+	ret	0
+$LN4@Buynode:
+	mov	DWORD PTR __$EHRec$[ebp+12], -1
+	jmp	SHORT __tryend$??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z$1
+$LN7@Buynode:
+	mov	DWORD PTR __$EHRec$[ebp+12], -1
+__tryend$??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z$1:
+
+; 723  : 
+; 724  : 		return (_Pnode);
+
+	mov	eax, DWORD PTR __Pnode$[ebp]
+$LN3@Buynode:
+
+; 725  : 		}
+
+	mov	ecx, DWORD PTR __$EHRec$[ebp+4]
+	mov	DWORD PTR fs:0, ecx
+	pop	ecx
+	pop	edi
+	pop	esi
+	pop	ebx
+	add	esp, 28					; 0000001cH
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	12					; 0000000cH
+_TEXT	ENDS
+;	COMDAT text$x
+text$x	SEGMENT
+__ehhandler$??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z:
+	mov	edx, DWORD PTR [esp+8]
+	lea	eax, DWORD PTR [edx+12]
+	mov	ecx, DWORD PTR [edx-32]
+	xor	ecx, eax
+	call	@__security_check_cookie@4
+	mov	eax, OFFSET __ehfuncinfo$??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z
+	jmp	___CxxFrameHandler3
+text$x	ENDS
+??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z ENDP ; std::_List_buy<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Buynode<GraveMarkers::GraveRecord>
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\type_traits
+;	COMDAT ??$forward@UGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z
+_TEXT	SEGMENT
+__Arg$ = 8						; size = 4
+??$forward@UGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z PROC ; std::forward<GraveMarkers::GraveRecord>, COMDAT
+
+; 1573 : 	{	// forward an lvalue as either an lvalue or an rvalue
+
+	push	ebp
+	mov	ebp, esp
+
+; 1574 : 	return (static_cast<_Ty&&>(_Arg));
+
+	mov	eax, DWORD PTR __Arg$[ebp]
+
+; 1575 : 	}
+
+	pop	ebp
+	ret	0
+??$forward@UGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z ENDP ; std::forward<GraveMarkers::GraveRecord>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
-;	COMDAT ??$_Get_size_of_n@$0CA@@std@@YAII@Z
+;	COMDAT ??$_Get_size_of_n@$0CI@@std@@YAII@Z
 _TEXT	SEGMENT
 __Result$ = -8						; size = 4
 __Max_possible$ = -4					; size = 4
 __Count$ = 8						; size = 4
-??$_Get_size_of_n@$0CA@@std@@YAII@Z PROC		; std::_Get_size_of_n<32>, COMDAT
+??$_Get_size_of_n@$0CI@@std@@YAII@Z PROC		; std::_Get_size_of_n<40>, COMDAT
 
 ; 23   : 	{	// gets the size of _Count copies of a type sized _Ty_size
 
@@ -3065,17 +3061,16 @@ __Count$ = 8						; size = 4
 
 ; 24   : 	constexpr size_t _Max_possible = static_cast<size_t>(-1) / _Ty_size;
 
-	mov	DWORD PTR __Max_possible$[ebp], 134217727 ; 07ffffffH
+	mov	DWORD PTR __Max_possible$[ebp], 107374182 ; 06666666H
 
 ; 25   : 	size_t _Result = _Count * _Ty_size;
 
-	mov	eax, DWORD PTR __Count$[ebp]
-	shl	eax, 5
+	imul	eax, DWORD PTR __Count$[ebp], 40
 	mov	DWORD PTR __Result$[ebp], eax
 
 ; 26   : 	if (_Max_possible < _Count)
 
-	cmp	DWORD PTR __Count$[ebp], 134217727	; 07ffffffH
+	cmp	DWORD PTR __Count$[ebp], 107374182	; 06666666H
 	jbe	SHORT $LN2@Get_size_o
 
 ; 27   : 		{	// multiply overflow, try allocating all of memory and assume the
@@ -3096,7 +3091,7 @@ $LN2@Get_size_o:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-??$_Get_size_of_n@$0CA@@std@@YAII@Z ENDP		; std::_Get_size_of_n<32>
+??$_Get_size_of_n@$0CI@@std@@YAII@Z ENDP		; std::_Get_size_of_n<40>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
@@ -4189,28 +4184,6 @@ ___formal$ = 8						; size = 1
 ??$?0$$V@?$_Compressed_pair@V?$allocator@D@std@@V?$_String_val@U?$_Simple_types@D@std@@@2@$00@std@@QAE@U_Zero_then_variadic_args_t@1@@Z ENDP ; std::_Compressed_pair<std::allocator<char>,std::_String_val<std::_Simple_types<char> >,1>::_Compressed_pair<std::allocator<char>,std::_String_val<std::_Simple_types<char> >,1><>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xstddef
-;	COMDAT ??$addressof@$$CBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@ABV10@@Z
-_TEXT	SEGMENT
-__Val$ = 8						; size = 4
-??$addressof@$$CBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@ABV10@@Z PROC ; std::addressof<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > const >, COMDAT
-
-; 329  : 	{	// return address of _Val
-
-	push	ebp
-	mov	ebp, esp
-
-; 330  : 	return (__builtin_addressof(_Val));
-
-	mov	eax, DWORD PTR __Val$[ebp]
-
-; 331  : 	}
-
-	pop	ebp
-	ret	0
-??$addressof@$$CBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@ABV10@@Z ENDP ; std::addressof<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > const >
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xutility
 ;	COMDAT ??$?0$$V@?$_Compressed_pair@V?$allocator@UVector2D@@@std@@V?$_Vector_val@U?$_Simple_types@UVector2D@@@std@@@2@$00@std@@QAE@U_Zero_then_variadic_args_t@1@@Z
 _TEXT	SEGMENT
@@ -4328,6 +4301,28 @@ ___formal$ = 12						; size = 4
 	pop	ebp
 	ret	0
 ??$?9UVector2D@@U0@@std@@YA_NABV?$allocator@UVector2D@@@0@0@Z ENDP ; std::operator!=<Vector2D,Vector2D>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xstddef
+;	COMDAT ??$addressof@$$CBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@ABV10@@Z
+_TEXT	SEGMENT
+__Val$ = 8						; size = 4
+??$addressof@$$CBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@ABV10@@Z PROC ; std::addressof<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > const >, COMDAT
+
+; 329  : 	{	// return address of _Val
+
+	push	ebp
+	mov	ebp, esp
+
+; 330  : 	return (__builtin_addressof(_Val));
+
+	mov	eax, DWORD PTR __Val$[ebp]
+
+; 331  : 	}
+
+	pop	ebp
+	ret	0
+??$addressof@$$CBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@ABV10@@Z ENDP ; std::addressof<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > const >
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\list
@@ -4553,209 +4548,6 @@ $LN4@Min_value:
 	pop	ebp
 	ret	0
 ??$_Min_value@I@std@@YAABIABI0@Z ENDP			; std::_Min_value<unsigned int>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\list
-;	COMDAT ??$_Insert@UGraveRecord@GraveMarkers@@@?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEXV?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@1@$$QAUGraveRecord@GraveMarkers@@@Z
-_TEXT	SEGMENT
-__Newnode$ = -16					; size = 4
-__Leftnode$ = -12					; size = 4
-__Rightnode$ = -8					; size = 4
-_this$ = -4						; size = 4
-__Where$ = 8						; size = 4
-_<_Val_0>$ = 12						; size = 4
-??$_Insert@UGraveRecord@GraveMarkers@@@?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEXV?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@1@$$QAUGraveRecord@GraveMarkers@@@Z PROC ; std::list<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Insert<GraveMarkers::GraveRecord>, COMDAT
-; _this$ = ecx
-
-; 947  : 		{	// insert element at _Where
-
-	push	ebp
-	mov	ebp, esp
-	sub	esp, 16					; 00000010H
-	mov	eax, -858993460				; ccccccccH
-	mov	DWORD PTR [ebp-16], eax
-	mov	DWORD PTR [ebp-12], eax
-	mov	DWORD PTR [ebp-8], eax
-	mov	DWORD PTR [ebp-4], eax
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 948  : 		const _Nodeptr _Rightnode = _Where._Ptr;
-
-	mov	eax, DWORD PTR __Where$[ebp]
-	mov	DWORD PTR __Rightnode$[ebp], eax
-
-; 949  : 		const _Nodeptr _Leftnode = _Rightnode->_Prev;
-
-	mov	ecx, DWORD PTR __Rightnode$[ebp]
-	mov	edx, DWORD PTR [ecx+4]
-	mov	DWORD PTR __Leftnode$[ebp], edx
-
-; 950  : 		const _Nodeptr _Newnode = this->_Buynode(_Rightnode, _Leftnode, _STD forward<_Valty>(_Val)...);
-
-	mov	eax, DWORD PTR _<_Val_0>$[ebp]
-	push	eax
-	call	??$forward@UGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z ; std::forward<GraveMarkers::GraveRecord>
-	add	esp, 4
-	push	eax
-	mov	ecx, DWORD PTR __Leftnode$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR __Rightnode$[ebp]
-	push	edx
-	mov	ecx, DWORD PTR _this$[ebp]
-	call	??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z ; std::_List_buy<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Buynode<GraveMarkers::GraveRecord>
-	mov	DWORD PTR __Newnode$[ebp], eax
-
-; 951  : 		_Incsize(1);
-
-	push	1
-	mov	ecx, DWORD PTR _this$[ebp]
-	call	?_Incsize@?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEXI@Z ; std::list<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Incsize
-
-; 952  : 		_Rightnode->_Prev = _Newnode;
-
-	mov	eax, DWORD PTR __Rightnode$[ebp]
-	mov	ecx, DWORD PTR __Newnode$[ebp]
-	mov	DWORD PTR [eax+4], ecx
-
-; 953  : 		_Leftnode->_Next = _Newnode;
-
-	mov	edx, DWORD PTR __Leftnode$[ebp]
-	mov	eax, DWORD PTR __Newnode$[ebp]
-	mov	DWORD PTR [edx], eax
-
-; 954  : 		}
-
-	add	esp, 16					; 00000010H
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	8
-??$_Insert@UGraveRecord@GraveMarkers@@@?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEXV?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@1@$$QAUGraveRecord@GraveMarkers@@@Z ENDP ; std::list<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Insert<GraveMarkers::GraveRecord>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\type_traits
-;	COMDAT ??$move@AAUGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z
-_TEXT	SEGMENT
-__Arg$ = 8						; size = 4
-??$move@AAUGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z PROC ; std::move<GraveMarkers::GraveRecord &>, COMDAT
-
-; 1588 : 	{	// forward _Arg as movable
-
-	push	ebp
-	mov	ebp, esp
-
-; 1589 : 	return (static_cast<remove_reference_t<_Ty>&&>(_Arg));
-
-	mov	eax, DWORD PTR __Arg$[ebp]
-
-; 1590 : 	}
-
-	pop	ebp
-	ret	0
-??$move@AAUGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z ENDP ; std::move<GraveMarkers::GraveRecord &>
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\list
-;	COMDAT ??0?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-__Pnode$ = 8						; size = 4
-__Plist$ = 12						; size = 4
-??0?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z PROC ; std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >, COMDAT
-; _this$ = ecx
-
-; 117  : 		{	// construct with node pointer _Pnode
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 116  : 		: _Mybase(_Pnode, _Plist)
-
-	mov	eax, DWORD PTR __Plist$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR __Pnode$[ebp]
-	push	ecx
-	mov	ecx, DWORD PTR _this$[ebp]
-	call	??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>
-
-; 118  : 		}
-
-	mov	eax, DWORD PTR _this$[ebp]
-	add	esp, 4
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	8
-??0?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z ENDP ; std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xstddef
-;	COMDAT ??$addressof@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPAV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@AAV10@@Z
-_TEXT	SEGMENT
-__Val$ = 8						; size = 4
-??$addressof@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPAV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@AAV10@@Z PROC ; std::addressof<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >, COMDAT
-
-; 329  : 	{	// return address of _Val
-
-	push	ebp
-	mov	ebp, esp
-
-; 330  : 	return (__builtin_addressof(_Val));
-
-	mov	eax, DWORD PTR __Val$[ebp]
-
-; 331  : 	}
-
-	pop	ebp
-	ret	0
-??$addressof@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPAV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@AAV10@@Z ENDP ; std::addressof<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\list
-;	COMDAT ??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-__Pnode$ = 8						; size = 4
-__Plist$ = 12						; size = 4
-??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z PROC ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>, COMDAT
-; _this$ = ecx
-
-; 43   : 		{	// construct with node pointer _Pnode
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 42   : 		: _Ptr(_Pnode)
-
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR __Pnode$[ebp]
-	mov	DWORD PTR [eax], ecx
-
-; 44   : 		this->_Adopt(_Plist);
-
-	mov	edx, DWORD PTR __Plist$[ebp]
-	push	edx
-	mov	ecx, DWORD PTR _this$[ebp]
-	call	?_Adopt@_Iterator_base0@std@@QAEXPBX@Z	; std::_Iterator_base0::_Adopt
-
-; 45   : 		}
-
-	mov	eax, DWORD PTR _this$[ebp]
-	add	esp, 4
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	8
-??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z ENDP ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\vector
@@ -5570,6 +5362,209 @@ __Arg$ = 8						; size = 4
 	pop	ebp
 	ret	0
 ??$move@AAUVector2D@@@std@@YA$$QAUVector2D@@AAU1@@Z ENDP ; std::move<Vector2D &>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\list
+;	COMDAT ??$_Insert@UGraveRecord@GraveMarkers@@@?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEXV?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@1@$$QAUGraveRecord@GraveMarkers@@@Z
+_TEXT	SEGMENT
+__Newnode$ = -16					; size = 4
+__Leftnode$ = -12					; size = 4
+__Rightnode$ = -8					; size = 4
+_this$ = -4						; size = 4
+__Where$ = 8						; size = 4
+_<_Val_0>$ = 12						; size = 4
+??$_Insert@UGraveRecord@GraveMarkers@@@?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEXV?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@1@$$QAUGraveRecord@GraveMarkers@@@Z PROC ; std::list<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Insert<GraveMarkers::GraveRecord>, COMDAT
+; _this$ = ecx
+
+; 947  : 		{	// insert element at _Where
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 16					; 00000010H
+	mov	eax, -858993460				; ccccccccH
+	mov	DWORD PTR [ebp-16], eax
+	mov	DWORD PTR [ebp-12], eax
+	mov	DWORD PTR [ebp-8], eax
+	mov	DWORD PTR [ebp-4], eax
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 948  : 		const _Nodeptr _Rightnode = _Where._Ptr;
+
+	mov	eax, DWORD PTR __Where$[ebp]
+	mov	DWORD PTR __Rightnode$[ebp], eax
+
+; 949  : 		const _Nodeptr _Leftnode = _Rightnode->_Prev;
+
+	mov	ecx, DWORD PTR __Rightnode$[ebp]
+	mov	edx, DWORD PTR [ecx+4]
+	mov	DWORD PTR __Leftnode$[ebp], edx
+
+; 950  : 		const _Nodeptr _Newnode = this->_Buynode(_Rightnode, _Leftnode, _STD forward<_Valty>(_Val)...);
+
+	mov	eax, DWORD PTR _<_Val_0>$[ebp]
+	push	eax
+	call	??$forward@UGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z ; std::forward<GraveMarkers::GraveRecord>
+	add	esp, 4
+	push	eax
+	mov	ecx, DWORD PTR __Leftnode$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR __Rightnode$[ebp]
+	push	edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??$_Buynode@UGraveRecord@GraveMarkers@@@?$_List_buy@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEPAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PAU21@0$$QAUGraveRecord@GraveMarkers@@@Z ; std::_List_buy<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Buynode<GraveMarkers::GraveRecord>
+	mov	DWORD PTR __Newnode$[ebp], eax
+
+; 951  : 		_Incsize(1);
+
+	push	1
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?_Incsize@?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEXI@Z ; std::list<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Incsize
+
+; 952  : 		_Rightnode->_Prev = _Newnode;
+
+	mov	eax, DWORD PTR __Rightnode$[ebp]
+	mov	ecx, DWORD PTR __Newnode$[ebp]
+	mov	DWORD PTR [eax+4], ecx
+
+; 953  : 		_Leftnode->_Next = _Newnode;
+
+	mov	edx, DWORD PTR __Leftnode$[ebp]
+	mov	eax, DWORD PTR __Newnode$[ebp]
+	mov	DWORD PTR [edx], eax
+
+; 954  : 		}
+
+	add	esp, 16					; 00000010H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+??$_Insert@UGraveRecord@GraveMarkers@@@?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEXV?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@1@$$QAUGraveRecord@GraveMarkers@@@Z ENDP ; std::list<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::_Insert<GraveMarkers::GraveRecord>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\type_traits
+;	COMDAT ??$move@AAUGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z
+_TEXT	SEGMENT
+__Arg$ = 8						; size = 4
+??$move@AAUGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z PROC ; std::move<GraveMarkers::GraveRecord &>, COMDAT
+
+; 1588 : 	{	// forward _Arg as movable
+
+	push	ebp
+	mov	ebp, esp
+
+; 1589 : 	return (static_cast<remove_reference_t<_Ty>&&>(_Arg));
+
+	mov	eax, DWORD PTR __Arg$[ebp]
+
+; 1590 : 	}
+
+	pop	ebp
+	ret	0
+??$move@AAUGraveRecord@GraveMarkers@@@std@@YA$$QAUGraveRecord@GraveMarkers@@AAU12@@Z ENDP ; std::move<GraveMarkers::GraveRecord &>
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\list
+;	COMDAT ??0?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+__Pnode$ = 8						; size = 4
+__Plist$ = 12						; size = 4
+??0?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z PROC ; std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >, COMDAT
+; _this$ = ecx
+
+; 117  : 		{	// construct with node pointer _Pnode
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 116  : 		: _Mybase(_Pnode, _Plist)
+
+	mov	eax, DWORD PTR __Plist$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR __Pnode$[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>
+
+; 118  : 		}
+
+	mov	eax, DWORD PTR _this$[ebp]
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+??0?$_List_unchecked_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z ENDP ; std::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::_List_unchecked_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xstddef
+;	COMDAT ??$addressof@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPAV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@AAV10@@Z
+_TEXT	SEGMENT
+__Val$ = 8						; size = 4
+??$addressof@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPAV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@AAV10@@Z PROC ; std::addressof<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >, COMDAT
+
+; 329  : 	{	// return address of _Val
+
+	push	ebp
+	mov	ebp, esp
+
+; 330  : 	return (__builtin_addressof(_Val));
+
+	mov	eax, DWORD PTR __Val$[ebp]
+
+; 331  : 	}
+
+	pop	ebp
+	ret	0
+??$addressof@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@YAPAV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@0@AAV10@@Z ENDP ; std::addressof<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\list
+;	COMDAT ??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+__Pnode$ = 8						; size = 4
+__Plist$ = 12						; size = 4
+??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z PROC ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>, COMDAT
+; _this$ = ecx
+
+; 43   : 		{	// construct with node pointer _Pnode
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 42   : 		: _Ptr(_Pnode)
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR __Pnode$[ebp]
+	mov	DWORD PTR [eax], ecx
+
+; 44   : 		this->_Adopt(_Plist);
+
+	mov	edx, DWORD PTR __Plist$[ebp]
+	push	edx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?_Adopt@_Iterator_base0@std@@QAEXPBX@Z	; std::_Iterator_base0::_Adopt
+
+; 45   : 		}
+
+	mov	eax, DWORD PTR _this$[ebp]
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base0@2@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z ENDP ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base0>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\xmemory0
@@ -6538,1047 +6533,6 @@ __Plist$ = 12						; size = 4
 ??0?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@U_Iterator_base12@2@@std@@QAE@PAU?$_List_node@UGraveRecord@GraveMarkers@@PAX@1@PBV?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@1@@Z ENDP ; std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base12>::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> >,std::_Iterator_base12>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
-; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\transformations.h
-;	COMDAT ?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z
-_TEXT	SEGMENT
-$T2 = -120						; size = 4
-_matTransform$ = -112					; size = 72
-_TranVector2Ds$ = -32					; size = 16
-__$EHRec$ = -12						; size = 12
-___$ReturnUdt$ = 8					; size = 4
-_points$ = 12						; size = 4
-_pos$ = 16						; size = 4
-_forward$ = 20						; size = 4
-_side$ = 24						; size = 4
-_scale$ = 28						; size = 4
-?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z PROC ; WorldTransform, COMDAT
-
-; 29   : {
-
-	push	ebp
-	mov	ebp, esp
-	push	-1
-	push	__ehhandler$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z
-	mov	eax, DWORD PTR fs:0
-	push	eax
-	sub	esp, 108				; 0000006cH
-	push	edi
-	lea	edi, DWORD PTR [ebp-120]
-	mov	ecx, 27					; 0000001bH
-	mov	eax, -858993460				; ccccccccH
-	rep stosd
-	mov	eax, DWORD PTR ___security_cookie
-	xor	eax, ebp
-	push	eax
-	lea	eax, DWORD PTR __$EHRec$[ebp]
-	mov	DWORD PTR fs:0, eax
-	mov	DWORD PTR $T2[ebp], 0
-
-; 30   : 	//copy the original vertices into the buffer about to be transformed
-; 31   : 	std::vector<Vector2D> TranVector2Ds = points;
-
-	mov	eax, DWORD PTR _points$[ebp]
-	push	eax
-	lea	ecx, DWORD PTR _TranVector2Ds$[ebp]
-	call	??0?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@ABV01@@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::vector<Vector2D,std::allocator<Vector2D> >
-	mov	DWORD PTR __$EHRec$[ebp+8], 0
-
-; 32   : 
-; 33   : 	//create a transformation matrix
-; 34   : 	C2DMatrix matTransform;
-
-	lea	ecx, DWORD PTR _matTransform$[ebp]
-	call	??0C2DMatrix@@QAE@XZ			; C2DMatrix::C2DMatrix
-
-; 35   : 
-; 36   : 	//scale
-; 37   : 	if ((scale.x != 1.0) || (scale.y != 1.0))
-
-	mov	ecx, DWORD PTR _scale$[ebp]
-	movsd	xmm0, QWORD PTR [ecx]
-	ucomisd	xmm0, QWORD PTR __real@3ff0000000000000
-	lahf
-	test	ah, 68					; 00000044H
-	jp	SHORT $LN3@WorldTrans
-	mov	edx, DWORD PTR _scale$[ebp]
-	movsd	xmm0, QWORD PTR [edx+8]
-	ucomisd	xmm0, QWORD PTR __real@3ff0000000000000
-	lahf
-	test	ah, 68					; 00000044H
-	jnp	SHORT $LN2@WorldTrans
-$LN3@WorldTrans:
-
-; 38   : 	{
-; 39   : 		matTransform.Scale(scale.x, scale.y);
-
-	mov	eax, DWORD PTR _scale$[ebp]
-	sub	esp, 8
-	movsd	xmm0, QWORD PTR [eax+8]
-	movsd	QWORD PTR [esp], xmm0
-	mov	ecx, DWORD PTR _scale$[ebp]
-	sub	esp, 8
-	movsd	xmm0, QWORD PTR [ecx]
-	movsd	QWORD PTR [esp], xmm0
-	lea	ecx, DWORD PTR _matTransform$[ebp]
-	call	?Scale@C2DMatrix@@QAEXNN@Z		; C2DMatrix::Scale
-$LN2@WorldTrans:
-
-; 40   : 	}
-; 41   : 
-; 42   : 	//rotate
-; 43   : 	matTransform.Rotate(forward, side);
-
-	mov	edx, DWORD PTR _side$[ebp]
-	push	edx
-	mov	eax, DWORD PTR _forward$[ebp]
-	push	eax
-	lea	ecx, DWORD PTR _matTransform$[ebp]
-	call	?Rotate@C2DMatrix@@QAEXABUVector2D@@0@Z	; C2DMatrix::Rotate
-
-; 44   : 
-; 45   : 	//and translate
-; 46   : 	matTransform.Translate(pos.x, pos.y);
-
-	mov	ecx, DWORD PTR _pos$[ebp]
-	sub	esp, 8
-	movsd	xmm0, QWORD PTR [ecx+8]
-	movsd	QWORD PTR [esp], xmm0
-	mov	edx, DWORD PTR _pos$[ebp]
-	sub	esp, 8
-	movsd	xmm0, QWORD PTR [edx]
-	movsd	QWORD PTR [esp], xmm0
-	lea	ecx, DWORD PTR _matTransform$[ebp]
-	call	?Translate@C2DMatrix@@QAEXNN@Z		; C2DMatrix::Translate
-
-; 47   : 
-; 48   : 	//now transform the object's vertices
-; 49   : 	matTransform.TransformVector2Ds(TranVector2Ds);
-
-	lea	eax, DWORD PTR _TranVector2Ds$[ebp]
-	push	eax
-	lea	ecx, DWORD PTR _matTransform$[ebp]
-	call	?TransformVector2Ds@C2DMatrix@@QAEXAAV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z ; C2DMatrix::TransformVector2Ds
-
-; 50   : 
-; 51   : 	return TranVector2Ds;
-
-	lea	ecx, DWORD PTR _TranVector2Ds$[ebp]
-	push	ecx
-	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
-	call	??0?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@$$QAV01@@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::vector<Vector2D,std::allocator<Vector2D> >
-	mov	edx, DWORD PTR $T2[ebp]
-	or	edx, 1
-	mov	DWORD PTR $T2[ebp], edx
-	mov	DWORD PTR __$EHRec$[ebp+8], -1
-	lea	ecx, DWORD PTR _TranVector2Ds$[ebp]
-	call	??1?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@XZ ; std::vector<Vector2D,std::allocator<Vector2D> >::~vector<Vector2D,std::allocator<Vector2D> >
-	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-
-; 52   : }
-
-	push	edx
-	mov	ecx, ebp
-	push	eax
-	lea	edx, DWORD PTR $LN12@WorldTrans
-	call	@_RTC_CheckStackVars@8
-	pop	eax
-	pop	edx
-	mov	ecx, DWORD PTR __$EHRec$[ebp]
-	mov	DWORD PTR fs:0, ecx
-	pop	ecx
-	pop	edi
-	add	esp, 120				; 00000078H
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	0
-	npad	2
-$LN12@WorldTrans:
-	DD	2
-	DD	$LN11@WorldTrans
-$LN11@WorldTrans:
-	DD	-32					; ffffffe0H
-	DD	16					; 00000010H
-	DD	$LN8@WorldTrans
-	DD	-112					; ffffff90H
-	DD	72					; 00000048H
-	DD	$LN9@WorldTrans
-$LN9@WorldTrans:
-	DB	109					; 0000006dH
-	DB	97					; 00000061H
-	DB	116					; 00000074H
-	DB	84					; 00000054H
-	DB	114					; 00000072H
-	DB	97					; 00000061H
-	DB	110					; 0000006eH
-	DB	115					; 00000073H
-	DB	102					; 00000066H
-	DB	111					; 0000006fH
-	DB	114					; 00000072H
-	DB	109					; 0000006dH
-	DB	0
-$LN8@WorldTrans:
-	DB	84					; 00000054H
-	DB	114					; 00000072H
-	DB	97					; 00000061H
-	DB	110					; 0000006eH
-	DB	86					; 00000056H
-	DB	101					; 00000065H
-	DB	99					; 00000063H
-	DB	116					; 00000074H
-	DB	111					; 0000006fH
-	DB	114					; 00000072H
-	DB	50					; 00000032H
-	DB	68					; 00000044H
-	DB	115					; 00000073H
-	DB	0
-_TEXT	ENDS
-;	COMDAT text$x
-text$x	SEGMENT
-__unwindfunclet$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z$0:
-	lea	ecx, DWORD PTR _TranVector2Ds$[ebp]
-	jmp	??1?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@XZ ; std::vector<Vector2D,std::allocator<Vector2D> >::~vector<Vector2D,std::allocator<Vector2D> >
-__ehhandler$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z:
-	mov	edx, DWORD PTR [esp+8]
-	lea	eax, DWORD PTR [edx+12]
-	mov	ecx, DWORD PTR [edx-116]
-	xor	ecx, eax
-	call	@__security_check_cookie@4
-	mov	eax, OFFSET __ehfuncinfo$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z
-	jmp	___CxxFrameHandler3
-text$x	ENDS
-?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z ENDP ; WorldTransform
-; Function compile flags: /Odtp /RTCsu
-; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
-;	COMDAT ?TransformVector2Ds@C2DMatrix@@QAEXAAV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z
-_TEXT	SEGMENT
-tv173 = -40						; size = 8
-tv171 = -32						; size = 8
-_tempY$1 = -24						; size = 8
-_tempX$2 = -16						; size = 8
-_i$3 = -8						; size = 4
-_this$ = -4						; size = 4
-_vPoint$ = 8						; size = 4
-?TransformVector2Ds@C2DMatrix@@QAEXAAV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z PROC ; C2DMatrix::TransformVector2Ds, COMDAT
-; _this$ = ecx
-
-; 109  : {
-
-	push	ebp
-	mov	ebp, esp
-	sub	esp, 40					; 00000028H
-	push	edi
-	push	ecx
-	lea	edi, DWORD PTR [ebp-40]
-	mov	ecx, 10					; 0000000aH
-	mov	eax, -858993460				; ccccccccH
-	rep stosd
-	pop	ecx
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 110  : 	for (unsigned int i = 0; i < vPoint.size(); ++i)
-
-	mov	DWORD PTR _i$3[ebp], 0
-	jmp	SHORT $LN4@TransformV
-$LN2@TransformV:
-	mov	eax, DWORD PTR _i$3[ebp]
-	add	eax, 1
-	mov	DWORD PTR _i$3[ebp], eax
-$LN4@TransformV:
-	mov	ecx, DWORD PTR _vPoint$[ebp]
-	call	?size@?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QBEIXZ ; std::vector<Vector2D,std::allocator<Vector2D> >::size
-	cmp	DWORD PTR _i$3[ebp], eax
-	jae	$LN3@TransformV
-
-; 111  : 	{
-; 112  : 		double tempX = (m_Matrix._11*vPoint[i].x) + (m_Matrix._21*vPoint[i].y) + (m_Matrix._31);
-
-	mov	ecx, DWORD PTR _i$3[ebp]
-	push	ecx
-	mov	ecx, DWORD PTR _vPoint$[ebp]
-	call	??A?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEAAUVector2D@@I@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::operator[]
-	mov	edx, DWORD PTR _this$[ebp]
-	movsd	xmm0, QWORD PTR [edx]
-	mulsd	xmm0, QWORD PTR [eax]
-	mov	eax, DWORD PTR _i$3[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _vPoint$[ebp]
-	movsd	QWORD PTR tv171[ebp], xmm0
-	call	??A?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEAAUVector2D@@I@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::operator[]
-	mov	ecx, DWORD PTR _this$[ebp]
-	movsd	xmm0, QWORD PTR [ecx+24]
-	mulsd	xmm0, QWORD PTR [eax+8]
-	movsd	xmm1, QWORD PTR tv171[ebp]
-	addsd	xmm1, xmm0
-	mov	edx, DWORD PTR _this$[ebp]
-	addsd	xmm1, QWORD PTR [edx+48]
-	movsd	QWORD PTR _tempX$2[ebp], xmm1
-
-; 113  : 
-; 114  : 		double tempY = (m_Matrix._12*vPoint[i].x) + (m_Matrix._22*vPoint[i].y) + (m_Matrix._32);
-
-	mov	eax, DWORD PTR _i$3[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _vPoint$[ebp]
-	call	??A?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEAAUVector2D@@I@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::operator[]
-	mov	ecx, DWORD PTR _this$[ebp]
-	movsd	xmm0, QWORD PTR [ecx+8]
-	mulsd	xmm0, QWORD PTR [eax]
-	mov	edx, DWORD PTR _i$3[ebp]
-	push	edx
-	mov	ecx, DWORD PTR _vPoint$[ebp]
-	movsd	QWORD PTR tv173[ebp], xmm0
-	call	??A?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEAAUVector2D@@I@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::operator[]
-	mov	ecx, DWORD PTR _this$[ebp]
-	movsd	xmm0, QWORD PTR [ecx+32]
-	mulsd	xmm0, QWORD PTR [eax+8]
-	movsd	xmm1, QWORD PTR tv173[ebp]
-	addsd	xmm1, xmm0
-	mov	edx, DWORD PTR _this$[ebp]
-	addsd	xmm1, QWORD PTR [edx+56]
-	movsd	QWORD PTR _tempY$1[ebp], xmm1
-
-; 115  : 
-; 116  : 		vPoint[i].x = tempX;
-
-	mov	eax, DWORD PTR _i$3[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _vPoint$[ebp]
-	call	??A?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEAAUVector2D@@I@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::operator[]
-	movsd	xmm0, QWORD PTR _tempX$2[ebp]
-	movsd	QWORD PTR [eax], xmm0
-
-; 117  : 
-; 118  : 		vPoint[i].y = tempY;
-
-	mov	ecx, DWORD PTR _i$3[ebp]
-	push	ecx
-	mov	ecx, DWORD PTR _vPoint$[ebp]
-	call	??A?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEAAUVector2D@@I@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::operator[]
-	movsd	xmm0, QWORD PTR _tempY$1[ebp]
-	movsd	QWORD PTR [eax+8], xmm0
-
-; 119  : 	}
-
-	jmp	$LN2@TransformV
-$LN3@TransformV:
-
-; 120  : }
-
-	pop	edi
-	add	esp, 40					; 00000028H
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	4
-?TransformVector2Ds@C2DMatrix@@QAEXAAV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z ENDP ; C2DMatrix::TransformVector2Ds
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
-;	COMDAT ?Rotate@C2DMatrix@@QAEXABUVector2D@@0@Z
-_TEXT	SEGMENT
-_mat$ = -80						; size = 72
-_this$ = -4						; size = 4
-_fwd$ = 8						; size = 4
-_side$ = 12						; size = 4
-?Rotate@C2DMatrix@@QAEXABUVector2D@@0@Z PROC		; C2DMatrix::Rotate, COMDAT
-; _this$ = ecx
-
-; 194  : {
-
-	push	ebp
-	mov	ebp, esp
-	sub	esp, 84					; 00000054H
-	push	edi
-	push	ecx
-	lea	edi, DWORD PTR [ebp-84]
-	mov	ecx, 21					; 00000015H
-	mov	eax, -858993460				; ccccccccH
-	rep stosd
-	pop	ecx
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 195  : 	C2DMatrix::Matrix mat;
-
-	lea	ecx, DWORD PTR _mat$[ebp]
-	call	??0Matrix@C2DMatrix@@QAE@XZ		; C2DMatrix::Matrix::Matrix
-
-; 196  : 
-; 197  : 	mat._11 = fwd.x;  mat._12 = fwd.y; mat._13 = 0;
-
-	mov	eax, DWORD PTR _fwd$[ebp]
-	movsd	xmm0, QWORD PTR [eax]
-	movsd	QWORD PTR _mat$[ebp], xmm0
-	mov	ecx, DWORD PTR _fwd$[ebp]
-	movsd	xmm0, QWORD PTR [ecx+8]
-	movsd	QWORD PTR _mat$[ebp+8], xmm0
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR _mat$[ebp+16], xmm0
-
-; 198  : 
-; 199  : 	mat._21 = side.x; mat._22 = side.y; mat._23 = 0;
-
-	mov	edx, DWORD PTR _side$[ebp]
-	movsd	xmm0, QWORD PTR [edx]
-	movsd	QWORD PTR _mat$[ebp+24], xmm0
-	mov	eax, DWORD PTR _side$[ebp]
-	movsd	xmm0, QWORD PTR [eax+8]
-	movsd	QWORD PTR _mat$[ebp+32], xmm0
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR _mat$[ebp+40], xmm0
-
-; 200  : 
-; 201  : 	mat._31 = 0; mat._32 = 0; mat._33 = 1;
-
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR _mat$[ebp+48], xmm0
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR _mat$[ebp+56], xmm0
-	movsd	xmm0, QWORD PTR __real@3ff0000000000000
-	movsd	QWORD PTR _mat$[ebp+64], xmm0
-
-; 202  : 
-; 203  : 	//and multiply
-; 204  : 	MatrixMultiply(mat);
-
-	lea	ecx, DWORD PTR _mat$[ebp]
-	push	ecx
-	mov	ecx, DWORD PTR _this$[ebp]
-	call	?MatrixMultiply@C2DMatrix@@AAEXAAUMatrix@1@@Z ; C2DMatrix::MatrixMultiply
-
-; 205  : }
-
-	push	edx
-	mov	ecx, ebp
-	push	eax
-	lea	edx, DWORD PTR $LN5@Rotate
-	call	@_RTC_CheckStackVars@8
-	pop	eax
-	pop	edx
-	pop	edi
-	add	esp, 84					; 00000054H
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	8
-$LN5@Rotate:
-	DD	1
-	DD	$LN4@Rotate
-$LN4@Rotate:
-	DD	-80					; ffffffb0H
-	DD	72					; 00000048H
-	DD	$LN3@Rotate
-$LN3@Rotate:
-	DB	109					; 0000006dH
-	DB	97					; 00000061H
-	DB	116					; 00000074H
-	DB	0
-?Rotate@C2DMatrix@@QAEXABUVector2D@@0@Z ENDP		; C2DMatrix::Rotate
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
-;	COMDAT ?Scale@C2DMatrix@@QAEXNN@Z
-_TEXT	SEGMENT
-_mat$ = -80						; size = 72
-_this$ = -4						; size = 4
-_xScale$ = 8						; size = 8
-_yScale$ = 16						; size = 8
-?Scale@C2DMatrix@@QAEXNN@Z PROC				; C2DMatrix::Scale, COMDAT
-; _this$ = ecx
-
-; 161  : {
-
-	push	ebp
-	mov	ebp, esp
-	sub	esp, 84					; 00000054H
-	push	edi
-	push	ecx
-	lea	edi, DWORD PTR [ebp-84]
-	mov	ecx, 21					; 00000015H
-	mov	eax, -858993460				; ccccccccH
-	rep stosd
-	pop	ecx
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 162  : 	C2DMatrix::Matrix mat;
-
-	lea	ecx, DWORD PTR _mat$[ebp]
-	call	??0Matrix@C2DMatrix@@QAE@XZ		; C2DMatrix::Matrix::Matrix
-
-; 163  : 
-; 164  : 	mat._11 = xScale; mat._12 = 0; mat._13 = 0;
-
-	movsd	xmm0, QWORD PTR _xScale$[ebp]
-	movsd	QWORD PTR _mat$[ebp], xmm0
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR _mat$[ebp+8], xmm0
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR _mat$[ebp+16], xmm0
-
-; 165  : 
-; 166  : 	mat._21 = 0; mat._22 = yScale; mat._23 = 0;
-
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR _mat$[ebp+24], xmm0
-	movsd	xmm0, QWORD PTR _yScale$[ebp]
-	movsd	QWORD PTR _mat$[ebp+32], xmm0
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR _mat$[ebp+40], xmm0
-
-; 167  : 
-; 168  : 	mat._31 = 0; mat._32 = 0; mat._33 = 1;
-
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR _mat$[ebp+48], xmm0
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR _mat$[ebp+56], xmm0
-	movsd	xmm0, QWORD PTR __real@3ff0000000000000
-	movsd	QWORD PTR _mat$[ebp+64], xmm0
-
-; 169  : 
-; 170  : 	//and multiply
-; 171  : 	MatrixMultiply(mat);
-
-	lea	eax, DWORD PTR _mat$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _this$[ebp]
-	call	?MatrixMultiply@C2DMatrix@@AAEXAAUMatrix@1@@Z ; C2DMatrix::MatrixMultiply
-
-; 172  : }
-
-	push	edx
-	mov	ecx, ebp
-	push	eax
-	lea	edx, DWORD PTR $LN5@Scale
-	call	@_RTC_CheckStackVars@8
-	pop	eax
-	pop	edx
-	pop	edi
-	add	esp, 84					; 00000054H
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	16					; 00000010H
-	npad	2
-$LN5@Scale:
-	DD	1
-	DD	$LN4@Scale
-$LN4@Scale:
-	DD	-80					; ffffffb0H
-	DD	72					; 00000048H
-	DD	$LN3@Scale
-$LN3@Scale:
-	DB	109					; 0000006dH
-	DB	97					; 00000061H
-	DB	116					; 00000074H
-	DB	0
-?Scale@C2DMatrix@@QAEXNN@Z ENDP				; C2DMatrix::Scale
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
-;	COMDAT ?Translate@C2DMatrix@@QAEXNN@Z
-_TEXT	SEGMENT
-_mat$ = -80						; size = 72
-_this$ = -4						; size = 4
-_x$ = 8							; size = 8
-_y$ = 16						; size = 8
-?Translate@C2DMatrix@@QAEXNN@Z PROC			; C2DMatrix::Translate, COMDAT
-; _this$ = ecx
-
-; 146  : {
-
-	push	ebp
-	mov	ebp, esp
-	sub	esp, 84					; 00000054H
-	push	edi
-	push	ecx
-	lea	edi, DWORD PTR [ebp-84]
-	mov	ecx, 21					; 00000015H
-	mov	eax, -858993460				; ccccccccH
-	rep stosd
-	pop	ecx
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 147  : 	Matrix mat;
-
-	lea	ecx, DWORD PTR _mat$[ebp]
-	call	??0Matrix@C2DMatrix@@QAE@XZ		; C2DMatrix::Matrix::Matrix
-
-; 148  : 
-; 149  : 	mat._11 = 1; mat._12 = 0; mat._13 = 0;
-
-	movsd	xmm0, QWORD PTR __real@3ff0000000000000
-	movsd	QWORD PTR _mat$[ebp], xmm0
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR _mat$[ebp+8], xmm0
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR _mat$[ebp+16], xmm0
-
-; 150  : 
-; 151  : 	mat._21 = 0; mat._22 = 1; mat._23 = 0;
-
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR _mat$[ebp+24], xmm0
-	movsd	xmm0, QWORD PTR __real@3ff0000000000000
-	movsd	QWORD PTR _mat$[ebp+32], xmm0
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR _mat$[ebp+40], xmm0
-
-; 152  : 
-; 153  : 	mat._31 = x;    mat._32 = y;    mat._33 = 1;
-
-	movsd	xmm0, QWORD PTR _x$[ebp]
-	movsd	QWORD PTR _mat$[ebp+48], xmm0
-	movsd	xmm0, QWORD PTR _y$[ebp]
-	movsd	QWORD PTR _mat$[ebp+56], xmm0
-	movsd	xmm0, QWORD PTR __real@3ff0000000000000
-	movsd	QWORD PTR _mat$[ebp+64], xmm0
-
-; 154  : 
-; 155  : 	//and multiply
-; 156  : 	MatrixMultiply(mat);
-
-	lea	eax, DWORD PTR _mat$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _this$[ebp]
-	call	?MatrixMultiply@C2DMatrix@@AAEXAAUMatrix@1@@Z ; C2DMatrix::MatrixMultiply
-
-; 157  : }
-
-	push	edx
-	mov	ecx, ebp
-	push	eax
-	lea	edx, DWORD PTR $LN5@Translate
-	call	@_RTC_CheckStackVars@8
-	pop	eax
-	pop	edx
-	pop	edi
-	add	esp, 84					; 00000054H
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	16					; 00000010H
-$LN5@Translate:
-	DD	1
-	DD	$LN4@Translate
-$LN4@Translate:
-	DD	-80					; ffffffb0H
-	DD	72					; 00000048H
-	DD	$LN3@Translate
-$LN3@Translate:
-	DB	109					; 0000006dH
-	DB	97					; 00000061H
-	DB	116					; 00000074H
-	DB	0
-?Translate@C2DMatrix@@QAEXNN@Z ENDP			; C2DMatrix::Translate
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
-;	COMDAT ?Identity@C2DMatrix@@QAEXXZ
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-?Identity@C2DMatrix@@QAEXXZ PROC			; C2DMatrix::Identity, COMDAT
-; _this$ = ecx
-
-; 136  : {
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 137  : 	m_Matrix._11 = 1; m_Matrix._12 = 0; m_Matrix._13 = 0;
-
-	mov	eax, DWORD PTR _this$[ebp]
-	movsd	xmm0, QWORD PTR __real@3ff0000000000000
-	movsd	QWORD PTR [eax], xmm0
-	mov	ecx, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [ecx+8], xmm0
-	mov	edx, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [edx+16], xmm0
-
-; 138  : 
-; 139  : 	m_Matrix._21 = 0; m_Matrix._22 = 1; m_Matrix._23 = 0;
-
-	mov	eax, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [eax+24], xmm0
-	mov	ecx, DWORD PTR _this$[ebp]
-	movsd	xmm0, QWORD PTR __real@3ff0000000000000
-	movsd	QWORD PTR [ecx+32], xmm0
-	mov	edx, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [edx+40], xmm0
-
-; 140  : 
-; 141  : 	m_Matrix._31 = 0; m_Matrix._32 = 0; m_Matrix._33 = 1;
-
-	mov	eax, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [eax+48], xmm0
-	mov	ecx, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [ecx+56], xmm0
-	mov	edx, DWORD PTR _this$[ebp]
-	movsd	xmm0, QWORD PTR __real@3ff0000000000000
-	movsd	QWORD PTR [edx+64], xmm0
-
-; 142  : }
-
-	mov	esp, ebp
-	pop	ebp
-	ret	0
-?Identity@C2DMatrix@@QAEXXZ ENDP			; C2DMatrix::Identity
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
-;	COMDAT ??0C2DMatrix@@QAE@XZ
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-??0C2DMatrix@@QAE@XZ PROC				; C2DMatrix::C2DMatrix, COMDAT
-; _this$ = ecx
-
-; 43   : 	C2DMatrix()
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-	mov	ecx, DWORD PTR _this$[ebp]
-	call	??0Matrix@C2DMatrix@@QAE@XZ		; C2DMatrix::Matrix::Matrix
-
-; 44   : 	{
-; 45   : 		//initialize the matrix to an identity matrix
-; 46   : 		Identity();
-
-	mov	ecx, DWORD PTR _this$[ebp]
-	call	?Identity@C2DMatrix@@QAEXXZ		; C2DMatrix::Identity
-
-; 47   : 	}
-
-	mov	eax, DWORD PTR _this$[ebp]
-	add	esp, 4
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	0
-??0C2DMatrix@@QAE@XZ ENDP				; C2DMatrix::C2DMatrix
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
-;	COMDAT ?MatrixMultiply@C2DMatrix@@AAEXAAUMatrix@1@@Z
-_TEXT	SEGMENT
-_mat_temp$ = -80					; size = 72
-_this$ = -4						; size = 4
-_mIn$ = 8						; size = 4
-?MatrixMultiply@C2DMatrix@@AAEXAAUMatrix@1@@Z PROC	; C2DMatrix::MatrixMultiply, COMDAT
-; _this$ = ecx
-
-; 86   : {
-
-	push	ebp
-	mov	ebp, esp
-	sub	esp, 84					; 00000054H
-	push	esi
-	push	edi
-	push	ecx
-	lea	edi, DWORD PTR [ebp-84]
-	mov	ecx, 21					; 00000015H
-	mov	eax, -858993460				; ccccccccH
-	rep stosd
-	pop	ecx
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 87   : 	C2DMatrix::Matrix mat_temp;
-
-	lea	ecx, DWORD PTR _mat_temp$[ebp]
-	call	??0Matrix@C2DMatrix@@QAE@XZ		; C2DMatrix::Matrix::Matrix
-
-; 88   : 
-; 89   : 	//first row
-; 90   : 	mat_temp._11 = (m_Matrix._11*mIn._11) + (m_Matrix._12*mIn._21) + (m_Matrix._13*mIn._31);
-
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _mIn$[ebp]
-	movsd	xmm0, QWORD PTR [eax]
-	mulsd	xmm0, QWORD PTR [ecx]
-	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [edx+8]
-	mulsd	xmm1, QWORD PTR [eax+24]
-	addsd	xmm0, xmm1
-	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [ecx+16]
-	mulsd	xmm1, QWORD PTR [edx+48]
-	addsd	xmm0, xmm1
-	movsd	QWORD PTR _mat_temp$[ebp], xmm0
-
-; 91   : 	mat_temp._12 = (m_Matrix._11*mIn._12) + (m_Matrix._12*mIn._22) + (m_Matrix._13*mIn._32);
-
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _mIn$[ebp]
-	movsd	xmm0, QWORD PTR [eax]
-	mulsd	xmm0, QWORD PTR [ecx+8]
-	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [edx+8]
-	mulsd	xmm1, QWORD PTR [eax+32]
-	addsd	xmm0, xmm1
-	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [ecx+16]
-	mulsd	xmm1, QWORD PTR [edx+56]
-	addsd	xmm0, xmm1
-	movsd	QWORD PTR _mat_temp$[ebp+8], xmm0
-
-; 92   : 	mat_temp._13 = (m_Matrix._11*mIn._13) + (m_Matrix._12*mIn._23) + (m_Matrix._13*mIn._33);
-
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _mIn$[ebp]
-	movsd	xmm0, QWORD PTR [eax]
-	mulsd	xmm0, QWORD PTR [ecx+16]
-	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [edx+8]
-	mulsd	xmm1, QWORD PTR [eax+40]
-	addsd	xmm0, xmm1
-	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [ecx+16]
-	mulsd	xmm1, QWORD PTR [edx+64]
-	addsd	xmm0, xmm1
-	movsd	QWORD PTR _mat_temp$[ebp+16], xmm0
-
-; 93   : 
-; 94   : 	//second
-; 95   : 	mat_temp._21 = (m_Matrix._21*mIn._11) + (m_Matrix._22*mIn._21) + (m_Matrix._23*mIn._31);
-
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _mIn$[ebp]
-	movsd	xmm0, QWORD PTR [eax+24]
-	mulsd	xmm0, QWORD PTR [ecx]
-	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [edx+32]
-	mulsd	xmm1, QWORD PTR [eax+24]
-	addsd	xmm0, xmm1
-	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [ecx+40]
-	mulsd	xmm1, QWORD PTR [edx+48]
-	addsd	xmm0, xmm1
-	movsd	QWORD PTR _mat_temp$[ebp+24], xmm0
-
-; 96   : 	mat_temp._22 = (m_Matrix._21*mIn._12) + (m_Matrix._22*mIn._22) + (m_Matrix._23*mIn._32);
-
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _mIn$[ebp]
-	movsd	xmm0, QWORD PTR [eax+24]
-	mulsd	xmm0, QWORD PTR [ecx+8]
-	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [edx+32]
-	mulsd	xmm1, QWORD PTR [eax+32]
-	addsd	xmm0, xmm1
-	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [ecx+40]
-	mulsd	xmm1, QWORD PTR [edx+56]
-	addsd	xmm0, xmm1
-	movsd	QWORD PTR _mat_temp$[ebp+32], xmm0
-
-; 97   : 	mat_temp._23 = (m_Matrix._21*mIn._13) + (m_Matrix._22*mIn._23) + (m_Matrix._23*mIn._33);
-
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _mIn$[ebp]
-	movsd	xmm0, QWORD PTR [eax+24]
-	mulsd	xmm0, QWORD PTR [ecx+16]
-	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [edx+32]
-	mulsd	xmm1, QWORD PTR [eax+40]
-	addsd	xmm0, xmm1
-	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [ecx+40]
-	mulsd	xmm1, QWORD PTR [edx+64]
-	addsd	xmm0, xmm1
-	movsd	QWORD PTR _mat_temp$[ebp+40], xmm0
-
-; 98   : 
-; 99   : 	//third
-; 100  : 	mat_temp._31 = (m_Matrix._31*mIn._11) + (m_Matrix._32*mIn._21) + (m_Matrix._33*mIn._31);
-
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _mIn$[ebp]
-	movsd	xmm0, QWORD PTR [eax+48]
-	mulsd	xmm0, QWORD PTR [ecx]
-	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [edx+56]
-	mulsd	xmm1, QWORD PTR [eax+24]
-	addsd	xmm0, xmm1
-	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [ecx+64]
-	mulsd	xmm1, QWORD PTR [edx+48]
-	addsd	xmm0, xmm1
-	movsd	QWORD PTR _mat_temp$[ebp+48], xmm0
-
-; 101  : 	mat_temp._32 = (m_Matrix._31*mIn._12) + (m_Matrix._32*mIn._22) + (m_Matrix._33*mIn._32);
-
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _mIn$[ebp]
-	movsd	xmm0, QWORD PTR [eax+48]
-	mulsd	xmm0, QWORD PTR [ecx+8]
-	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [edx+56]
-	mulsd	xmm1, QWORD PTR [eax+32]
-	addsd	xmm0, xmm1
-	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [ecx+64]
-	mulsd	xmm1, QWORD PTR [edx+56]
-	addsd	xmm0, xmm1
-	movsd	QWORD PTR _mat_temp$[ebp+56], xmm0
-
-; 102  : 	mat_temp._33 = (m_Matrix._31*mIn._13) + (m_Matrix._32*mIn._23) + (m_Matrix._33*mIn._33);
-
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _mIn$[ebp]
-	movsd	xmm0, QWORD PTR [eax+48]
-	mulsd	xmm0, QWORD PTR [ecx+16]
-	mov	edx, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [edx+56]
-	mulsd	xmm1, QWORD PTR [eax+40]
-	addsd	xmm0, xmm1
-	mov	ecx, DWORD PTR _this$[ebp]
-	mov	edx, DWORD PTR _mIn$[ebp]
-	movsd	xmm1, QWORD PTR [ecx+64]
-	mulsd	xmm1, QWORD PTR [edx+64]
-	addsd	xmm0, xmm1
-	movsd	QWORD PTR _mat_temp$[ebp+64], xmm0
-
-; 103  : 
-; 104  : 	m_Matrix = mat_temp;
-
-	mov	ecx, 18					; 00000012H
-	lea	esi, DWORD PTR _mat_temp$[ebp]
-	mov	edi, DWORD PTR _this$[ebp]
-	rep movsd
-
-; 105  : }
-
-	push	edx
-	mov	ecx, ebp
-	push	eax
-	lea	edx, DWORD PTR $LN5@MatrixMult
-	call	@_RTC_CheckStackVars@8
-	pop	eax
-	pop	edx
-	pop	edi
-	pop	esi
-	add	esp, 84					; 00000054H
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	4
-	npad	1
-$LN5@MatrixMult:
-	DD	1
-	DD	$LN4@MatrixMult
-$LN4@MatrixMult:
-	DD	-80					; ffffffb0H
-	DD	72					; 00000048H
-	DD	$LN3@MatrixMult
-$LN3@MatrixMult:
-	DB	109					; 0000006dH
-	DB	97					; 00000061H
-	DB	116					; 00000074H
-	DB	95					; 0000005fH
-	DB	116					; 00000074H
-	DB	101					; 00000065H
-	DB	109					; 0000006dH
-	DB	112					; 00000070H
-	DB	0
-?MatrixMultiply@C2DMatrix@@AAEXAAUMatrix@1@@Z ENDP	; C2DMatrix::MatrixMultiply
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
-;	COMDAT ??0Matrix@C2DMatrix@@QAE@XZ
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-??0Matrix@C2DMatrix@@QAE@XZ PROC			; C2DMatrix::Matrix::Matrix, COMDAT
-; _this$ = ecx
-
-; 28   : 		Matrix()
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-
-; 29   : 		{
-; 30   : 			_11 = 0.0; _12 = 0.0; _13 = 0.0;
-
-	mov	eax, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [eax], xmm0
-	mov	ecx, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [ecx+8], xmm0
-	mov	edx, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [edx+16], xmm0
-
-; 31   : 			_21 = 0.0; _22 = 0.0; _23 = 0.0;
-
-	mov	eax, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [eax+24], xmm0
-	mov	ecx, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [ecx+32], xmm0
-	mov	edx, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [edx+40], xmm0
-
-; 32   : 			_31 = 0.0; _32 = 0.0; _33 = 0.0;
-
-	mov	eax, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [eax+48], xmm0
-	mov	ecx, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [ecx+56], xmm0
-	mov	edx, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [edx+64], xmm0
-
-; 33   : 		}
-
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	esp, ebp
-	pop	ebp
-	ret	0
-??0Matrix@C2DMatrix@@QAE@XZ ENDP			; C2DMatrix::Matrix::Matrix
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
 ; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\misc\cgdi.h
 ;	COMDAT ?ClosedShape@Cgdi@@QAEXABV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z
 _TEXT	SEGMENT
@@ -7830,68 +6784,76 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\sources\gravemarkers.cpp
 _TEXT	SEGMENT
-$T1 = -28						; size = 24
+$T1 = -52						; size = 16
+$T2 = -36						; size = 32
 _this$ = -4						; size = 4
-_pos$ = 8						; size = 16
-?AddGrave@GraveMarkers@@QAEXUVector2D@@@Z PROC		; GraveMarkers::AddGrave
+_bot$ = 8						; size = 4
+?AddGrave@GraveMarkers@@QAEXPAVRaven_Bot@@@Z PROC	; GraveMarkers::AddGrave
 ; _this$ = ecx
 
-; 62   : {
+; 70   : {
 
 	push	ebp
 	mov	ebp, esp
-	sub	esp, 28					; 0000001cH
+	sub	esp, 52					; 00000034H
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-52]
+	mov	ecx, 13					; 0000000dH
 	mov	eax, -858993460				; ccccccccH
-	mov	DWORD PTR [ebp-28], eax
-	mov	DWORD PTR [ebp-24], eax
-	mov	DWORD PTR [ebp-20], eax
-	mov	DWORD PTR [ebp-16], eax
-	mov	DWORD PTR [ebp-12], eax
-	mov	DWORD PTR [ebp-8], eax
-	mov	DWORD PTR [ebp-4], eax
+	rep stosd
+	pop	ecx
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 63   : 	m_GraveList.push_back(GraveRecord(pos));
+; 71   : 	m_GraveList.push_back(GraveRecord(bot->Pos(), bot));
 
-	sub	esp, 16					; 00000010H
-	mov	eax, esp
-	mov	ecx, DWORD PTR _pos$[ebp]
-	mov	DWORD PTR [eax], ecx
-	mov	edx, DWORD PTR _pos$[ebp+4]
-	mov	DWORD PTR [eax+4], edx
-	mov	ecx, DWORD PTR _pos$[ebp+8]
-	mov	DWORD PTR [eax+8], ecx
-	mov	edx, DWORD PTR _pos$[ebp+12]
-	mov	DWORD PTR [eax+12], edx
+	mov	eax, DWORD PTR _bot$[ebp]
+	push	eax
 	lea	ecx, DWORD PTR $T1[ebp]
-	call	??0GraveRecord@GraveMarkers@@QAE@UVector2D@@@Z ; GraveMarkers::GraveRecord::GraveRecord
+	push	ecx
+	mov	ecx, DWORD PTR _bot$[ebp]
+	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
+	sub	esp, 16					; 00000010H
+	mov	edx, esp
+	mov	ecx, DWORD PTR [eax]
+	mov	DWORD PTR [edx], ecx
+	mov	ecx, DWORD PTR [eax+4]
+	mov	DWORD PTR [edx+4], ecx
+	mov	ecx, DWORD PTR [eax+8]
+	mov	DWORD PTR [edx+8], ecx
+	mov	eax, DWORD PTR [eax+12]
+	mov	DWORD PTR [edx+12], eax
+	lea	ecx, DWORD PTR $T2[ebp]
+	call	??0GraveRecord@GraveMarkers@@QAE@UVector2D@@PAVRaven_Bot@@@Z ; GraveMarkers::GraveRecord::GraveRecord
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 40					; 00000028H
 	call	?push_back@?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAEX$$QAUGraveRecord@GraveMarkers@@@Z ; std::list<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::push_back
 
-; 64   : }
+; 72   : }
 
-	add	esp, 28					; 0000001cH
+	pop	edi
+	add	esp, 52					; 00000034H
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
-	ret	16					; 00000010H
-?AddGrave@GraveMarkers@@QAEXUVector2D@@@Z ENDP		; GraveMarkers::AddGrave
+	ret	4
+?AddGrave@GraveMarkers@@QAEXPAVRaven_Bot@@@Z ENDP	; GraveMarkers::AddGrave
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\sources\gravemarkers.cpp
 _TEXT	SEGMENT
-tv181 = -168						; size = 4
-tv179 = -164						; size = 4
-tv66 = -160						; size = 4
-$T2 = -156						; size = 16
-$T3 = -140						; size = 16
-$T4 = -124						; size = 16
-$T5 = -108						; size = 12
-$T6 = -93						; size = 1
-$T7 = -92						; size = 28
+tv184 = -172						; size = 4
+tv182 = -168						; size = 4
+tv66 = -164						; size = 4
+$T2 = -160						; size = 16
+$T3 = -144						; size = 16
+$T4 = -128						; size = 16
+$T5 = -112						; size = 12
+$T6 = -97						; size = 1
+$T7 = -96						; size = 28
+_curBot$ = -68						; size = 4
 _facing$ = -60						; size = 16
 _it$ = -36						; size = 12
 _this$ = -20						; size = 4
@@ -7900,7 +6862,7 @@ __$EHRec$ = -12						; size = 12
 ?Render@GraveMarkers@@QAEXXZ PROC			; GraveMarkers::Render
 ; _this$ = ecx
 
-; 43   : {
+; 45   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -7908,11 +6870,11 @@ __$EHRec$ = -12						; size = 12
 	push	__ehhandler$?Render@GraveMarkers@@QAEXXZ
 	mov	eax, DWORD PTR fs:0
 	push	eax
-	sub	esp, 156				; 0000009cH
+	sub	esp, 160				; 000000a0H
 	push	edi
 	push	ecx
-	lea	edi, DWORD PTR [ebp-168]
-	mov	ecx, 39					; 00000027H
+	lea	edi, DWORD PTR [ebp-172]
+	mov	ecx, 40					; 00000028H
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 	pop	ecx
@@ -7924,7 +6886,7 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 44   : 	GraveList::iterator it = m_GraveList.begin();
+; 46   : 	GraveList::iterator it = m_GraveList.begin();
 
 	lea	eax, DWORD PTR _it$[ebp]
 	push	eax
@@ -7933,7 +6895,7 @@ __$EHRec$ = -12						; size = 12
 	call	?begin@?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAE?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@2@XZ ; std::list<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::begin
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 
-; 45   : 	Vector2D facing(-1, 0);
+; 47   : 	Vector2D facing(-1, 0);
 
 	sub	esp, 8
 	xorps	xmm0, xmm0
@@ -7946,7 +6908,9 @@ __$EHRec$ = -12						; size = 12
 	jmp	SHORT $LN4@Render
 $LN2@Render:
 
-; 46   : 	for (it; it != m_GraveList.end(); ++it)
+; 48   : 	Raven_Bot* curBot;
+; 49   : 
+; 50   : 	for (it; it != m_GraveList.end(); ++it)
 
 	lea	ecx, DWORD PTR _it$[ebp]
 	call	??E?$_List_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAEAAV01@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::operator++
@@ -7958,9 +6922,9 @@ $LN4@Render:
 	call	?end@?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAE?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@2@XZ ; std::list<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::end
 	mov	DWORD PTR tv66[ebp], eax
 	mov	edx, DWORD PTR tv66[ebp]
-	mov	DWORD PTR tv179[ebp], edx
+	mov	DWORD PTR tv182[ebp], edx
 	mov	BYTE PTR __$EHRec$[ebp+8], 1
-	mov	eax, DWORD PTR tv179[ebp]
+	mov	eax, DWORD PTR tv182[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _it$[ebp]
 	call	??9?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QBE_NABV01@@Z ; std::_List_const_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::operator!=
@@ -7972,8 +6936,17 @@ $LN4@Render:
 	test	ecx, ecx
 	je	$LN3@Render
 
-; 47   : 	{
-; 48   : 		m_vecRIPVBTrans = WorldTransform(m_vecRIPVB,
+; 51   : 	{
+; 52   : 		curBot = it->bot;
+
+	lea	ecx, DWORD PTR _it$[ebp]
+	call	??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QBEPAUGraveRecord@GraveMarkers@@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::operator->
+	mov	edx, DWORD PTR [eax+16]
+	mov	DWORD PTR _curBot$[ebp], edx
+
+; 53   : 			
+; 54   : 
+; 55   : 		m_vecRIPVBTrans = WorldTransform(m_vecRIPVB,
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@3ff0000000000000
@@ -7984,53 +6957,53 @@ $LN4@Render:
 	lea	ecx, DWORD PTR $T4[ebp]
 	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
 	push	eax
-	lea	edx, DWORD PTR $T3[ebp]
-	push	edx
+	lea	eax, DWORD PTR $T3[ebp]
+	push	eax
 	lea	ecx, DWORD PTR _facing$[ebp]
 	call	?Perp@Vector2D@@QBE?AU1@XZ		; Vector2D::Perp
 	push	eax
-	lea	eax, DWORD PTR _facing$[ebp]
-	push	eax
+	lea	ecx, DWORD PTR _facing$[ebp]
+	push	ecx
 	lea	ecx, DWORD PTR _it$[ebp]
 	call	??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QBEPAUGraveRecord@GraveMarkers@@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::operator->
 	push	eax
-	mov	ecx, DWORD PTR _this$[ebp]
-	add	ecx, 8
-	push	ecx
-	lea	edx, DWORD PTR $T2[ebp]
+	mov	edx, DWORD PTR _this$[ebp]
+	add	edx, 8
 	push	edx
+	lea	eax, DWORD PTR $T2[ebp]
+	push	eax
 	call	?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z ; WorldTransform
 	add	esp, 24					; 00000018H
-	mov	DWORD PTR tv181[ebp], eax
-	mov	eax, DWORD PTR tv181[ebp]
-	push	eax
+	mov	DWORD PTR tv184[ebp], eax
+	mov	ecx, DWORD PTR tv184[ebp]
+	push	ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 24					; 00000018H
 	call	??4?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEAAV01@$$QAV01@@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::operator=
 	lea	ecx, DWORD PTR $T2[ebp]
 	call	??1?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@XZ ; std::vector<Vector2D,std::allocator<Vector2D> >::~vector<Vector2D,std::allocator<Vector2D> >
 
-; 49   : 			it->Position,
-; 50   : 			facing,
-; 51   : 			facing.Perp(),
-; 52   : 			Vector2D(1, 1));
-; 53   : 
-; 54   : 		gdi->BrownPen();
+; 56   : 			it->Position,
+; 57   : 			facing,
+; 58   : 			facing.Perp(),
+; 59   : 			Vector2D(1, 1));
+; 60   : 
+; 61   : 		gdi->BrownPen();
 
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?BrownPen@Cgdi@@QAEXXZ			; Cgdi::BrownPen
 
-; 55   : 		gdi->ClosedShape(m_vecRIPVBTrans);
+; 62   : 		gdi->ClosedShape(m_vecRIPVBTrans);
 
-	mov	ecx, DWORD PTR _this$[ebp]
-	add	ecx, 24					; 00000018H
-	push	ecx
+	mov	edx, DWORD PTR _this$[ebp]
+	add	edx, 24					; 00000018H
+	push	edx
 	call	?Instance@Cgdi@@SAPAV1@XZ		; Cgdi::Instance
 	mov	ecx, eax
 	call	?ClosedShape@Cgdi@@QAEXABV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z ; Cgdi::ClosedShape
 
-; 56   : 		gdi->TextColor(133, 90, 0);
+; 63   : 		gdi->TextColor(133, 90, 0);
 
 	push	0
 	push	90					; 0000005aH
@@ -8039,14 +7012,14 @@ $LN4@Render:
 	mov	ecx, eax
 	call	?TextColor@Cgdi@@QAEXHHH@Z		; Cgdi::TextColor
 
-; 57   : 		gdi->TextAtPos(it->Position.x - 10, it->Position.y - 5, "RIP");
+; 64   : 		gdi->TextAtPos(it->Position.x - 10, it->Position.y - 5, "RIP");
 
-	push	OFFSET $SG155519
+	push	OFFSET $SG159170
 	lea	ecx, DWORD PTR $T7[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
-	lea	edx, DWORD PTR $T7[ebp]
-	push	edx
+	lea	eax, DWORD PTR $T7[ebp]
+	push	eax
 	lea	ecx, DWORD PTR _it$[ebp]
 	call	??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QBEPAUGraveRecord@GraveMarkers@@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::operator->
 	movsd	xmm0, QWORD PTR [eax+8]
@@ -8066,12 +7039,13 @@ $LN4@Render:
 	lea	ecx, DWORD PTR $T7[ebp]
 	call	??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::~basic_string<char,std::char_traits<char>,std::allocator<char> >
 
-; 58   : 	}
+; 65   : 
+; 66   : 	}
 
 	jmp	$LN2@Render
 $LN3@Render:
 
-; 59   : }
+; 67   : }
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _it$[ebp]
@@ -8090,13 +7064,12 @@ $LN3@Render:
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
 	call	@__security_check_cookie@4
-	add	esp, 168				; 000000a8H
+	add	esp, 172				; 000000acH
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-	npad	2
 $LN14@Render:
 	DD	2
 	DD	$LN13@Render
@@ -8133,7 +7106,7 @@ __unwindfunclet$?Render@GraveMarkers@@QAEXXZ$3:
 __ehhandler$?Render@GraveMarkers@@QAEXXZ:
 	mov	edx, DWORD PTR [esp+8]
 	lea	eax, DWORD PTR [edx+12]
-	mov	ecx, DWORD PTR [edx-164]
+	mov	ecx, DWORD PTR [edx-168]
 	xor	ecx, eax
 	call	@__security_check_cookie@4
 	mov	ecx, DWORD PTR [edx-4]
@@ -8162,7 +7135,7 @@ __$EHRec$ = -12						; size = 12
 ?Update@GraveMarkers@@QAEXXZ PROC			; GraveMarkers::Update
 ; _this$ = ecx
 
-; 27   : {
+; 29   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -8185,7 +7158,7 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 28   : 	GraveList::iterator it = m_GraveList.begin();
+; 30   : 	GraveList::iterator it = m_GraveList.begin();
 
 	lea	eax, DWORD PTR _it$[ebp]
 	push	eax
@@ -8195,7 +7168,7 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 $LN2@Update:
 
-; 29   : 	while (it != m_GraveList.end())
+; 31   : 	while (it != m_GraveList.end())
 
 	lea	ecx, DWORD PTR $T4[ebp]
 	push	ecx
@@ -8218,8 +7191,8 @@ $LN2@Update:
 	test	ecx, ecx
 	je	$LN3@Update
 
-; 30   : 	{
-; 31   : 		if (Clock->GetCurrentTime() - it->TimeCreated > m_dLifeTime)
+; 32   : 	{
+; 33   : 		if (Clock->GetCurrentTime() - it->TimeCreated > m_dLifeTime)
 
 	call	?Instance@CrudeTimer@@SAPAV1@XZ		; CrudeTimer::Instance
 	mov	ecx, eax
@@ -8230,13 +7203,13 @@ $LN2@Update:
 	movsd	QWORD PTR tv193[ebp], xmm0
 	call	??C?$_List_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QBEPAUGraveRecord@GraveMarkers@@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::operator->
 	movsd	xmm0, QWORD PTR tv193[ebp]
-	subsd	xmm0, QWORD PTR [eax+16]
+	subsd	xmm0, QWORD PTR [eax+24]
 	mov	edx, DWORD PTR _this$[ebp]
 	comisd	xmm0, QWORD PTR [edx]
 	jbe	SHORT $LN4@Update
 
-; 32   : 		{
-; 33   : 			it = m_GraveList.erase(it);
+; 34   : 		{
+; 35   : 			it = m_GraveList.erase(it);
 
 	sub	esp, 12					; 0000000cH
 	mov	ecx, esp
@@ -8259,26 +7232,26 @@ $LN2@Update:
 	lea	ecx, DWORD PTR $T2[ebp]
 	call	??1?$_List_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAE@XZ
 
-; 34   : 		}
-; 35   : 		else
+; 36   : 		}
+; 37   : 		else
 
 	jmp	SHORT $LN5@Update
 $LN4@Update:
 
-; 36   : 		{
-; 37   : 			++it;
+; 38   : 		{
+; 39   : 			++it;
 
 	lea	ecx, DWORD PTR _it$[ebp]
 	call	??E?$_List_iterator@V?$_List_val@U?$_List_simple_types@UGraveRecord@GraveMarkers@@@std@@@std@@@std@@QAEAAV01@XZ ; std::_List_iterator<std::_List_val<std::_List_simple_types<GraveMarkers::GraveRecord> > >::operator++
 $LN5@Update:
 
-; 38   : 		}
-; 39   : 	}
+; 40   : 		}
+; 41   : 	}
 
 	jmp	$LN2@Update
 $LN3@Update:
 
-; 40   : }
+; 42   : }
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _it$[ebp]
@@ -8343,7 +7316,7 @@ _lifetime$ = 8						; size = 8
 ??0GraveMarkers@@QAE@N@Z PROC				; GraveMarkers::GraveMarkers
 ; _this$ = ecx
 
-; 8    : {
+; 10   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -8367,13 +7340,13 @@ _lifetime$ = 8						; size = 8
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 7    : GraveMarkers::GraveMarkers(double lifetime) :m_dLifeTime(lifetime)
+; 9    : GraveMarkers::GraveMarkers(double lifetime) :m_dLifeTime(lifetime)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	movsd	xmm0, QWORD PTR _lifetime$[ebp]
 	movsd	QWORD PTR [eax], xmm0
 
-; 8    : {
+; 10   : {
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 8
@@ -8388,12 +7361,12 @@ _lifetime$ = 8						; size = 8
 	call	??0?$list@UGraveRecord@GraveMarkers@@V?$allocator@UGraveRecord@GraveMarkers@@@std@@@std@@QAE@XZ ; std::list<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >::list<GraveMarkers::GraveRecord,std::allocator<GraveMarkers::GraveRecord> >
 	mov	BYTE PTR __$EHRec$[ebp+8], 2
 
-; 9    : 	//create the vertex buffer for the graves
-; 10   : 	const int NumripVerts = 9;
+; 11   : 	//create the vertex buffer for the graves
+; 12   : 	const int NumripVerts = 9;
 
 	mov	DWORD PTR _NumripVerts$[ebp], 9
 
-; 11   : 	const Vector2D rip[NumripVerts] = { Vector2D(-4, -5),
+; 13   : 	const Vector2D rip[NumripVerts] = { Vector2D(-4, -5),
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@c014000000000000
@@ -8404,7 +7377,7 @@ _lifetime$ = 8						; size = 8
 	lea	ecx, DWORD PTR _rip$[ebp]
 	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
 
-; 12   : 									   Vector2D(-4, 3),
+; 14   : 									   Vector2D(-4, 3),
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4008000000000000
@@ -8415,7 +7388,7 @@ _lifetime$ = 8						; size = 8
 	lea	ecx, DWORD PTR _rip$[ebp+16]
 	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
 
-; 13   : 									   Vector2D(-3, 5),
+; 15   : 									   Vector2D(-3, 5),
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4014000000000000
@@ -8426,7 +7399,7 @@ _lifetime$ = 8						; size = 8
 	lea	ecx, DWORD PTR _rip$[ebp+32]
 	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
 
-; 14   : 									   Vector2D(-1, 6),
+; 16   : 									   Vector2D(-1, 6),
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4018000000000000
@@ -8437,7 +7410,7 @@ _lifetime$ = 8						; size = 8
 	lea	ecx, DWORD PTR _rip$[ebp+48]
 	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
 
-; 15   : 									   Vector2D(1, 6),
+; 17   : 									   Vector2D(1, 6),
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4018000000000000
@@ -8448,7 +7421,7 @@ _lifetime$ = 8						; size = 8
 	lea	ecx, DWORD PTR _rip$[ebp+64]
 	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
 
-; 16   : 									   Vector2D(3, 5),
+; 18   : 									   Vector2D(3, 5),
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4014000000000000
@@ -8459,7 +7432,7 @@ _lifetime$ = 8						; size = 8
 	lea	ecx, DWORD PTR _rip$[ebp+80]
 	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
 
-; 17   : 									   Vector2D(4, 3),
+; 19   : 									   Vector2D(4, 3),
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@4008000000000000
@@ -8470,7 +7443,7 @@ _lifetime$ = 8						; size = 8
 	lea	ecx, DWORD PTR _rip$[ebp+96]
 	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
 
-; 18   : 									   Vector2D(4, -5),
+; 20   : 									   Vector2D(4, -5),
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@c014000000000000
@@ -8481,7 +7454,7 @@ _lifetime$ = 8						; size = 8
 	lea	ecx, DWORD PTR _rip$[ebp+112]
 	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
 
-; 19   : 									   Vector2D(-4, -5) };
+; 21   : 									   Vector2D(-4, -5) };
 
 	sub	esp, 8
 	movsd	xmm0, QWORD PTR __real@c014000000000000
@@ -8492,7 +7465,7 @@ _lifetime$ = 8						; size = 8
 	lea	ecx, DWORD PTR _rip$[ebp+128]
 	call	??0Vector2D@@QAE@NN@Z			; Vector2D::Vector2D
 
-; 20   : 	for (int i = 0; i < NumripVerts; ++i)
+; 22   : 	for (int i = 0; i < NumripVerts; ++i)
 
 	mov	DWORD PTR _i$2[ebp], 0
 	jmp	SHORT $LN4@GraveMarke
@@ -8504,8 +7477,8 @@ $LN4@GraveMarke:
 	cmp	DWORD PTR _i$2[ebp], 9
 	jge	SHORT $LN3@GraveMarke
 
-; 21   : 	{
-; 22   : 		m_vecRIPVB.push_back(rip[i]);
+; 23   : 	{
+; 24   : 		m_vecRIPVB.push_back(rip[i]);
 
 	mov	edx, DWORD PTR _i$2[ebp]
 	shl	edx, 4
@@ -8515,12 +7488,12 @@ $LN4@GraveMarke:
 	add	ecx, 8
 	call	?push_back@?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEXABUVector2D@@@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::push_back
 
-; 23   : 	}
+; 25   : 	}
 
 	jmp	SHORT $LN2@GraveMarke
 $LN3@GraveMarke:
 
-; 24   : }
+; 26   : }
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	mov	eax, DWORD PTR _this$[ebp]
@@ -10854,7 +9827,7 @@ ___formal$ = 8						; size = 4
 
 ; 892  : 		return (static_cast<size_t>(-1) / sizeof(value_type));
 
-	mov	eax, 134217727				; 07ffffffH
+	mov	eax, 107374182				; 06666666H
 
 ; 893  : 		}
 
@@ -10879,8 +9852,7 @@ __Count$ = 16						; size = 4
 ; 872  : 		// no overflow check on the following multiply; we assume _Allocate did that check
 ; 873  : 		_Deallocate<_New_alignof<value_type>>(_Ptr, sizeof(value_type) * _Count);
 
-	mov	eax, DWORD PTR __Count$[ebp]
-	shl	eax, 5
+	imul	eax, DWORD PTR __Count$[ebp], 40
 	push	eax
 	mov	ecx, DWORD PTR __Ptr$[ebp]
 	push	ecx
@@ -10916,7 +9888,7 @@ __Count$ = 8						; size = 4
 
 	mov	eax, DWORD PTR __Count$[ebp]
 	push	eax
-	call	??$_Get_size_of_n@$0CA@@std@@YAII@Z	; std::_Get_size_of_n<32>
+	call	??$_Get_size_of_n@$0CI@@std@@YAII@Z	; std::_Get_size_of_n<40>
 	add	esp, 4
 	push	eax
 	call	??$_Allocate@$07U_Default_allocate_traits@std@@$0A@@std@@YAPAXI@Z ; std::_Allocate<8,std::_Default_allocate_traits,0>
@@ -10953,8 +9925,7 @@ __Count$ = 12						; size = 4
 ; 991  : 		// no overflow check on the following multiply; we assume _Allocate did that check
 ; 992  : 		_Deallocate<_New_alignof<_Ty>>(_Ptr, sizeof(_Ty) * _Count);
 
-	mov	eax, DWORD PTR __Count$[ebp]
-	shl	eax, 5
+	imul	eax, DWORD PTR __Count$[ebp], 40
 	push	eax
 	mov	ecx, DWORD PTR __Ptr$[ebp]
 	push	ecx
@@ -10996,6 +9967,306 @@ _this$ = -4						; size = 4
 	ret	0
 ??0?$allocator@U?$_List_node@UGraveRecord@GraveMarkers@@PAX@std@@@std@@QAE@XZ ENDP ; std::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> >::allocator<std::_List_node<GraveMarkers::GraveRecord,void *> >
 _TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\sources\gravemarkers.h
+;	COMDAT ??0GraveRecord@GraveMarkers@@QAE@UVector2D@@PAVRaven_Bot@@@Z
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+_pos$ = 8						; size = 16
+_n_bot$ = 24						; size = 4
+??0GraveRecord@GraveMarkers@@QAE@UVector2D@@PAVRaven_Bot@@@Z PROC ; GraveMarkers::GraveRecord::GraveRecord, COMDAT
+; _this$ = ecx
+
+; 34   : 		{}
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 31   : 			Position(pos),
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _pos$[ebp]
+	mov	DWORD PTR [eax], ecx
+	mov	edx, DWORD PTR _pos$[ebp+4]
+	mov	DWORD PTR [eax+4], edx
+	mov	ecx, DWORD PTR _pos$[ebp+8]
+	mov	DWORD PTR [eax+8], ecx
+	mov	edx, DWORD PTR _pos$[ebp+12]
+	mov	DWORD PTR [eax+12], edx
+
+; 32   : 			bot(n_bot),
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _n_bot$[ebp]
+	mov	DWORD PTR [eax+16], ecx
+
+; 33   : 			TimeCreated(Clock->GetCurrentTime())
+
+	call	?Instance@CrudeTimer@@SAPAV1@XZ		; CrudeTimer::Instance
+	mov	ecx, eax
+	call	?GetTickCount@CrudeTimer@@QAENXZ	; CrudeTimer::GetTickCount
+	mov	edx, DWORD PTR _this$[ebp]
+	fstp	QWORD PTR [edx+24]
+
+; 34   : 		{}
+
+	mov	eax, DWORD PTR _this$[ebp]
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	20					; 00000014H
+??0GraveRecord@GraveMarkers@@QAE@UVector2D@@PAVRaven_Bot@@@Z ENDP ; GraveMarkers::GraveRecord::GraveRecord
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\game\basegameentity.h
+;	COMDAT ?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+___$ReturnUdt$ = 8					; size = 4
+?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ PROC		; BaseGameEntity::Pos, COMDAT
+; _this$ = ecx
+
+; 82   : 	Vector2D     Pos()const { return m_vPosition; }
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	eax, DWORD PTR _this$[ebp]
+	add	eax, 24					; 00000018H
+	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
+	mov	edx, DWORD PTR [eax]
+	mov	DWORD PTR [ecx], edx
+	mov	edx, DWORD PTR [eax+4]
+	mov	DWORD PTR [ecx+4], edx
+	mov	edx, DWORD PTR [eax+8]
+	mov	DWORD PTR [ecx+8], edx
+	mov	eax, DWORD PTR [eax+12]
+	mov	DWORD PTR [ecx+12], eax
+	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ ENDP		; BaseGameEntity::Pos
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\transformations.h
+;	COMDAT ?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z
+_TEXT	SEGMENT
+$T2 = -120						; size = 4
+_matTransform$ = -112					; size = 72
+_TranVector2Ds$ = -32					; size = 16
+__$EHRec$ = -12						; size = 12
+___$ReturnUdt$ = 8					; size = 4
+_points$ = 12						; size = 4
+_pos$ = 16						; size = 4
+_forward$ = 20						; size = 4
+_side$ = 24						; size = 4
+_scale$ = 28						; size = 4
+?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z PROC ; WorldTransform, COMDAT
+
+; 29   : {
+
+	push	ebp
+	mov	ebp, esp
+	push	-1
+	push	__ehhandler$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z
+	mov	eax, DWORD PTR fs:0
+	push	eax
+	sub	esp, 108				; 0000006cH
+	push	edi
+	lea	edi, DWORD PTR [ebp-120]
+	mov	ecx, 27					; 0000001bH
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	eax, DWORD PTR ___security_cookie
+	xor	eax, ebp
+	push	eax
+	lea	eax, DWORD PTR __$EHRec$[ebp]
+	mov	DWORD PTR fs:0, eax
+	mov	DWORD PTR $T2[ebp], 0
+
+; 30   : 	//copy the original vertices into the buffer about to be transformed
+; 31   : 	std::vector<Vector2D> TranVector2Ds = points;
+
+	mov	eax, DWORD PTR _points$[ebp]
+	push	eax
+	lea	ecx, DWORD PTR _TranVector2Ds$[ebp]
+	call	??0?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@ABV01@@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::vector<Vector2D,std::allocator<Vector2D> >
+	mov	DWORD PTR __$EHRec$[ebp+8], 0
+
+; 32   : 
+; 33   : 	//create a transformation matrix
+; 34   : 	C2DMatrix matTransform;
+
+	lea	ecx, DWORD PTR _matTransform$[ebp]
+	call	??0C2DMatrix@@QAE@XZ			; C2DMatrix::C2DMatrix
+
+; 35   : 
+; 36   : 	//scale
+; 37   : 	if ((scale.x != 1.0) || (scale.y != 1.0))
+
+	mov	ecx, DWORD PTR _scale$[ebp]
+	movsd	xmm0, QWORD PTR [ecx]
+	ucomisd	xmm0, QWORD PTR __real@3ff0000000000000
+	lahf
+	test	ah, 68					; 00000044H
+	jp	SHORT $LN3@WorldTrans
+	mov	edx, DWORD PTR _scale$[ebp]
+	movsd	xmm0, QWORD PTR [edx+8]
+	ucomisd	xmm0, QWORD PTR __real@3ff0000000000000
+	lahf
+	test	ah, 68					; 00000044H
+	jnp	SHORT $LN2@WorldTrans
+$LN3@WorldTrans:
+
+; 38   : 	{
+; 39   : 		matTransform.Scale(scale.x, scale.y);
+
+	mov	eax, DWORD PTR _scale$[ebp]
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR [eax+8]
+	movsd	QWORD PTR [esp], xmm0
+	mov	ecx, DWORD PTR _scale$[ebp]
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR [ecx]
+	movsd	QWORD PTR [esp], xmm0
+	lea	ecx, DWORD PTR _matTransform$[ebp]
+	call	?Scale@C2DMatrix@@QAEXNN@Z		; C2DMatrix::Scale
+$LN2@WorldTrans:
+
+; 40   : 	}
+; 41   : 
+; 42   : 	//rotate
+; 43   : 	matTransform.Rotate(forward, side);
+
+	mov	edx, DWORD PTR _side$[ebp]
+	push	edx
+	mov	eax, DWORD PTR _forward$[ebp]
+	push	eax
+	lea	ecx, DWORD PTR _matTransform$[ebp]
+	call	?Rotate@C2DMatrix@@QAEXABUVector2D@@0@Z	; C2DMatrix::Rotate
+
+; 44   : 
+; 45   : 	//and translate
+; 46   : 	matTransform.Translate(pos.x, pos.y);
+
+	mov	ecx, DWORD PTR _pos$[ebp]
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR [ecx+8]
+	movsd	QWORD PTR [esp], xmm0
+	mov	edx, DWORD PTR _pos$[ebp]
+	sub	esp, 8
+	movsd	xmm0, QWORD PTR [edx]
+	movsd	QWORD PTR [esp], xmm0
+	lea	ecx, DWORD PTR _matTransform$[ebp]
+	call	?Translate@C2DMatrix@@QAEXNN@Z		; C2DMatrix::Translate
+
+; 47   : 
+; 48   : 	//now transform the object's vertices
+; 49   : 	matTransform.TransformVector2Ds(TranVector2Ds);
+
+	lea	eax, DWORD PTR _TranVector2Ds$[ebp]
+	push	eax
+	lea	ecx, DWORD PTR _matTransform$[ebp]
+	call	?TransformVector2Ds@C2DMatrix@@QAEXAAV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z ; C2DMatrix::TransformVector2Ds
+
+; 50   : 
+; 51   : 	return TranVector2Ds;
+
+	lea	ecx, DWORD PTR _TranVector2Ds$[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
+	call	??0?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@$$QAV01@@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::vector<Vector2D,std::allocator<Vector2D> >
+	mov	edx, DWORD PTR $T2[ebp]
+	or	edx, 1
+	mov	DWORD PTR $T2[ebp], edx
+	mov	DWORD PTR __$EHRec$[ebp+8], -1
+	lea	ecx, DWORD PTR _TranVector2Ds$[ebp]
+	call	??1?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@XZ ; std::vector<Vector2D,std::allocator<Vector2D> >::~vector<Vector2D,std::allocator<Vector2D> >
+	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
+
+; 52   : }
+
+	push	edx
+	mov	ecx, ebp
+	push	eax
+	lea	edx, DWORD PTR $LN12@WorldTrans
+	call	@_RTC_CheckStackVars@8
+	pop	eax
+	pop	edx
+	mov	ecx, DWORD PTR __$EHRec$[ebp]
+	mov	DWORD PTR fs:0, ecx
+	pop	ecx
+	pop	edi
+	add	esp, 120				; 00000078H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+	npad	2
+$LN12@WorldTrans:
+	DD	2
+	DD	$LN11@WorldTrans
+$LN11@WorldTrans:
+	DD	-32					; ffffffe0H
+	DD	16					; 00000010H
+	DD	$LN8@WorldTrans
+	DD	-112					; ffffff90H
+	DD	72					; 00000048H
+	DD	$LN9@WorldTrans
+$LN9@WorldTrans:
+	DB	109					; 0000006dH
+	DB	97					; 00000061H
+	DB	116					; 00000074H
+	DB	84					; 00000054H
+	DB	114					; 00000072H
+	DB	97					; 00000061H
+	DB	110					; 0000006eH
+	DB	115					; 00000073H
+	DB	102					; 00000066H
+	DB	111					; 0000006fH
+	DB	114					; 00000072H
+	DB	109					; 0000006dH
+	DB	0
+$LN8@WorldTrans:
+	DB	84					; 00000054H
+	DB	114					; 00000072H
+	DB	97					; 00000061H
+	DB	110					; 0000006eH
+	DB	86					; 00000056H
+	DB	101					; 00000065H
+	DB	99					; 00000063H
+	DB	116					; 00000074H
+	DB	111					; 0000006fH
+	DB	114					; 00000072H
+	DB	50					; 00000032H
+	DB	68					; 00000044H
+	DB	115					; 00000073H
+	DB	0
+_TEXT	ENDS
+;	COMDAT text$x
+text$x	SEGMENT
+__unwindfunclet$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z$0:
+	lea	ecx, DWORD PTR _TranVector2Ds$[ebp]
+	jmp	??1?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAE@XZ ; std::vector<Vector2D,std::allocator<Vector2D> >::~vector<Vector2D,std::allocator<Vector2D> >
+__ehhandler$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z:
+	mov	edx, DWORD PTR [esp+8]
+	lea	eax, DWORD PTR [edx+12]
+	mov	ecx, DWORD PTR [edx-116]
+	xor	ecx, eax
+	call	@__security_check_cookie@4
+	mov	eax, OFFSET __ehfuncinfo$?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z
+	jmp	___CxxFrameHandler3
+text$x	ENDS
+?WorldTransform@@YA?AV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@AAV12@ABUVector2D@@111@Z ENDP ; WorldTransform
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\vector
 ;	COMDAT ?_Orphan_range@?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@ABEXPAUVector2D@@0@Z
@@ -13873,15 +13144,442 @@ _this$ = -4						; size = 4
 ??0?$allocator@UVector2D@@@std@@QAE@XZ ENDP		; std::allocator<Vector2D>::allocator<Vector2D>
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
-; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\sources\gravemarkers.h
-;	COMDAT ??0GraveRecord@GraveMarkers@@QAE@UVector2D@@@Z
+; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
+;	COMDAT ?TransformVector2Ds@C2DMatrix@@QAEXAAV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z
 _TEXT	SEGMENT
+tv173 = -40						; size = 8
+tv171 = -32						; size = 8
+_tempY$1 = -24						; size = 8
+_tempX$2 = -16						; size = 8
+_i$3 = -8						; size = 4
 _this$ = -4						; size = 4
-_pos$ = 8						; size = 16
-??0GraveRecord@GraveMarkers@@QAE@UVector2D@@@Z PROC	; GraveMarkers::GraveRecord::GraveRecord, COMDAT
+_vPoint$ = 8						; size = 4
+?TransformVector2Ds@C2DMatrix@@QAEXAAV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z PROC ; C2DMatrix::TransformVector2Ds, COMDAT
 ; _this$ = ecx
 
-; 29   : 		{}
+; 109  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 40					; 00000028H
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-40]
+	mov	ecx, 10					; 0000000aH
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 110  : 	for (unsigned int i = 0; i < vPoint.size(); ++i)
+
+	mov	DWORD PTR _i$3[ebp], 0
+	jmp	SHORT $LN4@TransformV
+$LN2@TransformV:
+	mov	eax, DWORD PTR _i$3[ebp]
+	add	eax, 1
+	mov	DWORD PTR _i$3[ebp], eax
+$LN4@TransformV:
+	mov	ecx, DWORD PTR _vPoint$[ebp]
+	call	?size@?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QBEIXZ ; std::vector<Vector2D,std::allocator<Vector2D> >::size
+	cmp	DWORD PTR _i$3[ebp], eax
+	jae	$LN3@TransformV
+
+; 111  : 	{
+; 112  : 		double tempX = (m_Matrix._11*vPoint[i].x) + (m_Matrix._21*vPoint[i].y) + (m_Matrix._31);
+
+	mov	ecx, DWORD PTR _i$3[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _vPoint$[ebp]
+	call	??A?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEAAUVector2D@@I@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::operator[]
+	mov	edx, DWORD PTR _this$[ebp]
+	movsd	xmm0, QWORD PTR [edx]
+	mulsd	xmm0, QWORD PTR [eax]
+	mov	eax, DWORD PTR _i$3[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _vPoint$[ebp]
+	movsd	QWORD PTR tv171[ebp], xmm0
+	call	??A?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEAAUVector2D@@I@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::operator[]
+	mov	ecx, DWORD PTR _this$[ebp]
+	movsd	xmm0, QWORD PTR [ecx+24]
+	mulsd	xmm0, QWORD PTR [eax+8]
+	movsd	xmm1, QWORD PTR tv171[ebp]
+	addsd	xmm1, xmm0
+	mov	edx, DWORD PTR _this$[ebp]
+	addsd	xmm1, QWORD PTR [edx+48]
+	movsd	QWORD PTR _tempX$2[ebp], xmm1
+
+; 113  : 
+; 114  : 		double tempY = (m_Matrix._12*vPoint[i].x) + (m_Matrix._22*vPoint[i].y) + (m_Matrix._32);
+
+	mov	eax, DWORD PTR _i$3[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _vPoint$[ebp]
+	call	??A?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEAAUVector2D@@I@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::operator[]
+	mov	ecx, DWORD PTR _this$[ebp]
+	movsd	xmm0, QWORD PTR [ecx+8]
+	mulsd	xmm0, QWORD PTR [eax]
+	mov	edx, DWORD PTR _i$3[ebp]
+	push	edx
+	mov	ecx, DWORD PTR _vPoint$[ebp]
+	movsd	QWORD PTR tv173[ebp], xmm0
+	call	??A?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEAAUVector2D@@I@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::operator[]
+	mov	ecx, DWORD PTR _this$[ebp]
+	movsd	xmm0, QWORD PTR [ecx+32]
+	mulsd	xmm0, QWORD PTR [eax+8]
+	movsd	xmm1, QWORD PTR tv173[ebp]
+	addsd	xmm1, xmm0
+	mov	edx, DWORD PTR _this$[ebp]
+	addsd	xmm1, QWORD PTR [edx+56]
+	movsd	QWORD PTR _tempY$1[ebp], xmm1
+
+; 115  : 
+; 116  : 		vPoint[i].x = tempX;
+
+	mov	eax, DWORD PTR _i$3[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _vPoint$[ebp]
+	call	??A?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEAAUVector2D@@I@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::operator[]
+	movsd	xmm0, QWORD PTR _tempX$2[ebp]
+	movsd	QWORD PTR [eax], xmm0
+
+; 117  : 
+; 118  : 		vPoint[i].y = tempY;
+
+	mov	ecx, DWORD PTR _i$3[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _vPoint$[ebp]
+	call	??A?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@QAEAAUVector2D@@I@Z ; std::vector<Vector2D,std::allocator<Vector2D> >::operator[]
+	movsd	xmm0, QWORD PTR _tempY$1[ebp]
+	movsd	QWORD PTR [eax+8], xmm0
+
+; 119  : 	}
+
+	jmp	$LN2@TransformV
+$LN3@TransformV:
+
+; 120  : }
+
+	pop	edi
+	add	esp, 40					; 00000028H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?TransformVector2Ds@C2DMatrix@@QAEXAAV?$vector@UVector2D@@V?$allocator@UVector2D@@@std@@@std@@@Z ENDP ; C2DMatrix::TransformVector2Ds
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
+;	COMDAT ?Rotate@C2DMatrix@@QAEXABUVector2D@@0@Z
+_TEXT	SEGMENT
+_mat$ = -80						; size = 72
+_this$ = -4						; size = 4
+_fwd$ = 8						; size = 4
+_side$ = 12						; size = 4
+?Rotate@C2DMatrix@@QAEXABUVector2D@@0@Z PROC		; C2DMatrix::Rotate, COMDAT
+; _this$ = ecx
+
+; 194  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 84					; 00000054H
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-84]
+	mov	ecx, 21					; 00000015H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 195  : 	C2DMatrix::Matrix mat;
+
+	lea	ecx, DWORD PTR _mat$[ebp]
+	call	??0Matrix@C2DMatrix@@QAE@XZ		; C2DMatrix::Matrix::Matrix
+
+; 196  : 
+; 197  : 	mat._11 = fwd.x;  mat._12 = fwd.y; mat._13 = 0;
+
+	mov	eax, DWORD PTR _fwd$[ebp]
+	movsd	xmm0, QWORD PTR [eax]
+	movsd	QWORD PTR _mat$[ebp], xmm0
+	mov	ecx, DWORD PTR _fwd$[ebp]
+	movsd	xmm0, QWORD PTR [ecx+8]
+	movsd	QWORD PTR _mat$[ebp+8], xmm0
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR _mat$[ebp+16], xmm0
+
+; 198  : 
+; 199  : 	mat._21 = side.x; mat._22 = side.y; mat._23 = 0;
+
+	mov	edx, DWORD PTR _side$[ebp]
+	movsd	xmm0, QWORD PTR [edx]
+	movsd	QWORD PTR _mat$[ebp+24], xmm0
+	mov	eax, DWORD PTR _side$[ebp]
+	movsd	xmm0, QWORD PTR [eax+8]
+	movsd	QWORD PTR _mat$[ebp+32], xmm0
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR _mat$[ebp+40], xmm0
+
+; 200  : 
+; 201  : 	mat._31 = 0; mat._32 = 0; mat._33 = 1;
+
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR _mat$[ebp+48], xmm0
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR _mat$[ebp+56], xmm0
+	movsd	xmm0, QWORD PTR __real@3ff0000000000000
+	movsd	QWORD PTR _mat$[ebp+64], xmm0
+
+; 202  : 
+; 203  : 	//and multiply
+; 204  : 	MatrixMultiply(mat);
+
+	lea	ecx, DWORD PTR _mat$[ebp]
+	push	ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?MatrixMultiply@C2DMatrix@@AAEXAAUMatrix@1@@Z ; C2DMatrix::MatrixMultiply
+
+; 205  : }
+
+	push	edx
+	mov	ecx, ebp
+	push	eax
+	lea	edx, DWORD PTR $LN5@Rotate
+	call	@_RTC_CheckStackVars@8
+	pop	eax
+	pop	edx
+	pop	edi
+	add	esp, 84					; 00000054H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+$LN5@Rotate:
+	DD	1
+	DD	$LN4@Rotate
+$LN4@Rotate:
+	DD	-80					; ffffffb0H
+	DD	72					; 00000048H
+	DD	$LN3@Rotate
+$LN3@Rotate:
+	DB	109					; 0000006dH
+	DB	97					; 00000061H
+	DB	116					; 00000074H
+	DB	0
+?Rotate@C2DMatrix@@QAEXABUVector2D@@0@Z ENDP		; C2DMatrix::Rotate
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
+;	COMDAT ?Scale@C2DMatrix@@QAEXNN@Z
+_TEXT	SEGMENT
+_mat$ = -80						; size = 72
+_this$ = -4						; size = 4
+_xScale$ = 8						; size = 8
+_yScale$ = 16						; size = 8
+?Scale@C2DMatrix@@QAEXNN@Z PROC				; C2DMatrix::Scale, COMDAT
+; _this$ = ecx
+
+; 161  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 84					; 00000054H
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-84]
+	mov	ecx, 21					; 00000015H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 162  : 	C2DMatrix::Matrix mat;
+
+	lea	ecx, DWORD PTR _mat$[ebp]
+	call	??0Matrix@C2DMatrix@@QAE@XZ		; C2DMatrix::Matrix::Matrix
+
+; 163  : 
+; 164  : 	mat._11 = xScale; mat._12 = 0; mat._13 = 0;
+
+	movsd	xmm0, QWORD PTR _xScale$[ebp]
+	movsd	QWORD PTR _mat$[ebp], xmm0
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR _mat$[ebp+8], xmm0
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR _mat$[ebp+16], xmm0
+
+; 165  : 
+; 166  : 	mat._21 = 0; mat._22 = yScale; mat._23 = 0;
+
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR _mat$[ebp+24], xmm0
+	movsd	xmm0, QWORD PTR _yScale$[ebp]
+	movsd	QWORD PTR _mat$[ebp+32], xmm0
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR _mat$[ebp+40], xmm0
+
+; 167  : 
+; 168  : 	mat._31 = 0; mat._32 = 0; mat._33 = 1;
+
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR _mat$[ebp+48], xmm0
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR _mat$[ebp+56], xmm0
+	movsd	xmm0, QWORD PTR __real@3ff0000000000000
+	movsd	QWORD PTR _mat$[ebp+64], xmm0
+
+; 169  : 
+; 170  : 	//and multiply
+; 171  : 	MatrixMultiply(mat);
+
+	lea	eax, DWORD PTR _mat$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?MatrixMultiply@C2DMatrix@@AAEXAAUMatrix@1@@Z ; C2DMatrix::MatrixMultiply
+
+; 172  : }
+
+	push	edx
+	mov	ecx, ebp
+	push	eax
+	lea	edx, DWORD PTR $LN5@Scale
+	call	@_RTC_CheckStackVars@8
+	pop	eax
+	pop	edx
+	pop	edi
+	add	esp, 84					; 00000054H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	16					; 00000010H
+	npad	2
+$LN5@Scale:
+	DD	1
+	DD	$LN4@Scale
+$LN4@Scale:
+	DD	-80					; ffffffb0H
+	DD	72					; 00000048H
+	DD	$LN3@Scale
+$LN3@Scale:
+	DB	109					; 0000006dH
+	DB	97					; 00000061H
+	DB	116					; 00000074H
+	DB	0
+?Scale@C2DMatrix@@QAEXNN@Z ENDP				; C2DMatrix::Scale
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
+;	COMDAT ?Translate@C2DMatrix@@QAEXNN@Z
+_TEXT	SEGMENT
+_mat$ = -80						; size = 72
+_this$ = -4						; size = 4
+_x$ = 8							; size = 8
+_y$ = 16						; size = 8
+?Translate@C2DMatrix@@QAEXNN@Z PROC			; C2DMatrix::Translate, COMDAT
+; _this$ = ecx
+
+; 146  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 84					; 00000054H
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-84]
+	mov	ecx, 21					; 00000015H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 147  : 	Matrix mat;
+
+	lea	ecx, DWORD PTR _mat$[ebp]
+	call	??0Matrix@C2DMatrix@@QAE@XZ		; C2DMatrix::Matrix::Matrix
+
+; 148  : 
+; 149  : 	mat._11 = 1; mat._12 = 0; mat._13 = 0;
+
+	movsd	xmm0, QWORD PTR __real@3ff0000000000000
+	movsd	QWORD PTR _mat$[ebp], xmm0
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR _mat$[ebp+8], xmm0
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR _mat$[ebp+16], xmm0
+
+; 150  : 
+; 151  : 	mat._21 = 0; mat._22 = 1; mat._23 = 0;
+
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR _mat$[ebp+24], xmm0
+	movsd	xmm0, QWORD PTR __real@3ff0000000000000
+	movsd	QWORD PTR _mat$[ebp+32], xmm0
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR _mat$[ebp+40], xmm0
+
+; 152  : 
+; 153  : 	mat._31 = x;    mat._32 = y;    mat._33 = 1;
+
+	movsd	xmm0, QWORD PTR _x$[ebp]
+	movsd	QWORD PTR _mat$[ebp+48], xmm0
+	movsd	xmm0, QWORD PTR _y$[ebp]
+	movsd	QWORD PTR _mat$[ebp+56], xmm0
+	movsd	xmm0, QWORD PTR __real@3ff0000000000000
+	movsd	QWORD PTR _mat$[ebp+64], xmm0
+
+; 154  : 
+; 155  : 	//and multiply
+; 156  : 	MatrixMultiply(mat);
+
+	lea	eax, DWORD PTR _mat$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?MatrixMultiply@C2DMatrix@@AAEXAAUMatrix@1@@Z ; C2DMatrix::MatrixMultiply
+
+; 157  : }
+
+	push	edx
+	mov	ecx, ebp
+	push	eax
+	lea	edx, DWORD PTR $LN5@Translate
+	call	@_RTC_CheckStackVars@8
+	pop	eax
+	pop	edx
+	pop	edi
+	add	esp, 84					; 00000054H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	16					; 00000010H
+$LN5@Translate:
+	DD	1
+	DD	$LN4@Translate
+$LN4@Translate:
+	DD	-80					; ffffffb0H
+	DD	72					; 00000048H
+	DD	$LN3@Translate
+$LN3@Translate:
+	DB	109					; 0000006dH
+	DB	97					; 00000061H
+	DB	116					; 00000074H
+	DB	0
+?Translate@C2DMatrix@@QAEXNN@Z ENDP			; C2DMatrix::Translate
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
+;	COMDAT ?Identity@C2DMatrix@@QAEXXZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+?Identity@C2DMatrix@@QAEXXZ PROC			; C2DMatrix::Identity, COMDAT
+; _this$ = ecx
+
+; 136  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -13889,27 +13587,77 @@ _pos$ = 8						; size = 16
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 27   : 		GraveRecord(Vector2D pos) :Position(pos),
+; 137  : 	m_Matrix._11 = 1; m_Matrix._12 = 0; m_Matrix._13 = 0;
 
 	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR _pos$[ebp]
-	mov	DWORD PTR [eax], ecx
-	mov	edx, DWORD PTR _pos$[ebp+4]
-	mov	DWORD PTR [eax+4], edx
-	mov	ecx, DWORD PTR _pos$[ebp+8]
-	mov	DWORD PTR [eax+8], ecx
-	mov	edx, DWORD PTR _pos$[ebp+12]
-	mov	DWORD PTR [eax+12], edx
+	movsd	xmm0, QWORD PTR __real@3ff0000000000000
+	movsd	QWORD PTR [eax], xmm0
+	mov	ecx, DWORD PTR _this$[ebp]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [ecx+8], xmm0
+	mov	edx, DWORD PTR _this$[ebp]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [edx+16], xmm0
 
-; 28   : 			TimeCreated(Clock->GetCurrentTime())
+; 138  : 
+; 139  : 	m_Matrix._21 = 0; m_Matrix._22 = 1; m_Matrix._23 = 0;
 
-	call	?Instance@CrudeTimer@@SAPAV1@XZ		; CrudeTimer::Instance
-	mov	ecx, eax
-	call	?GetTickCount@CrudeTimer@@QAENXZ	; CrudeTimer::GetTickCount
 	mov	eax, DWORD PTR _this$[ebp]
-	fstp	QWORD PTR [eax+16]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [eax+24], xmm0
+	mov	ecx, DWORD PTR _this$[ebp]
+	movsd	xmm0, QWORD PTR __real@3ff0000000000000
+	movsd	QWORD PTR [ecx+32], xmm0
+	mov	edx, DWORD PTR _this$[ebp]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [edx+40], xmm0
 
-; 29   : 		{}
+; 140  : 
+; 141  : 	m_Matrix._31 = 0; m_Matrix._32 = 0; m_Matrix._33 = 1;
+
+	mov	eax, DWORD PTR _this$[ebp]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [eax+48], xmm0
+	mov	ecx, DWORD PTR _this$[ebp]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [ecx+56], xmm0
+	mov	edx, DWORD PTR _this$[ebp]
+	movsd	xmm0, QWORD PTR __real@3ff0000000000000
+	movsd	QWORD PTR [edx+64], xmm0
+
+; 142  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+?Identity@C2DMatrix@@QAEXXZ ENDP			; C2DMatrix::Identity
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
+;	COMDAT ??0C2DMatrix@@QAE@XZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+??0C2DMatrix@@QAE@XZ PROC				; C2DMatrix::C2DMatrix, COMDAT
+; _this$ = ecx
+
+; 43   : 	C2DMatrix()
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	??0Matrix@C2DMatrix@@QAE@XZ		; C2DMatrix::Matrix::Matrix
+
+; 44   : 	{
+; 45   : 		//initialize the matrix to an identity matrix
+; 46   : 		Identity();
+
+	mov	ecx, DWORD PTR _this$[ebp]
+	call	?Identity@C2DMatrix@@QAEXXZ		; C2DMatrix::Identity
+
+; 47   : 	}
 
 	mov	eax, DWORD PTR _this$[ebp]
 	add	esp, 4
@@ -13917,8 +13665,312 @@ _pos$ = 8						; size = 16
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
-	ret	16					; 00000010H
-??0GraveRecord@GraveMarkers@@QAE@UVector2D@@@Z ENDP	; GraveMarkers::GraveRecord::GraveRecord
+	ret	0
+??0C2DMatrix@@QAE@XZ ENDP				; C2DMatrix::C2DMatrix
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
+;	COMDAT ?MatrixMultiply@C2DMatrix@@AAEXAAUMatrix@1@@Z
+_TEXT	SEGMENT
+_mat_temp$ = -80					; size = 72
+_this$ = -4						; size = 4
+_mIn$ = 8						; size = 4
+?MatrixMultiply@C2DMatrix@@AAEXAAUMatrix@1@@Z PROC	; C2DMatrix::MatrixMultiply, COMDAT
+; _this$ = ecx
+
+; 86   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 84					; 00000054H
+	push	esi
+	push	edi
+	push	ecx
+	lea	edi, DWORD PTR [ebp-84]
+	mov	ecx, 21					; 00000015H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	pop	ecx
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 87   : 	C2DMatrix::Matrix mat_temp;
+
+	lea	ecx, DWORD PTR _mat_temp$[ebp]
+	call	??0Matrix@C2DMatrix@@QAE@XZ		; C2DMatrix::Matrix::Matrix
+
+; 88   : 
+; 89   : 	//first row
+; 90   : 	mat_temp._11 = (m_Matrix._11*mIn._11) + (m_Matrix._12*mIn._21) + (m_Matrix._13*mIn._31);
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _mIn$[ebp]
+	movsd	xmm0, QWORD PTR [eax]
+	mulsd	xmm0, QWORD PTR [ecx]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [edx+8]
+	mulsd	xmm1, QWORD PTR [eax+24]
+	addsd	xmm0, xmm1
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [ecx+16]
+	mulsd	xmm1, QWORD PTR [edx+48]
+	addsd	xmm0, xmm1
+	movsd	QWORD PTR _mat_temp$[ebp], xmm0
+
+; 91   : 	mat_temp._12 = (m_Matrix._11*mIn._12) + (m_Matrix._12*mIn._22) + (m_Matrix._13*mIn._32);
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _mIn$[ebp]
+	movsd	xmm0, QWORD PTR [eax]
+	mulsd	xmm0, QWORD PTR [ecx+8]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [edx+8]
+	mulsd	xmm1, QWORD PTR [eax+32]
+	addsd	xmm0, xmm1
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [ecx+16]
+	mulsd	xmm1, QWORD PTR [edx+56]
+	addsd	xmm0, xmm1
+	movsd	QWORD PTR _mat_temp$[ebp+8], xmm0
+
+; 92   : 	mat_temp._13 = (m_Matrix._11*mIn._13) + (m_Matrix._12*mIn._23) + (m_Matrix._13*mIn._33);
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _mIn$[ebp]
+	movsd	xmm0, QWORD PTR [eax]
+	mulsd	xmm0, QWORD PTR [ecx+16]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [edx+8]
+	mulsd	xmm1, QWORD PTR [eax+40]
+	addsd	xmm0, xmm1
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [ecx+16]
+	mulsd	xmm1, QWORD PTR [edx+64]
+	addsd	xmm0, xmm1
+	movsd	QWORD PTR _mat_temp$[ebp+16], xmm0
+
+; 93   : 
+; 94   : 	//second
+; 95   : 	mat_temp._21 = (m_Matrix._21*mIn._11) + (m_Matrix._22*mIn._21) + (m_Matrix._23*mIn._31);
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _mIn$[ebp]
+	movsd	xmm0, QWORD PTR [eax+24]
+	mulsd	xmm0, QWORD PTR [ecx]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [edx+32]
+	mulsd	xmm1, QWORD PTR [eax+24]
+	addsd	xmm0, xmm1
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [ecx+40]
+	mulsd	xmm1, QWORD PTR [edx+48]
+	addsd	xmm0, xmm1
+	movsd	QWORD PTR _mat_temp$[ebp+24], xmm0
+
+; 96   : 	mat_temp._22 = (m_Matrix._21*mIn._12) + (m_Matrix._22*mIn._22) + (m_Matrix._23*mIn._32);
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _mIn$[ebp]
+	movsd	xmm0, QWORD PTR [eax+24]
+	mulsd	xmm0, QWORD PTR [ecx+8]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [edx+32]
+	mulsd	xmm1, QWORD PTR [eax+32]
+	addsd	xmm0, xmm1
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [ecx+40]
+	mulsd	xmm1, QWORD PTR [edx+56]
+	addsd	xmm0, xmm1
+	movsd	QWORD PTR _mat_temp$[ebp+32], xmm0
+
+; 97   : 	mat_temp._23 = (m_Matrix._21*mIn._13) + (m_Matrix._22*mIn._23) + (m_Matrix._23*mIn._33);
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _mIn$[ebp]
+	movsd	xmm0, QWORD PTR [eax+24]
+	mulsd	xmm0, QWORD PTR [ecx+16]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [edx+32]
+	mulsd	xmm1, QWORD PTR [eax+40]
+	addsd	xmm0, xmm1
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [ecx+40]
+	mulsd	xmm1, QWORD PTR [edx+64]
+	addsd	xmm0, xmm1
+	movsd	QWORD PTR _mat_temp$[ebp+40], xmm0
+
+; 98   : 
+; 99   : 	//third
+; 100  : 	mat_temp._31 = (m_Matrix._31*mIn._11) + (m_Matrix._32*mIn._21) + (m_Matrix._33*mIn._31);
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _mIn$[ebp]
+	movsd	xmm0, QWORD PTR [eax+48]
+	mulsd	xmm0, QWORD PTR [ecx]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [edx+56]
+	mulsd	xmm1, QWORD PTR [eax+24]
+	addsd	xmm0, xmm1
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [ecx+64]
+	mulsd	xmm1, QWORD PTR [edx+48]
+	addsd	xmm0, xmm1
+	movsd	QWORD PTR _mat_temp$[ebp+48], xmm0
+
+; 101  : 	mat_temp._32 = (m_Matrix._31*mIn._12) + (m_Matrix._32*mIn._22) + (m_Matrix._33*mIn._32);
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _mIn$[ebp]
+	movsd	xmm0, QWORD PTR [eax+48]
+	mulsd	xmm0, QWORD PTR [ecx+8]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [edx+56]
+	mulsd	xmm1, QWORD PTR [eax+32]
+	addsd	xmm0, xmm1
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [ecx+64]
+	mulsd	xmm1, QWORD PTR [edx+56]
+	addsd	xmm0, xmm1
+	movsd	QWORD PTR _mat_temp$[ebp+56], xmm0
+
+; 102  : 	mat_temp._33 = (m_Matrix._31*mIn._13) + (m_Matrix._32*mIn._23) + (m_Matrix._33*mIn._33);
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	ecx, DWORD PTR _mIn$[ebp]
+	movsd	xmm0, QWORD PTR [eax+48]
+	mulsd	xmm0, QWORD PTR [ecx+16]
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	eax, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [edx+56]
+	mulsd	xmm1, QWORD PTR [eax+40]
+	addsd	xmm0, xmm1
+	mov	ecx, DWORD PTR _this$[ebp]
+	mov	edx, DWORD PTR _mIn$[ebp]
+	movsd	xmm1, QWORD PTR [ecx+64]
+	mulsd	xmm1, QWORD PTR [edx+64]
+	addsd	xmm0, xmm1
+	movsd	QWORD PTR _mat_temp$[ebp+64], xmm0
+
+; 103  : 
+; 104  : 	m_Matrix = mat_temp;
+
+	mov	ecx, 18					; 00000012H
+	lea	esi, DWORD PTR _mat_temp$[ebp]
+	mov	edi, DWORD PTR _this$[ebp]
+	rep movsd
+
+; 105  : }
+
+	push	edx
+	mov	ecx, ebp
+	push	eax
+	lea	edx, DWORD PTR $LN5@MatrixMult
+	call	@_RTC_CheckStackVars@8
+	pop	eax
+	pop	edx
+	pop	edi
+	pop	esi
+	add	esp, 84					; 00000054H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+	npad	1
+$LN5@MatrixMult:
+	DD	1
+	DD	$LN4@MatrixMult
+$LN4@MatrixMult:
+	DD	-80					; ffffffb0H
+	DD	72					; 00000048H
+	DD	$LN3@MatrixMult
+$LN3@MatrixMult:
+	DB	109					; 0000006dH
+	DB	97					; 00000061H
+	DB	116					; 00000074H
+	DB	95					; 0000005fH
+	DB	116					; 00000074H
+	DB	101					; 00000065H
+	DB	109					; 0000006dH
+	DB	112					; 00000070H
+	DB	0
+?MatrixMultiply@C2DMatrix@@AAEXAAUMatrix@1@@Z ENDP	; C2DMatrix::MatrixMultiply
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\c2dmatrix.h
+;	COMDAT ??0Matrix@C2DMatrix@@QAE@XZ
+_TEXT	SEGMENT
+_this$ = -4						; size = 4
+??0Matrix@C2DMatrix@@QAE@XZ PROC			; C2DMatrix::Matrix::Matrix, COMDAT
+; _this$ = ecx
+
+; 28   : 		Matrix()
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	DWORD PTR _this$[ebp], ecx
+
+; 29   : 		{
+; 30   : 			_11 = 0.0; _12 = 0.0; _13 = 0.0;
+
+	mov	eax, DWORD PTR _this$[ebp]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [eax], xmm0
+	mov	ecx, DWORD PTR _this$[ebp]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [ecx+8], xmm0
+	mov	edx, DWORD PTR _this$[ebp]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [edx+16], xmm0
+
+; 31   : 			_21 = 0.0; _22 = 0.0; _23 = 0.0;
+
+	mov	eax, DWORD PTR _this$[ebp]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [eax+24], xmm0
+	mov	ecx, DWORD PTR _this$[ebp]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [ecx+32], xmm0
+	mov	edx, DWORD PTR _this$[ebp]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [edx+40], xmm0
+
+; 32   : 			_31 = 0.0; _32 = 0.0; _33 = 0.0;
+
+	mov	eax, DWORD PTR _this$[ebp]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [eax+48], xmm0
+	mov	ecx, DWORD PTR _this$[ebp]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [ecx+56], xmm0
+	mov	edx, DWORD PTR _this$[ebp]
+	xorps	xmm0, xmm0
+	movsd	QWORD PTR [edx+64], xmm0
+
+; 33   : 		}
+
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??0Matrix@C2DMatrix@@QAE@XZ ENDP			; C2DMatrix::Matrix::Matrix
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\time\crudetimer.h

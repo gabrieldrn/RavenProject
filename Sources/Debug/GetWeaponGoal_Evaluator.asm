@@ -25,11 +25,11 @@ CONST	SEGMENT
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG168858 DB	'RG: ', 00H
+$SG168871 DB	'RG: ', 00H
 	ORG $+3
-$SG168860 DB	'RL: ', 00H
+$SG168873 DB	'RL: ', 00H
 	ORG $+3
-$SG168862 DB	'SG: ', 00H
+$SG168875 DB	'SG: ', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
@@ -18488,7 +18488,7 @@ _pBot$ = 24						; size = 4
 ?RenderInfo@GetWeaponGoal_Evaluator@@UAEXUVector2D@@PAVRaven_Bot@@@Z PROC ; GetWeaponGoal_Evaluator::RenderInfo
 ; _this$ = ecx
 
-; 58   : {
+; 57   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -18513,13 +18513,13 @@ _pBot$ = 24						; size = 4
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 59   : 	std::string s;
+; 58   : 	std::string s;
 
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 
-; 60   : 	switch (m_iWeaponType)
+; 59   : 	switch (m_iWeaponType)
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+16]
@@ -18533,36 +18533,36 @@ _pBot$ = 24						; size = 4
 	jmp	SHORT $LN2@RenderInfo
 $LN4@RenderInfo:
 
-; 61   : 	{
-; 62   : 	case type_rail_gun:
-; 63   : 		s = "RG: "; break;
+; 60   : 	{
+; 61   : 	case type_rail_gun:
+; 62   : 		s = "RG: "; break;
 
-	push	OFFSET $SG168858
+	push	OFFSET $SG168871
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
 	jmp	SHORT $LN2@RenderInfo
 $LN5@RenderInfo:
 
-; 64   : 	case type_rocket_launcher:
-; 65   : 		s = "RL: "; break;
+; 63   : 	case type_rocket_launcher:
+; 64   : 		s = "RL: "; break;
 
-	push	OFFSET $SG168860
+	push	OFFSET $SG168873
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
 	jmp	SHORT $LN2@RenderInfo
 $LN6@RenderInfo:
 
-; 66   : 	case type_shotgun:
-; 67   : 		s = "SG: "; break;
+; 65   : 	case type_shotgun:
+; 66   : 		s = "SG: "; break;
 
-	push	OFFSET $SG168862
+	push	OFFSET $SG168875
 	lea	ecx, DWORD PTR _s$[ebp]
 	call	??4?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=
 $LN2@RenderInfo:
 
-; 68   : 	}
-; 69   : 
-; 70   : 	gdi->TextAtPos(Position, s + ttos(CalculateDesirability(pBot), 2));
+; 67   : 	}
+; 68   : 
+; 69   : 	gdi->TextAtPos(Position, s + ttos(CalculateDesirability(pBot), 2));
 
 	mov	esi, esp
 	mov	edx, DWORD PTR _pBot$[ebp]
@@ -18620,7 +18620,7 @@ $LN2@RenderInfo:
 	lea	ecx, DWORD PTR $T4[ebp]
 	call	??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::~basic_string<char,std::char_traits<char>,std::allocator<char> >
 
-; 71   : }
+; 70   : }
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	lea	ecx, DWORD PTR _s$[ebp]
@@ -18688,7 +18688,7 @@ _pBot$ = 8						; size = 4
 ?SetGoal@GetWeaponGoal_Evaluator@@UAEXPAVRaven_Bot@@@Z PROC ; GetWeaponGoal_Evaluator::SetGoal
 ; _this$ = ecx
 
-; 51   : {
+; 50   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -18696,7 +18696,7 @@ _pBot$ = 8						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 52   : 	pBot->GetBrain()->AddGoal_GetItem(m_iWeaponType);
+; 51   : 	pBot->GetBrain()->AddGoal_GetItem(m_iWeaponType);
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [eax+16]
@@ -18706,7 +18706,7 @@ _pBot$ = 8						; size = 4
 	mov	ecx, eax
 	call	?AddGoal_GetItem@Goal_Think@@QAEXI@Z	; Goal_Think::AddGoal_GetItem
 
-; 53   : }
+; 52   : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -18800,7 +18800,7 @@ $LN2@CalculateD:
 	fstp	QWORD PTR _Health$5[ebp]
 
 ; 34   : 
-; 35   : 		WeaponStrength = Raven_Feature::IndividualWeaponStrength(pBot,
+; 35   : 		WeaponStrength = Raven_Feature::IndividualWeaponStrength(pBot, m_iWeaponType);
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	edx, DWORD PTR [ecx+16]
@@ -18811,9 +18811,8 @@ $LN2@CalculateD:
 	add	esp, 8
 	fstp	QWORD PTR _WeaponStrength$4[ebp]
 
-; 36   : 			m_iWeaponType);
-; 37   : 
-; 38   : 		double Desirability = (Tweaker * Health * (1 - WeaponStrength)) / Distance;
+; 36   : 
+; 37   : 		double Desirability = (Tweaker * Health * (1 - WeaponStrength)) / Distance;
 
 	movsd	xmm0, QWORD PTR __real@3fc3333333333333
 	mulsd	xmm0, QWORD PTR _Health$5[ebp]
@@ -18823,9 +18822,9 @@ $LN2@CalculateD:
 	divsd	xmm0, QWORD PTR _Distance$[ebp]
 	movsd	QWORD PTR _Desirability$3[ebp], xmm0
 
-; 39   : 
-; 40   : 		//ensure the value is in the range 0 to 1
-; 41   : 		Clamp(Desirability, 0, 1);
+; 38   : 
+; 39   : 		//ensure the value is in the range 0 to 1
+; 40   : 		Clamp(Desirability, 0, 1);
 
 	mov	DWORD PTR $T2[ebp], 1
 	mov	DWORD PTR $T1[ebp], 0
@@ -18838,22 +18837,22 @@ $LN2@CalculateD:
 	call	??$Clamp@NHH@@YAXAANABH1@Z		; Clamp<double,int,int>
 	add	esp, 12					; 0000000cH
 
-; 42   : 
-; 43   : 		Desirability *= m_dCharacterBias;
+; 41   : 
+; 42   : 		Desirability *= m_dCharacterBias;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	movsd	xmm0, QWORD PTR _Desirability$3[ebp]
 	mulsd	xmm0, QWORD PTR [ecx+8]
 	movsd	QWORD PTR _Desirability$3[ebp], xmm0
 
-; 44   : 
-; 45   : 		return Desirability;
+; 43   : 
+; 44   : 		return Desirability;
 
 	fld	QWORD PTR _Desirability$3[ebp]
 $LN3@CalculateD:
 
-; 46   : 	}
-; 47   : }
+; 45   : 	}
+; 46   : }
 
 	push	edx
 	mov	ecx, ebp

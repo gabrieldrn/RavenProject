@@ -25,10 +25,10 @@ CONST	SEGMENT
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG169364 DB	'BOT ', 00H
-$SG169366 DB	00H
+$SG169372 DB	'BOT ', 00H
+$SG169374 DB	00H
 	ORG $+2
-$SG169365 DB	' IS STUCK!!', 00H
+$SG169373 DB	' IS STUCK!!', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
@@ -23524,11 +23524,11 @@ _this$ = -4						; size = 4
 	mov	ecx, DWORD PTR [edx+8]
 	call	?ID@BaseGameEntity@@QBEHXZ		; BaseGameEntity::ID
 	mov	DWORD PTR $T1[ebp], eax
-	push	OFFSET $SG169366
-	push	OFFSET $SG169365
+	push	OFFSET $SG169374
+	push	OFFSET $SG169373
 	lea	eax, DWORD PTR $T1[ebp]
 	push	eax
-	push	OFFSET $SG169364
+	push	OFFSET $SG169372
 	call	?Instance@DebugConsole@@SAPAV1@XZ	; DebugConsole::Instance
 	mov	ecx, eax
 	call	??$?6$$BY04D@DebugConsole@@QAEAAV0@AAY04$$CBD@Z ; DebugConsole::operator<<<char [5]>

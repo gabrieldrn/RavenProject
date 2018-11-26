@@ -12,7 +12,7 @@ INCLUDELIB OLDNAMES
 CONST	SEGMENT
 ?piecewise_construct@std@@3Upiecewise_construct_t@1@B	ORG $+1 ; std::piecewise_construct
 	ORG $+3
-$SG176426 DB	'Bot_TriggerUpdateFreq', 00H
+$SG176439 DB	'Bot_TriggerUpdateFreq', 00H
 	ORG $+2
 ?colors@@3QBKB DD 0ffH					; colors
 	DD	0ff0000H
@@ -14468,7 +14468,7 @@ _range$ = 12						; size = 8
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T4[ebp], esp
-	push	OFFSET $SG176426
+	push	OFFSET $SG176439
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv180[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0

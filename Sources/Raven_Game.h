@@ -32,6 +32,7 @@ class BaseGameEntity;
 class Raven_Projectile;
 class Raven_Map;
 class GraveMarkers;
+class WeaponMarkers;
 
 class Raven_Game
 {
@@ -74,6 +75,9 @@ private:
 	//when a bot is killed a "grave" is displayed for a few seconds. This
 	//class manages the graves
 	GraveMarkers*                    m_pGraveMarkers;
+
+	//when a bot is killed, he drops his weapons on the floor
+	WeaponMarkers*                   m_pWeaponMarkers;
 
 	//this iterates through each trigger, testing each one against each bot
 	void  UpdateTriggers();

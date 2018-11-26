@@ -8,8 +8,9 @@
 
 
 
-Raven_team::Raven_team()
+Raven_team::Raven_team(Vector2D vec, bool couleur) : spawnPoint(vec), isBlue(couleur)
 {
+
 	std::vector<Raven_Bot *> team =  std::vector<Raven_Bot *>();
 	leader = NULL;
 }

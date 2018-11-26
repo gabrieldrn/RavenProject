@@ -78,11 +78,8 @@ PUBLIC	?RemoveAllSubgoals@?$Goal_Composite@VRaven_Bot@@@@QAEXXZ ; Goal_Composite
 PUBLIC	?Activate@Goal_Explore@@UAEXXZ			; Goal_Explore::Activate
 PUBLIC	?Process@Goal_Explore@@UAEHXZ			; Goal_Explore::Process
 PUBLIC	?HandleMessage@Goal_Explore@@UAE_NABUTelegram@@@Z ; Goal_Explore::HandleMessage
-PUBLIC	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ		; BaseGameEntity::Pos
-PUBLIC	?getLeader@Raven_team@@QAEPAVRaven_Bot@@XZ	; Raven_team::getLeader
 PUBLIC	?GetWorld@Raven_Bot@@QAEQAVRaven_Game@@XZ	; Raven_Bot::GetWorld
 PUBLIC	?GetPathPlanner@Raven_Bot@@QAEQAVRaven_PathPlanner@@XZ ; Raven_Bot::GetPathPlanner
-PUBLIC	?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ	; Raven_Bot::GetTeam
 PUBLIC	?GetMap@Raven_Game@@QAEQAVRaven_Map@@XZ		; Raven_Game::GetMap
 PUBLIC	??$_Deallocate@$07$0A@@std@@YAXPAXI@Z		; std::_Deallocate<8,0>
 PUBLIC	??$_Freenode0@V?$allocator@U?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@std@@@?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@SAXAAV?$allocator@U?$_List_node@PAV?$Goal@VRaven_Bot@@@@PAX@std@@@1@PAU01@@Z ; std::_List_node<Goal<Raven_Bot> *,void *>::_Freenode0<std::allocator<std::_List_node<Goal<Raven_Bot> *,void *> > >
@@ -1953,7 +1950,7 @@ _this$ = -4						; size = 4
 ?GetMap@Raven_Game@@QAEQAVRaven_Map@@XZ PROC		; Raven_Game::GetMap, COMDAT
 ; _this$ = ecx
 
-; 164  : 	Raven_Map* const                         GetMap() { return m_pMap; }
+; 168  : 	Raven_Map* const                         GetMap() { return m_pMap; }
 
 	push	ebp
 	mov	ebp, esp
@@ -1966,28 +1963,6 @@ _this$ = -4						; size = 4
 	pop	ebp
 	ret	0
 ?GetMap@Raven_Game@@QAEQAVRaven_Map@@XZ ENDP		; Raven_Game::GetMap
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\sources\raven_bot.h
-;	COMDAT ?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ PROC		; Raven_Bot::GetTeam, COMDAT
-; _this$ = ecx
-
-; 215  : 	Raven_team*						   GetTeam() { return m_pteam; }
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [eax+272]
-	mov	esp, ebp
-	pop	ebp
-	ret	0
-?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ ENDP		; Raven_Bot::GetTeam
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\sources\raven_bot.h
@@ -2034,61 +2009,6 @@ _this$ = -4						; size = 4
 ?GetWorld@Raven_Bot@@QAEQAVRaven_Game@@XZ ENDP		; Raven_Bot::GetWorld
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
-; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\sources\raven_team.h
-;	COMDAT ?getLeader@Raven_team@@QAEPAVRaven_Bot@@XZ
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-?getLeader@Raven_team@@QAEPAVRaven_Bot@@XZ PROC		; Raven_team::getLeader, COMDAT
-; _this$ = ecx
-
-; 28   : 	Raven_Bot*				         getLeader() { return leader; }
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	eax, DWORD PTR [eax+32]
-	mov	esp, ebp
-	pop	ebp
-	ret	0
-?getLeader@Raven_team@@QAEPAVRaven_Bot@@XZ ENDP		; Raven_team::getLeader
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\game\basegameentity.h
-;	COMDAT ?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-___$ReturnUdt$ = 8					; size = 4
-?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ PROC		; BaseGameEntity::Pos, COMDAT
-; _this$ = ecx
-
-; 82   : 	Vector2D     Pos()const { return m_vPosition; }
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-	mov	eax, DWORD PTR _this$[ebp]
-	add	eax, 24					; 00000018H
-	mov	ecx, DWORD PTR ___$ReturnUdt$[ebp]
-	mov	edx, DWORD PTR [eax]
-	mov	DWORD PTR [ecx], edx
-	mov	edx, DWORD PTR [eax+4]
-	mov	DWORD PTR [ecx+4], edx
-	mov	edx, DWORD PTR [eax+8]
-	mov	DWORD PTR [ecx+8], edx
-	mov	eax, DWORD PTR [eax+12]
-	mov	DWORD PTR [ecx+12], eax
-	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
-	mov	esp, ebp
-	pop	ebp
-	ret	4
-?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ ENDP		; BaseGameEntity::Pos
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
 ; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\sources\goals\goal_explore.cpp
 _TEXT	SEGMENT
 tv160 = -44						; size = 4
@@ -2104,7 +2024,7 @@ _msg$ = 8						; size = 4
 ?HandleMessage@Goal_Explore@@UAE_NABUTelegram@@@Z PROC	; Goal_Explore::HandleMessage
 ; _this$ = ecx
 
-; 60   : {
+; 55   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2130,8 +2050,8 @@ _msg$ = 8						; size = 4
 	mov	DWORD PTR fs:0, eax
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 61   : 	//first, pass the message down the goal hierarchy
-; 62   : 	bool bHandled = ForwardMessageToFrontMostSubgoal(msg);
+; 56   : 	//first, pass the message down the goal hierarchy
+; 57   : 	bool bHandled = ForwardMessageToFrontMostSubgoal(msg);
 
 	mov	eax, DWORD PTR _msg$[ebp]
 	push	eax
@@ -2139,16 +2059,16 @@ _msg$ = 8						; size = 4
 	call	?ForwardMessageToFrontMostSubgoal@?$Goal_Composite@VRaven_Bot@@@@IAE_NABUTelegram@@@Z ; Goal_Composite<Raven_Bot>::ForwardMessageToFrontMostSubgoal
 	mov	BYTE PTR _bHandled$[ebp], al
 
-; 63   : 
-; 64   : 	//if the msg was not handled, test to see if this goal can handle it
-; 65   : 	if (bHandled == false)
+; 58   : 
+; 59   : 	//if the msg was not handled, test to see if this goal can handle it
+; 60   : 	if (bHandled == false)
 
 	movzx	ecx, BYTE PTR _bHandled$[ebp]
 	test	ecx, ecx
 	jne	$LN4@HandleMess
 
-; 66   : 	{
-; 67   : 		switch (msg.Msg)
+; 61   : 	{
+; 62   : 		switch (msg.Msg)
 
 	mov	edx, DWORD PTR _msg$[ebp]
 	mov	eax, DWORD PTR [edx+8]
@@ -2160,17 +2080,17 @@ _msg$ = 8						; size = 4
 	jmp	$LN7@HandleMess
 $LN5@HandleMess:
 
-; 68   : 		{
-; 69   : 		case Msg_PathReady:
-; 70   : 
-; 71   : 			//clear any existing goals
-; 72   : 			RemoveAllSubgoals();
+; 63   : 		{
+; 64   : 		case Msg_PathReady:
+; 65   : 
+; 66   : 			//clear any existing goals
+; 67   : 			RemoveAllSubgoals();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?RemoveAllSubgoals@?$Goal_Composite@VRaven_Bot@@@@QAEXXZ ; Goal_Composite<Raven_Bot>::RemoveAllSubgoals
 
-; 73   : 
-; 74   : 			AddSubgoal(new Goal_FollowPath(m_pOwner,
+; 68   : 
+; 69   : 			AddSubgoal(new Goal_FollowPath(m_pOwner,
 
 	push	40					; 00000028H
 	call	??2@YAPAXI@Z				; operator new
@@ -2214,46 +2134,46 @@ $LN10@HandleMess:
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 75   : 				m_pOwner->GetPathPlanner()->GetPath()));
-; 76   : 
-; 77   : 			return true; //msg handled
+; 70   : 				m_pOwner->GetPathPlanner()->GetPath()));
+; 71   : 
+; 72   : 			return true; //msg handled
 
 	mov	al, 1
 	jmp	SHORT $LN1@HandleMess
 $LN6@HandleMess:
 
-; 78   : 
-; 79   : 		case Msg_NoPathAvailable:
-; 80   : 
-; 81   : 			m_iStatus = failed;
+; 73   : 
+; 74   : 		case Msg_NoPathAvailable:
+; 75   : 
+; 76   : 			m_iStatus = failed;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [eax+12], 3
 
-; 82   : 
-; 83   : 			return true; //msg handled
+; 77   : 
+; 78   : 			return true; //msg handled
 
 	mov	al, 1
 	jmp	SHORT $LN1@HandleMess
 $LN7@HandleMess:
 
-; 84   : 
-; 85   : 		default: return false;
+; 79   : 
+; 80   : 		default: return false;
 
 	xor	al, al
 	jmp	SHORT $LN1@HandleMess
 $LN4@HandleMess:
 
-; 86   : 		}
-; 87   : 	}
-; 88   : 
-; 89   : 	//handled by subgoals
-; 90   : 	return true;
+; 81   : 		}
+; 82   : 	}
+; 83   : 
+; 84   : 	//handled by subgoals
+; 85   : 	return true;
 
 	mov	al, 1
 $LN1@HandleMess:
 
-; 91   : }
+; 86   : }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
@@ -2291,7 +2211,7 @@ _this$ = -4						; size = 4
 ?Process@Goal_Explore@@UAEHXZ PROC			; Goal_Explore::Process
 ; _this$ = ecx
 
-; 47   : {
+; 42   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2299,28 +2219,28 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 48   : 	//if status is inactive, call Activate()
-; 49   : 	ActivateIfInactive();
+; 43   : 	//if status is inactive, call Activate()
+; 44   : 	ActivateIfInactive();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ActivateIfInactive@?$Goal@VRaven_Bot@@@@IAEXXZ ; Goal<Raven_Bot>::ActivateIfInactive
 
-; 50   : 
-; 51   : 	//process the subgoals
-; 52   : 	m_iStatus = ProcessSubgoals();
+; 45   : 
+; 46   : 	//process the subgoals
+; 47   : 	m_iStatus = ProcessSubgoals();
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?ProcessSubgoals@?$Goal_Composite@VRaven_Bot@@@@IAEHXZ ; Goal_Composite<Raven_Bot>::ProcessSubgoals
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	DWORD PTR [ecx+12], eax
 
-; 53   : 
-; 54   : 	return m_iStatus;
+; 48   : 
+; 49   : 	return m_iStatus;
 
 	mov	edx, DWORD PTR _this$[ebp]
 	mov	eax, DWORD PTR [edx+12]
 
-; 55   : }
+; 50   : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -2333,11 +2253,10 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\sources\goals\goal_explore.cpp
 _TEXT	SEGMENT
-tv199 = -60						; size = 4
-$T2 = -56						; size = 4
-$T3 = -52						; size = 4
-$T4 = -48						; size = 16
-$T5 = -32						; size = 16
+tv163 = -44						; size = 4
+$T2 = -40						; size = 4
+$T3 = -36						; size = 4
+$T4 = -32						; size = 16
 _this$ = -16						; size = 4
 __$EHRec$ = -12						; size = 12
 ?Activate@Goal_Explore@@UAEXXZ PROC			; Goal_Explore::Activate
@@ -2351,15 +2270,17 @@ __$EHRec$ = -12						; size = 12
 	push	__ehhandler$?Activate@Goal_Explore@@UAEXXZ
 	mov	eax, DWORD PTR fs:0
 	push	eax
-	sub	esp, 48					; 00000030H
+	sub	esp, 32					; 00000020H
 	push	esi
-	push	edi
-	push	ecx
-	lea	edi, DWORD PTR [ebp-60]
-	mov	ecx, 12					; 0000000cH
 	mov	eax, -858993460				; ccccccccH
-	rep stosd
-	pop	ecx
+	mov	DWORD PTR [ebp-44], eax
+	mov	DWORD PTR [ebp-40], eax
+	mov	DWORD PTR [ebp-36], eax
+	mov	DWORD PTR [ebp-32], eax
+	mov	DWORD PTR [ebp-28], eax
+	mov	DWORD PTR [ebp-24], eax
+	mov	DWORD PTR [ebp-20], eax
+	mov	DWORD PTR [ebp-16], eax
 	mov	eax, DWORD PTR ___security_cookie
 	xor	eax, ebp
 	push	eax
@@ -2386,88 +2307,43 @@ __$EHRec$ = -12						; size = 12
 	mov	ecx, DWORD PTR _this$[ebp]
 	movzx	edx, BYTE PTR [ecx+48]
 	test	edx, edx
-	jne	$LN2@Activate
+	jne	SHORT $LN2@Activate
 
 ; 23   : 	{
 ; 24   : 		//grab a random location
-; 25   : 		if (m_pOwner->GetTeam() && m_pOwner->GetTeam()->getLeader()) {
+; 25   : 		m_CurrentDestination = m_pOwner->GetWorld()->GetMap()->GetRandomNodeLocation();
 
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
-	call	?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ ; Raven_Bot::GetTeam
-	test	eax, eax
-	je	SHORT $LN3@Activate
+	lea	eax, DWORD PTR $T4[ebp]
+	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR [ecx+8]
-	call	?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ ; Raven_Bot::GetTeam
-	mov	ecx, eax
-	call	?getLeader@Raven_team@@QAEPAVRaven_Bot@@XZ ; Raven_team::getLeader
-	test	eax, eax
-	je	SHORT $LN3@Activate
-
-; 26   : 			m_CurrentDestination = m_pOwner->GetTeam()->getLeader()->Pos();
-
-	lea	edx, DWORD PTR $T5[ebp]
-	push	edx
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
-	call	?GetTeam@Raven_Bot@@QAEPAVRaven_team@@XZ ; Raven_Bot::GetTeam
-	mov	ecx, eax
-	call	?getLeader@Raven_team@@QAEPAVRaven_Bot@@XZ ; Raven_team::getLeader
-	mov	ecx, eax
-	call	?Pos@BaseGameEntity@@QBE?AUVector2D@@XZ	; BaseGameEntity::Pos
-	mov	ecx, DWORD PTR _this$[ebp]
-	add	ecx, 32					; 00000020H
-	mov	edx, DWORD PTR [eax]
-	mov	DWORD PTR [ecx], edx
-	mov	edx, DWORD PTR [eax+4]
-	mov	DWORD PTR [ecx+4], edx
-	mov	edx, DWORD PTR [eax+8]
-	mov	DWORD PTR [ecx+8], edx
-	mov	eax, DWORD PTR [eax+12]
-	mov	DWORD PTR [ecx+12], eax
-
-; 27   : 		}
-; 28   : 		else {
-
-	jmp	SHORT $LN4@Activate
-$LN3@Activate:
-
-; 29   : 			m_CurrentDestination = m_pOwner->GetWorld()->GetMap()->GetRandomNodeLocation();
-
-	lea	ecx, DWORD PTR $T4[ebp]
-	push	ecx
-	mov	edx, DWORD PTR _this$[ebp]
-	mov	ecx, DWORD PTR [edx+8]
 	call	?GetWorld@Raven_Bot@@QAEQAVRaven_Game@@XZ ; Raven_Bot::GetWorld
 	mov	ecx, eax
 	call	?GetMap@Raven_Game@@QAEQAVRaven_Map@@XZ	; Raven_Game::GetMap
 	mov	ecx, eax
 	call	?GetRandomNodeLocation@Raven_Map@@QBE?AUVector2D@@XZ ; Raven_Map::GetRandomNodeLocation
-	mov	ecx, DWORD PTR _this$[ebp]
-	add	ecx, 32					; 00000020H
-	mov	edx, DWORD PTR [eax]
-	mov	DWORD PTR [ecx], edx
-	mov	edx, DWORD PTR [eax+4]
-	mov	DWORD PTR [ecx+4], edx
-	mov	edx, DWORD PTR [eax+8]
-	mov	DWORD PTR [ecx+8], edx
+	mov	edx, DWORD PTR _this$[ebp]
+	add	edx, 32					; 00000020H
+	mov	ecx, DWORD PTR [eax]
+	mov	DWORD PTR [edx], ecx
+	mov	ecx, DWORD PTR [eax+4]
+	mov	DWORD PTR [edx+4], ecx
+	mov	ecx, DWORD PTR [eax+8]
+	mov	DWORD PTR [edx+8], ecx
 	mov	eax, DWORD PTR [eax+12]
-	mov	DWORD PTR [ecx+12], eax
-$LN4@Activate:
+	mov	DWORD PTR [edx+12], eax
 
-; 30   : 		}
-; 31   : 
-; 32   : 		m_bDestinationIsSet = true;
+; 26   : 
+; 27   : 		m_bDestinationIsSet = true;
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	mov	BYTE PTR [ecx+48], 1
 $LN2@Activate:
 
-; 33   : 	}
-; 34   : 
-; 35   : 	//and request a path to that position
-; 36   : 	m_pOwner->GetPathPlanner()->RequestPathToPosition(m_CurrentDestination);
+; 28   : 	}
+; 29   : 
+; 30   : 	//and request a path to that position
+; 31   : 	m_pOwner->GetPathPlanner()->RequestPathToPosition(m_CurrentDestination);
 
 	mov	edx, DWORD PTR _this$[ebp]
 	add	edx, 32					; 00000020H
@@ -2487,11 +2363,11 @@ $LN2@Activate:
 	mov	ecx, eax
 	call	?RequestPathToPosition@Raven_PathPlanner@@QAE_NUVector2D@@@Z ; Raven_PathPlanner::RequestPathToPosition
 
-; 37   : 
-; 38   : 	//the bot may have to wait a few update cycles before a path is calculated
-; 39   : 	//so for appearances sake it simple ARRIVES at the destination until a path
-; 40   : 	//has been found
-; 41   : 	AddSubgoal(new Goal_SeekToPosition(m_pOwner, m_CurrentDestination));
+; 32   : 
+; 33   : 	//the bot may have to wait a few update cycles before a path is calculated
+; 34   : 	//so for appearances sake it simple ARRIVES at the destination until a path
+; 35   : 	//has been found
+; 36   : 	AddSubgoal(new Goal_SeekToPosition(m_pOwner, m_CurrentDestination));
 
 	push	48					; 00000030H
 	call	??2@YAPAXI@Z				; operator new
@@ -2499,7 +2375,7 @@ $LN2@Activate:
 	mov	DWORD PTR $T2[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 	cmp	DWORD PTR $T2[ebp], 0
-	je	SHORT $LN6@Activate
+	je	SHORT $LN4@Activate
 	mov	ecx, DWORD PTR _this$[ebp]
 	add	ecx, 32					; 00000020H
 	sub	esp, 16					; 00000010H
@@ -2517,12 +2393,12 @@ $LN2@Activate:
 	push	eax
 	mov	ecx, DWORD PTR $T2[ebp]
 	call	??0Goal_SeekToPosition@@QAE@PAVRaven_Bot@@UVector2D@@@Z ; Goal_SeekToPosition::Goal_SeekToPosition
-	mov	DWORD PTR tv199[ebp], eax
-	jmp	SHORT $LN7@Activate
-$LN6@Activate:
-	mov	DWORD PTR tv199[ebp], 0
-$LN7@Activate:
-	mov	ecx, DWORD PTR tv199[ebp]
+	mov	DWORD PTR tv163[ebp], eax
+	jmp	SHORT $LN5@Activate
+$LN4@Activate:
+	mov	DWORD PTR tv163[ebp], 0
+$LN5@Activate:
+	mov	ecx, DWORD PTR tv163[ebp]
 	mov	DWORD PTR $T3[ebp], ecx
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	mov	esi, esp
@@ -2536,14 +2412,13 @@ $LN7@Activate:
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 42   : }
+; 37   : }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
 	pop	ecx
-	pop	edi
 	pop	esi
-	add	esp, 60					; 0000003cH
+	add	esp, 44					; 0000002cH
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
@@ -2561,7 +2436,7 @@ __unwindfunclet$?Activate@Goal_Explore@@UAEXXZ$0:
 __ehhandler$?Activate@Goal_Explore@@UAEXXZ:
 	mov	edx, DWORD PTR [esp+8]
 	lea	eax, DWORD PTR [edx+12]
-	mov	ecx, DWORD PTR [edx-60]
+	mov	ecx, DWORD PTR [edx-40]
 	xor	ecx, eax
 	call	@__security_check_cookie@4
 	mov	eax, OFFSET __ehfuncinfo$?Activate@Goal_Explore@@UAEXXZ

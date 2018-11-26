@@ -1,6 +1,8 @@
 #include "GraveMarkers.h"
 #include "misc/cgdi.h"
 #include "2D/Transformations.h"
+#include "Raven_Bot.h"
+#include "Raven_team.h"
 
 //------------------------------- ctor ----------------------------------------
 //-----------------------------------------------------------------------------
@@ -43,8 +45,13 @@ void GraveMarkers::Render()
 {
 	GraveList::iterator it = m_GraveList.begin();
 	Vector2D facing(-1, 0);
+	Raven_Bot* curBot;
+
 	for (it; it != m_GraveList.end(); ++it)
 	{
+		curBot = it->bot;
+			
+
 		m_vecRIPVBTrans = WorldTransform(m_vecRIPVB,
 			it->Position,
 			facing,
@@ -55,10 +62,11 @@ void GraveMarkers::Render()
 		gdi->ClosedShape(m_vecRIPVBTrans);
 		gdi->TextColor(133, 90, 0);
 		gdi->TextAtPos(it->Position.x - 10, it->Position.y - 5, "RIP");
+
 	}
 }
 
-void GraveMarkers::AddGrave(Vector2D pos)
+void GraveMarkers::AddGrave(Raven_Bot* bot)
 {
-	m_GraveList.push_back(GraveRecord(pos));
+	m_GraveList.push_back(GraveRecord(bot->Pos(), bot));
 }

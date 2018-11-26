@@ -100,6 +100,7 @@ public:
 	Wall2D* AddWall(Vector2D from, Vector2D to);
 
 	void    AddSoundTrigger(Raven_Bot* pSoundSource, double range);
+	void	AddWeaponTrigger(Vector2D pos, double range, int wepon_type);
 
 	double   CalculateCostToTravelBetweenNodes(int nd1, int nd2)const;
 

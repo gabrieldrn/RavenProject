@@ -6,6 +6,7 @@
 #include "../constants.h"
 #include "../Raven_ObjectEnumerations.h"
 #include "../Raven_WeaponSystem.h"
+#include "Debug/DebugConsole.h"
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -51,6 +52,7 @@ void Trigger_WeaponGiver::Read(std::ifstream& in)
 
 	SetPos(Vector2D(x, y));
 	SetBRadius(r);
+
 	SetGraphNodeIndex(GraphNodeIndex);
 
 	//create this trigger's region of fluence

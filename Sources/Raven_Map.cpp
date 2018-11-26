@@ -11,6 +11,7 @@
 #include "triggers/Trigger_WeaponGiver.h"
 #include "triggers/Trigger_OnButtonSendMsg.h"
 #include "triggers/Trigger_SoundNotify.h"
+#include "TriggerWeapon.h"
 
 #include "Raven_UserOptions.h"
 
@@ -326,6 +327,13 @@ void Raven_Map::PartitionNavGraph()
 void Raven_Map::AddSoundTrigger(Raven_Bot* pSoundSource, double range)
 {
 	m_TriggerSystem.Register(new Trigger_SoundNotify(pSoundSource, range));
+}
+
+
+
+void Raven_Map::AddWeaponTrigger(Vector2D pos, double range, int wepon_type)
+{
+	m_TriggerSystem.Register(new TriggerWeapon(pos, range, wepon_type));
 }
 
 //----------------------- UpdateTriggerSystem ---------------------------------

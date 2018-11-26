@@ -32,8 +32,7 @@ double GetWeaponGoal_Evaluator::CalculateDesirability(Raven_Bot* pBot)
 
 		Health = Raven_Feature::Health(pBot);
 
-		WeaponStrength = Raven_Feature::IndividualWeaponStrength(pBot,
-			m_iWeaponType);
+		WeaponStrength = Raven_Feature::IndividualWeaponStrength(pBot, m_iWeaponType);
 
 		double Desirability = (Tweaker * Health * (1 - WeaponStrength)) / Distance;
 

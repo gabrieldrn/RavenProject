@@ -12,12 +12,12 @@ INCLUDELIB OLDNAMES
 CONST	SEGMENT
 ?piecewise_construct@std@@3Upiecewise_construct_t@1@B	ORG $+1 ; std::piecewise_construct
 	ORG $+3
-$SG184103 DB	'RailGun_MaxRoundsCarried', 00H
+$SG184114 DB	'RailGun_MaxRoundsCarried', 00H
 	ORG $+3
-$SG184105 DB	'RocketLauncher_MaxRoundsCarried', 00H
-$SG184107 DB	'ShotGun_MaxRoundsCarried', 00H
+$SG184116 DB	'RocketLauncher_MaxRoundsCarried', 00H
+$SG184118 DB	'ShotGun_MaxRoundsCarried', 00H
 	ORG $+3
-$SG184110 DB	'trying to calculate  of unknown weapon', 00H
+$SG184121 DB	'trying to calculate  of unknown weapon', 00H
 	ORG $+1
 ?colors@@3QBKB DD 0ffH					; colors
 	DD	0ff0000H
@@ -8370,7 +8370,7 @@ $LN4@GetMaxRoun:
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T5[ebp], esp
-	push	OFFSET $SG184103
+	push	OFFSET $SG184114
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv176[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
@@ -8391,7 +8391,7 @@ $LN5@GetMaxRoun:
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T4[ebp], esp
-	push	OFFSET $SG184105
+	push	OFFSET $SG184116
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv177[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 1
@@ -8412,7 +8412,7 @@ $LN6@GetMaxRoun:
 	sub	esp, 28					; 0000001cH
 	mov	ecx, esp
 	mov	DWORD PTR $T3[ebp], esp
-	push	OFFSET $SG184107
+	push	OFFSET $SG184118
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@QBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	mov	DWORD PTR tv178[ebp], eax
 	mov	DWORD PTR __$EHRec$[ebp+8], 2
@@ -8430,7 +8430,7 @@ $LN7@GetMaxRoun:
 ; 51   : 
 ; 52   : 		throw std::runtime_error("trying to calculate  of unknown weapon");
 
-	push	OFFSET $SG184110
+	push	OFFSET $SG184121
 	lea	ecx, DWORD PTR $T2[ebp]
 	call	??0runtime_error@std@@QAE@PBD@Z		; std::runtime_error::runtime_error
 	push	OFFSET __TI2?AVruntime_error@std@@

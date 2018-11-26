@@ -10,7 +10,7 @@ INCLUDELIB LIBCMTD
 INCLUDELIB OLDNAMES
 
 CONST	SEGMENT
-$SG180227 DB	'EX: ', 00H
+$SG180238 DB	'EX: ', 00H
 ?piecewise_construct@std@@3Upiecewise_construct_t@1@B	ORG $+1 ; std::piecewise_construct
 	ORG $+2
 ?colors@@3QBKB DD 0ffH					; colors
@@ -18506,7 +18506,7 @@ _pBot$ = 24						; size = 4
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 	mov	ecx, DWORD PTR tv90[ebp]
 	push	ecx
-	push	OFFSET $SG180227
+	push	OFFSET $SG180238
 	lea	edx, DWORD PTR $T3[ebp]
 	push	edx
 	call	??$?HDU?$char_traits@D@std@@V?$allocator@D@1@@std@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@QBD$$QAV10@@Z ; std::operator+<char,std::char_traits<char>,std::allocator<char> >

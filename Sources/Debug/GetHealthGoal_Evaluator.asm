@@ -25,8 +25,8 @@ CONST	SEGMENT
 	DD	0ffff00H
 	DD	0c8c8c8H
 	DD	0e6e6ffH
-$SG159955 DB	'H: ', 00H
-$SG159956 DB	', ', 00H
+$SG159966 DB	'H: ', 00H
+$SG159967 DB	', ', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPAX@Z		; __empty_global_delete
 PUBLIC	?__empty_global_delete@@YAXPAXI@Z		; __empty_global_delete
@@ -18659,7 +18659,7 @@ _pBot$ = 24						; size = 4
 	mov	DWORD PTR __$EHRec$[ebp+8], 0
 	mov	ecx, DWORD PTR tv163[ebp]
 	push	ecx
-	push	OFFSET $SG159955
+	push	OFFSET $SG159966
 	lea	edx, DWORD PTR $T10[ebp]
 	push	edx
 	call	??$?HDU?$char_traits@D@std@@V?$allocator@D@1@@std@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@0@QBD$$QAV10@@Z ; std::operator+<char,std::char_traits<char>,std::allocator<char> >
@@ -18724,7 +18724,7 @@ _pBot$ = 24						; size = 4
 	mov	DWORD PTR __$EHRec$[ebp+8], 2
 	mov	ecx, DWORD PTR tv167[ebp]
 	push	ecx
-	push	OFFSET $SG159956
+	push	OFFSET $SG159967
 	push	2
 	lea	edx, DWORD PTR $T4[ebp]
 	push	edx

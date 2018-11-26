@@ -25,7 +25,6 @@ PUBLIC	?_Clrcont@_Iterator_base12@std@@QAEXXZ		; std::_Iterator_base12::_Clrcont
 PUBLIC	?_Getpnext@_Iterator_base12@std@@QAEPAPAU12@XZ	; std::_Iterator_base12::_Getpnext
 PUBLIC	?_Allocate@_Default_allocate_traits@std@@SAPAXI@Z ; std::_Default_allocate_traits::_Allocate
 PUBLIC	?_Adjust_manually_vector_aligned@std@@YAXAAPAXAAI@Z ; std::_Adjust_manually_vector_aligned
-PUBLIC	??0Vector2D@@QAE@XZ				; Vector2D::Vector2D
 PUBLIC	?SetTeam@Raven_Bot@@QAEXPAVRaven_team@@@Z	; Raven_Bot::SetTeam
 PUBLIC	??0?$allocator@PAVRaven_Bot@@@std@@QAE@XZ	; std::allocator<Raven_Bot *>::allocator<Raven_Bot *>
 PUBLIC	?deallocate@?$allocator@PAVRaven_Bot@@@std@@QAEXQAPAVRaven_Bot@@I@Z ; std::allocator<Raven_Bot *>::deallocate
@@ -69,7 +68,7 @@ PUBLIC	?_Change_array@?$vector@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@s
 PUBLIC	?_Tidy@?$vector@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@AAEXXZ ; std::vector<Raven_Bot *,std::allocator<Raven_Bot *> >::_Tidy
 PUBLIC	?_Xlength@?$vector@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@CAXXZ ; std::vector<Raven_Bot *,std::allocator<Raven_Bot *> >::_Xlength
 PUBLIC	?_Orphan_range@?$vector@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@ABEXPAPAVRaven_Bot@@0@Z ; std::vector<Raven_Bot *,std::allocator<Raven_Bot *> >::_Orphan_range
-PUBLIC	??0Raven_team@@QAE@XZ				; Raven_team::Raven_team
+PUBLIC	??0Raven_team@@QAE@UVector2D@@_N@Z		; Raven_team::Raven_team
 PUBLIC	??1Raven_team@@QAE@XZ				; Raven_team::~Raven_team
 PUBLIC	?addTeamMate@Raven_team@@QAEXPAVRaven_Bot@@@Z	; Raven_team::addTeamMate
 PUBLIC	??$emplace_back@ABQAVRaven_Bot@@@?$vector@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@QAE@ABQAVRaven_Bot@@@Z ; std::vector<Raven_Bot *,std::allocator<Raven_Bot *> >::emplace_back<Raven_Bot * const &>
@@ -256,17 +255,6 @@ __ehfuncinfo$??$_Emplace_reallocate@ABQAVRaven_Bot@@@?$vector@PAVRaven_Bot@@V?$a
 	DD	FLAT:__unwindtable$??$_Emplace_reallocate@ABQAVRaven_Bot@@@?$vector@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@QAEPAPAVRaven_Bot@@QAPAV2@ABQAV2@@Z
 	DD	01H
 	DD	FLAT:__tryblocktable$??$_Emplace_reallocate@ABQAVRaven_Bot@@@?$vector@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@QAEPAPAVRaven_Bot@@QAPAV2@ABQAV2@@Z
-	DD	2 DUP(00H)
-	DD	00H
-	DD	01H
-xdata$x	ENDS
-xdata$x	SEGMENT
-__unwindtable$??0Raven_team@@QAE@XZ DD 0ffffffffH
-	DD	FLAT:__unwindfunclet$??0Raven_team@@QAE@XZ$0
-__ehfuncinfo$??0Raven_team@@QAE@XZ DD 019930522H
-	DD	01H
-	DD	FLAT:__unwindtable$??0Raven_team@@QAE@XZ
-	DD	2 DUP(00H)
 	DD	2 DUP(00H)
 	DD	00H
 	DD	01H
@@ -2057,7 +2045,7 @@ _new_mate$ = 8						; size = 4
 ?addTeamMate@Raven_team@@QAEXPAVRaven_Bot@@@Z PROC	; Raven_team::addTeamMate
 ; _this$ = ecx
 
-; 23   : {
+; 24   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2065,36 +2053,36 @@ _new_mate$ = 8						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 24   : 	team.push_back(new_mate);
+; 25   : 	team.push_back(new_mate);
 
 	lea	eax, DWORD PTR _new_mate$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	?push_back@?$vector@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@QAEXABQAVRaven_Bot@@@Z ; std::vector<Raven_Bot *,std::allocator<Raven_Bot *> >::push_back
 
-; 25   : 	new_mate->SetTeam(this);
+; 26   : 	new_mate->SetTeam(this);
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	push	ecx
 	mov	ecx, DWORD PTR _new_mate$[ebp]
 	call	?SetTeam@Raven_Bot@@QAEXPAVRaven_team@@@Z ; Raven_Bot::SetTeam
 
-; 26   : 
-; 27   : 	if (leader == NULL) {
+; 27   : 
+; 28   : 	if (leader == NULL) {
 
 	mov	edx, DWORD PTR _this$[ebp]
 	cmp	DWORD PTR [edx+32], 0
 	jne	SHORT $LN1@addTeamMat
 
-; 28   : 		leader = new_mate;
+; 29   : 		leader = new_mate;
 
 	mov	eax, DWORD PTR _this$[ebp]
 	mov	ecx, DWORD PTR _new_mate$[ebp]
 	mov	DWORD PTR [eax+32], ecx
 $LN1@addTeamMat:
 
-; 29   : 	}
-; 30   : }
+; 30   : 	}
+; 31   : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -2111,7 +2099,7 @@ _this$ = -4						; size = 4
 ??1Raven_team@@QAE@XZ PROC				; Raven_team::~Raven_team
 ; _this$ = ecx
 
-; 19   : {
+; 20   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2119,7 +2107,7 @@ _this$ = -4						; size = 4
 	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
 	mov	DWORD PTR _this$[ebp], ecx
 
-; 20   : }
+; 21   : }
 
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	??1?$vector@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@QAE@XZ ; std::vector<Raven_Bot *,std::allocator<Raven_Bot *> >::~vector<Raven_Bot *,std::allocator<Raven_Bot *> >
@@ -2134,80 +2122,81 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\sources\raven_team.cpp
 _TEXT	SEGMENT
-_team$ = -36						; size = 16
-_this$ = -16						; size = 4
-__$EHRec$ = -12						; size = 12
-??0Raven_team@@QAE@XZ PROC				; Raven_team::Raven_team
+_team$ = -24						; size = 16
+_this$ = -4						; size = 4
+_vec$ = 8						; size = 16
+_couleur$ = 24						; size = 1
+??0Raven_team@@QAE@UVector2D@@_N@Z PROC			; Raven_team::Raven_team
 ; _this$ = ecx
 
 ; 12   : {
 
 	push	ebp
 	mov	ebp, esp
-	push	-1
-	push	__ehhandler$??0Raven_team@@QAE@XZ
-	mov	eax, DWORD PTR fs:0
-	push	eax
 	sub	esp, 28					; 0000001cH
 	mov	eax, -858993460				; ccccccccH
-	mov	DWORD PTR [ebp-40], eax
-	mov	DWORD PTR [ebp-36], eax
-	mov	DWORD PTR [ebp-32], eax
 	mov	DWORD PTR [ebp-28], eax
 	mov	DWORD PTR [ebp-24], eax
 	mov	DWORD PTR [ebp-20], eax
 	mov	DWORD PTR [ebp-16], eax
-	mov	eax, DWORD PTR ___security_cookie
-	xor	eax, ebp
-	push	eax
-	lea	eax, DWORD PTR __$EHRec$[ebp]
-	mov	DWORD PTR fs:0, eax
+	mov	DWORD PTR [ebp-12], eax
+	mov	DWORD PTR [ebp-8], eax
+	mov	DWORD PTR [ebp-4], eax
 	mov	DWORD PTR _this$[ebp], ecx
 	mov	ecx, DWORD PTR _this$[ebp]
 	call	??0?$vector@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@QAE@XZ ; std::vector<Raven_Bot *,std::allocator<Raven_Bot *> >::vector<Raven_Bot *,std::allocator<Raven_Bot *> >
-	mov	DWORD PTR __$EHRec$[ebp+8], 0
-	mov	ecx, DWORD PTR _this$[ebp]
-	add	ecx, 16					; 00000010H
-	call	??0Vector2D@@QAE@XZ			; Vector2D::Vector2D
 
-; 13   : 	std::vector<Raven_Bot *> team =  std::vector<Raven_Bot *>();
+; 11   : Raven_team::Raven_team(Vector2D vec, bool couleur) : spawnPoint(vec), isBlue(couleur)
+
+	mov	eax, DWORD PTR _this$[ebp]
+	add	eax, 16					; 00000010H
+	mov	ecx, DWORD PTR _vec$[ebp]
+	mov	DWORD PTR [eax], ecx
+	mov	edx, DWORD PTR _vec$[ebp+4]
+	mov	DWORD PTR [eax+4], edx
+	mov	ecx, DWORD PTR _vec$[ebp+8]
+	mov	DWORD PTR [eax+8], ecx
+	mov	edx, DWORD PTR _vec$[ebp+12]
+	mov	DWORD PTR [eax+12], edx
+	mov	eax, DWORD PTR _this$[ebp]
+	mov	cl, BYTE PTR _couleur$[ebp]
+	mov	BYTE PTR [eax+40], cl
+
+; 13   : 
+; 14   : 	std::vector<Raven_Bot *> team =  std::vector<Raven_Bot *>();
 
 	lea	ecx, DWORD PTR _team$[ebp]
 	call	??0?$vector@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@QAE@XZ ; std::vector<Raven_Bot *,std::allocator<Raven_Bot *> >::vector<Raven_Bot *,std::allocator<Raven_Bot *> >
 
-; 14   : 	leader = NULL;
+; 15   : 	leader = NULL;
 
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	DWORD PTR [eax+32], 0
+	mov	edx, DWORD PTR _this$[ebp]
+	mov	DWORD PTR [edx+32], 0
 
-; 15   : }
+; 16   : }
 
 	lea	ecx, DWORD PTR _team$[ebp]
 	call	??1?$vector@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@QAE@XZ ; std::vector<Raven_Bot *,std::allocator<Raven_Bot *> >::~vector<Raven_Bot *,std::allocator<Raven_Bot *> >
-	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	mov	eax, DWORD PTR _this$[ebp]
 	push	edx
 	mov	ecx, ebp
 	push	eax
-	lea	edx, DWORD PTR $LN8@Raven_team
+	lea	edx, DWORD PTR $LN7@Raven_team
 	call	@_RTC_CheckStackVars@8
 	pop	eax
 	pop	edx
-	mov	ecx, DWORD PTR __$EHRec$[ebp]
-	mov	DWORD PTR fs:0, ecx
-	pop	ecx
-	add	esp, 40					; 00000028H
+	add	esp, 28					; 0000001cH
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
-	ret	0
-	npad	2
-$LN8@Raven_team:
-	DD	1
-	DD	$LN7@Raven_team
+	ret	20					; 00000014H
+	npad	1
 $LN7@Raven_team:
-	DD	-36					; ffffffdcH
+	DD	1
+	DD	$LN6@Raven_team
+$LN6@Raven_team:
+	DD	-24					; ffffffe8H
 	DD	16					; 00000010H
 	DD	$LN5@Raven_team
 $LN5@Raven_team:
@@ -2216,21 +2205,8 @@ $LN5@Raven_team:
 	DB	97					; 00000061H
 	DB	109					; 0000006dH
 	DB	0
+??0Raven_team@@QAE@UVector2D@@_N@Z ENDP			; Raven_team::Raven_team
 _TEXT	ENDS
-text$x	SEGMENT
-__unwindfunclet$??0Raven_team@@QAE@XZ$0:
-	mov	ecx, DWORD PTR _this$[ebp]
-	jmp	??1?$vector@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@QAE@XZ ; std::vector<Raven_Bot *,std::allocator<Raven_Bot *> >::~vector<Raven_Bot *,std::allocator<Raven_Bot *> >
-__ehhandler$??0Raven_team@@QAE@XZ:
-	mov	edx, DWORD PTR [esp+8]
-	lea	eax, DWORD PTR [edx+12]
-	mov	ecx, DWORD PTR [edx-32]
-	xor	ecx, eax
-	call	@__security_check_cookie@4
-	mov	eax, OFFSET __ehfuncinfo$??0Raven_team@@QAE@XZ
-	jmp	___CxxFrameHandler3
-text$x	ENDS
-??0Raven_team@@QAE@XZ ENDP				; Raven_team::Raven_team
 ; Function compile flags: /Odtp /RTCsu
 ; File c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.15.26726\include\vector
 ;	COMDAT ?_Orphan_range@?$vector@PAVRaven_Bot@@V?$allocator@PAVRaven_Bot@@@std@@@std@@ABEXPAPAVRaven_Bot@@0@Z
@@ -4222,33 +4198,6 @@ _new_team$ = 8						; size = 4
 	pop	ebp
 	ret	4
 ?SetTeam@Raven_Bot@@QAEXPAVRaven_team@@@Z ENDP		; Raven_Bot::SetTeam
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\2d\vector2d.h
-;	COMDAT ??0Vector2D@@QAE@XZ
-_TEXT	SEGMENT
-_this$ = -4						; size = 4
-??0Vector2D@@QAE@XZ PROC				; Vector2D::Vector2D, COMDAT
-; _this$ = ecx
-
-; 23   : 	Vector2D() :x(0.0), y(0.0) {}
-
-	push	ebp
-	mov	ebp, esp
-	push	ecx
-	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
-	mov	DWORD PTR _this$[ebp], ecx
-	mov	eax, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [eax], xmm0
-	mov	ecx, DWORD PTR _this$[ebp]
-	xorps	xmm0, xmm0
-	movsd	QWORD PTR [ecx+8], xmm0
-	mov	eax, DWORD PTR _this$[ebp]
-	mov	esp, ebp
-	pop	ebp
-	ret	0
-??0Vector2D@@QAE@XZ ENDP				; Vector2D::Vector2D
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File d:\utilisateurs\samuel\mes documents\cours\uqac\ia\ravenproject\common\misc\utils.h

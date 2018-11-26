@@ -160,7 +160,7 @@ public:
 	bool          isSpawning()const { return m_Status == spawning; }
 
 	void          SetSpawning() { m_Status = spawning; }
-	void          SetDead() { m_Status = dead; }
+	void          SetDead();
 	void          SetAlive() { m_Status = alive; }
 
 	//returns a value indicating the time in seconds it will take the bot

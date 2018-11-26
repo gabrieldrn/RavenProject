@@ -10,9 +10,9 @@ INCLUDELIB LIBCMTD
 INCLUDELIB OLDNAMES
 
 CONST	SEGMENT
-$SG174073 DB	'<Goal_Think::Arbitrate>: no evaluator selected', 00H
+$SG174084 DB	'<Goal_Think::Arbitrate>: no evaluator selected', 00H
 ?piecewise_construct@std@@3Upiecewise_construct_t@1@B	ORG $+1 ; std::piecewise_construct
-$SG174074 DB	'd', 00H, ':', 00H, '\', 00H, 'u', 00H, 't', 00H, 'i', 00H
+$SG174085 DB	'd', 00H, ':', 00H, '\', 00H, 'u', 00H, 't', 00H, 'i', 00H
 	DB	'l', 00H, 'i', 00H, 's', 00H, 'a', 00H, 't', 00H, 'e', 00H, 'u'
 	DB	00H, 'r', 00H, 's', 00H, '\', 00H, 's', 00H, 'a', 00H, 'm', 00H
 	DB	'u', 00H, 'e', 00H, 'l', 00H, '\', 00H, 'm', 00H, 'e', 00H, 's'
@@ -28,7 +28,7 @@ $SG174074 DB	'd', 00H, ':', 00H, '\', 00H, 'u', 00H, 't', 00H, 'i', 00H
 	DB	'h', 00H, 'i', 00H, 'n', 00H, 'k', 00H, '.', 00H, 'c', 00H, 'p'
 	DB	00H, 'p', 00H, 00H, 00H
 	ORG $+6
-$SG174075 DB	'M', 00H, 'o', 00H, 's', 00H, 't', 00H, 'D', 00H, 'e', 00H
+$SG174086 DB	'M', 00H, 'o', 00H, 's', 00H, 't', 00H, 'D', 00H, 'e', 00H
 	DB	's', 00H, 'i', 00H, 'r', 00H, 'a', 00H, 'b', 00H, 'l', 00H, 'e'
 	DB	00H, ' ', 00H, '&', 00H, '&', 00H, ' ', 00H, '"', 00H, '<', 00H
 	DB	'G', 00H, 'o', 00H, 'a', 00H, 'l', 00H, '_', 00H, 'T', 00H, 'h'
@@ -9962,13 +9962,13 @@ $LN3@Arbitrate:
 
 	cmp	DWORD PTR _MostDesirable$[ebp], 0
 	je	SHORT $LN7@Arbitrate
-	mov	ecx, OFFSET $SG174073
+	mov	ecx, OFFSET $SG174084
 	test	ecx, ecx
 	jne	SHORT $LN8@Arbitrate
 $LN7@Arbitrate:
 	push	113					; 00000071H
-	push	OFFSET $SG174074
-	push	OFFSET $SG174075
+	push	OFFSET $SG174085
+	push	OFFSET $SG174086
 	call	__wassert
 	add	esp, 12					; 0000000cH
 $LN8@Arbitrate:

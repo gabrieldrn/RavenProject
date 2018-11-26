@@ -390,6 +390,12 @@ void Raven_Bot::FireWeapon(Vector2D pos)
 	m_pWeaponSys->ShootAt(pos);
 }
 
+void Raven_Bot::SetDead()
+{
+	DropWeapon(GetTeam()->getSpawnPoint());
+	m_Status = dead;	
+}
+
 //----------------- CalculateExpectedTimeToReachPosition ----------------------
 //
 //  returns a value indicating the time in seconds it will take the bot
@@ -488,7 +494,11 @@ void Raven_Bot::Render()
 
 	if (isDead() || isSpawning()) return;
 
+
 	gdi->BluePen();
+
+
+	
 
 	m_vecBotVBTrans = WorldTransform(m_vecBotVB,
 		Pos(),
@@ -500,6 +510,14 @@ void Raven_Bot::Render()
 
 	//draw the head
 	gdi->BrownBrush();
+
+	if (this->GetTeam()->getBlue()) {
+		gdi->RedBrush();
+	}
+	else {
+		gdi->BlueBrush();
+	}
+
 	gdi->Circle(Pos(), 6.0 * Scale().x);
 
 	//render the bot's weapon
@@ -518,6 +536,9 @@ void Raven_Bot::Render()
 		}
 	}
 
+	//debug_con << "Pos X : " << Pos().x << "|  Pos Y : "<< Pos().y <<"";
+
+
 	gdi->TransparentText();
 	gdi->TextColor(0, 255, 0);
 
@@ -534,6 +555,13 @@ void Raven_Bot::Render()
 	if (UserOptions->m_bShowScore)
 	{
 		gdi->TextAtPos(Pos().x - 40, Pos().y + 10, "Scr:" + std::to_string(Score()));
+	}
+
+	if (m_Status == dead) {
+	
+		gdi->ThickRedPen();
+		gdi->HollowBrush();
+		gdi->Circle(m_vPosition, BRadius() + 10);
 	}
 }
 
@@ -573,9 +601,41 @@ void Raven_Bot::RestoreHealthToMaximum() { m_iHealth = m_iMaxHealth; }
 
 
 void Raven_Bot::DropWeapon(Vector2D pos) {
+
+	pos.x = 62.7035;
+	pos.y = 279.707;
+
 	Raven_Weapon* railGun = m_pWeaponSys->GetWeaponFromInventory(type_rail_gun);
 	Raven_Weapon* rocketLauncher = m_pWeaponSys->GetWeaponFromInventory(type_rocket_launcher);
 	Raven_Weapon* shotGun = m_pWeaponSys->GetWeaponFromInventory(type_shotgun);
+
+	if (railGun) {
+		debug_con << "Drop RailGun" << "";
+		gdi->BluePen();
+		gdi->TextAtPos(pos.x, pos.y - 5, "RAIL GUN");
+	}
+
+	if (rocketLauncher) {
+		debug_con << "Drop RocketLauncher "  << "";
+		gdi->RedPen();
+		gdi->TextAtPos(pos.x, pos.y - 5, "ROCKET LAUNCHER");
+
+		debug_con << "Pos X : " << pos.x << "|  Pos Y : " << pos.y << "";
+
+
+	}
+
+	if (shotGun) {
+		debug_con << "Drop ShotGun " << "";
+		gdi->BrownPen();
+		gdi->TextAtPos(pos.x, pos.y - 5, "SHOTGUN");
+
+	}
+
+	debug_con << "Death Point : Pos X : " << Pos().x << " |  Pos Y : " << Pos().y << "";
+
+
+	gdi->TextAtPos(pos.x, pos.y, "RAIL GUN");
 
 }
 
