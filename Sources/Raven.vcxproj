@@ -145,7 +145,7 @@
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>../Common</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>FANN/include;../Common</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -162,6 +162,8 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>FANN/bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>fanndouble.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -231,7 +233,6 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='boundschecker|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="Raven_Learning_Bot.cpp" />
     <ClCompile Include="Raven_Map.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -534,9 +535,21 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FANN\include\compat_time.h" />
+    <ClInclude Include="FANN\include\doublefann.h" />
+    <ClInclude Include="FANN\include\fann.h" />
+    <ClInclude Include="FANN\include\fann_activation.h" />
+    <ClInclude Include="FANN\include\fann_cascade.h" />
+    <ClInclude Include="FANN\include\fann_cpp.h" />
+    <ClInclude Include="FANN\include\fann_data.h" />
+    <ClInclude Include="FANN\include\fann_error.h" />
+    <ClInclude Include="FANN\include\fann_internal.h" />
+    <ClInclude Include="FANN\include\fann_io.h" />
+    <ClInclude Include="FANN\include\fann_train.h" />
+    <ClInclude Include="FANN\include\fixedfann.h" />
+    <ClInclude Include="FANN\include\floatfann.h" />
     <ClInclude Include="Raven_Bot.h" />
     <ClInclude Include="Raven_Game.h" />
-    <ClInclude Include="Raven_Learning_Bot.h" />
     <ClInclude Include="Raven_Map.h" />
     <ClInclude Include="armory\Raven_Weapon.h" />
     <ClInclude Include="armory\Weapon_Blaster.h" />

@@ -77,6 +77,9 @@
     <Filter Include="Common">
       <UniqueIdentifier>{f3f5ab42-49d8-4348-aa63-66655abd9be1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FANN">
+      <UniqueIdentifier>{6116df41-272a-4d1a-b525-650a1574465d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -267,9 +270,6 @@
     </ClCompile>
     <ClCompile Include="..\Common\Game\BaseGameEntity.cpp">
       <Filter>Game\Base entity classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Raven_Learning_Bot.cpp">
-      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -609,7 +609,48 @@
     <ClInclude Include="..\Common\misc\WindowUtils.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="Raven_Learning_Bot.h" />
+    <ClInclude Include="FANN\">
+      <Filter>FANN</Filter>
+    </ClInclude>
+    <ClInclude Include="FANN\include\compat_time.h">
+      <Filter>FANN</Filter>
+    </ClInclude>
+    <ClInclude Include="FANN\include\doublefann.h">
+      <Filter>FANN</Filter>
+    </ClInclude>
+    <ClInclude Include="FANN\include\fann.h">
+      <Filter>FANN</Filter>
+    </ClInclude>
+    <ClInclude Include="FANN\include\fann_activation.h">
+      <Filter>FANN</Filter>
+    </ClInclude>
+    <ClInclude Include="FANN\include\fann_cascade.h">
+      <Filter>FANN</Filter>
+    </ClInclude>
+    <ClInclude Include="FANN\include\fann_cpp.h">
+      <Filter>FANN</Filter>
+    </ClInclude>
+    <ClInclude Include="FANN\include\fann_data.h">
+      <Filter>FANN</Filter>
+    </ClInclude>
+    <ClInclude Include="FANN\include\fann_error.h">
+      <Filter>FANN</Filter>
+    </ClInclude>
+    <ClInclude Include="FANN\include\fann_internal.h">
+      <Filter>FANN</Filter>
+    </ClInclude>
+    <ClInclude Include="FANN\include\fann_io.h">
+      <Filter>FANN</Filter>
+    </ClInclude>
+    <ClInclude Include="FANN\include\fann_train.h">
+      <Filter>FANN</Filter>
+    </ClInclude>
+    <ClInclude Include="FANN\include\fixedfann.h">
+      <Filter>FANN</Filter>
+    </ClInclude>
+    <ClInclude Include="FANN\include\floatfann.h">
+      <Filter>FANN</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Params.lua">

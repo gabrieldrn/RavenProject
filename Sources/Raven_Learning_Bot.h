@@ -23,7 +23,7 @@ class Raven_Game;
 class Regulator;
 class Raven_Weapon;
 struct Telegram;
-class Raven_Bot;
+class Raven_Learning_Bot;
 class Goal_Think;
 class Raven_WeaponSystem;
 class Raven_SensoryMemory;
@@ -117,7 +117,7 @@ private:
 
 public:
 
-	Raven_Learning_Bot(Raven_Game* world, Vector2D pos);
+	Raven_Learning_Bot(Raven_Game* world, Vector2D pos, boolean learning);
 	virtual ~Raven_Learning_Bot();
 
 	//the usual suspects
@@ -196,7 +196,7 @@ public:
 	Goal_Think* const GetBrain() { return m_pBrain; }
 	const Raven_TargetingSystem* const GetTargetSys()const { return m_pTargSys; }
 	Raven_TargetingSystem* const GetTargetSys() { return m_pTargSys; }
-	Raven_Learning_Bot* const GetTargetBot()const { return m_pTargSys->GetTarget(); }
+	Raven_Bot* const GetTargetBot()const { return m_pTargSys->GetTarget(); }
 	Raven_WeaponSystem* const GetWeaponSys()const { return m_pWeaponSys; }
 	Raven_SensoryMemory* const GetSensoryMem()const { return m_pSensoryMem; }
 };

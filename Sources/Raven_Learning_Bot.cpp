@@ -21,6 +21,8 @@
 
 #include "Debug/DebugConsole.h"
 
+#include "FANN/include/fann.h"
+
 //-------------------------- ctor ---------------------------------------------
 Raven_Learning_Bot::Raven_Learning_Bot(Raven_Game* world, Vector2D pos) :
 
@@ -264,7 +266,7 @@ bool Raven_Learning_Bot::HandleMessage(const Telegram& msg)
 
 	case Msg_UserHasRemovedBot:
 	{
-		Raven_Learning_Bot* pRemovedBot = (Raven_Learning_Bot*)msg.ExtraInfo;
+		Raven_Bot* pRemovedBot = (Raven_Bot*)msg.ExtraInfo;
 
 		GetSensoryMem()->RemoveBotFromMemory(pRemovedBot);
 
@@ -380,7 +382,31 @@ void Raven_Learning_Bot::ChangeWeapon(unsigned int type)
 //-----------------------------------------------------------------------------
 void Raven_Learning_Bot::FireWeapon(Vector2D pos)
 {
+	// instanciation du réseau de neurones ici
+	const unsigned int num_layers = 4;
+	const unsigned int num_neurons_hidden = 54;
+	const float desired_error = (const float) 0.001;
+	const unsigned int max_epochs = 300;
+	const unsigned int epochs_between_reports = 12;
+	struct fann *ann;
+	struct fann_train_data *train_data, *test_data;
+
+	unsigned int x = 0;
+	// Création du réseau à 4 couches de Raven
+	train_data = fann_read_train_from_file("../datasets/robots.train");
+
+	ann = fann_create_standard(num_layers, train_data->num_input, num_neurons_hidden, train_data->num_output);
+
+	// Entraînement du réseau de Raven
+	fann_set_training_algorithm(ann, FANN_TRAIN_INCREMENTAL);
+
+
+	// tant que (le joueur possède le learning bot) alors
+	//	enregistrer_données();
+	// si Décision_de_tir == true
 	m_pWeaponSys->ShootAt(pos);
+	// sinon
+	// ...
 }
 
 //----------------- CalculateExpectedTimeToReachPosition ----------------------

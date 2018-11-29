@@ -22,7 +22,7 @@
 #include "Debug/DebugConsole.h"
 
 //-------------------------- ctor ---------------------------------------------
-Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
+Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos, boolean learning) :
 
 	MovingEntity(pos,
 		script->GetDouble("Bot_Scale"),
@@ -74,10 +74,18 @@ Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
 	//create the targeting system
 	m_pTargSys = new Raven_TargetingSystem(this);
 
-	m_pWeaponSys = new Raven_WeaponSystem(this,
-		script->GetDouble("Bot_ReactionTime"),
-		script->GetDouble("Bot_AimAccuracy"),
-		script->GetDouble("Bot_AimPersistance"));
+	// True if Learning Bot
+	m_Learning = learning;
+
+	if (!m_Learning) {
+		m_pWeaponSys = new Raven_WeaponSystem(this,
+			script->GetDouble("Bot_ReactionTime"),
+			script->GetDouble("Bot_AimAccuracy"),
+			script->GetDouble("Bot_AimPersistance"));
+	}
+	else {
+		m_pWeaponSys = NULL;
+	}
 
 	m_pSensoryMem = new Raven_SensoryMemory(this, script->GetDouble("Bot_MemorySpan"));
 }
