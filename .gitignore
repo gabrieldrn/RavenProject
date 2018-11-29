@@ -26,13 +26,20 @@ Sources/Debug/
 x64/
 x86/
 bld/
+<<<<<<< HEAD
 #[Bb]in/
+=======
+[Bb]in/
+>>>>>>> c236fde1cc2da6157cce4f1b2a6407fada18348e
 [Oo]bj/
 [Ll]og/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
+<<<<<<< HEAD
 
+=======
+>>>>>>> c236fde1cc2da6157cce4f1b2a6407fada18348e
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
