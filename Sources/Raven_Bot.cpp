@@ -12,12 +12,15 @@
 #include "Raven_WeaponSystem.h"
 #include "Raven_SensoryMemory.h"
 
+
+
 #include "Messaging/Telegram.h"
 #include "Raven_Messages.h"
 #include "Messaging/MessageDispatcher.h"
 
 #include "goals/Raven_Goal_Types.h"
 #include "goals/Goal_Think.h"
+#include "goals/Goal_SeekToPosition.h"
 
 #include "Debug/DebugConsole.h"
 
@@ -48,7 +51,9 @@ Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
 	m_iScore(0),
 	m_Status(spawning),
 	m_bPossessed(false),
-	m_dFieldOfView(DegsToRads(script->GetDouble("Bot_FOV")))
+	m_dFieldOfView(DegsToRads(script->GetDouble("Bot_FOV"))),
+	m_messageSend(false),
+	m_saveTeamMate(false)
 
 {
 	SetEntityType(type_bot);
@@ -116,6 +121,7 @@ void Raven_Bot::Spawn(Vector2D pos)
 	SetPos(pos);
 	m_pWeaponSys->Initialize();
 	RestoreHealthToMaximum();
+	m_messageSend = false;
 }
 
 //-------------------------------- Update -------------------------------------
@@ -129,6 +135,11 @@ void Raven_Bot::Update()
 
 	//Calculate the steering force and update the bot's velocity and position
 	UpdateMovement();
+
+	if (this->m_iHealth <= 20 && !m_messageSend) {
+		this->m_pteam->sendMessageToTeam(Msg_needHelp, this);
+		m_messageSend = true;
+	}
 
 	//if the bot is under AI control but not scripted
 	if (!isPossessed())
@@ -282,6 +293,20 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 		}
 
 		return true;
+	}
+
+	case Msg_needHelp:
+	{
+		Vector2D* injureBotPos = (Vector2D*)msg.ExtraInfo;
+
+		debug_con << "Bot[" << msg.Sender << "] needs help, i'm gonna help him : " << this->ID() << "";
+		debug_con << "Vector X : " << (*injureBotPos).x << " Vector Y : " << (*injureBotPos).y << "";
+		
+		GetBrain()->RemoveAllSubgoals();
+		GetBrain()->AddGoal_MoveToPosition(*injureBotPos);
+
+		m_saveTeamMate = true;
+
 	}
 
 	default: return false;

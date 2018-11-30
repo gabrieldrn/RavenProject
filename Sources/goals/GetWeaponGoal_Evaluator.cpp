@@ -13,36 +13,40 @@
 //-----------------------------------------------------------------------------
 double GetWeaponGoal_Evaluator::CalculateDesirability(Raven_Bot* pBot)
 {
-	//grab the distance to the closest instance of the weapon type
-	double Distance = Raven_Feature::DistanceToItem(pBot, m_iWeaponType);
 
-	//if the distance feature is rated with a value of 1 it means that the
-	//item is either not present on the map or too far away to be worth
-	//considering, therefore the desirability is zero
-	if (Distance == 1)
-	{
-		return 0;
-	}
-	else
-	{
-		//value used to tweak the desirability
-		const double Tweaker = 0.15;
+		//grab the distance to the closest instance of the weapon type
+		double Distance = Raven_Feature::DistanceToItem(pBot, m_iWeaponType);
 
-		double Health, WeaponStrength;
+		//if the distance feature is rated with a value of 1 it means that the
+		//item is either not present on the map or too far away to be worth
+		//considering, therefore the desirability is zero
+		if (Distance == 1)
+		{
+			return 0;
+		}
+		else
+		{
+			//value used to tweak the desirability
+			const double Tweaker = 0.15;
 
-		Health = Raven_Feature::Health(pBot);
+			double Health, WeaponStrength;
 
-		WeaponStrength = Raven_Feature::IndividualWeaponStrength(pBot, m_iWeaponType);
+			Health = Raven_Feature::Health(pBot);
 
-		double Desirability = (Tweaker * Health * (1 - WeaponStrength)) / Distance;
+			WeaponStrength = Raven_Feature::IndividualWeaponStrength(pBot, m_iWeaponType);
 
-		//ensure the value is in the range 0 to 1
-		Clamp(Desirability, 0, 1);
+			double Desirability = (Tweaker * Health * (1 - WeaponStrength)) / Distance;
 
-		Desirability *= m_dCharacterBias;
+			//ensure the value is in the range 0 to 1
+			Clamp(Desirability, 0, 1);
 
-		return Desirability;
-	}
+			Desirability *= m_dCharacterBias;
+
+			return Desirability;
+		}
+	
+
+	
 }
 
 //------------------------------ SetGoal --------------------------------------

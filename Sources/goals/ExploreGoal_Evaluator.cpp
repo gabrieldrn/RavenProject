@@ -12,11 +12,13 @@
 //-----------------------------------------------------------------------------
 double ExploreGoal_Evaluator::CalculateDesirability(Raven_Bot* pBot)
 {
-	double Desirability = 0.05;
+		double Desirability = 0.05;
 
-	Desirability *= m_dCharacterBias;
+		Desirability *= m_dCharacterBias;
 
-	return Desirability;
+
+		return Desirability;
+
 }
 
 //----------------------------- SetGoal ---------------------------------------

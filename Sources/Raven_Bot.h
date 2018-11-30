@@ -44,6 +44,8 @@ private:
 	//a pointer to the world data
 	Raven_Game*                        m_pWorld;
 
+	bool							   m_messageSend;
+	bool							   m_saveTeamMate;
 
 
 	//this object handles the arbitration and processing of high level goals
@@ -214,6 +216,7 @@ public:
 	void						       SetTeam(Raven_team* new_team){ m_pteam = new_team; }
 	Raven_team*						   GetTeam() { return m_pteam; }
 
+	bool							   getSaveTeamMate() { return m_saveTeamMate; }
 };
 
 #endif
