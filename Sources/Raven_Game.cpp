@@ -125,13 +125,11 @@ void Raven_Game::Update()
 		if (!(*curW)->isDead())
 		{
 			(*curW)->Update();
-
 			++curW;
 		}
 		else
 		{
 			delete *curW;
-
 			curW = m_Projectiles.erase(curW);
 		}
 	}

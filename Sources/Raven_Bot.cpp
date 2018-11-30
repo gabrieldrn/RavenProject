@@ -11,6 +11,7 @@
 #include "time/Regulator.h"
 #include "Raven_WeaponSystem.h"
 #include "Raven_SensoryMemory.h"
+#include "FANN/include/fann.h"
 
 #include "Messaging/Telegram.h"
 #include "Raven_Messages.h"
@@ -388,6 +389,31 @@ void Raven_Bot::ChangeWeapon(unsigned int type)
 //-----------------------------------------------------------------------------
 void Raven_Bot::FireWeapon(Vector2D pos)
 {
+	// instanciation du réseau neuronal ici
+	if (m_Learning) {
+		const unsigned int num_layers = 4;
+		const unsigned int num_neurons_hidden = 54;
+		const float desired_error = (const float) 0.001;
+		const unsigned int max_epochs = 300;
+		const unsigned int epochs_between_reports = 12;
+		struct fann *ann;
+		struct fann_train_data *train_data, *test_data;
+
+		unsigned int x = 0;
+
+		// Création du réseau à 4 couches de Raven
+
+		train_data = fann_read_train_from_file("../datasets/robots.train");
+
+		ann = fann_create_standard(num_layers, train_data->num_input, num_neurons_hidden, train_data->num_output);
+
+		// Entraînement du réseau de Raven.
+
+		fann_set_training_algorithm(ann, FANN_TRAIN_INCREMENTAL);
+	}
+	else {
+
+	}
 	m_pWeaponSys->ShootAt(pos);
 }
 
