@@ -58,6 +58,13 @@ private:
 	//if true a bot is removed from the game
 	bool                             m_bRemoveABot;
 
+	//Booleans for the player controls
+	bool                               key_up_pressed = false;
+	bool                               key_down_pressed = false;
+	bool                               key_left_pressed = false;
+	bool                               key_right_pressed = false;
+
+
 	//when a bot is killed a "grave" is displayed for a few seconds. This
 	//class manages the graves
 	GraveMarkers*                    m_pGraveMarkers;

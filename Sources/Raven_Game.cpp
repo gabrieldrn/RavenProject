@@ -40,6 +40,13 @@ m_pGraveMarkers(NULL)
 {
 	//load in the default map
 	LoadMap(script->GetString("StartMap"));
+	// The first spawning bot is controlled by the player
+
+	if (m_Bots.size() >= 1) {
+		Raven_Bot* humanBot = m_Bots.front();
+		m_pSelectedBot = humanBot;
+
+	}
 }
 
 //------------------------------ dtor -----------------------------------------
@@ -138,6 +145,41 @@ void Raven_Game::Update()
 
 	//update the bots
 	bool bSpawnPossible = true;
+
+	//Current position of the human player
+	if (m_pSelectedBot) {
+
+		Vector2D newPos = m_pSelectedBot->Pos();
+		
+		if (IS_KEY_PRESSED('W')) {
+			newPos.y -= 10;
+			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
+			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
+		}
+		
+		if (IS_KEY_PRESSED('D')) {
+			newPos.x += 10;
+			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
+			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
+		}
+
+		if (IS_KEY_PRESSED('S')) {
+			newPos.y += 10;
+			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
+			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
+		}
+
+		if (IS_KEY_PRESSED('A')) {
+			newPos.x -= 10;
+			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
+			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
+		}
+
+		if (!m_pSelectedBot->isPossessed()) {
+			m_pSelectedBot->TakePossession();
+		}
+
+	}
 
 	std::list<Raven_Bot*>::iterator curBot = m_Bots.begin();
 	for (curBot; curBot != m_Bots.end(); ++curBot)
@@ -257,6 +299,8 @@ void Raven_Game::AddBots(unsigned int NumBotsToAdd)
 		debug_con << "Adding bot with ID " << ttos(rb->ID()) << "";
 #endif
 	}
+
+
 }
 
 //---------------------------- NotifyAllBotsOfRemoval -------------------------
@@ -397,6 +441,8 @@ bool Raven_Game::LoadMap(const std::string& filename)
 //  when called will release any possessed bot from user control
 //-----------------------------------------------------------------------------
 void Raven_Game::ExorciseAnyPossessedBot()
+
+
 {
 	if (m_pSelectedBot) m_pSelectedBot->Exorcise();
 }
