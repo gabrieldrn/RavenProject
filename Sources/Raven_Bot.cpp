@@ -23,7 +23,7 @@
 #include "Debug/DebugConsole.h"
 
 //-------------------------- ctor ---------------------------------------------
-Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos, boolean learning) :
+Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
 
 	MovingEntity(pos,
 		script->GetDouble("Bot_Scale"),
@@ -74,19 +74,12 @@ Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos, boolean learning) :
 
 	//create the targeting system
 	m_pTargSys = new Raven_TargetingSystem(this);
-
-	// True if Learning Bot
-	m_Learning = learning;
-
-	if (!m_Learning) {
-		m_pWeaponSys = new Raven_WeaponSystem(this,
-			script->GetDouble("Bot_ReactionTime"),
-			script->GetDouble("Bot_AimAccuracy"),
-			script->GetDouble("Bot_AimPersistance"));
-	}
-	else {
-		m_pWeaponSys = NULL;
-	}
+	
+	// Setting the DEFAULT Weapon System
+	m_pWeaponSys = new Raven_WeaponSystem(this,
+		script->GetDouble("Bot_ReactionTime"),
+		script->GetDouble("Bot_AimAccuracy"),
+		script->GetDouble("Bot_AimPersistance"));
 
 	m_pSensoryMem = new Raven_SensoryMemory(this, script->GetDouble("Bot_MemorySpan"));
 }
@@ -375,6 +368,42 @@ void Raven_Bot::Exorcise()
 	m_pBrain->AddGoal_Explore();
 
 	debug_con << "Player is exorcised from bot " << this->ID() << "";
+	debug_con << "Neural Network is currently working on the bot " << this->ID() << "";
+
+	// instanciation du réseau neuronal
+	const unsigned int num_layers = 4;
+	const unsigned int num_neurons_hidden = 54;
+	const float desired_error = (const float) 0.001;
+	const unsigned int max_epochs = 3000;
+	const unsigned int epochs_between_reports = 12;
+	struct fann *ann;
+	struct fann_train_data *train_data, *test_data;
+
+	// Création du réseau à 4 couches de Raven
+	train_data = fann_read_train_from_file("FANN/datasets/historique.train");
+	ann = fann_create_standard(num_layers, train_data->num_input, num_neurons_hidden, train_data->num_output);
+
+	// Entraînement du réseau de Raven.
+	fann_set_training_algorithm(ann, FANN_TRAIN_INCREMENTAL);
+	fann_set_learning_momentum(ann, 0.4f); // "rapidité" du réseau
+
+	fann_train_on_data(ann, train_data, max_epochs, epochs_between_reports, desired_error);
+
+	// Test du réseau
+	test_data = fann_read_train_from_file("FANN/datasets/historique.test");
+	fann_reset_MSE(ann);
+	for (int i = 0; i < fann_length_train_data(test_data); i++) {
+		fann_test(ann, test_data->input[i], test_data->output[i]);
+	}
+	float mse = fann_get_MSE(ann); // nb erreurs obtenues
+
+	// Fin du test du réseau
+	// Sauvegarde du réseau
+	fann_save(ann, "raven_learning_bot.net");
+	// Nettoyage
+	fann_destroy_train(train_data);
+	fann_destroy_train(test_data);
+	fann_destroy(ann);
 }
 
 //----------------------- ChangeWeapon ----------------------------------------
@@ -388,56 +417,8 @@ void Raven_Bot::ChangeWeapon(unsigned int type)
 //  fires the current weapon at the given position
 //-----------------------------------------------------------------------------
 void Raven_Bot::FireWeapon(Vector2D pos)
-{
-	// instanciation du réseau neuronal
-	if (m_Learning) {
-		const unsigned int num_layers = 4;
-		const unsigned int num_neurons_hidden = 54;
-		const float desired_error = (const float) 0.001;
-		const unsigned int max_epochs = 3000;
-		const unsigned int epochs_between_reports = 12;
-		struct fann *ann;
-		struct fann_train_data *train_data, *test_data;
-
-		unsigned int x = 0;
-
-		// Création du réseau à 4 couches de Raven
-		train_data = fann_read_train_from_file("FANN/datasets/historique.train");
-
-		ann = fann_create_standard(num_layers, train_data->num_input, num_neurons_hidden, train_data->num_output);
-
-		// Entraînement du réseau de Raven.
-		fann_set_training_algorithm(ann, FANN_TRAIN_INCREMENTAL);
-		fann_set_learning_momentum(ann, 0.4f); // "rapidité" du réseau
-		
-		fann_train_on_data(ann, train_data, max_epochs, epochs_between_reports, desired_error);
-
-		// Test du réseau
-		test_data = fann_read_train_from_file("FANN/datasets/historique.test");
-		fann_reset_MSE(ann);
-		for (int i = 0; i < fann_length_train_data(test_data); i++) {
-			fann_test(ann, test_data->input[i], test_data->output[i]);
-		}
-		float mse = fann_get_MSE(ann); // nb erreurs obtenues
-		
-		// Fin du test du réseau
-		// Sauvegarde du réseau
-		fann_save(ann, "robot_float.net");
-		// Nettoyage
-		fann_destroy_train(train_data);
-		fann_destroy_train(test_data);
-		fann_destroy(ann);
-		
-		// Variables à aller chercher dans le fichier *.net
-		double Bot_ReactionTime;
-		double Bot_AimAccuracy;
-		double Bot_AimPersistance;
-		m_pWeaponSys = new Raven_WeaponSystem(this, Bot_ReactionTime, Bot_AimAccuracy, Bot_AimPersistance);
-	}
-	else {
-		// Le Weapon System est déjà crée, il faut simplement appeler la fonction de tir
-		m_pWeaponSys->ShootAt(pos);
-	}
+{		
+	m_pWeaponSys->ShootAt(pos);
 }
 
 //----------------- CalculateExpectedTimeToReachPosition ----------------------

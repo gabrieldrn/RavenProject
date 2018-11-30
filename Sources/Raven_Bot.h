@@ -101,9 +101,6 @@ private:
 	//set to true when a human player takes over control of the bot
 	bool                               m_bPossessed;
 
-	// set true if you wanna play a learning bot
-	bool							   m_Learning;
-
 	//a vertex buffer containing the bot's geometry
 	std::vector<Vector2D>              m_vecBotVB;
 	//the buffer for the transformed vertices
@@ -122,7 +119,7 @@ private:
 
 public:
 
-	Raven_Bot(Raven_Game* world, Vector2D pos, boolean learning);
+	Raven_Bot(Raven_Game* world, Vector2D pos);
 	virtual ~Raven_Bot();
 
 	//the usual suspects
