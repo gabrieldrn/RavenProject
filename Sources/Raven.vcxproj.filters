@@ -271,6 +271,9 @@
     <ClCompile Include="..\Common\Game\BaseGameEntity.cpp">
       <Filter>Game\Base entity classes</Filter>
     </ClCompile>
+    <ClCompile Include="IOStream\IOStreamLearningNN.cpp">
+      <Filter>Game\misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Raven_Bot.h">
@@ -609,9 +612,6 @@
     <ClInclude Include="..\Common\misc\WindowUtils.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="FANN\">
-      <Filter>FANN</Filter>
-    </ClInclude>
     <ClInclude Include="FANN\include\compat_time.h">
       <Filter>FANN</Filter>
     </ClInclude>
@@ -651,6 +651,9 @@
     <ClInclude Include="FANN\include\floatfann.h">
       <Filter>FANN</Filter>
     </ClInclude>
+    <ClInclude Include="IOStream\IOStreamLearningNN.h">
+      <Filter>Game\misc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Params.lua">
@@ -665,6 +668,7 @@
     <None Include="maps\Raven_DM1_Doors.map">
       <Filter>Resource Files\maps</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Script1.rc">

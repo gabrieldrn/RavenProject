@@ -17,6 +17,8 @@
 #include "Raven_Messages.h"
 #include "GraveMarkers.h"
 
+#include "Debug/DebugConsole.h"
+
 #include "armory/Raven_Projectile.h"
 #include "armory/Projectile_Rocket.h"
 #include "armory/Projectile_Pellet.h"
@@ -510,6 +512,12 @@ void Raven_Game::ClickLeftMouseButton(POINTS p)
 {
 	if (m_pSelectedBot && m_pSelectedBot->isPossessed())
 	{
+		Raven_Bot* TargetBot = GetBotAtPosition(POINTStoVector(p));
+		if (TargetBot != NULL)
+		{
+			debug_con << "New target : " << TargetBot->ID() << "";
+		}
+
 		m_pSelectedBot->FireWeapon(POINTStoVector(p));
 	}
 }

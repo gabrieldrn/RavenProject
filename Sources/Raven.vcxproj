@@ -218,6 +218,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="IOStream\IOStreamLearningNN.cpp" />
     <ClCompile Include="main.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -548,6 +549,7 @@
     <ClInclude Include="FANN\include\fann_train.h" />
     <ClInclude Include="FANN\include\fixedfann.h" />
     <ClInclude Include="FANN\include\floatfann.h" />
+    <ClInclude Include="IOStream\IOStreamLearningNN.h" />
     <ClInclude Include="Raven_Bot.h" />
     <ClInclude Include="Raven_Game.h" />
     <ClInclude Include="Raven_Map.h" />
@@ -662,6 +664,7 @@
     <ClInclude Include="..\Common\misc\WindowUtils.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="Params.lua" />
     <None Include="note.txt" />
     <None Include="maps\Raven_DM1.map" />
