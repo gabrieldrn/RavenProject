@@ -3,6 +3,7 @@
 #include "../Raven_Game.h"
 
 #include "Goal_TraverseEdge.h"
+#include "Goal_DodgyEdge.h"
 #include "Goal_NegotiateDoor.h"
 #include "misc/cgdi.h"
 
@@ -32,12 +33,18 @@ void Goal_FollowPath::Activate()
 	//adds the appropriate goals/s to the subgoal list.
 	switch (edge.Behavior())
 	{
-	case NavGraphEdge::normal:
+	/*case NavGraphEdge::normal:
 	{
-		AddSubgoal(new Goal_TraverseEdge(m_pOwner, edge, m_Path.empty()));
+		AddSubgoal(new Goal_TraverseEdge(m_pOwner, edge, m_Path.empty())); //ICI
 	}
 
-	break;
+	break;*/
+
+	// TODO: Faire en sorte d'adopter cela que lorsqu'il est targetted
+	case NavGraphEdge::normal:
+	{
+		AddSubgoal(new Goal_DodgyEdge(m_pOwner, edge, m_Path.empty()));
+	}
 
 	case NavGraphEdge::goes_through_door:
 	{

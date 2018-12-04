@@ -62,6 +62,14 @@ struct Vector2D
 	inline Vector2D  GetReverse()const;
 
 	//we need some overloaded operators
+	const Vector2D& operator*(Vector2D victor)
+	{
+		x += victor.x;
+		y += victor.y;
+
+		return *this;
+	}
+
 	const Vector2D& operator+=(const Vector2D &rhs)
 	{
 		x += rhs.x;

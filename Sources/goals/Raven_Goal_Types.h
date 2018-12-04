@@ -12,6 +12,7 @@ enum
 	goal_seek_to_position,
 	goal_follow_path,
 	goal_traverse_edge,
+	goal_dodgy_edge,
 	goal_move_to_position,
 	goal_get_health,
 	goal_get_shotgun,

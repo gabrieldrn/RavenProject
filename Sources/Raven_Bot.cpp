@@ -404,25 +404,6 @@ bool Raven_Bot::isAtPosition(Vector2D pos)const
 	return Vec2DDistanceSq(Pos(), pos) < tolerance * tolerance;
 }
 
-//------------------------ isTargetted ---------------------------------------
-//
-//  returns true if the bot is targetted by someone else
-//-----------------------------------------------------------------------------
-bool Raven_Bot::isTargetted()const
-{
-	//grab a list of all the opponents the owner can sense
-	std::list<Raven_Bot*> lastSeenBots;
-	bool isTargetOf = false;
-
-	lastSeenBots = this->GetSensoryMem()->GetListOfRecentlySensedOpponents();
-
-	/*for (std::list<Raven_Bot*>::iterator it = lastSeenBots.begin(); it != lastSeenBots.end(); it++) {
-		
-	}*/
-
-	return isTargetOf;
-}
-
 //------------------------- hasLOSt0 ------------------------------------------
 //
 //  returns true if the bot has line of sight to the given position.
