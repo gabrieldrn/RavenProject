@@ -27,7 +27,7 @@ public:
 	//the usual suspects
 	void Activate();
 	int  Process();
-	void Terminate() {}
+	void Terminate();
 
 	//this goal is able to accept messages
 	bool HandleMessage(const Telegram& msg);

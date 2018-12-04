@@ -270,6 +270,14 @@
     </ClCompile>
     <ClCompile Include="goals\Goal_DodgyEdge.cpp">
       <Filter>AI\goals\atomic</Filter>
+    <ClCompile Include="Raven_team.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponMarkers.cpp">
+      <Filter>Game\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="TriggerWeapon.cpp">
+      <Filter>AI\Triggers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -611,6 +619,14 @@
     </ClInclude>
     <ClInclude Include="goals\Goal_DodgyEdge.h">
       <Filter>AI\goals\atomic</Filter>
+    <ClInclude Include="Raven_team.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponMarkers.h">
+      <Filter>Game\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="TriggerWeapon.h">
+      <Filter>AI\Triggers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

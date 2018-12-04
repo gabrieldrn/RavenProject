@@ -8,6 +8,8 @@
 #include "game/EntityManager.h"
 #include "2d/WallIntersectionTests.h"
 #include "Raven_Map.h"
+#include "Raven_team.h"
+
 #include "Raven_Door.h"
 #include "Raven_UserOptions.h"
 #include "Time/PrecisionTimer.h"
@@ -16,6 +18,7 @@
 #include "messaging/MessageDispatcher.h"
 #include "Raven_Messages.h"
 #include "GraveMarkers.h"
+#include "WeaponMarkers.h"
 
 #include "armory/Raven_Projectile.h"
 #include "armory/Projectile_Rocket.h"
@@ -36,16 +39,40 @@ m_bPaused(false),
 m_bRemoveABot(false),
 m_pMap(NULL),
 m_pPathManager(NULL),
-m_pGraveMarkers(NULL)
+m_pGraveMarkers(NULL),
+m_pWeaponMarkers(NULL)
 {
 	//load in the default map
 	LoadMap(script->GetString("StartMap"));
 	// The first spawning bot is controlled by the player
 
+	Raven_team* team1 = new Raven_team(Vector2D(93.0, 75.0), true);
+	Raven_team* team2 = new Raven_team(Vector2D(430.0, 85.0), false);
+
+	m_team.push_back(team2);
+	m_team.push_back(team1);
+
+	int i(0);
+
+	for each (Raven_Bot* current_bot in m_Bots)
+	{
+
+		if (i >= 0) {
+			team2->addTeamMate(current_bot);
+		}
+		else {
+			team1->addTeamMate(current_bot);
+		}
+
+
+		i++;
+
+	}
+
+
 	if (m_Bots.size() >= 1) {
 		Raven_Bot* humanBot = m_Bots.front();
 		m_pSelectedBot = humanBot;
-
 	}
 }
 
@@ -58,6 +85,7 @@ Raven_Game::~Raven_Game()
 	delete m_pMap;
 
 	delete m_pGraveMarkers;
+	delete m_pWeaponMarkers;
 }
 
 //---------------------------- Clear ------------------------------------------
@@ -111,6 +139,7 @@ void Raven_Game::Update()
 
 	m_pGraveMarkers->Update();
 
+
 	//get any player keyboard input
 	GetPlayerInput();
 
@@ -154,25 +183,25 @@ void Raven_Game::Update()
 		if (IS_KEY_PRESSED('W')) {
 			newPos.y -= 10;
 			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
-			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
+			m_pSelectedBot->GetBrain()->AddGoal_MoveToPosition(newPos);
 		}
 		
 		if (IS_KEY_PRESSED('D')) {
 			newPos.x += 10;
 			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
-			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
+			m_pSelectedBot->GetBrain()->AddGoal_MoveToPosition(newPos);
 		}
 
 		if (IS_KEY_PRESSED('S')) {
 			newPos.y += 10;
 			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
-			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
+			m_pSelectedBot->GetBrain()->AddGoal_MoveToPosition(newPos);
 		}
 
 		if (IS_KEY_PRESSED('A')) {
 			newPos.x -= 10;
 			m_pSelectedBot->GetBrain()->RemoveAllSubgoals();
-			m_pSelectedBot->GetBrain()->AddGoal_MoveToPositionHuman(newPos);
+			m_pSelectedBot->GetBrain()->AddGoal_MoveToPosition(newPos);
 		}
 
 		if (!m_pSelectedBot->isPossessed()) {
@@ -196,7 +225,26 @@ void Raven_Game::Update()
 		else if ((*curBot)->isDead())
 		{
 			//create a grave
-			m_pGraveMarkers->AddGrave((*curBot)->Pos());
+			m_pGraveMarkers->AddGrave((*curBot));
+
+			Raven_Weapon* railGun = (*curBot)->GetWeaponSys()->GetWeaponFromInventory(type_rail_gun);
+			Raven_Weapon* rocketLauncher = (*curBot)->GetWeaponSys()->GetWeaponFromInventory(type_rocket_launcher);
+			Raven_Weapon* shotGun = (*curBot)->GetWeaponSys()->GetWeaponFromInventory(type_shotgun);
+
+			Vector2D spawnPoint = (*curBot)->GetTeam()->getSpawnPoint();
+
+			if (railGun) {
+				GetMap()->AddWeaponTrigger(spawnPoint, 7, type_rail_gun);
+			}
+
+			if (rocketLauncher) {
+				GetMap()->AddWeaponTrigger(Vector2D(spawnPoint.x - 15, spawnPoint.y), 7, type_rocket_launcher);
+			}
+
+			if (shotGun) {
+				GetMap()->AddWeaponTrigger(Vector2D(spawnPoint.x + 15, spawnPoint.y), 7, type_shotgun);
+			}
+
 
 			//change its status to spawning
 			(*curBot)->SetSpawning();
@@ -285,6 +333,10 @@ void Raven_Game::AddBots(unsigned int NumBotsToAdd)
 		//create a bot. (its position is irrelevant at this point because it will
 		//not be rendered until it is spawned)
 		Raven_Bot* rb = new Raven_Bot(this, Vector2D());
+
+		if (m_team.size() > 0) {
+			m_team.back()->addTeamMate(rb);
+		}
 
 		//switch the default steering behaviors on
 		rb->GetSteering()->WallAvoidanceOn();
@@ -415,10 +467,13 @@ bool Raven_Game::LoadMap(const std::string& filename)
 	//out with the old
 	delete m_pMap;
 	delete m_pGraveMarkers;
+	delete m_pWeaponMarkers;
 	delete m_pPathManager;
 
 	//in with the new
 	m_pGraveMarkers = new GraveMarkers(script->GetDouble("GraveLifetime"));
+	m_pWeaponMarkers = new WeaponMarkers();
+
 	m_pPathManager = new PathManager<Raven_PathPlanner>(script->GetInt("MaxSearchCyclesPerUpdateStep"));
 	m_pMap = new Raven_Map();
 
@@ -712,6 +767,9 @@ Raven_Game::GetPosOfClosestSwitch(Vector2D botPos, unsigned int doorID)const
 void Raven_Game::Render()
 {
 	m_pGraveMarkers->Render();
+	
+	m_pWeaponMarkers->Render();
+
 
 	//render the map
 	m_pMap->Render();

@@ -37,10 +37,12 @@ protected:
 
 public:
 
-	Trigger_Respawning(int id) :Trigger<entity_type>(id),
+	Trigger_Respawning(int id) :
+		Trigger<entity_type>(id),
 		m_iNumUpdatesBetweenRespawns(0),
 		m_iNumUpdatesRemainingUntilRespawn(0)
 	{}
+
 
 	virtual ~Trigger_Respawning() {}
 
