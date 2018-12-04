@@ -217,6 +217,8 @@ public:
 	Raven_team*						   GetTeam() { return m_pteam; }
 
 	bool							   getSaveTeamMate() { return m_saveTeamMate; }
+	void						       SetSaveTeamMate(bool save_team) { m_saveTeamMate = save_team; }
+
 };
 
 #endif

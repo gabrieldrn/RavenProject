@@ -112,7 +112,10 @@ void Goal_Think::Arbitrate()
 
 	assert(MostDesirable && "<Goal_Think::Arbitrate>: no evaluator selected");
 
-	MostDesirable->SetGoal(m_pOwner);
+	if(!m_pOwner->getSaveTeamMate()) {
+		MostDesirable->SetGoal(m_pOwner);
+	}
+
 }
 
 //---------------------------- notPresent --------------------------------------

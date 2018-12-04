@@ -46,6 +46,11 @@ int Goal_MoveToPosition::Process()
 	return m_iStatus;
 }
 
+void Goal_MoveToPosition::Terminate()
+{
+	m_pOwner->SetSaveTeamMate(false);
+
+}
 //---------------------------- HandleMessage ----------------------------------
 //-----------------------------------------------------------------------------
 bool Goal_MoveToPosition::HandleMessage(const Telegram& msg)
