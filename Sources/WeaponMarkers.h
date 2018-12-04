@@ -1,5 +1,5 @@
-#ifndef GRAVE_MARKERS_H
-#define GRAVE_MARKERS_H
+#ifndef WEAPON_MARKERS_H
+#define WEAPON_MARKERS_H
 #pragma warning (disable : 4786)
 //-----------------------------------------------------------------------------
 //
@@ -17,44 +17,39 @@
 #include "Raven_Bot.h"
 #include "Raven_team.h"
 
-class GraveMarkers
+class WeaponMarkers
 {
 private:
 
-	struct GraveRecord
+	//vrtex buffers for rocket shape
+	std::vector<Vector2D>	m_vecRLVB;
+	std::vector<Vector2D>	m_vecRLVBTrans;
+
+
+	struct WeaponRecord
 	{
 		Vector2D Position;
-		Raven_Bot* bot;
-		double    TimeCreated;
+		int	weaponType;
 
-		GraveRecord(Vector2D pos, Raven_Bot* n_bot) :
+		WeaponRecord(Vector2D pos, int newWeaponType) :
 			Position(pos),
-			bot(n_bot),
-			TimeCreated(Clock->GetCurrentTime())
-		{}
+			weaponType(newWeaponType){}
 	};
 
 private:
 
-	typedef std::list<GraveRecord> GraveList;
+	typedef std::list<WeaponRecord> WeaponList;
 
 private:
-
-	//how long a grave remains on screen
-	double m_dLifeTime;
-
-	//when a bot dies, a grave is rendered to mark the spot.
-	std::vector<Vector2D>   m_vecRIPVB;
-	std::vector<Vector2D>   m_vecRIPVBTrans;
-	GraveList               m_GraveList;
+	WeaponList              m_WeaponList;
 
 public:
 
-	GraveMarkers(double lifetime);
+	WeaponMarkers();
 
 	void Update();
 	void Render();
-	void AddGrave(Raven_Bot* bot);
+	void AddWeapon(Vector2D pos, int weaponType);
 };
 
 #endif

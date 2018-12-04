@@ -24,12 +24,15 @@
 #include "misc/utils.h"
 #include "game/EntityFunctionTemplates.h"
 #include "Raven_Bot.h"
+#include "Raven_team.h"
+
 #include "navigation/pathmanager.h"
 
 class BaseGameEntity;
 class Raven_Projectile;
 class Raven_Map;
 class GraveMarkers;
+class WeaponMarkers;
 
 class Raven_Game
 {
@@ -40,6 +43,10 @@ private:
 
 	//a list of all the bots that are inhabiting the map
 	std::list<Raven_Bot*>            m_Bots;
+
+	//a list of team
+	std::list<Raven_team*>           m_team;
+
 
 	//the user may select a bot to control manually. This is a pointer to that
 	//bot
@@ -68,6 +75,9 @@ private:
 	//when a bot is killed a "grave" is displayed for a few seconds. This
 	//class manages the graves
 	GraveMarkers*                    m_pGraveMarkers;
+
+	//when a bot is killed, he drops his weapons on the floor
+	WeaponMarkers*                   m_pWeaponMarkers;
 
 	//this iterates through each trigger, testing each one against each bot
 	void  UpdateTriggers();

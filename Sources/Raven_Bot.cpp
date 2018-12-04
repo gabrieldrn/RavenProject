@@ -12,14 +12,20 @@
 #include "Raven_WeaponSystem.h"
 #include "Raven_SensoryMemory.h"
 
+
+
 #include "Messaging/Telegram.h"
 #include "Raven_Messages.h"
 #include "Messaging/MessageDispatcher.h"
 
 #include "goals/Raven_Goal_Types.h"
 #include "goals/Goal_Think.h"
+#include "goals/Goal_SeekToPosition.h"
 
 #include "Debug/DebugConsole.h"
+
+#include "Raven_team.h"
+
 
 //-------------------------- ctor ---------------------------------------------
 Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
@@ -45,7 +51,9 @@ Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
 	m_iScore(0),
 	m_Status(spawning),
 	m_bPossessed(false),
-	m_dFieldOfView(DegsToRads(script->GetDouble("Bot_FOV")))
+	m_dFieldOfView(DegsToRads(script->GetDouble("Bot_FOV"))),
+	m_messageSend(false),
+	m_saveTeamMate(false)
 
 {
 	SetEntityType(type_bot);
@@ -113,6 +121,7 @@ void Raven_Bot::Spawn(Vector2D pos)
 	SetPos(pos);
 	m_pWeaponSys->Initialize();
 	RestoreHealthToMaximum();
+	m_messageSend = false;
 }
 
 //-------------------------------- Update -------------------------------------
@@ -126,6 +135,11 @@ void Raven_Bot::Update()
 
 	//Calculate the steering force and update the bot's velocity and position
 	UpdateMovement();
+
+	if (this->m_iHealth <= 20 && !m_messageSend) {
+		this->m_pteam->sendMessageToTeam(Msg_needHelp, this);
+		m_messageSend = true;
+	}
 
 	//if the bot is under AI control but not scripted
 	if (!isPossessed())
@@ -174,38 +188,42 @@ void Raven_Bot::Update()
 //-----------------------------------------------------------------------------
 void Raven_Bot::UpdateMovement()
 {
-	//calculate the combined steering force
-	Vector2D force = m_pSteering->Calculate();
 
-	//if no steering force is produced decelerate the player by applying a
-	//braking force
-	if (m_pSteering->Force().isZero())
-	{
-		const double BrakingRate = 0.8;
+		/*if (m_pteam) {
+			Vector2D newPos = m_pteam->getLeader()->Pos();
+			m_pSteering->SetTarget(newPos);
+		}*/
+		//calculate the combined steering force
+		Vector2D force = m_pSteering->Calculate();
 
-		m_vVelocity = m_vVelocity * BrakingRate;
-	}
+		//if no steering force is produced decelerate the player by applying a
+		//braking force
+		if (m_pSteering->Force().isZero())
+		{
+			const double BrakingRate = 0.8;
+			m_vVelocity = m_vVelocity * BrakingRate;
+		}
 
-	//calculate the acceleration
-	Vector2D accel = force / m_dMass;
+		//calculate the acceleration
+		Vector2D accel = force / m_dMass;
 
-	//update the velocity
-	m_vVelocity += accel;
+		//update the velocity
+		m_vVelocity += accel;
 
-	//make sure vehicle does not exceed maximum velocity
-	m_vVelocity.Truncate(m_dMaxSpeed);
+		//make sure vehicle does not exceed maximum velocity
+		m_vVelocity.Truncate(m_dMaxSpeed);
 
-	//update the position
-	m_vPosition += m_vVelocity;
+		//update the position
+		m_vPosition += m_vVelocity;
 
-	//if the vehicle has a non zero velocity the heading and side vectors must
-	//be updated
-	if (!m_vVelocity.isZero())
-	{
-		m_vHeading = Vec2DNormalize(m_vVelocity);
+		//if the vehicle has a non zero velocity the heading and side vectors must
+		//be updated
+		if (!m_vVelocity.isZero())
+		{
+			m_vHeading = Vec2DNormalize(m_vVelocity);
 
-		m_vSide = m_vHeading.Perp();
-	}
+			m_vSide = m_vHeading.Perp();
+		}
 }
 //---------------------------- isReadyForTriggerUpdate ------------------------
 //
@@ -275,6 +293,20 @@ bool Raven_Bot::HandleMessage(const Telegram& msg)
 		}
 
 		return true;
+	}
+
+	case Msg_needHelp:
+	{
+		Vector2D* injureBotPos = (Vector2D*)msg.ExtraInfo;
+
+		debug_con << "Bot[" << msg.Sender << "] needs help, i'm gonna help him : " << this->ID() << "";
+		debug_con << "Vector X : " << (*injureBotPos).x << " Vector Y : " << (*injureBotPos).y << "";
+		
+		GetBrain()->RemoveAllSubgoals();
+		GetBrain()->AddGoal_MoveToPosition(*injureBotPos);
+
+		m_saveTeamMate = true;
+
 	}
 
 	default: return false;
@@ -383,6 +415,12 @@ void Raven_Bot::FireWeapon(Vector2D pos)
 	m_pWeaponSys->ShootAt(pos);
 }
 
+void Raven_Bot::SetDead()
+{
+	DropWeapon(GetTeam()->getSpawnPoint());
+	m_Status = dead;	
+}
+
 //----------------- CalculateExpectedTimeToReachPosition ----------------------
 //
 //  returns a value indicating the time in seconds it will take the bot
@@ -481,7 +519,11 @@ void Raven_Bot::Render()
 
 	if (isDead() || isSpawning()) return;
 
+
 	gdi->BluePen();
+
+
+	
 
 	m_vecBotVBTrans = WorldTransform(m_vecBotVB,
 		Pos(),
@@ -493,6 +535,14 @@ void Raven_Bot::Render()
 
 	//draw the head
 	gdi->BrownBrush();
+
+	if (this->GetTeam()->getBlue()) {
+		gdi->RedBrush();
+	}
+	else {
+		gdi->BlueBrush();
+	}
+
 	gdi->Circle(Pos(), 6.0 * Scale().x);
 
 	//render the bot's weapon
@@ -511,6 +561,9 @@ void Raven_Bot::Render()
 		}
 	}
 
+	//debug_con << "Pos X : " << Pos().x << "|  Pos Y : "<< Pos().y <<"";
+
+
 	gdi->TransparentText();
 	gdi->TextColor(0, 255, 0);
 
@@ -527,6 +580,13 @@ void Raven_Bot::Render()
 	if (UserOptions->m_bShowScore)
 	{
 		gdi->TextAtPos(Pos().x - 40, Pos().y + 10, "Scr:" + std::to_string(Score()));
+	}
+
+	if (m_Status == dead) {
+	
+		gdi->ThickRedPen();
+		gdi->HollowBrush();
+		gdi->Circle(m_vPosition, BRadius() + 10);
 	}
 }
 
@@ -563,6 +623,46 @@ void Raven_Bot::SetUpVertexBuffer()
 }
 
 void Raven_Bot::RestoreHealthToMaximum() { m_iHealth = m_iMaxHealth; }
+
+
+void Raven_Bot::DropWeapon(Vector2D pos) {
+
+	pos.x = 62.7035;
+	pos.y = 279.707;
+
+	Raven_Weapon* railGun = m_pWeaponSys->GetWeaponFromInventory(type_rail_gun);
+	Raven_Weapon* rocketLauncher = m_pWeaponSys->GetWeaponFromInventory(type_rocket_launcher);
+	Raven_Weapon* shotGun = m_pWeaponSys->GetWeaponFromInventory(type_shotgun);
+
+	if (railGun) {
+		debug_con << "Drop RailGun" << "";
+		gdi->BluePen();
+		gdi->TextAtPos(pos.x, pos.y - 5, "RAIL GUN");
+	}
+
+	if (rocketLauncher) {
+		debug_con << "Drop RocketLauncher "  << "";
+		gdi->RedPen();
+		gdi->TextAtPos(pos.x, pos.y - 5, "ROCKET LAUNCHER");
+
+		debug_con << "Pos X : " << pos.x << "|  Pos Y : " << pos.y << "";
+
+
+	}
+
+	if (shotGun) {
+		debug_con << "Drop ShotGun " << "";
+		gdi->BrownPen();
+		gdi->TextAtPos(pos.x, pos.y - 5, "SHOTGUN");
+
+	}
+
+	debug_con << "Death Point : Pos X : " << Pos().x << " |  Pos Y : " << Pos().y << "";
+
+
+	gdi->TextAtPos(pos.x, pos.y, "RAIL GUN");
+
+}
 
 void Raven_Bot::IncreaseHealth(unsigned int val)
 {

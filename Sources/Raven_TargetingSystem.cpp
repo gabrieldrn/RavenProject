@@ -31,7 +31,10 @@ void Raven_TargetingSystem::Update()
 			if (dist < ClosestDistSoFar)
 			{
 				ClosestDistSoFar = dist;
-				m_pCurrentTarget = *curBot;
+				if (((*curBot)->GetTeam() && m_pOwner->GetTeam()) && (m_pOwner->GetTeam() != (*curBot)->GetTeam())) 
+				{
+						m_pCurrentTarget = *curBot;
+				}
 			}
 		}
 	}
@@ -49,6 +52,8 @@ bool Raven_TargetingSystem::isTargetWithinFOV()const
 
 bool Raven_TargetingSystem::isTargetShootable()const
 {
+
+
 	return m_pOwner->GetSensoryMem()->isOpponentShootable(m_pCurrentTarget);
 }
 

@@ -74,6 +74,11 @@ Creating a shotgun
 Creating a rocket_launcher
 maps/Raven_DM1.map loaded okay
 Player Possesses bot 401
+Player Possesses bot 401
+Bot[401] needs help, i'm gonna help him : 402
+Vector X : 91.0953 Vector Y : 97.3024
+Bot[401] needs help, i'm gonna help him : 403
+Vector X : 91.0953 Vector Y : 97.3024
 deleting raven bot (id = 401)
 deleting raven bot (id = 402)
 deleting raven bot (id = 403)

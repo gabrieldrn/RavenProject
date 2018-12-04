@@ -1,20 +1,25 @@
-#include "Trigger_WeaponGiver.h"
+#include "TriggerWeapon.h"
 #include "misc/Cgdi.h"
 #include "misc/Stream_Utility_Functions.h"
 #include <fstream>
-#include "../lua/Raven_Scriptor.h"
-#include "../constants.h"
-#include "../Raven_ObjectEnumerations.h"
-#include "../Raven_WeaponSystem.h"
+#include "./lua/Raven_Scriptor.h"
+#include "./constants.h"
+#include "./Raven_ObjectEnumerations.h"
+#include "./Raven_WeaponSystem.h"
 #include "Debug/DebugConsole.h"
+#include "../Common/Game/BaseGameEntity.h"
 
-///////////////////////////////////////////////////////////////////////////////
 
-Trigger_WeaponGiver::Trigger_WeaponGiver(std::ifstream& datafile) :
-
-	Trigger_Respawning<Raven_Bot>(GetValueFromStream<int>(datafile))
+TriggerWeapon::TriggerWeapon(Vector2D pos, double range, int wepon_type): 
+	Trigger_Respawning<Raven_Bot>(GetNextValidID()),
+	t_position(pos), 
+	t_range(range),
+	t_type(wepon_type),
+	t_active(true)
 {
-	Read(datafile);
+	SetPos(pos);
+	AddCircularTriggerRegion(pos, 7.0);
+
 
 	//create the vertex buffer for the rocket shape
 	const int NumRocketVerts = 8;
@@ -33,39 +38,31 @@ Trigger_WeaponGiver::Trigger_WeaponGiver(std::ifstream& datafile) :
 	}
 }
 
-void Trigger_WeaponGiver::Try(Raven_Bot* pBot)
+void TriggerWeapon::Try(Raven_Bot * pBot)
 {
-	if (this->isActive() && this->isTouchingTrigger(pBot->Pos(), pBot->BRadius()))
+	if (this->isTouchingTrigger(pBot->Pos(), pBot->BRadius()))
 	{
-		pBot->GetWeaponSys()->AddWeapon(EntityType());
-
-		Deactivate();
+		pBot->GetWeaponSys()->AddWeapon(t_type);
+		t_active = false;
 	}
+
 }
 
-void Trigger_WeaponGiver::Read(std::ifstream& in)
+void TriggerWeapon::Read()
 {
-	double x, y, r;
-	int GraphNodeIndex;
-
-	in >> x >> y >> r >> GraphNodeIndex;
-
-	SetPos(Vector2D(x, y));
-	SetBRadius(r);
-
-	SetGraphNodeIndex(GraphNodeIndex);
-
+	SetPos(Pos());
+	SetBRadius(t_range);
 	//create this trigger's region of fluence
 	AddCircularTriggerRegion(Pos(), script->GetDouble("DefaultGiverTriggerRange"));
 
-	SetRespawnDelay((unsigned int)(script->GetDouble("Weapon_RespawnDelay") * FrameRate));
 }
 
-void Trigger_WeaponGiver::Render()
+
+void TriggerWeapon::Render()
 {
-	if (isActive())
+	if (t_active)
 	{
-		switch (EntityType())
+		switch (t_type)
 		{
 		case type_rail_gun:
 		{

@@ -268,6 +268,15 @@
     <ClCompile Include="..\Common\Game\BaseGameEntity.cpp">
       <Filter>Game\Base entity classes</Filter>
     </ClCompile>
+    <ClCompile Include="Raven_team.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponMarkers.cpp">
+      <Filter>Game\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="TriggerWeapon.cpp">
+      <Filter>AI\Triggers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Raven_Bot.h">
@@ -605,6 +614,15 @@
     </ClInclude>
     <ClInclude Include="..\Common\misc\WindowUtils.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Raven_team.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponMarkers.h">
+      <Filter>Game\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="TriggerWeapon.h">
+      <Filter>AI\Triggers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
