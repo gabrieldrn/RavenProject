@@ -63,8 +63,6 @@ void Goal_DodgyEdge::Activate()
 	//set the steering target
 	Vector2D dodgeDirection = m_pOwner->Pos() - m_Edge.Destination();
 	dodgeDirection = dodgeDirection.Perp();
-	dodgeDirection.x = dodgeDirection.x * 500; // Agrandissement du vecteur ?
-	dodgeDirection.y = dodgeDirection.y * 500;
 	dodgeDirection = dodgeDirection * m_Edge.Destination(); // Combinaison lineaire de facing et destination
 
 	m_pOwner->GetSteering()->SetTarget(dodgeDirection);
