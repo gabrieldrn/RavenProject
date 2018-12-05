@@ -12,20 +12,17 @@
 #include "Raven_WeaponSystem.h"
 #include "Raven_SensoryMemory.h"
 #include "armory/Raven_Weapon.h"
-
-// neural network header
-#include "FANN/include/fann.h"
-// IOStream header
-#include "IOStream/IOStreamLearningNN.h"
-
+#include "FANN/include/fann.h" // neural network
+#include "IOStream/IOStreamLearningNN.h" // Custom IOStream
 #include "Messaging/Telegram.h"
 #include "Raven_Messages.h"
 #include "Messaging/MessageDispatcher.h"
-
 #include "goals/Raven_Goal_Types.h"
 #include "goals/Goal_Think.h"
-
 #include "Debug/DebugConsole.h"
+
+#include <chrono>
+#include <ctime>
 
 //-------------------------- ctor ---------------------------------------------
 Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
@@ -51,8 +48,8 @@ Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
 	m_iScore(0),
 	m_Status(spawning),
 	m_bPossessed(false),
-	m_dFieldOfView(DegsToRads(script->GetDouble("Bot_FOV")))
-
+	m_dFieldOfView(DegsToRads(script->GetDouble("Bot_FOV"))),
+	m_lastRecordTstp(NULL)
 {
 	SetEntityType(type_bot);
 
@@ -88,8 +85,8 @@ Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
 
 	m_pSensoryMem = new Raven_SensoryMemory(this, script->GetDouble("Bot_MemorySpan"));
 
-	this->createdFile = new IOStreamLearningNN(5, 1); // pb au niveau du constructeur
-	this->createdFile->createFile();
+	this->m_createdFile = new IOStreamLearningNN(5, 1); // pb au niveau du constructeur
+	this->m_createdFile->createFile();
 }
 
 //-------------------------------- dtor ---------------------------------------
@@ -133,6 +130,26 @@ void Raven_Bot::Update()
 	//is under user control. This is because a goal is created whenever a user
 	//clicks on an area of the map that necessitates a path planning request.
 	m_pBrain->Process();
+
+
+	//Record data for neural network training process every 5 seconds
+	//m_execRecordTstp = clock();
+	if (this->m_bPossessed)
+	{
+		int timeElapsed = (int)(clock() - this->m_lastRecordTstp) / CLOCKS_PER_SEC;
+		if (this->m_lastRecordTstp == NULL)
+		{
+			this->m_lastRecordTstp = clock();
+			RecordEverythingIDo();
+			debug_con << "NEURAL NETWORK : FIRST DATA RECORDED" << "";
+		}
+		if (timeElapsed >= 5)
+		{
+			RecordEverythingIDo();
+			this->m_lastRecordTstp = clock();
+			debug_con << "NEURAL NETWORK : DATA RECORDED" << "";
+		}
+	}
 
 	//Calculate the steering force and update the bot's velocity and position
 	UpdateMovement();
@@ -366,8 +383,8 @@ void Raven_Bot::TakePossession()
 		// now we call the movement recording function in a thread
 		// premier argument : la classe::la fonction
 		// second argument : les variables à passer en paramètre
-		this->m_currentThread = new thread (&Raven_Bot::RecordEverythingIDo, 5000);
-		this->m_currentThread->detach(); // the thread is now detached and the human keep playing
+		//this->m_currentThread = new thread (&Raven_Bot::RecordEverythingIDo, 5000);
+		//this->m_currentThread->detach(); // the thread is now detached and the human keep playing
 	}
 }
 //--------------------------- RecordEverythingIDo -----------------------------------------
@@ -375,41 +392,37 @@ void Raven_Bot::TakePossession()
 //  this is called to record in a every amount of frame what player is currently doing
 //  and if he is shooting or not. Should be used with a thread
 //-----------------------------------------------------------------------------
-void Raven_Bot::RecordEverythingIDo(int DesiratedFrame) 
+void Raven_Bot::RecordEverythingIDo() 
 {
-
-	if (this->m_bPossessed) {
-
-		std::this_thread::sleep_for(std::chrono::milliseconds(DesiratedFrame)); // sleep for a desirated amout of seconds
+	//std::this_thread::sleep_for(std::chrono::milliseconds(DesiratedFrame)); // sleep for a desirated amout of seconds
 		
-		int ShootingAngle = 0.8; // we need to have the shooting angle
+	int ShootingAngle = 0.8; // we need to have the shooting angle
 		
-		int Health = this->m_iHealth; // health of the current player
+	int Health = this->m_iHealth; // health of the current player
 		
-		Raven_Weapon *CurrentWeapon = this->m_pWeaponSys->GetCurrentWeapon();
-		int CurrentWeaponID = CurrentWeapon->GetType();
+	Raven_Weapon *CurrentWeapon = this->m_pWeaponSys->GetCurrentWeapon();
+	int CurrentWeaponID = CurrentWeapon->GetType();
 		
-		double ShootRate = this->m_pWeaponSys->GetCurrentWeapon()->GetMaxProjectileSpeed();
+	double ShootRate = this->m_pWeaponSys->GetCurrentWeapon()->GetMaxProjectileSpeed();
 		
-		int AmmoLeft = this->m_pWeaponSys->GetAmmoRemainingForWeapon(CurrentWeapon->GetType());
-		// TypeOfGun est un entier de l'objet Raven_Weapon, il me faut coder une fonction get()
-		if (this->GetTargetBot()) {
-			Vector2D *EnemiPos = &this->GetTargetBot()->Pos();
-			Vector2D Position = this->Pos();
-			double Distance = Position.Distance(*EnemiPos);
-			bool ShootDecision = false; // the decision of shooting remain in this variable
-			this->createdFile->setDistanceToTarget(Distance);
-			this->createdFile->setHealthPoints(Health);
-			this->createdFile->setAmmunitions(AmmoLeft);
-			this->createdFile->setAngle(ShootingAngle);
-			this->createdFile->setWeaponType(CurrentWeaponID);
-			this->createdFile->setShootDecision(ShootDecision);
-			this->createdFile->appendLine(); // all data are save into the lists
-		}
+	int AmmoLeft = this->m_pWeaponSys->GetAmmoRemainingForWeapon(CurrentWeapon->GetType());
+	// TypeOfGun est un entier de l'objet Raven_Weapon, il me faut coder une fonction get()
+	if (this->GetTargetBot()) {
+		Vector2D *EnemiPos = &this->GetTargetBot()->Pos();
+		Vector2D Position = this->Pos();
+		double Distance = Position.Distance(*EnemiPos);
+		bool ShootDecision = false; // the decision of shooting remain in this variable
+		this->m_createdFile->setDistanceToTarget(Distance);
+		this->m_createdFile->setHealthPoints(Health);
+		this->m_createdFile->setAmmunitions(AmmoLeft);
+		this->m_createdFile->setAngle(ShootingAngle);
+		this->m_createdFile->setWeaponType(CurrentWeaponID);
+		this->m_createdFile->setShootDecision(ShootDecision);
+		this->m_createdFile->appendLine(); // all data are save into the lists
 	}
-	this->createdFile->writeFile(); // now we can write the line and increment perceptron's number
-	this->createdFile->closeFile();
-	this->nameOfFile = this->createdFile->getWorkingFileName();
+	this->m_createdFile->writeFile(); // now we can write the line and increment perceptron's number
+	this->m_createdFile->closeFile();
+	this->nameOfFile = this->m_createdFile->getWorkingFileName();
 	return ;
 }
 

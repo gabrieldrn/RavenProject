@@ -14,19 +14,22 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.data
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
 # Build results
-Sources/Debug/
+Sources/Debug/*
+!Sources/Debug/*.dll
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
 x64/
 x86/
 bld/
-#[Bb]in/
+[Bb]in/*
+!fann/bin/*
 [Oo]bj/
 [Ll]og/
 

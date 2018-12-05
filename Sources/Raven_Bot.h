@@ -22,6 +22,8 @@
 #include "Raven_TargetingSystem.h"
 #include "IOStream/IOStreamLearningNN.h"
 
+using namespace std::chrono;
+
 class Raven_PathPlanner;
 class Raven_Steering;
 class Raven_Game;
@@ -104,17 +106,21 @@ private:
 	bool                               m_bHit;
 
 	//set to true when a human player takes over control of the bot
-	bool                               m_bPossessed;
+	bool								m_bPossessed;
 	// a thread for the agent
-	std::thread						  *m_currentThread;
+	std::thread							*m_currentThread;
 	// name of the recorded file
-	std::string							   nameOfFile;
+	std::string							nameOfFile;
 	//a vertex buffer containing the bot's geometry
-	std::vector<Vector2D>              m_vecBotVB;
+	std::vector<Vector2D>				m_vecBotVB;
 	//the buffer for the transformed vertices
-	std::vector<Vector2D>              m_vecBotVBTrans;
+	std::vector<Vector2D>				m_vecBotVBTrans;
 	// File will be created only once like that
-	IOStreamLearningNN					*createdFile;
+	IOStreamLearningNN					*m_createdFile;
+	//Last data record timestamp for neural network
+	clock_t								m_lastRecordTstp;
+	//Execution time timestamp for neural network
+	clock_t								m_execRecordTstp;
 
 	//bots shouldn't be copied, only created or respawned
 	Raven_Bot(const Raven_Bot&);
@@ -178,7 +184,7 @@ public:
 	void          TakePossession();
 	void          Exorcise();
 	// Recording functions
-	void		  RecordEverythingIDo(int DesiratedFrame);
+	void		  RecordEverythingIDo();
 	void		  getCurrentDataToRecord();
 
 	//spawns the bot at the given position
