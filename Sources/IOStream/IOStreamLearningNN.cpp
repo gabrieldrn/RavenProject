@@ -63,27 +63,41 @@ void IOStreamLearningNN::writeFile()
 {
 	//First line
 	this->write(std::to_string(nn_perceptrons) + " " + std::to_string(this->nn_inputs) + " " + std::to_string(this->nn_outputs) + "\n");
-
+	double dist, angleLs;
+	int hpLs, ammoLs, weapLs;
+	bool shootLs;
 	//Data
 	for (int i = 0; i < nn_perceptrons; i++)
 	{
+		if (!empty(distList)) dist = distList.front();
+		else dist = 0;
+		if (!empty(hpList)) hpLs = hpList.front();
+		else hpLs = 0;
+		if (!empty(ammoList)) ammoLs = ammoList.front();
+		else ammoLs = 0;
+		if (!empty(angleList)) angleLs = angleList.front();
+		else angleLs = 0;
+		if (!empty(weapList)) weapLs = weapList.front();
+		else weapLs = 0;
+		if (!empty(shootList)) shootLs = shootList.front();
+		else shootLs = 0;
+
 		this->write(
-			std::to_string(distList.front()) + " "
-			+ std::to_string(hpList.front()) + " "
-			+ std::to_string(ammoList.front()) + " "
-			+ std::to_string(angleList.front()) + " "
-			+ std::to_string(weapList.front())
+			std::to_string(dist) + " "
+			+ std::to_string(hpLs) + " "
+			+ std::to_string(ammoLs) + " "
+			+ std::to_string(angleLs) + " "
+			+ std::to_string(weapLs)
 			+ "\n"
-			+ std::to_string(int(shootList.front()))
+			+ std::to_string(shootLs)
 			+ "\n"
 		);
-
 		distList.pop_front();
 		hpList.pop_front();
 		ammoList.pop_front();
 		angleList.pop_front();
 		weapList.pop_front();
-		shootList.front();
+		shootList.pop_front();
 	}
 }
 

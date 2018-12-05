@@ -38,7 +38,7 @@ private:
 
 	list <double> distList, angleList;
 	list <int> hpList, ammoList, weapList;
-	list <bool> shootList;
+	list <int> shootList;
 
 	int nn_perceptrons;
 
@@ -56,7 +56,7 @@ public:
 	void setAmmunitions(int value) { nn_ammunitions = value; }
 	void setAngle(double value) { nn_angle = value; }
 	void setWeaponType(int value) { nn_weaponType = value; }
-	void setShootDecision(bool value) { nn_shootDecision = value; }
+	void setShootDecision(int value) { nn_shootDecision = value; }
 //	void pushIntoList(int Health, int AmmoLeft, doouble ShootingAngle, double Distance, int currentWeaponID);
 	void appendLine()
 	{
@@ -68,7 +68,7 @@ public:
 		shootList.push_back(nn_shootDecision);
 		nn_perceptrons++;
 	};
-	
+
 	string getCurrentDateAndTime();
 	string getWorkingFileName() { return nn_fileName; };
 };

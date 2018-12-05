@@ -466,7 +466,7 @@ void Raven_Bot::Exorcise()
 	// Now, we create the 4 layers's network of Raven
 	const char *filename = this->nameOfFile.c_str(); // string to char conversion
 	train_data = fann_read_train_from_file(filename);
-	ann = fann_create_standard(num_layers, train_data->num_input, num_neurons_hidden, train_data->num_output);
+	ann = fann_create_standard(num_layers, 5, num_neurons_hidden, 1);
 
 	// Entraînement du réseau de Raven.
 	fann_set_training_algorithm(ann, FANN_TRAIN_INCREMENTAL); // we do use the incremental methods for perceptrons

@@ -105,6 +105,7 @@ public:
 
 	//returns a pointer to the current weapon
 	Raven_Weapon* GetCurrentWeapon()const { return m_pCurrentWeapon; }
+	double GetAimAccuracy()const { return m_dAimAccuracy; }
 
 	//returns a pointer to the specified weapon type (if in inventory, null if
 	//not)
