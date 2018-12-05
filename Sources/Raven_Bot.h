@@ -12,10 +12,15 @@
 #include <vector>
 #include <iosfwd>
 #include <map>
+// thread for multi-threading mod
+#include <iostream>
+#include <thread>
+#include <chrono>
 
 #include "game/MovingEntity.h"
 #include "misc/utils.h"
 #include "Raven_TargetingSystem.h"
+#include "IOStream/IOStreamLearningNN.h"
 
 class Raven_PathPlanner;
 class Raven_Steering;
@@ -100,11 +105,16 @@ private:
 
 	//set to true when a human player takes over control of the bot
 	bool                               m_bPossessed;
-
+	// a thread for the agent
+	std::thread						  *m_currentThread;
+	// name of the recorded file
+	std::string							   nameOfFile;
 	//a vertex buffer containing the bot's geometry
 	std::vector<Vector2D>              m_vecBotVB;
 	//the buffer for the transformed vertices
 	std::vector<Vector2D>              m_vecBotVBTrans;
+	// File will be created only once like that
+	IOStreamLearningNN					*createdFile;
 
 	//bots shouldn't be copied, only created or respawned
 	Raven_Bot(const Raven_Bot&);
@@ -167,6 +177,9 @@ public:
 	void          ChangeWeapon(unsigned int type);
 	void          TakePossession();
 	void          Exorcise();
+	// Recording functions
+	void		  RecordEverythingIDo(int DesiratedFrame);
+	void		  getCurrentDataToRecord();
 
 	//spawns the bot at the given position
 	void          Spawn(Vector2D pos);

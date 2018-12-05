@@ -11,7 +11,12 @@
 #include "time/Regulator.h"
 #include "Raven_WeaponSystem.h"
 #include "Raven_SensoryMemory.h"
+#include "armory/Raven_Weapon.h"
+
+// neural network header
 #include "FANN/include/fann.h"
+// IOStream header
+#include "IOStream/IOStreamLearningNN.h"
 
 #include "Messaging/Telegram.h"
 #include "Raven_Messages.h"
@@ -82,6 +87,9 @@ Raven_Bot::Raven_Bot(Raven_Game* world, Vector2D pos) :
 		script->GetDouble("Bot_AimPersistance"));
 
 	m_pSensoryMem = new Raven_SensoryMemory(this, script->GetDouble("Bot_MemorySpan"));
+
+	this->createdFile = new IOStreamLearningNN(5, 1); // pb au niveau du constructeur
+	this->createdFile->createFile();
 }
 
 //-------------------------------- dtor ---------------------------------------
@@ -354,15 +362,65 @@ void Raven_Bot::TakePossession()
 		m_bPossessed = true;
 
 		debug_con << "Player Possesses bot " << this->ID() << "";
+
+		// now we call the movement recording function in a thread
+		// premier argument : la classe::la fonction
+		// second argument : les variables à passer en paramètre
+		this->m_currentThread = new thread (&Raven_Bot::RecordEverythingIDo, 5000);
+		this->m_currentThread->detach(); // the thread is now detached and the human keep playing
 	}
 }
+//--------------------------- RecordEverythingIDo -----------------------------------------
+//
+//  this is called to record in a every amount of frame what player is currently doing
+//  and if he is shooting or not. Should be used with a thread
+//-----------------------------------------------------------------------------
+void Raven_Bot::RecordEverythingIDo(int DesiratedFrame) 
+{
+
+	if (this->m_bPossessed) {
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(DesiratedFrame)); // sleep for a desirated amout of seconds
+		
+		int ShootingAngle = 0.8; // we need to have the shooting angle
+		
+		int Health = this->m_iHealth; // health of the current player
+		
+		Raven_Weapon *CurrentWeapon = this->m_pWeaponSys->GetCurrentWeapon();
+		int CurrentWeaponID = CurrentWeapon->GetType();
+		
+		double ShootRate = this->m_pWeaponSys->GetCurrentWeapon()->GetMaxProjectileSpeed();
+		
+		int AmmoLeft = this->m_pWeaponSys->GetAmmoRemainingForWeapon(CurrentWeapon->GetType());
+		// TypeOfGun est un entier de l'objet Raven_Weapon, il me faut coder une fonction get()
+		if (this->GetTargetBot()) {
+			Vector2D *EnemiPos = &this->GetTargetBot()->Pos();
+			Vector2D Position = this->Pos();
+			double Distance = Position.Distance(*EnemiPos);
+			bool ShootDecision = false; // the decision of shooting remain in this variable
+			this->createdFile->setDistanceToTarget(Distance);
+			this->createdFile->setHealthPoints(Health);
+			this->createdFile->setAmmunitions(AmmoLeft);
+			this->createdFile->setAngle(ShootingAngle);
+			this->createdFile->setWeaponType(CurrentWeaponID);
+			this->createdFile->setShootDecision(ShootDecision);
+			this->createdFile->appendLine(); // all data are save into the lists
+		}
+	}
+	this->createdFile->writeFile(); // now we can write the line and increment perceptron's number
+	this->createdFile->closeFile();
+	this->nameOfFile = this->createdFile->getWorkingFileName();
+	return ;
+}
+
+
 //------------------------------- Exorcise ------------------------------------
 //
 //  called when a human is exorcised from this bot and the AI takes control
 //-----------------------------------------------------------------------------
 void Raven_Bot::Exorcise()
 {
-	m_bPossessed = false;
+	m_bPossessed = false; // the player is now exorcise AND the detached thread is now inactive
 
 	//when the player is exorcised then the bot should resume normal service
 	m_pBrain->AddGoal_Explore();
@@ -370,27 +428,28 @@ void Raven_Bot::Exorcise()
 	debug_con << "Player is exorcised from bot " << this->ID() << "";
 	debug_con << "Neural Network is currently working on the bot " << this->ID() << "";
 
-	// instanciation du réseau neuronal
+	// Neural network instanciation
 	const unsigned int num_layers = 4;
 	const unsigned int num_neurons_hidden = 54;
-	const float desired_error = (const float) 0.001;
-	const unsigned int max_epochs = 3000;
+	const float desired_error = (const float) 0.001; // we desirate a low percentage of errors
+	const unsigned int max_epochs = 3000; // number of repetitions+
 	const unsigned int epochs_between_reports = 12;
 	struct fann *ann;
 	struct fann_train_data *train_data, *test_data;
 
-	// Création du réseau à 4 couches de Raven
-	train_data = fann_read_train_from_file("FANN/datasets/historique.train");
+	// Now, we create the 4 layers's network of Raven
+	const char *filename = this->nameOfFile.c_str(); // string to char conversion
+	train_data = fann_read_train_from_file(filename);
 	ann = fann_create_standard(num_layers, train_data->num_input, num_neurons_hidden, train_data->num_output);
 
 	// Entraînement du réseau de Raven.
-	fann_set_training_algorithm(ann, FANN_TRAIN_INCREMENTAL);
+	fann_set_training_algorithm(ann, FANN_TRAIN_INCREMENTAL); // we do use the incremental methods for perceptrons
 	fann_set_learning_momentum(ann, 0.4f); // "rapidité" du réseau
 
 	fann_train_on_data(ann, train_data, max_epochs, epochs_between_reports, desired_error);
 
 	// Test du réseau
-	test_data = fann_read_train_from_file("FANN/datasets/historique.test");
+	train_data = fann_read_train_from_file(filename); // should be a .test file, but i guess a .train will work too
 	fann_reset_MSE(ann);
 	for (int i = 0; i < fann_length_train_data(test_data); i++) {
 		fann_test(ann, test_data->input[i], test_data->output[i]);
@@ -404,6 +463,12 @@ void Raven_Bot::Exorcise()
 	fann_destroy_train(train_data);
 	fann_destroy_train(test_data);
 	fann_destroy(ann);
+
+	// new Weapon System instanciation
+	m_pWeaponSys = new Raven_WeaponSystem(this,
+		script->GetDouble("Bot_ReactionTime"),
+		script->GetDouble("Bot_AimAccuracy"),
+		script->GetDouble("Bot_AimPersistance"));
 }
 
 //----------------------- ChangeWeapon ----------------------------------------

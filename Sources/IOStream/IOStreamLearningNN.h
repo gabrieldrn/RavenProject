@@ -7,15 +7,15 @@
 //
 //  Author: Gabriel Derrien & Baptiste Roupain
 //
-//  Desc:   Class handling data writing to define perceptrons of the artificial 
-//			neural network (FANN lib) of the learning bot. It stores data and 
+//  Desc:   Class handling data writing to define perceptrons of the artificial
+//			neural network (FANN lib) of the learning bot. It stores data and
 //			creates a proper .data file.
 //-----------------------------------------------------------------------------
 #include <iostream>
 #include <fstream>
 #include <ctime>
-#include <list> 
-#include <string> 
+#include <list>
+#include <string>
 
 using namespace std;
 
@@ -46,7 +46,7 @@ public:
 	IOStreamLearningNN(int inputs, int outputs);
 	~IOStreamLearningNN();
 
-	void createFile();   
+	void createFile();
 	void closeFile();
 	void write(string data);
 	void writeFile();
@@ -57,8 +57,8 @@ public:
 	void setAngle(double value) { nn_angle = value; }
 	void setWeaponType(int value) { nn_weaponType = value; }
 	void setShootDecision(bool value) { nn_shootDecision = value; }
-
-	void appendLine() 
+//	void pushIntoList(int Health, int AmmoLeft, doouble ShootingAngle, double Distance, int currentWeaponID);
+	void appendLine()
 	{
 		distList.push_back(nn_distanceToTarget);
 		hpList.push_back(nn_healthPoints);
@@ -68,7 +68,7 @@ public:
 		shootList.push_back(nn_shootDecision);
 		nn_perceptrons++;
 	};
-
+	
 	string getCurrentDateAndTime();
 	string getWorkingFileName() { return nn_fileName; };
 };

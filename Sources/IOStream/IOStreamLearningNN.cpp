@@ -1,22 +1,28 @@
 #include "IOStreamLearningNN.h"
 #include <iostream>
 #include <fstream>
-#include <list> 
-#include <iterator> 
-#include <string> 
+#include <list>
+#include <iterator>
+#include <string>
 #include <ctime>
 
 using namespace std;
 
 //-------------------------------- ctor ---------------------------------------
 //-----------------------------------------------------------------------------
-IOStreamLearningNN::IOStreamLearningNN(int inputs, int outputs):
-	nn_inputs(inputs), 
-	nn_outputs(outputs), 
-	nn_perceptrons(0),
-	nn_fileName("NO_FILE_CREATED") 
-{}
-
+// IOStreamLearningNN::IOStreamLearningNN(int inputs, int outputs):
+//	nn_inputs(inputs),
+//	nn_outputs(outputs),
+//	nn_perceptrons(0),
+//	nn_fileName("NO_FILE_CREATED")
+//{}
+IOStreamLearningNN::IOStreamLearningNN(int inputs, int outputs)
+{
+	this->nn_inputs = inputs;
+	this->nn_outputs = outputs;
+	this->nn_perceptrons = 0;
+	this->nn_fileName = "NO FILE CREATED";
+}
 //-------------------------------- dtor ---------------------------------------
 //-----------------------------------------------------------------------------
 IOStreamLearningNN::~IOStreamLearningNN() {}
@@ -25,7 +31,7 @@ IOStreamLearningNN::~IOStreamLearningNN() {}
 
 //------------------------------ createFile -----------------------------------
 //
-// Create a new .data file with a name formated by the function 
+// Create a new .data file with a name formated by the function
 // getCurrentTimeAndDate()
 // /!\ The previous opened file will be closed
 //-----------------------------------------------------------------------------
@@ -34,13 +40,9 @@ void IOStreamLearningNN::createFile()
 	if (this->nn_workingFile.is_open())
 	{
 		this->nn_workingFile.close();
-		this->nn_fileName = "";
 	}
-	else
-	{
-		this->nn_fileName = getCurrentDateAndTime() + ".data";
-		this->nn_workingFile.open(nn_fileName);
-	}
+	this->nn_fileName = getCurrentDateAndTime() + ".data";
+	this->nn_workingFile.open(nn_fileName);
 }
 
 //------------------------------ closeFile ------------------------------------
@@ -60,7 +62,7 @@ void IOStreamLearningNN::closeFile()
 void IOStreamLearningNN::writeFile()
 {
 	//First line
-	this->write(std::to_string(nn_perceptrons) + " 5 1\n");
+	this->write(std::to_string(nn_perceptrons) + " " + std::to_string(this->nn_inputs) + " " + std::to_string(this->nn_outputs) + "\n");
 
 	//Data
 	for (int i = 0; i < nn_perceptrons; i++)
